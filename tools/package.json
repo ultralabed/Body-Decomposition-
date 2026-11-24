@@ -1,0 +1,17 @@
+{
+  "name": "body-decomposition-tools",
+  "private": true,
+  "type": "module",
+  "description": "Offline pipeline: BodyParts3D STL -> simplified, compressed GLB files used by the viewer",
+  "scripts": {
+    "simplify": "node 01-simplify.mjs",
+    "pack": "node 02-pack.mjs"
+  },
+  "dependencies": {
+    "@gltf-transform/core": "^4.1.0",
+    "@gltf-transform/extensions": "^4.1.0",
+    "@gltf-transform/functions": "^4.1.0",
+    "meshoptimizer": "^0.22.0",
+    "three": "^0.170.0"
+  }
+}

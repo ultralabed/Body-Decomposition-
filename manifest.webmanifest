@@ -1,0 +1,17 @@
+{
+  "name": "Body Decomposition｜3D 肌肉骨骼分層圖",
+  "short_name": "Body 3D",
+  "description": "可以旋轉、剝層、點選的 3D 人體肌肉骨骼圖",
+  "lang": "zh-Hant",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0b0f14",
+  "theme_color": "#0e1319",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
