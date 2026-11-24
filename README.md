@@ -19,15 +19,12 @@
 
 **GitHub Pages**
 
-網站放在 `gh-pages` 分支，網址是 <https://ultralabed.github.io/Body-Decomposition-/>。
+網址是 <https://ultralabed.github.io/Body-Decomposition-/>。
 
-如果網址打不開，代表 Pages 還沒啟用，請做一次：
+網站直接從 `claude/3d-anatomy-layers-p1keq1` 分支的根目錄發布（Settings → Pages → *Deploy from a branch*）。
+每次把新內容推到這個分支，GitHub 會自動重新發布，大約一兩分鐘後生效。
 
-1. 到這個 repo 的 **Settings → Pages**。
-2. **Source** 選 *Deploy from a branch*，Branch 選 `gh-pages`，資料夾選 `/ (root)`，按 **Save**。
-3. 等一兩分鐘再打開網址。
-
-之後要更新網站，把新的內容推到 `gh-pages` 分支就可以。
+如果之後想改成從別的分支發布（例如 `main`），到 **Settings → Pages** 把 Branch 換掉就可以。
 
 **在自己電腦上**
 
