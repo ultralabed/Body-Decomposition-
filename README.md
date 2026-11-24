@@ -21,10 +21,9 @@
 
 網址是 <https://ultralabed.github.io/Body-Decomposition-/>。
 
-網站直接從 `claude/3d-anatomy-layers-p1keq1` 分支的根目錄發布（Settings → Pages → *Deploy from a branch*）。
-每次把新內容推到這個分支，GitHub 會自動重新發布，大約一兩分鐘後生效。
-
-如果之後想改成從別的分支發布（例如 `main`），到 **Settings → Pages** 把 Branch 換掉就可以。
+程式放在 `main` 分支。網站從 `main` 分支的根目錄發布：
+**Settings → Pages → Source** 選 *Deploy from a branch*，Branch 選 `main`、資料夾選 `/ (root)`。
+每次把新內容推到 `main`，GitHub 會自動重新發布，大約一兩分鐘後生效。
 
 **在自己電腦上**
 
