@@ -48,13 +48,15 @@ the model files unless the page comes from a small server like the one above.)
 | Search | English or Chinese, for example `biceps` or 「二頭」 |
 | Regions | 12 quick jumps (shoulder, elbow, back, hip, knee, ankle…), with an option to show only that region |
 | Muscle groups | 32 functional groups (rotator cuff, core, quadriceps, hamstrings…) |
-| Joint movements | 29 animated movements (shoulder, elbow, wrist, hip, knee, ankle, trunk, neck, squat) that highlight prime movers and helpers and give the normal range of motion |
-| Quiz | "Name it" and "Find it on the model" questions, a choice of range, and a saved best score |
+| Nerves and roots | 33 peripheral nerves and the spinal roots C1–S5: tap one to light up every muscle it supplies (its myotome) |
+| Helpers and opponents | Each muscle card lists its synergists, its antagonists and the movements it produces, each with a play button |
+| Joint movements | 29 animated movements (shoulder, elbow, wrist, hip, knee, ankle, trunk, neck, squat) that highlight prime movers (gold), helpers (teal) and antagonists (violet) and give the normal range of motion |
+| Quiz | "Name it" and "Find it on the model" questions, a choice of range, a saved best score, and a "My misses" list that brings back what you got wrong |
 | Section plane | Cut the body open left–right, top–bottom or front–back |
 | Exploded view | Spread all the parts apart |
 | X-ray mode | Make everything see-through |
 | Language | Switch between English and Traditional Chinese at any time; add `?lang=en` or `?lang=zh` to the address to force one |
-| More | Name labels, snapshots, share links, saved views, light / dark, auto-rotate, add to the phone home screen and use offline |
+| More | Names on mouse hover, name labels, snapshots, share links, saved views, light / dark, auto-rotate, add to the phone home screen and use offline |
 
 Keyboard (computer): `/` search, `H` hide, `T` fade, `I` isolate, `F` zoom in, `Ctrl+Z` undo, `Esc` clear the selection.
 
@@ -105,7 +107,8 @@ and the three GLB files total about 5 MB.
 
 ## Known limits
 
-- **No 3D peripheral nerves or limb vessels**: this release of BodyParts3D does not include them, so innervation and blood supply are text only.
+- **No 3D peripheral nerves or limb vessels**: this release of BodyParts3D does not include them. The nerve and root views show which muscles a nerve supplies, not the path of the nerve.
+- **Synergists and antagonists come from the movement table**: they cover the 29 movements in the app, so muscles outside those movements (for example in the face or hand) have none listed.
 - **Joint movements are illustrative**: they use a bend deformer, not a real skeleton rig, so muscle shapes near a joint are approximate and the shoulder blade does not move.
 - **Origin / insertion maps are estimated automatically**: they come from the distance between muscle and bone surfaces, so positions are approximate, and attachments to fascia or other muscles are not shown.
 - **Tendons are not coloured separately**: the model builds each muscle and its tendon as one piece.

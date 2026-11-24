@@ -5,7 +5,7 @@
 import * as THREE from '../vendor/three.module.min.js';
 import * as core from './core.js';
 import { app, on, NORMAL, GHOST, HIDDEN } from './core.js';
-import { GROUPS, PEEL, SYS, LAYER, REGION, REGION_ORDER, REGIONS, MUSCLE_GROUPS, MOTIONS } from './catalog.js';
+import { GROUPS, PEEL, SYS, LAYER, REGION, REGION_ORDER, REGIONS, MUSCLE_GROUPS, MOTIONS, OPPOSITE, NERVES, ROOTS } from './catalog.js';
 import * as motion from './motion.js';
 import * as attach from './attach.js';
 import { createQuiz } from './quiz.js';
@@ -25,7 +25,7 @@ const selbar = $('#selbar'), tabs = $('#tabs'), peelEl = $('#peel'), toastEl = $
 const desktop = window.matchMedia('(min-width: 900px)');
 
 const tabTitle = (name) => ({ layers: t('圖層'), regions: t('部位'), groups: t('肌群'), motions: t('關節動作'), quiz: t('測驗'), tools: t('工具'), info: t('說明') })[name];
-const PRIME = new THREE.Color('#ffb703'), ASSIST = new THREE.Color('#36c5c0');
+const PRIME = new THREE.Color('#ffb703'), ASSIST = new THREE.Color('#36c5c0'), ANTAG = new THREE.Color('#a78bfa');
 const isSoft = (p) => p.sys === 'muscle' || p.sys === 'tendon';
 const isHard = (p) => p.sys === 'bone' || p.sys === 'joint';
 const info = (key) => app.info[key];
@@ -47,6 +47,7 @@ export function toast(msg, ms = 2600) {
 
 function syncLayout() {
   const open = !sheet.hidden;
+  root.classList.toggle('sheet-open', open);
   if (desktop.matches) {
     root.style.setProperty('--panel-open', open ? '384px' : '0px');
     root.style.setProperty('--sheet-h', '0px');
@@ -264,7 +265,7 @@ function updateSelbar() {
   const parts = core.selectedParts();
   if (!parts.length || mode === 'quiz') { selbar.hidden = true; return; }
   const s = selectionTitle(parts);
-  const btn = (act, ic, label, pressed) => `<button data-act="${act}"${pressed !== undefined ? ` aria-pressed="${pressed}"` : ''}>${icon(ic)}${label}</button>`;
+  const btn = (act, ic, label, pressed) => `<button data-act="${act}" title="${label}"${pressed !== undefined ? ` aria-pressed="${pressed}"` : ''}>${icon(ic)}<span>${label}</span></button>`;
   selbar.hidden = false;
   selbar.innerHTML = `<button class="sel-name" data-act="info"><b>${esc(s.name)}</b><small>${esc(s.alt)}</small><span class="more">${t('說明')}${icon('chev')}</span></button>
     <div class="sel-tools">
@@ -370,22 +371,80 @@ function groupParts(item) {
   const re = new RegExp(item.match);
   return app.parts.filter((p) => isSoft(p) && re.test(p.key));
 }
+let groupView = 'func'; // func | nerve | root
+const nerveParts = (id) => app.parts.filter((p) => p.info.nv?.includes(id));
+const rootParts = (r) => app.parts.filter((p) => p.info.rt?.includes(r));
+const countKeys = (parts) => new Set(parts.map((p) => p.key)).size;
+const nerveById = (id) => NERVES.flatMap((c) => c.items).find((n) => n.id === id);
+
 function groupsHtml() {
   const other = getLang() === 'en' ? 0 : 1; // show the other language as a small subtitle
-  return `<p class="hint">${t('常一起工作的肌肉。點一下，這群肌肉會亮起來，其他的會變淡。')}</p>` +
+  const seg = `<div class="seg" style="margin-bottom:10px">${[['func', t('功能肌群')], ['nerve', t('依神經')], ['root', t('依神經根')]].map(([v, label]) => `<button data-act="gview" data-v="${v}" aria-pressed="${groupView === v}">${label}</button>`).join('')}</div>`;
+  if (groupView === 'nerve') {
+    return seg + `<p class="hint">${t('選一條神經，它管的肌肉會全部亮起來。這條神經受傷時，這些肌肉可能會沒力。')}</p>` +
+      NERVES.map((c) => `<div class="h3">${esc(L(c.cat))}</div>` + c.items.map((n) => {
+        const k = countKeys(nerveParts(n.id));
+        return k ? `<button class="card-btn" data-act="nerve" data-id="${n.id}"><b>${esc(L(n.name))}</b><em>${t('{n} 條肌肉', { n: k })}</em><small>${esc(n.name[other])}</small></button>` : '';
+      }).join('')).join('') + `<p class="fine">${t('模型裡沒有神經本身的 3D 形狀，所以這裡顯示的是「這條神經支配哪些肌肉」，不是神經走的路線。')}</p>`;
+  }
+  if (groupView === 'root') {
+    const chip = (r) => { const k = countKeys(rootParts(r)); return k ? `<button class="btn" data-act="root" data-id="${r}">${r}<em style="font-style:normal;opacity:.6;font-weight:500;margin-left:4px">${k}</em></button>` : ''; };
+    const block = (title, re) => `<div class="h3">${title}</div><div class="grid3">${ROOTS.filter((r) => re.test(r)).map(chip).join('')}</div>`;
+    return seg + `<p class="hint">${t('選一節神經根（例如 C5），由它支配的肌肉會亮起來，也就是這一節的「肌節」。數字是肌肉數量。')}</p>` +
+      block(t('頸神經（C）'), /^C/) + block(t('胸神經（T）'), /^T/) + block(t('腰神經（L）'), /^L/) + block(t('薦神經（S）'), /^S/) +
+      `<p class="fine">${t('神經根節是照說明文字裡寫的節數整理的，各教科書略有出入。')}</p>`;
+  }
+  return seg + `<p class="hint">${t('常一起工作的肌肉。點一下，這群肌肉會亮起來，其他的會變淡。')}</p>` +
     MUSCLE_GROUPS.map((c, ci) => `<div class="h3">${esc(L(c.cat))}</div>` + c.items.map((it, ii) =>
       `<button class="card-btn" data-act="mgroup" data-c="${ci}" data-i="${ii}"><b>${esc(L(it.name))}</b><em>${esc(it.name[other])}</em><small>${esc(L(it.kid))}</small></button>`).join('')).join('');
+}
+
+// Which movements each muscle takes part in (built once the model is loaded).
+let motionRoles = new Map(); // key -> [{ m, both, role }]
+let motionKeys = new Map();  // motion id -> { m, both, prime:Set, assist:Set }
+function buildMotionIndex() {
+  motionRoles = new Map(); motionKeys = new Map();
+  const softKeys = [...app.byKey.entries()].filter(([, parts]) => isSoft(parts[0])).map(([k]) => k);
+  const resolve = (list) => { const out = new Set(); for (const spec of list) { const re = new RegExp(spec.replace(/^[RL]:/, '')); for (const k of softKeys) if (re.test(k)) out.add(k); } return out; };
+  for (const c of MOTIONS) for (const m of c.items) {
+    const prime = resolve(m.prime), assist = resolve(m.assist);
+    for (const k of prime) assist.delete(k);
+    motionKeys.set(m.id, { m, both: !!c.both, prime, assist });
+    for (const [set, role] of [[prime, 'prime'], [assist, 'assist']]) for (const k of set) {
+      if (!motionRoles.has(k)) motionRoles.set(k, []);
+      motionRoles.get(k).push({ m, both: !!c.both, role });
+    }
+  }
+}
+// Helpers (synergists) and opponents (antagonists) of a muscle, worked out
+// from the movement table.
+function partnersOf(key) {
+  const roles = motionRoles.get(key) || [];
+  const mine = roles.some((r) => r.role === 'prime') ? roles.filter((r) => r.role === 'prime') : roles;
+  const fam = new Set(familyKeys(key));
+  const syn = new Set(), ant = new Set();
+  for (const { m } of mine) {
+    const mk = motionKeys.get(m.id);
+    for (const k of mk.prime) syn.add(k);
+    if (mine[0].role === 'prime') for (const k of mk.assist) syn.add(k);
+    const opp = motionKeys.get(OPPOSITE[m.id]);
+    if (opp) for (const k of opp.prime) ant.add(k);
+  }
+  for (const k of fam) { syn.delete(k); ant.delete(k); }
+  for (const k of syn) ant.delete(k);
+  return { roles, syn: [...syn].slice(0, 14), ant: [...ant].slice(0, 14) };
 }
 
 // ---------------------------------------------------------------- panel: motions
 
 let activeMotion = null, motionBoth = false, motionSide = 'R', motionFocus = true;
-let playing = false, playT = 0, playDir = 1, playHold = 0, primeSet = new Set(), assistSet = new Set();
+let playing = false, playT = 0, playDir = 1, playHold = 0, primeSet = new Set(), assistSet = new Set(), antSet = new Set();
 
 function motionOverlay(p) {
   if (p.sys === 'skin') return { visible: false };
   if (primeSet.has(p)) return { visible: true, opacity: 1, tint: PRIME };
   if (assistSet.has(p)) return { visible: true, opacity: 1, tint: ASSIST };
+  if (antSet.has(p)) return { visible: true, opacity: 1, tint: ANTAG };
   if (motionFocus && isSoft(p)) return { opacity: 0.06, pickable: false };
   if (isHard(p)) return { visible: true };
   return null;
@@ -410,6 +469,8 @@ function startMotion(m, both) {
   const sides = motionBoth ? ['R', 'L'] : [motionSide];
   const mm = motion.motionMuscles(m, sides, motionBoth);
   primeSet = new Set(mm.prime); assistSet = new Set(mm.assist);
+  const opp = motionKeys.get(OPPOSITE[m.id]);
+  antSet = new Set(opp ? motion.motionMuscles(opp.m, sides, motionBoth).prime.filter((p) => !primeSet.has(p) && !assistSet.has(p)) : []);
   app.state.overlay = motionOverlay;
   motion.startMotion(m, sides);
   core.refresh();
@@ -453,6 +514,7 @@ function motionsHtml() {
     ${motionBoth ? '' : `<div class="seg" style="margin-bottom:10px">${[['R', t('右邊')], ['L', t('左邊')]].map(([v, s]) => `<button data-act="motion-side" data-v="${v}" aria-pressed="${motionSide === v}">${s}</button>`).join('')}</div>`}
     <div class="h3">${t('主要出力的肌肉（金色）')}</div><div class="chips">${uniq(primeSet).map((p) => chip(p, 'prime')).join('')}</div>
     ${assistSet.size ? `<div class="h3">${t('幫忙的肌肉（青色）')}</div><div class="chips">${uniq(assistSet).map((p) => chip(p, 'assist')).join('')}</div>` : ''}
+    ${antSet.size ? `<div class="h3">${t('對手肌肉：做相反的動作，這時會被拉長（紫色）')}</div><div class="chips">${uniq(antSet).map((p) => chip(p, 'antag')).join('')}</div>` : ''}
     <div class="opt" style="margin-top:10px"><div class="txt"><b>${t('其他肌肉變淡')}</b><small>${t('只留下有出力的肌肉，比較好看清楚')}</small></div>
       <button class="switch" role="switch" aria-checked="${motionFocus}" aria-label="${t('其他肌肉變淡')}" data-act="motion-focus"></button></div>
     <button class="btn wide" data-act="motion-exit" style="margin-top:12px">${t('結束這個動作')}</button>
@@ -495,6 +557,7 @@ function infoHtml() {
     <div class="chips">${chips}</div>
     ${tx.kid ? `<div class="kid" data-lead="${lead}">${esc(tx.kid)}</div>` : ''}
     ${facts}
+    ${isSoft(p) ? relatedHtml(p) : ''}
     ${tx.d ? `<div class="note">${esc(tx.d)}</div>` : ''}
     ${tx.c ? `<div class="note"><b>${t('臨床重點')}　</b>${esc(tx.c)}</div>` : ''}
     <div class="grid2" style="margin:10px 0">${actions}</div>
@@ -503,6 +566,26 @@ function infoHtml() {
     <textarea data-act="note" data-key="${esc(key)}" placeholder="${t('例如：觸診位置、牽拉方式、上課重點…')}">${esc(note)}</textarea>
     <p class="fine">${t('模型編號')} ${parts.map((x) => x.id).join(', ')}</p>
   </div>`;
+}
+// Extra blocks on a muscle's card: same-nerve muscles, movements it does,
+// helpers and opponents.
+function relatedHtml(p) {
+  const inf = p.info, key = p.key;
+  let html = '';
+  if (inf.nv?.length || inf.rt?.length) {
+    html += `<div class="h3">${t('同一條神經管的肌肉（點一下全部亮起來）')}</div><div class="chips">` +
+      (inf.nv || []).map((id) => `<button class="chip" data-act="nerve" data-id="${id}">${esc(L(nerveById(id).name))} · ${countKeys(nerveParts(id))}</button>`).join('') +
+      (inf.rt || []).map((r) => `<button class="chip" data-act="root" data-id="${r}">${r}</button>`).join('') + '</div>';
+  }
+  const { roles, syn, ant } = partnersOf(key);
+  if (roles.length) {
+    html += `<div class="h3">${t('它負責的動作（點一下看示範）')}</div><div class="chips">` +
+      roles.map(({ m, role }) => `<button class="chip ${role}" data-act="info-motion" data-id="${m.id}">▶ ${esc(L(m.name))}</button>`).join('') + '</div>';
+  }
+  const list = (keys) => keys.map((k) => `<button class="chip" data-act="tree-go" data-key="${esc(k)}">${esc(keyName(k))}</button>`).join('');
+  if (syn.length) html += `<div class="h3">${t('一起出力的夥伴（協同肌）')}</div><div class="chips">${list(syn)}</div>`;
+  if (ant.length) html += `<div class="h3">${t('做相反動作的對手（拮抗肌）')}</div><div class="chips">${list(ant)}</div>`;
+  return html;
 }
 function attachLegend() {
   return `<div class="legend"><span><i style="background:var(--origin)"></i>${t('紅色＝起點')}</span><span><i style="background:var(--insert)"></i>${t('藍色＝止點')}</span><span><i style="background:var(--both)"></i>${t('紫色＝兩端都在這塊骨頭')}</span></div>
@@ -708,6 +791,24 @@ const actions = {
     spotlight(parts);
     toast(t('{name}：亮起來的就是（共 {n} 條）', { name: L(it.name), n: new Set(parts.map((p) => p.key)).size }));
   },
+  gview: (el) => { groupView = el.dataset.v; render(); sheetBody.scrollTop = 0; },
+  nerve: (el) => {
+    const n = nerveById(el.dataset.id), parts = nerveParts(n.id);
+    spotlight(parts);
+    toast(t('{name}：亮起來的就是（共 {n} 條）', { name: L(n.name), n: countKeys(parts) }));
+  },
+  root: (el) => {
+    const parts = rootParts(el.dataset.id);
+    spotlight(parts);
+    toast(t('{name}：亮起來的就是（共 {n} 條）', { name: el.dataset.id, n: countKeys(parts) }));
+  },
+  'info-motion': (el) => {
+    const mk = motionKeys.get(el.dataset.id); if (!mk) return;
+    const side = core.selectedParts()[0]?.side;
+    if (side === 'L' || side === 'R') motionSide = side;
+    startMotion(mk.m, mk.both);
+    openTab('motions');
+  },
   motion: (el) => { const c = MOTIONS[el.dataset.c]; startMotion(c.items[el.dataset.i], c.both); },
   'motion-play': () => { if (playing) stopPlayer(); else startPlayer(); render(); },
   'motion-side': (el) => { motionSide = el.dataset.v; startMotion(activeMotion, motionBoth); },
@@ -855,9 +956,17 @@ export function initUI() {
     else if (desktop.matches && app.state.selection.size && (tab === null || tab === 'layers') && mode === 'normal') openTab('info');
   });
   on('groups', () => { syncPeel(); if (tab === 'layers') render(); });
+  const tip = $('#tip');
+  on('hover', ({ part, x, y }) => {
+    if (mode === 'quiz' || !part) { core.setHover(null); tip.hidden = true; return; }
+    core.setHover(part.id);
+    tip.textContent = part.name; tip.hidden = false;
+    tip.style.transform = `translate(${x + 14}px, ${y + 16}px)`;
+  });
   on('undo', (n) => { $('#views [data-act="undo"]').disabled = !n; });
   on('ready', () => {
     buildSearchIndex();
+    buildMotionIndex();
     syncPeel();
     const fromLink = applyHash();
     if (!fromLink) core.resetView();

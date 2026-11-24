@@ -14,6 +14,7 @@ const SCOPES = [
   { id: 'mall', name: ['全部肌肉', 'All muscles'], test: (p) => p.sys === 'muscle' },
   { id: 'bone', name: ['骨骼', 'Bones'], test: (p) => p.sys === 'bone' && !/tooth/.test(p.key) },
   { id: 'organ', name: ['內臟血管', 'Organs'], test: (p) => p.sys === 'organ' || (p.sys === 'vessel' && !/coronary|papillary|cardiac|ventricle/.test(p.key)) },
+  { id: 'missed', name: ['答錯過的', 'My misses'], test: (p, missed) => p.key in missed },
 ];
 const AREAS = [
   { id: 'all', name: ['全身', 'All'], regions: null },
@@ -36,9 +37,10 @@ export function createQuiz(api) {
 
   function pool() {
     const sc = scope(), ar = area();
+    const missed = api.store.get('quizMissed', {});
     const keys = new Map();
     for (const p of app.parts) {
-      if (!sc.test(p)) continue;
+      if (!sc.test(p, missed)) continue;
       if (ar.regions && !ar.regions.includes(p.region)) continue;
       if (!keys.has(p.key) || p.side === 'R') keys.set(p.key, p);
     }
@@ -47,7 +49,7 @@ export function createQuiz(api) {
 
   function start() {
     const all = pool();
-    if (all.length < 4) { api.toast(t('這個範圍的題目太少，換一個範圍試試')); return; }
+    if (all.length < 4) { api.toast(cfg.scope === 'missed' ? t('答錯過的題目還不到 4 個，先去考別的範圍吧') : t('這個範圍的題目太少，換一個範圍試試')); return; }
     api.enter();
     st = { phase: 'run', i: 0, score: 0, wrong: [], order: shuffle(all.slice()).slice(0, Math.min(cfg.n, all.length)), all };
     const box = boxOfParts(all);
@@ -100,6 +102,11 @@ export function createQuiz(api) {
     const q = st.q; if (!q || q.answered) return;
     q.answered = true; q.correct = correct; q.tapped = tapped || null;
     if (correct) st.score++; else st.wrong.push(q.target);
+    // "My misses" notebook: a wrong answer adds the structure, two right
+    // answers in a row take it out again.
+    const missed = api.store.get('quizMissed', {}), k = q.target.key;
+    if (!correct) missed[k] = 2; else if (k in missed) { missed[k] -= 1; if (missed[k] <= 0) delete missed[k]; }
+    api.store.set('quizMissed', missed);
     applyOverlay();
     if (q.kind === 'find') focusParts([q.target], api.outwardDir([q.target]), { pad: 2.2 });
     api.rerender();

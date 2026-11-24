@@ -13,6 +13,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { NERVES, ROOTS } from '../js/catalog.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const src = path.join(root, 'data', 'src');
@@ -71,8 +72,29 @@ const core = {}, zh = {}, en = {};
 const enSrc = {};
 const enDir = path.join(src, 'en');
 if (fs.existsSync(enDir)) for (const f of fs.readdirSync(enDir)) if (f.endsWith('.json')) Object.assign(enSrc, readJson(path.join(enDir, f)));
+// Which peripheral nerves and spinal roots supply a muscle, read from the
+// English innervation text. Clauses about sensation are ignored.
+const nerveList = NERVES.flatMap((c) => c.items).map((n) => ({ id: n.id, re: new RegExp(n.match, 'i') }));
+function nerveFacts(text) {
+  const clauses = text.split(';').filter((c) => !/proprioception|sensation/i.test(c)).join(';');
+  const nv = nerveList.filter((n) => n.re.test(clauses)).map((n) => n.id);
+  const rt = new Set();
+  for (const m of clauses.matchAll(/\b([CTLS])(\d{1,2})(?:\s*[–-]\s*([CTLS])?(\d{1,2}))?/g)) {
+    const a = ROOTS.indexOf(m[1] + m[2]);
+    const b = m[4] ? ROOTS.indexOf((m[3] || m[1]) + m[4]) : a;
+    if (a < 0 || b < a) continue;
+    for (let i = a; i <= b; i++) rt.add(ROOTS[i]);
+  }
+  return { nv, rt: ROOTS.filter((r) => rt.has(r)) };
+}
+const noNerve = [];
 for (const [key, e] of Object.entries(info)) {
   core[key] = {}; zh[key] = {}; en[key] = {};
+  if (e.sys === 'muscle' && enSrc[key]?.n) {
+    const f = nerveFacts(enSrc[key].n);
+    if (f.nv.length) e.nv = f.nv; else noNerve.push(`${key}: ${enSrc[key].n}`);
+    if (f.rt.length) e.rt = f.rt;
+  }
   for (const [k, v] of Object.entries(e)) (TEXT_FIELDS.includes(k) ? zh[key] : core[key])[k] = v;
   for (const k of TEXT_FIELDS) {
     const v = enSrc[key]?.[k];
@@ -86,4 +108,5 @@ fs.writeFileSync(path.join(root, 'data', 'text-en.json'), JSON.stringify(en));
 const count = {};
 for (const p of parts) count[info[p.key].sys] = (count[info[p.key].sys] || 0) + 1;
 console.log(`${parts.length} meshes, ${Object.keys(info).length} structures`, count);
+if (noNerve.length) console.log(`${noNerve.length} muscles without a nerve group:\n  ` + noNerve.join('\n  '));
 if (problems.length) console.log(`${problems.length} problems:\n  ` + problems.slice(0, 40).join('\n  '));

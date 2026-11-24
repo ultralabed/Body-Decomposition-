@@ -171,3 +171,56 @@ export const MOTIONS = [
       ['soleus', 'adductor magnus', 'biceps femoris', 'semitendinosus', 'semimembranosus', 'iliocostalis', 'longissimus thoracis'], { planted: true }),
   ] },
 ];
+
+// Pairs of opposite movements: the prime movers of one are the antagonists
+// of the other.
+const OPP_PAIRS = [['sh-flex', 'sh-ext'], ['sh-abd', 'sh-add'], ['sh-er', 'sh-ir'], ['el-flex', 'el-ext'], ['wr-flex', 'wr-ext'],
+  ['hip-flex', 'hip-ext'], ['hip-abd', 'hip-add'], ['hip-er', 'hip-ir'], ['kn-flex', 'kn-ext'], ['an-df', 'an-pf'], ['tr-flex', 'tr-ext'], ['nk-flex', 'nk-ext']];
+export const OPPOSITE = Object.fromEntries(OPP_PAIRS.flatMap(([a, b]) => [[a, b], [b, a]]));
+
+// Peripheral nerves. `match` is tested (case-insensitive) against the English
+// innervation text of each muscle when the data is built (tools/02-build-data.mjs),
+// which stores the matching ids on the muscle as `nv`.
+const N = (id, zh, en, match) => ({ id, name: [zh, en], match });
+export const NERVES = [
+  { cat: ['上肢', 'Upper limb'], items: [
+    N('accessory', '副神經（第 11 對腦神經）', 'Accessory nerve (CN XI)', 'accessory nerve'),
+    N('dorsal-scapular', '肩胛背神經', 'Dorsal scapular nerve', 'dorsal scapular'),
+    N('long-thoracic', '胸長神經', 'Long thoracic nerve', 'long thoracic'),
+    N('suprascapular', '肩胛上神經', 'Suprascapular nerve', 'suprascapular'),
+    N('subscapular', '肩胛下神經', 'Subscapular nerves', 'subscapular nerve'),
+    N('thoracodorsal', '胸背神經', 'Thoracodorsal nerve', 'thoracodorsal'),
+    N('pectoral', '胸內側與胸外側神經', 'Medial & lateral pectoral nerves', 'pectoral nerve'),
+    N('subclavius', '鎖骨下肌神經', 'Nerve to subclavius', 'nerve to subclavius'),
+    N('axillary', '腋神經', 'Axillary nerve', 'axillary nerve'),
+    N('musculocutaneous', '肌皮神經', 'Musculocutaneous nerve', 'musculocutaneous'),
+    N('radial', '橈神經（含後骨間神經）', 'Radial nerve (incl. posterior interosseous)', 'radial nerve|posterior interosseous'),
+    N('median', '正中神經（含前骨間神經）', 'Median nerve (incl. anterior interosseous)', 'median nerve|anterior interosseous'),
+    N('ulnar', '尺神經', 'Ulnar nerve', 'ulnar nerve'),
+  ] },
+  { cat: ['下肢', 'Lower limb'], items: [
+    N('femoral', '股神經', 'Femoral nerve', 'femoral nerve'),
+    N('obturator', '閉孔神經', 'Obturator nerve', 'obturator nerve'),
+    N('superior-gluteal', '臀上神經', 'Superior gluteal nerve', 'superior gluteal'),
+    N('inferior-gluteal', '臀下神經', 'Inferior gluteal nerve', 'inferior gluteal'),
+    N('sacral-branches', '薦神經叢的直接分支', 'Direct branches of the sacral plexus', 'nerve to (obturator internus|piriformis|quadratus femoris)'),
+    N('tibial', '脛神經（含坐骨神經脛側）', 'Tibial nerve (incl. tibial part of sciatic)', 'tibial nerve|tibial division'),
+    N('common-fibular', '腓總神經（坐骨神經腓側）', 'Common fibular part of the sciatic nerve', 'common fibular'),
+    N('deep-fibular', '腓深神經', 'Deep fibular nerve', 'deep fibular'),
+    N('superficial-fibular', '腓淺神經', 'Superficial fibular nerve', 'superficial fibular'),
+    N('medial-plantar', '足底內側神經', 'Medial plantar nerve', 'medial plantar'),
+    N('lateral-plantar', '足底外側神經', 'Lateral plantar nerve', 'lateral plantar'),
+  ] },
+  { cat: ['頭頸與軀幹', 'Head, neck & trunk'], items: [
+    N('facial', '顏面神經（第 7 對腦神經）', 'Facial nerve (CN VII)', 'facial nerve'),
+    N('trigeminal', '三叉神經下頜支（V3）', 'Mandibular division of the trigeminal nerve (V3)', 'mandibular nerve|mandibular division|V3'),
+    N('cervical', '頸神經前支（含頸襻）', 'Anterior rami of cervical nerves (incl. ansa cervicalis)', 'ansa cervicalis|hypoglossal|anterior rami of (the )?cervical|anterior rami of C\\d|anterior rami \\(lateral part\\)'),
+    N('suboccipital', '枕下神經', 'Suboccipital nerve', 'suboccipital nerve'),
+    N('phrenic', '膈神經', 'Phrenic nerve', 'phrenic nerve'),
+    N('intercostal', '肋間神經（含胸腹神經、肋下神經）', 'Intercostal, thoracoabdominal & subcostal nerves', 'intercostal nerve|thoracoabdominal|subcostal'),
+    N('lumbar-branches', '腰神經叢的直接分支', 'Direct branches of the lumbar plexus', 'anterior rami of (the )?lumbar|anterior rami of T12'),
+    N('posterior-rami', '脊神經後支', 'Posterior rami of spinal nerves', 'posterior rami|posterior ramus'),
+    N('pudendal', '陰部神經與骨盆底分支', 'Pudendal nerve & pelvic floor branches', 'pudendal|levator ani|anterior rami of the sacral'),
+  ] },
+];
+export const ROOTS = ['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', 'T11', 'T12', 'L1', 'L2', 'L3', 'L4', 'L5', 'S1', 'S2', 'S3', 'S4', 'S5'];

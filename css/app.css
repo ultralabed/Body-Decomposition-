@@ -251,6 +251,11 @@ button.chip { color: var(--text); background: var(--raise); border-color: transp
 button.chip:hover { background: var(--raise2); }
 .chip.prime { box-shadow: inset 3px 0 0 var(--warn); }
 .chip.assist { box-shadow: inset 3px 0 0 #36c5c0; }
+.chip.antag { box-shadow: inset 3px 0 0 #a78bfa; }
+#tip {
+  position: fixed; z-index: 25; left: 0; top: 0; pointer-events: none; white-space: nowrap; padding: 2px 9px; border-radius: 999px;
+  background: rgba(8, 14, 20, 0.86); color: #fff; font-size: 12.5px; font-weight: 600; border: 1px solid rgba(255, 255, 255, 0.22);
+}
 
 /* info card */
 .info h3 { margin: 0; font-size: 20px; line-height: 1.25; font-weight: 800; user-select: text; -webkit-user-select: text; }
@@ -333,6 +338,20 @@ dl.facts dd { margin: 0; user-select: text; -webkit-user-select: text; }
   #peel button { height: 40px; min-width: 96px; font-size: 13.5px; }
   #selbar { left: calc(var(--rail-w) + var(--panel-open, 0px) + (100vw - var(--rail-w) - var(--panel-open, 0px)) / 2); right: auto; transform: translateX(-50%); bottom: 18px; width: 440px; }
   #toast { left: calc(var(--rail-w) + var(--panel-open, 0px) + (100vw - var(--rail-w) - var(--panel-open, 0px)) / 2); top: 18px; }
+}
+/* Phones with a panel open: shrink the floating controls so nothing
+   sits on top of anything else. */
+@media (max-width: 899px) {
+  .sheet-open #views button[data-view], .sheet-open #views [data-act="reset"], .sheet-open #views .sep { display: none; }
+  .sheet-open #peel .cap { display: none; }
+  .sheet-open #peel button { height: 29px; }
+  .sheet-open #selbar { padding: 4px; }
+  .sheet-open .sel-name { padding: 2px 6px 4px 8px; }
+  .sheet-open .sel-tools button { padding: 6px 0; }
+  .sheet-open .sel-tools button span { display: none; }
+}
+@media (max-width: 899px) and (max-height: 700px) {
+  .sheet-open #peel { display: none; }
 }
 @media (max-width: 899px) and (max-height: 520px) {
   #sheet { height: 62vh; }

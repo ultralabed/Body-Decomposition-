@@ -39,6 +39,7 @@ export const app = {
     labels: true,
     multi: false,
     selection: new Set(),
+    hover: null, // id of the part under the mouse (desktop only)
     overlay: null, // function(part) -> { visible?, opacity?, tint?, pickable? } | null
   },
   insets: { left: 0, bottom: 0 },
@@ -397,6 +398,9 @@ export function refresh() {
       } else if (tint) {
         mat.color.copy(tmpColor.copy(p.color).lerp(tint, 0.85));
         mat.emissive.copy(tint).multiplyScalar(0.16);
+      } else if (s.hover === p.id) {
+        mat.color.copy(p.color);
+        mat.emissive.copy(p.color).multiplyScalar(0.4);
       } else {
         mat.color.copy(p.color);
         mat.emissive.setRGB(0, 0, 0);
@@ -478,6 +482,11 @@ export function toggleSelect(id) {
   if (sel.has(id)) sel.delete(id); else sel.add(id);
   refresh();
   emit('selection', [...sel]);
+}
+export function setHover(id) {
+  if (app.state.hover === id) return;
+  app.state.hover = id;
+  refresh();
 }
 export const selectedParts = () => [...app.state.selection].map((id) => app.byId.get(id)).filter(Boolean);
 
@@ -585,6 +594,19 @@ function setupPointer() {
     emit('tap', { part: hit?.part || null, point: hit?.point || null, shift: e.shiftKey || e.ctrlKey || e.metaKey });
   });
   canvas.addEventListener('pointercancel', () => { down = null; });
+  // Mouse only: tell the UI what is under the pointer (at most once a frame).
+  let hoverEvt = null;
+  canvas.addEventListener('pointermove', (e) => {
+    if (e.pointerType !== 'mouse') return;
+    if (e.buttons) { if (app.state.hover) emit('hover', { part: null }); return; }
+    const first = !hoverEvt; hoverEvt = e;
+    if (first) requestAnimationFrame(() => {
+      const ev = hoverEvt; hoverEvt = null;
+      const hit = pickAt(ev.clientX, ev.clientY);
+      emit('hover', { part: hit?.part || null, x: ev.clientX, y: ev.clientY });
+    });
+  });
+  canvas.addEventListener('pointerleave', () => emit('hover', { part: null }));
   canvas.addEventListener('dblclick', (e) => {
     const hit = pickAt(e.clientX, e.clientY);
     if (hit) focusParts([hit.part]);
