@@ -219,8 +219,9 @@ export async function load(onProgress) {
   const report = () => onProgress?.(Math.min(1, Object.values(loaded).reduce((a, b) => a + b, 0) / total));
 
   await Promise.all(files.map(async (f) => {
-    const gltf = await loader.loadAsync(`models/${f}.glb`, (e) => { loaded[f] = e.loaded; report(); });
+    const buffer = await fetchModel(f, (n) => { loaded[f] = Math.min(n, manifest[f].bytes); report(); });
     loaded[f] = manifest[f].bytes; report();
+    const gltf = await loader.parseAsync(buffer, '');
     addParts(gltf.scene, meta);
     refresh();
     emit('partsAdded', f);
@@ -231,6 +232,35 @@ export async function load(onProgress) {
   app.ready = true;
   refresh();
   emit('ready');
+}
+
+// Download one model file, reporting progress. Hosts that cannot serve
+// binary .glb files can set `window.BD_MODELS_BASE64 = true` and provide the
+// same file base64-encoded as models/<name>.glb.txt instead.
+async function fetchModel(name, onBytes) {
+  const b64 = !!window.BD_MODELS_BASE64;
+  const res = await fetch(`models/${name}.glb${b64 ? '.txt' : ''}`);
+  if (!res.ok) throw new Error(`models/${name}: HTTP ${res.status}`);
+  let bytes;
+  if (res.body?.getReader) {
+    const reader = res.body.getReader();
+    const chunks = []; let n = 0;
+    for (;;) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      chunks.push(value); n += value.length;
+      onBytes(b64 ? n * 0.75 : n);
+    }
+    bytes = new Uint8Array(n);
+    let o = 0; for (const c of chunks) { bytes.set(c, o); o += c.length; }
+  } else {
+    bytes = new Uint8Array(await res.arrayBuffer());
+  }
+  if (!b64) return bytes.buffer;
+  const bin = atob(new TextDecoder().decode(bytes).trim());
+  const out = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+  return out.buffer;
 }
 
 // The fast decoder needs WebAssembly. Where that is switched off (some

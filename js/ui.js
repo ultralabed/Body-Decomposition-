@@ -581,7 +581,7 @@ function toolsHtml() {
     <div class="h3">儲存與分享</div>
     <div class="grid3">
       <button class="btn" data-act="shot">${icon('camera')}截圖</button>
-      <button class="btn" data-act="share">${icon('share')}分享</button>
+      ${window.claude ? '' : `<button class="btn" data-act="share">${icon('share')}分享</button>`}
       <button class="btn" data-act="save-view">${icon('bookmark')}存畫面</button>
     </div>
     ${views.length ? `<div class="h3">我存的畫面</div>` + views.map((v, i) => `<div class="saved"><button data-act="load-view" data-i="${i}">${esc(v.name)}</button><button class="icon-btn" data-act="del-view" data-i="${i}" aria-label="刪除">${icon('x')}</button></div>`).join('') : ''}
