@@ -169,6 +169,15 @@ const EN = {
   '一起出力的夥伴（協同肌）': 'Muscles that help it (synergists)',
   '做相反動作的對手（拮抗肌）': 'Muscles that oppose it (antagonists)',
   '答錯過的題目還不到 4 個，先去考別的範圍吧': 'Fewer than 4 missed structures so far. Try another range first.',
+  // training exercises
+  '訓練動作': 'Exercises',
+  '選一個訓練動作，用到的肌肉會亮起來：金色主要出力、青色幫忙、藍色負責穩住身體。': 'Pick an exercise to light up the muscles it uses: gold for the main movers, teal for helpers, blue for stabilisers.',
+  '出力的那一邊': 'Working side',
+  '負責穩住身體的肌肉（藍色）': 'Stabilisers (blue)',
+  '重點': 'Key points',
+  '裡面包含的關節動作（點一下看示範）': 'Joint movements inside this exercise (tap to watch)',
+  '哪些肌肉出力是依一般肌動學和重量訓練教科書整理的，實際比例會隨姿勢、重量和個人差異改變。': 'Muscle roles follow standard kinesiology and strength-training texts; the real share of work changes with technique, load and the individual.',
+  '會用到它的訓練動作': 'Exercises that use it',
   // quiz
   '這個範圍的題目太少，換一個範圍試試': 'Too few structures in this range. Try another one.',
   '選好範圍就開始。答錯沒關係，答完會告訴你正確答案在哪裡。': 'Choose what to practise and start. Wrong answers are fine: you are shown the right one each time.',

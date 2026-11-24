@@ -224,3 +224,57 @@ export const NERVES = [
   ] },
 ];
 export const ROOTS = ['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', 'T11', 'T12', 'L1', 'L2', 'L3', 'L4', 'L5', 'S1', 'S2', 'S3', 'S4', 'S5'];
+
+// Strength-training exercises: which muscles do the work.
+// prime = main movers, assist = helpers, stab = stabilisers.
+// Patterns are regular expressions on the English name. They refer to the
+// working side unless prefixed: "B:" both sides, "O:" the opposite side.
+// `joints` lists related joint movements (ids from MOTIONS).
+const X = (id, name, kid, note, view, prime, assist, stab, joints) => ({ id, name, kid, note, view, prime, assist, stab, joints });
+export const EXERCISES = [
+  X('bss', ['保加利亞分腿蹲', 'Bulgarian split squat'],
+    ['後腳放在椅子上，用前腳蹲下去再站起來，一次練一條腿。', 'Put the back foot up on a bench, then squat down and stand up on the front leg: one leg at a time.'],
+    ['前腳的臀大肌和股四頭肌出力最多。臀中肌負責不讓骨盆歪掉、膝蓋往內倒。後腳的股直肌和髂腰肌這時是被拉長的。身體越往前傾，臀部和腿後出力越多；身體越直，股四頭肌出力越多。',
+      'The gluteus maximus and quadriceps of the front leg do most of the work. Gluteus medius keeps the pelvis level and stops the knee falling inward. On the rear leg, rectus femoris and iliopsoas are being lengthened. Leaning the trunk forward shifts work to the glutes and hamstrings; staying upright shifts it to the quadriceps.'],
+    'side',
+    ['gluteus maximus', 'rectus femoris', 'vastus lateralis', 'vastus medialis', 'vastus intermedius'],
+    ['adductor magnus', 'long head of biceps femoris', 'semitendinosus', 'semimembranosus', 'soleus'],
+    ['gluteus medius', 'gluteus minimus', 'tensor fasciae latae', 'B:transversus abdominis', 'B:external oblique', 'B:iliocostalis lumborum', 'B:longissimus thoracis', 'B:multifidus'],
+    ['hip-ext', 'kn-ext']),
+  X('ohp', ['單手肩推', 'Single-arm shoulder press'],
+    ['一隻手把重量從肩膀旁邊往上推到頭頂。', 'Push a weight from beside the shoulder straight up overhead with one arm.'],
+    ['三角肌前束和中束把手臂抬起來，肱三頭肌把手肘伸直。要推到頭頂，肩胛骨必須往上轉，這靠前鋸肌和上、下斜方肌。因為只有一邊拿重量，另一側的腹斜肌和腰方肌要出力，身體才不會歪向一邊。',
+      'The front and middle deltoid raise the arm and triceps straightens the elbow. Reaching overhead needs the shoulder blade to rotate upward, which is done by serratus anterior with the upper and lower trapezius. Because the load is on one side, the obliques and quadratus lumborum of the other side work to stop the trunk leaning over.'],
+    'front',
+    ['clavicular part of deltoid', 'acromial part of deltoid', 'triceps brachii'],
+    ['clavicular part of pectoralis major', 'serratus anterior', 'descending part of trapezius', 'ascending part of trapezius', 'supraspinatus'],
+    ['infraspinatus', 'teres minor', 'subscapularis', 'O:external oblique', 'O:internal oblique', 'O:quadratus lumborum', 'B:transversus abdominis'],
+    ['sh-abd', 'sh-flex', 'el-ext']),
+  X('sldl', ['單腿硬舉', 'Single-leg deadlift'],
+    ['單腳站著，身體往前彎、另一隻腳往後抬，再用屁股的力量站直。', 'Stand on one leg, hinge forward as the other leg lifts behind you, then use your bottom muscles to stand tall again.'],
+    ['站立腳的臀大肌和膕旁肌負責把身體拉回直立。臀中肌讓骨盆保持水平、不往旁邊掉。豎脊肌讓背保持平直。小腿和足部的肌肉一直在微調平衡。',
+      'Gluteus maximus and the hamstrings of the standing leg pull the trunk back upright. Gluteus medius keeps the pelvis level so it does not drop to the side. The erector spinae keep the back flat, and the lower-leg and foot muscles make constant small corrections for balance.'],
+    'back',
+    ['gluteus maximus', 'long head of biceps femoris', 'semitendinosus', 'semimembranosus'],
+    ['adductor magnus', 'B:iliocostalis lumborum', 'B:longissimus thoracis', 'B:^spinalis thoracis$'],
+    ['gluteus medius', 'gluteus minimus', 'B:multifidus', 'B:quadratus lumborum', 'B:transversus abdominis', 'tibialis posterior', 'tibialis anterior', 'fibularis longus', 'fibularis brevis', 'soleus'],
+    ['hip-ext']),
+  X('bench', ['單手臥推', 'Single-arm bench press'],
+    ['躺在椅子上，用一隻手把重量從胸口旁邊往上推。', 'Lie on a bench and push a weight up from beside the chest with one arm.'],
+    ['胸大肌把手臂往身體中間推，三角肌前束幫忙，肱三頭肌把手肘伸直。旋轉肌袖把肩膀的球穩在窩裡。因為只有一邊在推，身體會想往一邊轉，另一側的腹斜肌要出力抵抗。',
+      'Pectoralis major drives the arm toward the midline, the front deltoid helps, and triceps straightens the elbow. The rotator cuff keeps the ball of the shoulder centred in its socket. With the load on one side the trunk wants to roll, so the obliques work to resist the rotation.'],
+    'front',
+    ['pectoralis major'],
+    ['clavicular part of deltoid', 'triceps brachii', 'serratus anterior', 'coracobrachialis'],
+    ['supraspinatus', 'infraspinatus', 'teres minor', 'subscapularis', 'O:external oblique', 'internal oblique', 'B:transversus abdominis'],
+    ['sh-flex', 'el-ext']),
+  X('row', ['單手划船', 'Single-arm row'],
+    ['身體往前傾，用一隻手把重量拉向腰邊，像在拉割草機的繩子。', 'Lean forward and pull a weight up toward your waist with one arm, like starting a lawnmower.'],
+    ['先把肩胛骨往後夾（菱形肌、中斜方肌），再用背闊肌把手肘往後拉；肱二頭肌、肱肌、肱橈肌幫忙彎手肘。豎脊肌和腹斜肌負責不讓身體跟著轉。前臂屈肌負責握緊。',
+      'First squeeze the shoulder blade back (rhomboids and middle trapezius), then latissimus dorsi pulls the elbow backward while biceps, brachialis and brachioradialis bend the elbow. The erector spinae and obliques stop the trunk from twisting, and the forearm flexors hold the grip.'],
+    'back',
+    ['latissimus dorsi', 'rhomboid major', 'rhomboid minor', 'transverse part of trapezius'],
+    ['teres major', 'spinal part of deltoid', 'ascending part of trapezius', 'biceps brachii', '^brachialis$', 'brachioradialis'],
+    ['infraspinatus', 'teres minor', 'B:iliocostalis lumborum', 'B:longissimus thoracis', 'B:multifidus', 'O:external oblique', 'internal oblique', 'flexor digitorum superficialis', 'flexor digitorum profundus'],
+    ['sh-ext', 'el-flex']),
+];

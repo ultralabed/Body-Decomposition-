@@ -5,7 +5,7 @@
 import * as THREE from '../vendor/three.module.min.js';
 import * as core from './core.js';
 import { app, on, NORMAL, GHOST, HIDDEN } from './core.js';
-import { GROUPS, PEEL, SYS, LAYER, REGION, REGION_ORDER, REGIONS, MUSCLE_GROUPS, MOTIONS, OPPOSITE, NERVES, ROOTS } from './catalog.js';
+import { GROUPS, PEEL, SYS, LAYER, REGION, REGION_ORDER, REGIONS, MUSCLE_GROUPS, MOTIONS, OPPOSITE, NERVES, ROOTS, EXERCISES } from './catalog.js';
 import * as motion from './motion.js';
 import * as attach from './attach.js';
 import { createQuiz } from './quiz.js';
@@ -25,7 +25,7 @@ const selbar = $('#selbar'), tabs = $('#tabs'), peelEl = $('#peel'), toastEl = $
 const desktop = window.matchMedia('(min-width: 900px)');
 
 const tabTitle = (name) => ({ layers: t('圖層'), regions: t('部位'), groups: t('肌群'), motions: t('關節動作'), quiz: t('測驗'), tools: t('工具'), info: t('說明') })[name];
-const PRIME = new THREE.Color('#ffb703'), ASSIST = new THREE.Color('#36c5c0'), ANTAG = new THREE.Color('#a78bfa');
+const PRIME = new THREE.Color('#ffb703'), ASSIST = new THREE.Color('#36c5c0'), ANTAG = new THREE.Color('#a78bfa'), STAB = new THREE.Color('#5b9dff');
 const isSoft = (p) => p.sys === 'muscle' || p.sys === 'tendon';
 const isHard = (p) => p.sys === 'bone' || p.sys === 'joint';
 const info = (key) => app.info[key];
@@ -76,6 +76,7 @@ function closeSheet() {
 }
 function render() {
   if (!tab) return;
+  if (tab === 'motions') sheetTitle.textContent = activeExercise || (motionView === 'exercise' && !activeMotion) ? t('訓練動作') : t('關節動作');
   const keep = sheetBody.scrollTop;
   sheetBody.innerHTML = ({ layers: layersHtml, regions: regionsHtml, groups: groupsHtml, motions: motionsHtml, quiz: () => quiz.html(), tools: toolsHtml, info: infoHtml })[tab]();
   sheetBody.scrollTop = keep;
@@ -86,6 +87,7 @@ function setMode(m) {
   if (mode === 'attach') attach.clearAttachments();
   if (mode === 'motion') { stopPlayer(); motion.stopMotion(); activeMotion = null; }
   if (mode === 'quiz') quiz.stop();
+  if (mode === 'exercise') activeExercise = null;
   app.state.overlay = null;
   core.setExtraLabels([]);
   mode = m;
@@ -495,9 +497,84 @@ function playerTick(dt) {
 function startPlayer() { playing = true; core.addFrameHook(playerTick); }
 function stopPlayer() { playing = false; core.removeFrameHook(playerTick); motion.settleMotion(); }
 
+// ---- training exercises (which muscles work in a lift)
+let motionView = 'joint'; // joint | exercise
+let activeExercise = null, exSide = 'R', exFocus = true, exSets = { prime: new Set(), assist: new Set(), stab: new Set() };
+
+function resolveEx(list, side) {
+  const other = side === 'R' ? 'L' : 'R', out = [];
+  for (const spec of list) {
+    const m = /^([BO]):(.*)$/.exec(spec);
+    const re = new RegExp(m ? m[2] : spec);
+    const sides = m ? (m[1] === 'B' ? ['R', 'L'] : [other]) : [side];
+    for (const p of app.parts) if (isSoft(p) && re.test(p.key) && (!p.side || sides.includes(p.side)) && !out.includes(p)) out.push(p);
+  }
+  return out;
+}
+function exerciseOverlay(p) {
+  if (p.sys === 'skin') return { visible: false };
+  if (exSets.prime.has(p)) return { visible: true, opacity: 1, tint: PRIME };
+  if (exSets.assist.has(p)) return { visible: true, opacity: 1, tint: ASSIST };
+  if (exSets.stab.has(p)) return { visible: true, opacity: 1, tint: STAB };
+  if (exFocus && isSoft(p)) return { opacity: 0.06, pickable: false };
+  if (isHard(p)) return { visible: true };
+  return null;
+}
+function startExercise(ex) {
+  setMode('normal');
+  mode = 'exercise';
+  activeExercise = ex;
+  core.select([], { silent: true }); updateSelbar();
+  const prime = resolveEx(ex.prime, exSide);
+  const assist = resolveEx(ex.assist, exSide).filter((p) => !prime.includes(p));
+  const stab = resolveEx(ex.stab, exSide).filter((p) => !prime.includes(p) && !assist.includes(p));
+  exSets = { prime: new Set(prime), assist: new Set(assist), stab: new Set(stab) };
+  app.state.overlay = exerciseOverlay;
+  core.refresh();
+  const sx = exSide === 'R' ? -1 : 1;
+  const dir = ex.view === 'side' ? new THREE.Vector3(sx, 0.08, 0.45) : ex.view === 'back' ? new THREE.Vector3(sx * 0.45, 0.1, -1) : new THREE.Vector3(sx * 0.45, 0.1, 1);
+  core.focusParts([...prime, ...assist], dir, { pad: 1.2 });
+  render();
+  sheetBody.scrollTop = 0;
+}
+const exerciseById = (id) => EXERCISES.find((x) => x.id === id);
+// Exercises that use a muscle, with the role it plays there.
+function exercisesOf(key) {
+  const out = [];
+  for (const ex of EXERCISES) for (const role of ['prime', 'assist', 'stab']) {
+    if (ex[role].some((spec) => new RegExp(spec.replace(/^[BO]:/, '')).test(key))) { out.push({ ex, role }); break; }
+  }
+  return out;
+}
+function exerciseHtml() {
+  const ex = activeExercise, other = getLang() === 'en' ? 0 : 1;
+  const chips = (set, cls) => [...set].map((p) => `<button class="chip ${cls}" data-act="ex-muscle" data-id="${p.id}">${esc(p.name)}</button>`).join('');
+  const joints = ex.joints.map((id) => motionKeys.get(id)).filter(Boolean);
+  return `<div class="info"><h3>${esc(L(ex.name))}</h3><div class="en">${esc(ex.name[other])}</div></div>
+    <div class="kid" data-lead="${t('簡單說：')}">${esc(L(ex.kid))}</div>
+    <div class="h3">${t('出力的那一邊')}</div>
+    <div class="seg" style="margin-bottom:10px">${[['R', t('右邊')], ['L', t('左邊')]].map(([v, s2]) => `<button data-act="ex-side" data-v="${v}" aria-pressed="${exSide === v}">${s2}</button>`).join('')}</div>
+    <div class="h3">${t('主要出力的肌肉（金色）')}</div><div class="chips">${chips(exSets.prime, 'prime')}</div>
+    <div class="h3">${t('幫忙的肌肉（青色）')}</div><div class="chips">${chips(exSets.assist, 'assist')}</div>
+    <div class="h3">${t('負責穩住身體的肌肉（藍色）')}</div><div class="chips">${chips(exSets.stab, 'stab')}</div>
+    <div class="note"><b>${t('重點')}　</b>${esc(L(ex.note))}</div>
+    ${joints.length ? `<div class="h3">${t('裡面包含的關節動作（點一下看示範）')}</div><div class="chips">${joints.map((j) => `<button class="chip" data-act="ex-joint" data-id="${j.m.id}">▶ ${esc(L(j.m.name))}</button>`).join('')}</div>` : ''}
+    <div class="opt" style="margin-top:10px"><div class="txt"><b>${t('其他肌肉變淡')}</b><small>${t('只留下有出力的肌肉，比較好看清楚')}</small></div>
+      <button class="switch" role="switch" aria-checked="${exFocus}" aria-label="${t('其他肌肉變淡')}" data-act="ex-focus"></button></div>
+    <button class="btn wide" data-act="ex-exit" style="margin-top:12px">${t('結束這個動作')}</button>
+    <p class="fine">${t('哪些肌肉出力是依一般肌動學和重量訓練教科書整理的，實際比例會隨姿勢、重量和個人差異改變。')}</p>`;
+}
+
 function motionsHtml() {
+  if (activeExercise) return exerciseHtml();
   if (!activeMotion) {
-    return `<p class="hint">${t('選一個動作：模型會動給你看，而且把「負責出力的肌肉」亮起來。')}</p>` +
+    const seg = `<div class="seg" style="margin-bottom:10px">${[['joint', t('關節動作')], ['exercise', t('訓練動作')]].map(([v, label]) => `<button data-act="mview" data-v="${v}" aria-pressed="${motionView === v}">${label}</button>`).join('')}</div>`;
+    if (motionView === 'exercise') {
+      const other = getLang() === 'en' ? 0 : 1;
+      return seg + `<p class="hint">${t('選一個訓練動作，用到的肌肉會亮起來：金色主要出力、青色幫忙、藍色負責穩住身體。')}</p>` +
+        EXERCISES.map((ex) => `<button class="card-btn" data-act="exercise" data-id="${ex.id}"><b>${esc(L(ex.name))}</b><em>${esc(ex.name[other])}</em><small>${esc(L(ex.kid))}</small></button>`).join('');
+    }
+    return seg + `<p class="hint">${t('選一個動作：模型會動給你看，而且把「負責出力的肌肉」亮起來。')}</p>` +
       MOTIONS.map((c, ci) => `<div class="h3">${esc(L(c.cat))}</div><div class="grid2">` + c.items.map((m, mi) =>
         `<button class="btn" data-act="motion" data-c="${ci}" data-i="${mi}">${esc(L(m.name))}</button>`).join('') + '</div>').join('');
   }
@@ -581,6 +658,11 @@ function relatedHtml(p) {
   if (roles.length) {
     html += `<div class="h3">${t('它負責的動作（點一下看示範）')}</div><div class="chips">` +
       roles.map(({ m, role }) => `<button class="chip ${role}" data-act="info-motion" data-id="${m.id}">▶ ${esc(L(m.name))}</button>`).join('') + '</div>';
+  }
+  const exs = exercisesOf(key);
+  if (exs.length) {
+    html += `<div class="h3">${t('會用到它的訓練動作')}</div><div class="chips">` +
+      exs.map(({ ex, role }) => `<button class="chip ${role}" data-act="exercise" data-id="${ex.id}">${esc(L(ex.name))}</button>`).join('') + '</div>';
   }
   const list = (keys) => keys.map((k) => `<button class="chip" data-act="tree-go" data-key="${esc(k)}">${esc(keyName(k))}</button>`).join('');
   if (syn.length) html += `<div class="h3">${t('一起出力的夥伴（協同肌）')}</div><div class="chips">${list(syn)}</div>`;
@@ -809,6 +891,20 @@ const actions = {
     startMotion(mk.m, mk.both);
     openTab('motions');
   },
+  mview: (el) => { motionView = el.dataset.v; render(); sheetBody.scrollTop = 0; },
+  exercise: (el) => {
+    const ex = exerciseById(el.dataset.id); if (!ex) return;
+    const side = core.selectedParts()[0]?.side;
+    if (side === 'L' || side === 'R') exSide = side;
+    motionView = 'exercise';
+    startExercise(ex);
+    openTab('motions');
+  },
+  'ex-side': (el) => { exSide = el.dataset.v; startExercise(activeExercise); },
+  'ex-focus': () => { exFocus = !exFocus; core.refresh(); render(); },
+  'ex-exit': () => { setMode('normal'); render(); sheetBody.scrollTop = 0; },
+  'ex-muscle': (el) => { const p = app.byId.get(el.dataset.id); setMode('normal'); spotlight([p]); openTab('info'); },
+  'ex-joint': (el) => { const mk = motionKeys.get(el.dataset.id); if (!mk) return; motionSide = exSide; motionView = 'joint'; startMotion(mk.m, mk.both); render(); sheetBody.scrollTop = 0; },
   motion: (el) => { const c = MOTIONS[el.dataset.c]; startMotion(c.items[el.dataset.i], c.both); },
   'motion-play': () => { if (playing) stopPlayer(); else startPlayer(); render(); },
   'motion-side': (el) => { motionSide = el.dataset.v; startMotion(activeMotion, motionBoth); },
