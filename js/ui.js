@@ -1,7 +1,7 @@
 // All DOM / interaction code. The 3D work happens in core.js, motion.js and
 // attach.js; this file wires buttons and panels to them.
 
-import * as THREE from 'three';
+import * as THREE from '../vendor/three.module.min.js';
 import * as core from './core.js';
 import { app, on, NORMAL, GHOST, HIDDEN } from './core.js';
 import { GROUPS, PEEL, SYS_ZH, LAYER_ZH, REGION_ZH, REGION_ORDER, REGIONS, MUSCLE_GROUPS, MOTIONS } from './catalog.js';
@@ -565,7 +565,7 @@ function toolsHtml() {
     ${opt('xray', s.xray, 'X 光模式', '全部變成半透明，一次看穿裡面')}
     ${opt('labels', s.labels, '名稱標籤', '選到的構造旁邊顯示名字')}
     ${opt('autorotate', app.controls.autoRotate, '自動旋轉', '模型自己慢慢轉')}
-    ${opt('theme', root.dataset.theme === 'light', '淺色背景', '白天或投影時比較清楚')}
+    ${opt('theme', isLight(), '淺色背景', '白天或投影時比較清楚')}
 
     <div class="h3">切開來看（切面）</div>
     <div class="opt"><div class="txt"><b>打開切面</b><small>像切蛋糕一樣把身體切開，看裡面一層一層</small></div>${sw('clip-on', c.on, '切面')}</div>
@@ -619,6 +619,12 @@ function modal(html) {
   el.addEventListener('click', (e) => { if (e.target === el || e.target.closest('[data-close]')) el.remove(); });
   document.body.appendChild(el);
   el.querySelector('[data-close]')?.focus();
+}
+
+// Light when chosen here, otherwise whatever the device / host page uses.
+function isLight() {
+  const t = root.dataset.theme;
+  return t ? t === 'light' : window.matchMedia('(prefers-color-scheme: light)').matches;
 }
 
 let rotateHook = null;
@@ -679,16 +685,16 @@ const actions = {
   xray: () => { app.state.xray = !app.state.xray; core.refresh(); render(); },
   labels: () => { app.state.labels = !app.state.labels; core.requestRender(); render(); },
   autorotate: () => { setAutoRotate(!app.controls.autoRotate); render(); },
-  theme: () => { const t = root.dataset.theme === 'light' ? 'dark' : 'light'; root.dataset.theme = t; store.set('theme', t); render(); },
+  theme: () => { const t = isLight() ? 'dark' : 'light'; root.dataset.theme = t; store.set('theme', t); render(); },
   'clip-on': () => { app.state.clip.on = !app.state.clip.on; core.refresh(); render(); },
   'clip-axis': (el) => { app.state.clip.axis = el.dataset.v; app.state.clip.pos = 0.5; core.refresh(); render(); },
   'clip-flip': () => { app.state.clip.flip = !app.state.clip.flip; core.refresh(); },
   shot: async () => {
     const blob = await core.screenshot(getComputedStyle(root).getPropertyValue('--bg0').trim());
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob); a.download = `body-decomposition-${Date.now()}.png`; a.click();
-    setTimeout(() => URL.revokeObjectURL(a.href), 5000);
-    toast('截圖已下載');
+    const url = URL.createObjectURL(blob);
+    modal(`<h2>截圖</h2><img src="${url}" alt="目前畫面的截圖" style="max-width:100%;max-height:52vh;border-radius:10px;display:block;margin:10px auto">
+      <p class="hint">手機：長按圖片就能儲存或分享。電腦：按下面的按鈕下載。</p>
+      <div class="grid2"><a class="btn primary" href="${url}" download="body-decomposition-${Date.now()}.png">下載圖片</a><button class="btn" data-close>關閉</button></div>`);
   },
   share: async () => {
     const url = shareLink();
@@ -763,7 +769,8 @@ document.addEventListener('keydown', (e) => {
 // ---------------------------------------------------------------- start
 
 export function initUI() {
-  root.dataset.theme = store.get('theme', 'dark');
+  const savedTheme = store.get('theme', null);
+  if (savedTheme === 'light' || savedTheme === 'dark') root.dataset.theme = savedTheme;
   buildPeel();
   quiz = createQuiz({
     store, toast, outwardDir, spotlightKey,

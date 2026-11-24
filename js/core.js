@@ -2,7 +2,7 @@
 // Everything the UI needs is exposed through the `app` object and the
 // `on` / `emit` event helpers.
 
-import * as THREE from 'three';
+import * as THREE from '../vendor/three.module.min.js';
 import { OrbitControls } from '../vendor/OrbitControls.js';
 import { GLTFLoader } from '../vendor/GLTFLoader.js';
 import { MeshoptDecoder } from '../vendor/meshopt_decoder.module.js';
@@ -212,7 +212,7 @@ export async function load(onProgress) {
   app.info = anatomy.info;
   const meta = new Map(anatomy.parts.map((p) => [p.id, p]));
 
-  const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
+  const loader = new GLTFLoader().setMeshoptDecoder(await pickDecoder());
   const files = ['skeleton', 'muscles', 'other'];
   const total = files.reduce((s, f) => s + manifest[f].bytes, 0);
   const loaded = {};
@@ -231,6 +231,18 @@ export async function load(onProgress) {
   app.ready = true;
   refresh();
   emit('ready');
+}
+
+// The fast decoder needs WebAssembly. Where that is switched off (some
+// locked-down browsers), use the slower plain-JavaScript decoder instead.
+async function pickDecoder() {
+  try {
+    if (MeshoptDecoder.supported && !/[?&]nowasm\b/.test(location.search)) {
+      await MeshoptDecoder.ready;
+      return MeshoptDecoder;
+    }
+  } catch { /* fall through */ }
+  return (await import('../vendor/meshopt_decoder_reference.js')).MeshoptDecoder;
 }
 
 function addParts(root, meta) {

@@ -2,11 +2,11 @@
 // first visit. Strategy: answer from the cache right away when possible and
 // refresh the cached copy in the background.
 
-const CACHE = 'body-decomposition-v1';
+const CACHE = 'body-decomposition-v2';
 const SHELL = [
   './', 'index.html', 'css/app.css', 'manifest.webmanifest', 'icons/icon.svg',
   'js/main.js', 'js/core.js', 'js/ui.js', 'js/catalog.js', 'js/motion.js', 'js/attach.js', 'js/quiz.js',
-  'vendor/three.module.min.js', 'vendor/OrbitControls.js', 'vendor/GLTFLoader.js', 'vendor/BufferGeometryUtils.js', 'vendor/meshopt_decoder.module.js',
+  'vendor/three.module.min.js', 'vendor/OrbitControls.js', 'vendor/GLTFLoader.js', 'vendor/BufferGeometryUtils.js', 'vendor/meshopt_decoder.module.js', 'vendor/meshopt_decoder_reference.js',
   'data/anatomy.json', 'models/manifest.json', 'models/skeleton.glb', 'models/muscles.glb', 'models/other.glb',
 ];
 

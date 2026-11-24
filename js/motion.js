@@ -4,7 +4,7 @@
 // body, 1 = moves with the limb) and is rotated around the joint centre by
 // angle x weight. Bones are rigid, muscles stretch across the joint.
 
-import * as THREE from 'three';
+import * as THREE from '../vendor/three.module.min.js';
 import { app, requestRender } from './core.js';
 
 const V = THREE.Vector3;

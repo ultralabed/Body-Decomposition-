@@ -1,6 +1,6 @@
 // Quiz mode: "what is this?" (4 choices) and "find it" (tap the model).
 
-import * as THREE from 'three';
+import * as THREE from '../vendor/three.module.min.js';
 import { app, refresh, focusParts, frameBox, boxOfParts, viewDir, setExtraLabels } from './core.js';
 import { SYS_ZH } from './catalog.js';
 

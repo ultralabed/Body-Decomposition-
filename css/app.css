@@ -28,6 +28,28 @@
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   color-scheme: dark;
 }
+/* Light palette: used when the viewer's system is light (and no explicit
+   dark choice was made), or when light is chosen explicitly. */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+  --bg0: #dfe5ea;
+  --bg1: #f6f8fa;
+  --panel: rgba(255, 255, 255, 0.94);
+  --panel-solid: #ffffff;
+  --raise: rgba(10, 30, 50, 0.055);
+  --raise2: rgba(10, 30, 50, 0.11);
+  --line: rgba(10, 30, 50, 0.13);
+  --text: #16202a;
+  --dim: #5b6a78;
+  --accent: #0a84d6;
+  --accent-ink: #ffffff;
+  --good: #0f9d68;
+  --bad: #d63b3b;
+  --warn: #b77700;
+  --shadow: 0 10px 30px rgba(20, 40, 60, 0.18);
+  color-scheme: light;
+}
+}
 :root[data-theme="light"] {
   --bg0: #dfe5ea;
   --bg1: #f6f8fa;
@@ -161,6 +183,7 @@ button:disabled { opacity: 0.38; cursor: default; }
 .h3 { font-size: 12px; font-weight: 700; color: var(--dim); letter-spacing: 0.08em; margin: 16px 0 6px; text-transform: none; }
 .row { display: flex; align-items: center; gap: 10px; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 38px; padding: 6px 14px; border-radius: 10px; background: var(--raise); font-weight: 600; font-size: 14px; }
+a.btn { text-decoration: none; color: var(--text); }
 .btn:hover:not(:disabled) { background: var(--raise2); }
 .btn.primary { background: var(--accent); color: var(--accent-ink); }
 .btn.primary:hover:not(:disabled) { filter: brightness(1.08); background: var(--accent); }

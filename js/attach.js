@@ -4,7 +4,7 @@
 // purple = both ends sit on this bone. Which bone counts as origin or
 // insertion comes from the `ob` / `ib` keywords in the content data.
 
-import * as THREE from 'three';
+import * as THREE from '../vendor/three.module.min.js';
 import { app, refresh } from './core.js';
 
 const NEAR = 0.005; // metres
