@@ -1,0 +1,438 @@
+{
+  "accessory short gyrus": {
+    "kid": "A little fold on the insula, hidden deep inside your brain, that helps you feel what is going on inside your body.",
+    "d": "One of the short gyri of the anterior insula, lying deep within the lateral sulcus. The insula is involved in interoception, taste and the emotional dimension of pain, and is often damaged along with other areas in middle cerebral artery strokes."
+  },
+  "adrenal gland": {
+    "kid": "A little cap sitting on top of each kidney that sends out hormones to fill you with energy when you are nervous.",
+    "d": "Sits on the superior pole of the kidney; the cortex secretes cortisol, aldosterone and androgens, and the medulla secretes epinephrine and norepinephrine. Chronic corticosteroid excess causes muscle atrophy and osteoporosis."
+  },
+  "amygdala": {
+    "kid": "A tiny almond-shaped alarm in your brain that makes you feel scared and get away quickly when there is danger.",
+    "d": "Located in the medial temporal lobe anterior to the hippocampus; part of the limbic system, responsible for fear responses and emotional memory. It is linked to fear-avoidance behavior in chronic pain."
+  },
+  "angular gyrus": {
+    "kid": "A fold on the side of your brain that helps you read words, do sums and tell left from right.",
+    "d": "Part of the inferior parietal lobule, wrapping around the end of the superior temporal sulcus. Damage in the dominant hemisphere can produce Gerstmann syndrome (agraphia, acalculia, finger agnosia and left-right disorientation)."
+  },
+  "anterior commissure": {
+    "kid": "A small bundle of wires joining the left and right sides of your brain so they can send messages to each other.",
+    "d": "A bundle of commissural fibers anterior to the columns of the fornix, connecting the two temporal lobes and olfactory-related structures. It is a commonly used landmark on imaging (the AC-PC line)."
+  },
+  "anterior interventricular branch of coronary artery, nsn": {
+    "kid": "A blood vessel running down the front of your heart that brings oxygen and food to the hard-working heart muscle.",
+    "d": "A branch of the left coronary artery that descends in the anterior interventricular groove, supplying the anterior wall of the left ventricle, the anterior two-thirds of the interventricular septum and the apex. It is the vessel most often occluded in myocardial infarction; watch for exertional chest pain during cardiac rehabilitation."
+  },
+  "anterior limb of internal capsule": {
+    "kid": "A message highway deep in your brain that lets the front of the brain talk with the parts deep inside.",
+    "d": "Lies between the head of the caudate nucleus and the lentiform nucleus, carrying frontopontine fibers and the anterior thalamic radiation. Because the corticospinal tract runs in the posterior limb, lesions of the anterior limb present mainly with cognitive and emotional symptoms."
+  },
+  "anterior papillary muscle of ventricle": {
+    "kid": "A little muscle inside your heart that holds the valve with thin strings so blood cannot flow backwards.",
+    "d": "Projects from the ventricular wall and attaches to the atrioventricular valve leaflets via the chordae tendineae, tightening the valve during ventricular contraction to prevent prolapse and regurgitation. Rupture after myocardial infarction causes acute valvular insufficiency."
+  },
+  "anterior part of superior temporal gyrus": {
+    "kid": "The front part of the brain area just above your ear that helps you understand sounds and what people say.",
+    "d": "The superior temporal gyrus contains the auditory cortex and auditory association areas, and its anterior part takes part in speech and semantic processing. The posterior superior temporal gyrus of the dominant hemisphere is Wernicke's area, and damage there causes receptive (sensory) aphasia."
+  },
+  "appendix": {
+    "kid": "A little tail hanging off the start of your large intestine, where good germs that help your body live.",
+    "d": "Attached to the posteromedial wall of the cecum and rich in lymphoid tissue; the three taeniae coli converge at its base. Tenderness in appendicitis is at McBurney's point, and right lower quadrant pain must be differentiated from iliopsoas or hip problems."
+  },
+  "arch of aorta": {
+    "kid": "A big blood vessel above your heart, curved like a walking cane, that sends blood to your head and both arms.",
+    "d": "Gives off, in order, the brachiocephalic trunk, the left common carotid artery and the left subclavian artery; the left recurrent laryngeal nerve loops beneath it. Baroreceptors in the arch take part in blood pressure regulation."
+  },
+  "ascending aorta": {
+    "kid": "The first part of the big blood vessel going up from your heart, where all the blood for your body starts its trip.",
+    "d": "Arises at the aortic valve of the left ventricle, is about 5 cm long, and gives off the left and right coronary arteries at its base. It continues as the aortic arch at the level of the sternal angle."
+  },
+  "atlas": {
+    "kid": "The very first bone at the top of your neck, a ring that holds up your head and lets you nod.",
+    "d": "Has no vertebral body or spinous process and consists of an anterior arch, a posterior arch and lateral masses; the vertebral artery passes through the transverse foramen. Superiorly it forms the atlanto-occipital joint with the occipital condyles (nodding), and inferiorly the atlantoaxial joint with the axis (rotation)."
+  },
+  "axis": {
+    "kid": "The second bone in your neck, with a little peg on top that lets your head turn left and right to say no.",
+    "d": "Characterized by the upward-projecting dens, which forms the median atlantoaxial joint with the anterior arch of the atlas and the transverse ligament, accounting for about half of cervical rotation. Its spinous process is large and bifid and is the first palpable spinous process below the occiput."
+  },
+  "body of sternum": {
+    "kid": "The long flat bone right in the middle of your chest that guards your heart like a shield.",
+    "d": "Joins the manubrium above to form the sternal angle (level of the second costal cartilage) and the xiphoid process below; costal notches on each side form the sternocostal joints with the second to seventh costal cartilages. It is the origin of the sternocostal head of pectoralis major, and sternal precautions must be followed after open-heart surgery."
+  },
+  "brachiocephalic artery, nsn": {
+    "kid": "The first thick blood vessel branching off the big one, carrying blood to your right arm and the right side of your head.",
+    "d": "The first branch of the aortic arch, present only on the right side. It divides behind the right sternoclavicular joint into the right common carotid and right subclavian arteries."
+  },
+  "brachiocephalic vein": {
+    "kid": "A big vein that collects used blood from your head and arm and sends it back to your heart.",
+    "d": "Formed by the union of the internal jugular and subclavian veins behind the sternoclavicular joint; the left and right brachiocephalic veins then join to form the superior vena cava. The left one is longer and crosses in front of the branches of the aortic arch."
+  },
+  "brachium of inferior colliculus": {
+    "kid": "A small bundle of nerve wires on your brainstem that passes sound messages from your ears upward.",
+    "d": "Connects the inferior colliculus of the midbrain to the medial geniculate body of the thalamus as part of the ascending auditory pathway, which then continues through the auditory radiation to the auditory cortex of the temporal lobe."
+  },
+  "brachium of superior colliculus": {
+    "kid": "A small bundle of nerve wires on your brainstem that sends what your eyes see to the part that moves your eyes.",
+    "d": "Carries fibers from the retina and visual cortex to the superior colliculus and pretectal area, taking part in the pupillary light reflex and visually guided orienting movements of the eyes and head."
+  },
+  "bronchus": {
+    "kid": "The tubes that branch off your windpipe and carry the air you breathe in to your left and right lungs.",
+    "d": "The trachea divides into the left and right main bronchi at about the level of the sternal angle (T4-T5); the right is shorter, wider and more vertical, so foreign bodies and aspiration pneumonia tend to occur on the right. Postural drainage positions are designed around the orientation of the bronchopulmonary segments."
+  },
+  "calcaneus": {
+    "kid": "The biggest bone in your heel, which touches the ground first when you walk and helps hold up your weight.",
+    "d": "The calcaneal tuberosity is the insertion of the Achilles tendon, its medial process is the origin of the plantar fascia, and the sustentaculum tali supports the talus. Superiorly it forms the subtalar joint with the talus (inversion and eversion), and anteriorly the calcaneocuboid joint with the cuboid."
+  },
+  "capitate": {
+    "kid": "The biggest of the small bones, right in the middle of your wrist, which your wrist turns around.",
+    "d": "The largest carpal bone, in the center of the distal row, articulating proximally with the scaphoid and lunate and distally mainly with the third metacarpal. It is the axis of wrist flexion-extension and radial-ulnar deviation, and its dorsal depression can be palpated just proximal to the base of the third metacarpal."
+  },
+  "caudate nucleus": {
+    "kid": "A comma-shaped part deep in your brain that helps you move smoothly and also helps you learn.",
+    "d": "One of the basal ganglia, divided into a head, body and tail that curve along the lateral ventricle; together with the putamen it forms the striatum and takes part in motor planning and cognitive circuits. Huntington's disease is characterized by atrophy of the head of the caudate."
+  },
+  "celiac artery": {
+    "kid": "A short, thick blood vessel in your tummy that splits up to send blood to your stomach, liver and spleen.",
+    "d": "Arises from the anterior wall of the abdominal aorta at about T12 and divides into the left gastric, splenic and common hepatic arteries, supplying the organs derived from the foregut."
+  },
+  "central canal of spinal cord": {
+    "kid": "A thin little water pipe right down the middle of your spinal cord, filled with fluid that protects your nerves.",
+    "d": "Runs the full length of the spinal cord, opens superiorly into the fourth ventricle, and contains cerebrospinal fluid. Abnormal enlargement produces syringomyelia, which typically presents as loss of pain and temperature sensation in a cape-like distribution."
+  },
+  "cerebellum": {
+    "kid": "The little brain at the lower back of your head that helps you keep your balance and move smoothly and exactly.",
+    "d": "Located in the posterior cranial fossa; responsible for movement coordination, balance, regulation of muscle tone and motor learning. Damage causes ipsilateral ataxia, dysmetria, intention tremor and an unsteady gait."
+  },
+  "cerebral aqueduct": {
+    "kid": "A thin water channel in your brain that lets the water protecting your brain flow downward.",
+    "d": "Passes through the midbrain connecting the third and fourth ventricles and is the narrowest part of the ventricular system. Blockage causes obstructive hydrocephalus."
+  },
+  "choroid plexus of cerebral hemisphere": {
+    "kid": "A tiny water factory in your brain that makes the fluid protecting your brain and spinal cord.",
+    "d": "Located within the lateral ventricle and made up of a capillary plexus and ependymal epithelium, it produces about 500 mL of cerebrospinal fluid a day. Hydrocephalus develops when circulation is obstructed or absorption is impaired."
+  },
+  "cingulate gyrus": {
+    "kid": "A belt-like ring of folds in the middle of your brain that helps you handle your feelings and pay attention.",
+    "d": "Located on the medial surface of the cerebrum above the corpus callosum; part of the limbic system. The anterior cingulate gyrus is associated with motivation, attention and the emotional dimension of pain."
+  },
+  "circumflex branch of coronary artery": {
+    "kid": "A blood vessel that curves around the left side of your heart, bringing oxygen to the muscle on its side and back.",
+    "d": "A branch of the left coronary artery that runs in the left coronary groove around to the posterior surface of the heart, supplying the left atrium and the lateral and posterior walls of the left ventricle. Occlusion causes a lateral wall myocardial infarction."
+  },
+  "clavicle": {
+    "kid": "The long bone lying sideways below your neck that props your arm out at the side of your body, like a carrying pole.",
+    "d": "The medial sternal end forms the sternoclavicular joint and the lateral acromial end forms the acromioclavicular joint; the conoid tubercle and trapezoid line on its inferior surface give attachment to the coracoclavicular ligament. During arm elevation the clavicle elevates and rotates posteriorly, and the junction of the middle and lateral thirds is the common fracture site."
+  },
+  "colon, nsn": {
+    "kid": "The thick gut that loops all the way around your tummy, soaking water back into your body and turning what is left into poop.",
+    "d": "Divided into the ascending, transverse, descending and sigmoid colon; it absorbs water and electrolytes and forms feces, and is marked externally by taeniae coli and haustra. Abdominal massage to promote bowel movements must follow the clockwise direction of the ascending, transverse and descending colon."
+  },
+  "commissure of fornix of forebrain": {
+    "kid": "A little bridge joining the memory centers on the left and right sides so they can share news.",
+    "d": "Transverse fibers lying beneath the splenium of the corpus callosum, between the two crura of the fornix, connecting the hippocampal formations of the two sides."
+  },
+  "common carotid artery": {
+    "kid": "The big blood vessels on both sides of your neck that carry blood up to your head and brain, and you can feel them beating.",
+    "d": "Arises from the brachiocephalic trunk on the right and the aortic arch on the left, and divides into the internal and external carotid arteries at about the upper border of the thyroid cartilage (C4), where the carotid sinus lies. The pulse can be palpated along the anterior border of sternocleidomastoid; avoid pressing both sides at the same time."
+  },
+  "common hepatic artery": {
+    "kid": "A blood vessel in your tummy that brings fresh blood to your liver and stomach.",
+    "d": "A branch of the celiac trunk that runs to the right along the upper border of the pancreas and divides into the proper hepatic and gastroduodenal arteries, supplying the liver, gallbladder, stomach and duodenum."
+  },
+  "common iliac artery": {
+    "kid": "The big blood vessel in your tummy splits into a left and a right one, carrying blood to your hips and both legs.",
+    "d": "The abdominal aorta bifurcates into the left and right common iliac arteries at about L4, and each divides again in front of the sacroiliac joint into the internal and external iliac arteries. Occlusion can cause intermittent claudication of the buttock and lower limb."
+  },
+  "common iliac vein": {
+    "kid": "A big vein that collects used blood from your leg and hips and sends it up back to your heart.",
+    "d": "Formed by the union of the internal and external iliac veins; the two sides join at about L5 to form the inferior vena cava. The left common iliac vein is prone to compression by the right common iliac artery, so deep vein thrombosis is more common in the left lower limb."
+  },
+  "coronary sinus": {
+    "kid": "A collecting drain on the back of your heart that brings the heart's own used blood back into its right upper room.",
+    "d": "Lies in the coronary groove on the posterior surface of the heart, collects most of the venous blood of the myocardium from the great, middle and small cardiac veins, and opens into the right atrium."
+  },
+  "corpus callosum": {
+    "kid": "A big bridge joining your left brain and right brain so both sides can work together.",
+    "d": "The largest commissural fiber bundle, divided into the rostrum, genu, body and splenium, connecting the cortex of the two cerebral hemispheres. Damage can cause difficulty with bimanual coordination and signs of interrupted interhemispheric transfer of information."
+  },
+  "corpus cavernosum of penis": {
+    "kid": "Two sponge-like columns inside the penis that become hard when they fill with blood.",
+    "d": "Paired erectile tissue attached proximally by the crura of the penis to the ischiopubic rami and covered by the ischiocavernosus muscles. Pelvic floor muscle training can improve some cases of erectile dysfunction."
+  },
+  "corpus spongiosum of penis, nsn": {
+    "kid": "The spongy tissue on the underside of the penis that wraps around the pee tube and keeps it from being squashed.",
+    "d": "Surrounds the spongy urethra, expanding proximally as the bulb of the penis and distally as the glans penis, and is covered by the bulbospongiosus muscle. Bulbospongiosus contraction helps empty the urethra and is a training focus for post-micturition dribble."
+  },
+  "costal cartilage": {
+    "kid": "The soft, springy part at the front of your ribs that lets your chest open up and spring back when you breathe.",
+    "d": "Hyaline cartilage that connects the anterior ends of the ribs to the sternum and gives the thoracic cage its elasticity. Costochondritis (for example Tietze syndrome) causes localized tenderness of the anterior chest wall and must be differentiated from cardiac chest pain."
+  },
+  "cuboid bone": {
+    "kid": "A small square bone shaped like a dice on the outer side of your foot that helps hold up that side.",
+    "d": "Lies in the lateral column of the foot, forming the calcaneocuboid joint with the calcaneus proximally, articulating with the fourth and fifth metatarsals distally, and bordering the lateral cuneiform and navicular medially. Its plantar surface carries the groove for the fibularis (peroneus) longus tendon, and it is the keystone of the lateral longitudinal arch."
+  },
+  "deferent duct": {
+    "kid": "A long, thin tube in a boy's body that carries sperm outward from beside the testicle.",
+    "d": "Begins at the tail of the epididymis, travels in the spermatic cord through the inguinal canal into the pelvis, and joins the duct of the seminal vesicle behind the bladder to form the ejaculatory duct. It is the firm, cord-like structure palpable within the spermatic cord."
+  },
+  "descending aorta": {
+    "kid": "The big blood vessel running down the front of your backbone, carrying blood to your chest, tummy and legs.",
+    "d": "Continues from the aortic arch at the level of T4; the thoracic aorta descends to the left and front of the vertebral column, passes through the aortic hiatus of the diaphragm at T12 to become the abdominal aorta, and bifurcates at L4. An abdominal aortic aneurysm may present as deep low back pain."
+  },
+  "distal phalanx of big toe": {
+    "kid": "The little bone at the very tip of your big toe, with the toenail on top, that helps you push off the ground when you walk.",
+    "d": "The plantar side of its base is the insertion of flexor hallucis longus and the dorsal side that of extensor hallucis longus; it forms the interphalangeal joint of the great toe with the proximal phalanx. It takes the final push-off force in terminal stance of gait."
+  },
+  "distal phalanx of fourth toe": {
+    "kid": "The little bone at the very tip of your fourth toe that holds up the tip and has the toenail on it.",
+    "d": "The plantar side of its base is the insertion of flexor digitorum longus, and extensor digitorum longus attaches dorsally through the extensor hood; it forms the distal interphalangeal joint with the middle phalanx."
+  },
+  "distal phalanx of index finger": {
+    "kid": "The little bone at the very tip of your pointer finger that holds up the fingertip so you can pinch small things.",
+    "d": "The palmar side of its base is the insertion of flexor digitorum profundus and the dorsal side that of the terminal extensor tendon; it forms the distal interphalangeal joint with the middle phalanx. Flexor digitorum profundus to the index finger is innervated by the anterior interosseous branch of the median nerve."
+  },
+  "distal phalanx of little finger": {
+    "kid": "The little bone at the very tip of your pinky finger that holds up the fingertip and helps when you grip things.",
+    "d": "The palmar side of its base is the insertion of flexor digitorum profundus and the dorsal side that of the terminal extensor tendon, forming the distal interphalangeal joint of the little finger. Flexor digitorum profundus to the little finger is innervated by the ulnar nerve and can be used to test ulnar nerve function."
+  },
+  "distal phalanx of little toe": {
+    "kid": "The tiny bone at the very tip of your little toe, one of the smallest bones in your foot.",
+    "d": "Its base receives the insertions of the flexor digitorum longus and extensor digitorum longus tendons, and it forms the distal interphalangeal joint with the middle phalanx. Congenital fusion of the middle and distal phalanges of the little toe is common and is a normal variant."
+  },
+  "distal phalanx of middle finger": {
+    "kid": "The little bone at the very tip of your middle finger that holds up the fingertip and nail, the tip that sticks out the most.",
+    "d": "The palmar side of its base is the insertion of flexor digitorum profundus and the dorsal side that of the terminal extensor tendon, while the distal tuft supports the finger pulp and nail bed. As the middle finger is the longest, crush injuries of the fingertip and tuft fractures are common."
+  },
+  "distal phalanx of ring finger": {
+    "kid": "The little bone at the very tip of your ring finger that holds up the fingertip and helps you grab and press things.",
+    "d": "The palmar side of its base is the insertion of flexor digitorum profundus and the dorsal side that of the terminal extensor tendon, forming the distal interphalangeal joint. Avulsion of flexor digitorum profundus (jersey finger) occurs most often in the ring finger."
+  },
+  "distal phalanx of second toe": {
+    "kid": "The little bone at the very tip of your second toe that holds up the tip and has the toenail on it.",
+    "d": "The plantar side of its base is the insertion of flexor digitorum longus, and the extensor digitorum longus tendon attaches dorsally; it forms the distal interphalangeal joint with the middle phalanx. A flexion deformity of the distal interphalangeal joint is called mallet toe."
+  },
+  "distal phalanx of third toe": {
+    "kid": "The little bone at the very tip of your third toe that holds up the tip and helps grip the ground.",
+    "d": "The plantar side of its base is the insertion of flexor digitorum longus, and the extensor digitorum longus tendon attaches dorsally; it forms the distal interphalangeal joint with the middle phalanx. It helps the toes grip the ground for stability during standing and walking."
+  },
+  "distal phalanx of thumb": {
+    "kid": "The little bone at the very tip of your thumb that holds up the tip so you can pinch and press hard.",
+    "d": "The palmar side of its base is the insertion of flexor pollicis longus and the dorsal side that of extensor pollicis longus; it forms the interphalangeal joint of the thumb with the proximal phalanx. When tip-to-tip pinch is weak, test flexor pollicis longus, which is innervated by the anterior interosseous nerve."
+  },
+  "duodenum": {
+    "kid": "The first part of your small intestine, right after the stomach, where bile and pancreas juice help break down your food.",
+    "d": "About 25 cm long and C-shaped around the head of the pancreas, it has four parts (superior, descending, horizontal and ascending) and is mostly retroperitoneal. The common bile duct and pancreatic duct open together at the major duodenal papilla in the descending part."
+  },
+  "ear": {
+    "kid": "The ears on the sides of your head catch sounds and bring them in, and inside there are tiny parts that look after your balance.",
+    "d": "The auricle is made of elastic cartilage and collects sound waves into the external acoustic meatus. The vestibule and semicircular canals of the inner ear serve the sense of balance and are relevant to vestibular rehabilitation (for example benign paroxysmal positional vertigo)."
+  },
+  "eighth rib": {
+    "kid": "The eighth rib in the lower part of your chest, which joins the other ribs to make a cage that protects your insides.",
+    "d": "A false rib whose costal cartilage does not reach the sternum directly but joins the seventh costal cartilage, contributing to the costal margin. Its head forms the costovertebral joint with the bodies of T7 and T8, and its tubercle forms the costotransverse joint with the transverse process of T8."
+  },
+  "eighth thoracic vertebra": {
+    "kid": "A backbone piece in the middle of your back, with ribs joined on both sides, that protects the spinal cord inside.",
+    "d": "A typical thoracic vertebra with superior and inferior costal facets on each side of the body and a costal facet on the transverse process, articulating with the eighth and ninth ribs; its spinous process is long and slopes downward. The caval opening of the diaphragm lies at about this level."
+  },
+  "eleventh rib": {
+    "kid": "A short rib just above your waist whose front end does not reach the breastbone, so it is called a floating rib.",
+    "d": "A floating rib whose anterior end lies free in the muscles of the abdominal wall. Its head articulates with the body of T11 by a single facet only, and it has no tubercle or costotransverse joint; it lies close to the kidney posteriorly."
+  },
+  "eleventh thoracic vertebra": {
+    "kid": "A backbone piece in the lower part of your back that joins a short floating rib and helps hold up your upper body.",
+    "d": "A transitional thoracic vertebra with a single complete costal facet on each side of the body for the eleventh rib, no costal facet on the transverse process, and a short, nearly horizontal spinous process. It lies near the thoracolumbar junction, a common region for compression fractures."
+  },
+  "epididymis": {
+    "kid": "A curvy little tube stuck to the back of the testicle where sperm grow up and are kept for a while.",
+    "d": "Lies on the posterosuperior aspect of the testis and is divided into a head, body and tail; it is the site of sperm maturation and storage, and its tail continues as the ductus deferens."
+  },
+  "esophagus": {
+    "kid": "A long tube from your throat to your stomach that the food you swallow slides down.",
+    "d": "About 25 cm long, it begins at the level of C6, runs through the posterior mediastinum, passes through the esophageal hiatus of the diaphragm at T10 and joins the cardia of the stomach. The upper third is skeletal muscle, and its peristaltic function must be considered when assessing dysphagia."
+  },
+  "ethmoid": {
+    "kid": "A light bone behind your nose and between your eyes, with lots of tiny holes that let you smell things.",
+    "d": "Consists of the cribriform plate (which transmits the olfactory nerves), the crista galli, the perpendicular plate (forming the upper part of the nasal septum) and the ethmoidal labyrinths (ethmoidal air cells and the superior and middle nasal conchae). It forms part of the floor of the anterior cranial fossa, the roof of the nasal cavity and the medial wall of the orbit."
+  },
+  "external iliac artery": {
+    "kid": "A big blood vessel in your hips that goes down through the groin to carry blood to your whole leg.",
+    "d": "A branch of the common iliac artery that descends along the medial side of psoas major and continues as the femoral artery after passing deep to the inguinal ligament. It gives off the inferior epigastric and deep circumflex iliac arteries."
+  },
+  "external iliac vein": {
+    "kid": "A big vein in your hips that sends used blood from your leg up back to your heart.",
+    "d": "The continuation of the femoral vein deep to the inguinal ligament; it joins the internal iliac vein to form the common iliac vein. It is the main channel of venous return from the lower limb, and emboli from proximal deep vein thrombosis readily cause pulmonary embolism."
+  },
+  "eyeball": {
+    "kid": "A round ball like a tiny camera that lets light in so you can see the shapes and colors of things.",
+    "d": "Composed of a fibrous layer (cornea and sclera), a vascular layer (choroid, ciliary body and iris) and the retina; the six extraocular muscles are innervated by cranial nerves III, IV and VI. The vestibulo-ocular reflex keeps gaze stable while the head moves."
+  },
+  "femur": {
+    "kid": "The bone inside your thigh, the longest and strongest bone in your whole body, which holds up your weight.",
+    "d": "Key landmarks are the head, neck, greater and lesser trochanters, linea aspera, adductor tubercle and medial and lateral condyles; proximally it forms the hip joint and distally the tibiofemoral and patellofemoral joints. The neck-shaft angle is about 125 degrees and the anteversion angle about 15 degrees, both of which influence lower limb alignment."
+  },
+  "fibula": {
+    "kid": "The long, thin bone on the outer side of your lower leg, whose bottom end is the bump on the outside of your ankle.",
+    "d": "The fibular head gives attachment to biceps femoris and the lateral collateral ligament, and the common fibular (peroneal) nerve winds around the fibular neck, where it is vulnerable to compression; distally the lateral malleolus forms the lateral wall of the ankle joint. It forms the proximal tibiofibular joint and the distal tibiofibular syndesmosis with the tibia and bears only about 10% of the load."
+  },
+  "fifth cervical vertebra": {
+    "kid": "A small bone in the middle of your neck that lets your neck bend and turn and protects the spinal cord inside.",
+    "d": "A typical cervical vertebra with uncinate processes, transverse foramina and a bifid spinous process; its facet joint surfaces are oriented at about 45 degrees. C5-C6 is the cervical segment with the greatest flexion-extension range and is a common site of degeneration and disc herniation."
+  },
+  "fifth costal cartilage": {
+    "kid": "The cartilage at the front of your fifth rib that joins the rib to the breastbone and keeps your chest springy.",
+    "d": "Connects the fifth rib to the body of the sternum, forming a synovial sternocostal joint. It is one of the origins of the sternocostal head of pectoralis major and one of the insertions of rectus abdominis, and the apex beat lies in the fifth intercostal space just below it."
+  },
+  "fifth lumbar vertebra": {
+    "kid": "The lowest big bone in your lower back, sitting on your pelvis and carrying the weight of your upper body.",
+    "d": "Has the largest vertebral body, wedge-shaped (taller anteriorly than posteriorly), and stout transverse processes that give attachment to the iliolumbar ligament; inferiorly it forms the lumbosacral joint with the sacrum. The pars interarticularis is a common site of spondylolysis and spondylolisthesis."
+  },
+  "fifth metacarpal bone": {
+    "kid": "The long bone on the pinky side of your palm that helps your pinky fold in toward your palm when you make a fist.",
+    "d": "Its base forms a relatively mobile carpometacarpal joint with the hamate and is the insertion of extensor carpi ulnaris; its head forms the metacarpophalangeal joint with the proximal phalanx of the little finger. A fracture of its neck is called a boxer's fracture."
+  },
+  "fifth metatarsal bone": {
+    "kid": "The long bone on the very outside of your foot, and the bump you can feel on the edge of your foot is its back end.",
+    "d": "The tuberosity of its base is the insertion of fibularis (peroneus) brevis, articulates with the cuboid and is palpable on the lateral border of the foot. Ankle inversion sprains are often accompanied by an avulsion fracture of the base, and Jones fractures at the junction with the proximal shaft heal poorly."
+  },
+  "fifth rib": {
+    "kid": "The fifth rib in the middle of your chest, which curves around your chest to protect your heart and lungs.",
+    "d": "A typical true rib with a head, neck, tubercle, costal angle and costal groove. Its head articulates with the bodies of T4 and T5 and its tubercle with the transverse process of T5, and its anterior end joins the body of the sternum through its costal cartilage; it is one of the origins of pectoralis minor and serratus anterior."
+  },
+  "fifth thoracic vertebra": {
+    "kid": "A backbone piece in the upper half of your back that joins ribs on both sides to help make your chest cage.",
+    "d": "A typical thoracic vertebra whose superior and inferior costal facets on the sides of the body and costal facets on the transverse processes form the costovertebral and costotransverse joints with the fifth and sixth ribs. Its facet joints lie close to the coronal plane, favoring rotation, while flexion and extension are limited by the ribs."
+  },
+  "first costal cartilage": {
+    "kid": "The short cartilage at the front of your first rib that fastens the rib firmly to the very top of the breastbone.",
+    "d": "Connects the first rib to the manubrium as an immovable synchondrosis rather than a synovial joint. It gives attachment to the costoclavicular ligament and subclavius and is an important structure for sternoclavicular joint stability."
+  },
+  "first lumbar vertebra": {
+    "kid": "The top big bone in your lower back, sitting just below the bones of your upper back and holding up your body.",
+    "d": "Lies at the thoracolumbar junction, with facet joints close to the sagittal plane so that movement is mainly flexion and extension. The conus medullaris ends at about L1-L2, and T12-L1 is a common level for compression fractures."
+  },
+  "first metacarpal bone": {
+    "kid": "The palm bone that joins your thumb and lets it swing around to touch your other fingers.",
+    "d": "The shortest and thickest metacarpal; its base forms the saddle-shaped first carpometacarpal joint with the trapezium and is the insertion of abductor pollicis longus. This joint is a common site of osteoarthritis, and an intra-articular fracture of the base is called a Bennett fracture."
+  },
+  "first metatarsal bone": {
+    "kid": "The short, thick bone that joins your big toe and takes the most force when you push off the ground to walk.",
+    "d": "The shortest and thickest metatarsal; its base articulates with the medial cuneiform and is the insertion of fibularis (peroneus) longus and tibialis anterior, and two sesamoid bones lie on the plantar side of its head. It is the anterior pillar of the medial longitudinal arch and deviates medially in hallux valgus."
+  },
+  "first rib": {
+    "kid": "The very top rib, short and very curved, which hides under your collarbone and goes around the top of your chest.",
+    "d": "The shortest, broadest and most curved rib; its superior surface bears the scalene tubercle (insertion of the anterior scalene) and the grooves for the subclavian artery and vein. Its head articulates with the body of T1 only, and an elevated first rib is a common factor in thoracic outlet syndrome."
+  },
+  "first thoracic vertebra": {
+    "kid": "The top backbone piece of your back, which joins the first pair of ribs and links your neck to your back.",
+    "d": "The body has a complete costal facet above for the first rib and a demifacet below for the second rib, and the spinous process is long, nearly horizontal and clearly palpable at the root of the neck. It lies at the cervicothoracic junction, and restricted mobility here often affects neck and shoulder girdle movement."
+  },
+  "fornix of forebrain": {
+    "kid": "A curved arch bridge in your brain that helps the memory center send its messages out.",
+    "d": "The main output fiber bundle of the hippocampus, divided into crus, body and column, arching over the thalamus to end in the mammillary body. It is part of the Papez circuit, and damage causes difficulty forming new memories."
+  },
+  "fourth cervical vertebra": {
+    "kid": "A small bone in the middle of your neck that works with the bones above and below to let your neck turn easily.",
+    "d": "A typical cervical vertebra with a small body, uncinate processes forming the uncovertebral joints, transverse foramina transmitting the vertebral arteries, and a short, bifid spinous process. It lies at about the level of the upper border of the thyroid cartilage and the bifurcation of the common carotid artery."
+  },
+  "fourth costal cartilage": {
+    "kid": "The cartilage at the front of your fourth rib that joins the rib to the breastbone and moves when you breathe.",
+    "d": "Connects the fourth rib to the body of the sternum, forming a synovial sternocostal joint, and is one of the origins of the sternocostal head of pectoralis major. During inspiration the costal cartilage twists and stores elastic potential energy, which assists the recoil of expiration."
+  },
+  "fourth lumbar vertebra": {
+    "kid": "A big bone low in your lower back that takes a lot of weight when you bend over and straighten up.",
+    "d": "A line joining the highest points of the two iliac crests passes through about the L4 spinous process or the L4-L5 interspace, serving as a landmark for palpation. L4-L5 is a common level for disc herniation and degenerative spondylolisthesis."
+  },
+  "fourth metacarpal bone": {
+    "kid": "The long bone in your palm that joins your ring finger and bends along to curve your palm when you make a fist.",
+    "d": "Its base articulates mainly with the hamate, and also with the capitate and the adjacent metacarpals, while its head forms the metacarpophalangeal joint of the ring finger. The fourth and fifth carpometacarpal joints are relatively mobile and form the transverse arch of the hand when making a fist."
+  },
+  "fourth metatarsal bone": {
+    "kid": "The long bone in your foot that joins your fourth toe and helps hold up the outer side of your foot.",
+    "d": "Its base articulates mainly with the cuboid, and also with the adjacent metatarsals, while its head forms the fourth metatarsophalangeal joint. Together with the fifth metatarsal it belongs to the lateral column of the foot, which is more mobile than the medial column."
+  },
+  "fourth rib": {
+    "kid": "The fourth rib in the upper part of your chest, which moves up and down like a bucket handle when you breathe.",
+    "d": "A typical true rib whose head articulates with the bodies of T3 and T4 and whose tubercle articulates with the transverse process of T4, with its anterior end joining the body of the sternum through its costal cartilage. It is one of the origins of pectoralis minor (ribs 3 to 5) and serratus anterior."
+  },
+  "fourth thoracic vertebra": {
+    "kid": "A backbone piece in the upper half of your back, with ribs joined on both sides, that protects the spinal cord inside.",
+    "d": "A typical thoracic vertebra that forms costovertebral joints with the fourth and fifth ribs and a costotransverse joint with the fourth rib. The T4-T5 intervertebral disc lies at about the level of the sternal angle, and restricted upper thoracic mobility is often associated with neck and shoulder symptoms."
+  },
+  "fourth ventricle": {
+    "kid": "A little pool in front of your little brain, where the brain fluid flows out to wrap around your brain.",
+    "d": "Lies posterior to the pons and medulla and anterior to the cerebellum, continuous above with the cerebral aqueduct and below with the central canal of the spinal cord. Cerebrospinal fluid passes through the median aperture and the two lateral apertures into the subarachnoid space."
+  },
+  "free taenia": {
+    "kid": "A muscle band on the outside of your large intestine that gathers the gut into little pouches and helps push poop along.",
+    "d": "One of the three longitudinal smooth muscle bands of the colon (the others being the omental and mesocolic taeniae), lying on the anterior surface of the colon with no omental or mesenteric attachment. The three taeniae converge at the base of the appendix, and their contraction forms the haustra."
+  },
+  "frontal bone": {
+    "kid": "The big, hard bone of your forehead that protects the front of your brain like a helmet.",
+    "d": "Forms the forehead, the roof of the orbit and the floor of the anterior cranial fossa; landmarks include the supraorbital margin, supraorbital notch (foramen), glabella and frontal sinus. It meets the parietal bones at the coronal suture and also articulates with the sphenoid, ethmoid, nasal and zygomatic bones."
+  },
+  "fusiform gyrus": {
+    "kid": "A fold on the bottom of your brain that helps you recognize the faces of your mom, dad and friends.",
+    "d": "Located on the inferior surface of the temporal and occipital lobes; responsible for high-level visual recognition such as faces and written words. Damage can cause prosopagnosia; it lies in the territory of the posterior cerebral artery."
+  },
+  "gallbladder": {
+    "kid": "A little bag under your liver that stores bile and squeezes it out when you eat greasy food.",
+    "d": "Lies in the gallbladder fossa on the inferior surface of the liver, storing and concentrating bile; its surface projection is at about the intersection of the right midclavicular line and the costal margin. Gallbladder disease can refer pain via the phrenic nerve to the right shoulder and right scapular region and must be differentiated from shoulder problems."
+  },
+  "gastric artery": {
+    "kid": "A blood vessel running along the edge of your stomach that brings it blood so it has the strength to digest food.",
+    "d": "The left gastric artery arises from the celiac trunk and the right gastric artery usually from the proper hepatic artery; the two anastomose along the lesser curvature of the stomach, supplying the lesser-curvature side of the stomach and the lower esophagus."
+  },
+  "gingiva of lower jaw": {
+    "kid": "The soft pink gum around the bottom of your lower teeth that holds the teeth firmly and protects their roots.",
+    "d": "Masticatory mucosa covering the alveolar process of the mandible and surrounding the necks of the teeth, with sensory supply from the mandibular division of the trigeminal nerve (inferior alveolar, buccal and lingual nerves). Periodontal disease causes gingival recession and alveolar bone loss."
+  },
+  "gingiva of upper jaw": {
+    "kid": "The soft pink gum around the top of your upper teeth that holds the teeth in place and keeps germs out.",
+    "d": "Masticatory mucosa covering the alveolar process of the maxilla and surrounding the necks of the teeth, with sensory supply from the maxillary division of the trigeminal nerve (superior alveolar, nasopalatine and greater palatine nerves). Healthy gingiva is pink and fits tightly against the tooth surface."
+  },
+  "glans penis": {
+    "kid": "The rounded part at the very tip of the penis, where the little opening for pee is.",
+    "d": "The distal expansion of the corpus spongiosum, with the external urethral orifice at its tip; sensory supply is from the dorsal nerve of the penis, a branch of the pudendal nerve."
+  },
+  "globus pallidus": {
+    "kid": "A pale little ball deep in your brain that works like a brake to help control your body's movements.",
+    "d": "Lies medial to the putamen, with which it forms the lentiform nucleus, and is divided into internal and external segments; the internal segment is the main output nucleus of the basal ganglia, sending inhibitory projections to the thalamus. It is one of the targets of deep brain stimulation for Parkinson's disease."
+  },
+  "great cardiac vein": {
+    "kid": "A big vein on the surface of your heart that collects the used blood from the front of the heart.",
+    "d": "Ascends in the anterior interventricular groove alongside the anterior interventricular branch, turns into the left coronary groove and drains into the coronary sinus, collecting venous blood from the anterior wall of the left ventricle and the interventricular septum."
+  },
+  "habenula": {
+    "kid": "A tiny lump deep in your brain that helps adjust your mood when something is disappointing or you do not like it.",
+    "d": "Part of the epithalamus, lying anterior to the pineal gland on each side of the posterior wall of the third ventricle; it receives limbic input through the stria medullaris thalami and projects to the midbrain. It takes part in processing reward and aversive signals and is relevant to depression research."
+  },
+  "hamate": {
+    "kid": "A small bone on the pinky side of your wrist with a little hook on it that protects the nerve next to it.",
+    "d": "Lies on the ulnar side of the distal carpal row; the hook of the hamate on its palmar surface gives attachment to the flexor retinaculum and forms the lateral boundary of Guyon's canal. It articulates distally with the fourth and fifth metacarpals, radially with the capitate and proximally with the triquetrum; fractures of the hook readily injure the ulnar nerve."
+  },
+  "hip bone": {
+    "kid": "The big bones on both sides of your bottom that hold your tummy like a bowl and join your body to your legs.",
+    "d": "Formed by fusion of the ilium, ischium and pubis at the acetabulum; landmarks include the iliac crest, anterior superior iliac spine, posterior superior iliac spine, ischial tuberosity and pubic tubercle. It forms the sacroiliac joint, the pubic symphysis and the hip joint."
+  },
+  "hippocampus": {
+    "kid": "A part of your brain shaped like a seahorse that helps you remember what you learned today.",
+    "d": "Located in the medial temporal lobe on the floor of the inferior horn of the lateral ventricle; responsible for forming declarative memory and for spatial memory, with output through the fornix. It is affected early in Alzheimer's disease, impairing the learning of new things."
+  },
+  "humerus": {
+    "kid": "The long bone inside your upper arm, joined to your shoulder at the top and your elbow at the bottom.",
+    "d": "Landmarks include the head, greater and lesser tubercles, intertubercular groove, surgical neck (axillary nerve), deltoid tuberosity, radial groove, medial and lateral epicondyles, capitulum and trochlea. Proximally it forms the glenohumeral joint, and distally the humeroulnar and humeroradial joints."
+  },
+  "hyoid bone": {
+    "kid": "A small horseshoe-shaped bone in the front of your neck that moves up and down when you swallow and talk.",
+    "d": "Consists of a body, greater horns and lesser horns at about the level of C3; it does not articulate with any other bone and is suspended by the suprahyoid and infrahyoid muscles and the stylohyoid ligament. It moves upward and forward during swallowing and is a key point of observation in dysphagia therapy."
+  },
+  "hypothalamus, nsn": {
+    "kid": "A tiny housekeeper in your brain that looks after your body temperature, hunger, thirst and sleep.",
+    "d": "Lies below the thalamus on each side of the third ventricle; it regulates the autonomic nervous system, body temperature, appetite and the sleep cycle, and controls the endocrine system through the pituitary gland. Damage after brain injury can cause impaired thermoregulation and autonomic dysfunction."
+  },
+  "ileum": {
+    "kid": "The last, twisty part of your small intestine, which soaks up the leftover goodness from your food into your body.",
+    "d": "The terminal part of the small intestine, making up about three-fifths of the jejunoileum, joining the cecum through the ileocecal valve in the right lower quadrant. It absorbs vitamin B12 and bile salts, and its wall contains the lymphoid tissue of Peyer's patches."
+  }
+}

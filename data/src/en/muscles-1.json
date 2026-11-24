@@ -1,0 +1,515 @@
+{
+  "abdominal part of pectoralis major": {
+    "kid": "This is the lowest strip of your big chest muscle, and it helps you pull your raised arm strongly back down toward your body.",
+    "o": "Anterior layer of the rectus sheath (aponeurosis of the external oblique)",
+    "i": "Crest of the greater tubercle of the humerus (lateral lip of the intertubercular groove)",
+    "a": "Shoulder adduction and internal rotation; pulls the flexed, raised arm downward (extension from a flexed position)",
+    "n": "Medial and lateral pectoral nerves (C7–T1)",
+    "b": "Pectoral branch of the thoracoacromial artery",
+    "c": "The lower fibres are lengthened most when the arm is raised overhead; to stretch, abduct the shoulder to about 135° and then horizontally abduct. Dips and decline bench press emphasise this part."
+  },
+  "abductor digiti minimi of foot": {
+    "kid": "It sits along the outer edge of the bottom of your foot and helps your little toe spread outward while holding up the outer arch of your foot.",
+    "o": "Medial and lateral processes of the calcaneal tuberosity, plantar aponeurosis",
+    "i": "Lateral side of the base of the proximal phalanx of the little toe",
+    "a": "Abduction and flexion of the little toe (metatarsophalangeal joint); supports the lateral longitudinal arch of the foot",
+    "n": "Lateral plantar nerve (S1–S3)",
+    "b": "Lateral plantar artery",
+    "c": "A first-layer muscle of the sole, palpable along the lateral border of the foot; with pain along the lateral border of the foot, differentiate from problems at the base of the fifth metatarsal."
+  },
+  "abductor digiti minimi of hand": {
+    "kid": "It lives in the soft pad on the pinky side of your palm and helps your little finger spread outward, like when you show the number five.",
+    "o": "Pisiform, tendon of flexor carpi ulnaris",
+    "i": "Ulnar side of the base of the proximal phalanx of the little finger and the extensor expansion",
+    "a": "Abduction of the little finger (metacarpophalangeal joint); assists flexion of the little finger metacarpophalangeal joint",
+    "n": "Deep branch of the ulnar nerve (C8–T1)",
+    "b": "Ulnar artery",
+    "c": "The most superficial muscle of the hypothenar eminence; in ulnar neuropathy (e.g. compression in Guyon's canal) the hypothenar eminence wastes and little finger abduction is weak."
+  },
+  "abductor hallucis": {
+    "kid": "It sits along the inner edge of the bottom of your foot, helps your big toe spread outward, and holds up the arch of your foot like a little bridge.",
+    "o": "Medial process of the calcaneal tuberosity, flexor retinaculum, plantar aponeurosis",
+    "i": "Medial side of the base of the proximal phalanx of the great toe (via the medial sesamoid)",
+    "a": "Abduction and flexion of the great toe (metatarsophalangeal joint); supports the medial longitudinal arch of the foot",
+    "n": "Medial plantar nerve (S2–S3)",
+    "b": "Medial plantar artery",
+    "c": "Weakness of this muscle is common in flat foot and hallux valgus; the short foot exercise and great toe abduction training can strengthen the arch."
+  },
+  "abductor pollicis brevis": {
+    "kid": "It lives in the puffy pad at the bottom of your thumb and helps your thumb lift up away from your palm so you are ready to grab things.",
+    "o": "Flexor retinaculum, tubercle of the scaphoid, tubercle of the trapezium",
+    "i": "Radial side of the base of the proximal phalanx of the thumb",
+    "a": "Palmar abduction of the thumb (carpometacarpal and metacarpophalangeal joints); assists opposition",
+    "n": "Recurrent branch of the median nerve (C8–T1)",
+    "b": "Superficial palmar branch of the radial artery",
+    "c": "In carpal tunnel syndrome, thenar wasting appears first in this muscle; resisted palmar abduction of the thumb is a commonly used test of median nerve motor function."
+  },
+  "abductor pollicis longus": {
+    "kid": "It runs from the back of your forearm all the way to the bottom of your thumb and helps your thumb open outward to make a thumbs-up.",
+    "o": "Middle part of the posterior surfaces of the ulna and radius, interosseous membrane of the forearm",
+    "i": "Radial side of the base of the first metacarpal",
+    "a": "Abduction and extension of the thumb (carpometacarpal joint); assists radial deviation of the wrist",
+    "n": "Posterior interosseous nerve (deep branch of the radial nerve) (C7–C8)",
+    "b": "Posterior interosseous artery",
+    "c": "Shares the first extensor compartment with extensor pollicis brevis, the typical site of de Quervain's tenosynovitis, with a positive Finkelstein test; forms the radial border of the anatomical snuffbox."
+  },
+  "acromial part of deltoid": {
+    "kid": "This muscle covers the outside of your shoulder and helps you lift your arm out to the side, like a little bird spreading its wings.",
+    "o": "Lateral border of the acromion of the scapula",
+    "i": "Deltoid tuberosity of the humerus",
+    "a": "Shoulder abduction (the main abductor beyond about 15°)",
+    "n": "Axillary nerve (C5–C6)",
+    "b": "Posterior circumflex humeral artery, deltoid branch of the thoracoacromial artery",
+    "c": "Multipennate and powerful; axillary nerve injury (anterior shoulder dislocation, fracture of the surgical neck of the humerus) causes weak abduction and a flattened shoulder contour."
+  },
+  "adductor brevis": {
+    "kid": "This short muscle hides on the inside of your thigh and helps you squeeze your spread legs back together.",
+    "o": "Body and inferior ramus of the pubis",
+    "i": "Pectineal line of the femur and proximal part of the medial lip of the linea aspera",
+    "a": "Hip adduction; assists hip flexion",
+    "n": "Obturator nerve (L2–L4)",
+    "b": "Deep femoral artery, obturator artery",
+    "c": "Lies deep to adductor longus and pectineus; the anterior and posterior branches of the obturator nerve run in front of and behind it respectively, making it a landmark for identifying the branches of the obturator nerve."
+  },
+  "adductor longus": {
+    "kid": "This is the easiest muscle to feel on the inside of your thigh, and it helps you squeeze your legs together, like when you pass a football with the inside of your foot.",
+    "o": "Anterior surface of the body of the pubis (below the pubic crest)",
+    "i": "Middle part of the medial lip of the linea aspera of the femur",
+    "a": "Hip adduction; assists hip flexion",
+    "n": "Anterior branch of the obturator nerve (L2–L4)",
+    "b": "Deep femoral artery, obturator artery",
+    "c": "The muscle most often injured in a groin strain; with the hip abducted, a prominent cord-like tendon can be felt beside the pubis. It forms the medial border of the femoral triangle."
+  },
+  "adductor magnus": {
+    "kid": "This is the biggest muscle on the inside of your thigh, and it squeezes your legs together and helps push your leg backward when you walk or climb stairs.",
+    "o": "Adductor part: inferior pubic ramus, ischial ramus; hamstring part: ischial tuberosity",
+    "i": "Adductor part: gluteal tuberosity, linea aspera and medial supracondylar line of the femur; hamstring part: adductor tubercle of the femur",
+    "a": "Hip adduction (powerful); adductor part assists hip flexion, hamstring part extends the hip",
+    "n": "Adductor part: posterior branch of the obturator nerve (L2–L4); hamstring part: tibial division of the sciatic nerve (L4)",
+    "b": "Deep femoral artery and its perforating branches, obturator artery",
+    "c": "The adductor hiatus is formed between its two distal insertions, through which the femoral artery and vein enter the popliteal fossa; the adductor tubercle is an important palpation landmark on the medial side of the knee."
+  },
+  "adductor minimus": {
+    "kid": "This is the small top piece of the big inner thigh muscle, and it helps squeeze your thigh toward the middle and turn your leg out a tiny bit.",
+    "o": "Inferior pubic ramus",
+    "i": "Upper part of the medial lip of the linea aspera of the femur (medial to the gluteal tuberosity)",
+    "a": "Hip adduction; assists hip external rotation",
+    "n": "Posterior branch of the obturator nerve (L2–L4)",
+    "b": "Deep femoral artery, obturator artery",
+    "c": "The uppermost part of adductor magnus, with nearly horizontal fibres; usually regarded as part of adductor magnus rather than a separate muscle."
+  },
+  "anconeus": {
+    "kid": "This tiny triangle-shaped muscle at the back of your elbow helps straighten your elbow and keeps the elbow joint steady.",
+    "o": "Posterior surface of the lateral epicondyle of the humerus",
+    "i": "Lateral surface of the olecranon and proximal posterior surface of the ulna",
+    "a": "Assists triceps brachii in elbow extension; stabilises the elbow joint, slightly abducts the ulna during forearm pronation",
+    "n": "Radial nerve (C7–C8)",
+    "b": "Middle collateral artery (from the deep brachial artery), interosseous recurrent artery",
+    "c": "Lies within the triangle formed by the lateral epicondyle, olecranon and radial head; a surface landmark for elbow joint aspiration and the posterolateral approach to the elbow."
+  },
+  "anterior belly of digastric": {
+    "kid": "This little muscle under your chin helps you open your mouth and lifts your throat up when you swallow.",
+    "o": "Digastric fossa of the mandible",
+    "i": "Intermediate tendon (attached by a fibrous pulley to the body and greater horn of the hyoid bone)",
+    "a": "Elevates the hyoid bone (swallowing); depresses the mandible when the hyoid is fixed (mouth opening)",
+    "n": "Nerve to mylohyoid (mandibular division of the trigeminal nerve, V3)",
+    "b": "Submental artery (from the facial artery)",
+    "c": "The anterior belly (V3) and posterior belly (facial nerve) have different innervation; it forms a boundary of the submental and submandibular triangles, and is one of the target muscles of swallowing training (e.g. the Shaker exercise)."
+  },
+  "aponeurosis of epicranius": {
+    "kid": "This is a tough, thin sheet covering the top of your head that joins the muscles of your forehead and the back of your head together, like a cap.",
+    "o": "Anteriorly: frontalis (frontal belly of occipitofrontalis)",
+    "i": "Posteriorly: occipitalis (occipital belly of occipitofrontalis), also attached to the highest nuchal line and external occipital protuberance of the occipital bone",
+    "a": "Connects frontalis and occipitalis and transmits tension between them, letting the scalp slide forward and backward and assisting raising of the eyebrows",
+    "n": "",
+    "b": "",
+    "c": "The third layer of the scalp; if a scalp laceration cuts transversely through the galea aponeurotica, the wound gapes because of the pull of frontalis and occipitalis. The loose connective tissue beneath it is the \"danger area\" of the scalp."
+  },
+  "ascending part of trapezius": {
+    "kid": "This muscle slants upward in the middle of your back and pulls your shoulder blades down and back so you stand tall instead of slouching.",
+    "o": "Spinous processes of T4–T12 and the supraspinous ligament",
+    "i": "Medial end of the spine of the scapula (tubercle at the triangular area of the scapular spine)",
+    "a": "Depression and retraction of the scapula; upwardly rotates the scapula together with the descending part and serratus anterior",
+    "n": "Accessory nerve (CN XI); branches of the cervical plexus (C3–C4) for proprioception",
+    "b": "Transverse cervical artery, dorsal scapular artery",
+    "c": "Lower trapezius weakness with upper trapezius overactivity is common in shoulder impingement and scapular dyskinesis; the prone Y raise is a commonly used exercise."
+  },
+  "brachialis": {
+    "kid": "This muscle hides under your biceps and is the strongest helper for bending your elbow, no matter which way your palm is facing.",
+    "o": "Distal half of the anterior surface of the humerus",
+    "i": "Ulnar tuberosity and coronoid process",
+    "a": "Elbow flexion (the prime elbow flexor, unaffected by forearm pronation or supination)",
+    "n": "Musculocutaneous nerve (C5–C6); a small inferolateral part is supplied by the radial nerve (C7)",
+    "b": "Muscular branches of the brachial artery, radial recurrent artery",
+    "c": "Flexing the elbow with the forearm pronated (reverse curl) relatively emphasises this muscle; a common site of heterotopic ossification (myositis ossificans) after elbow trauma."
+  },
+  "brachioradialis": {
+    "kid": "This is the bulgy muscle on the thumb side of your forearm, and it helps you bend your elbow when you lift a cup to drink or swing a hammer.",
+    "o": "Proximal two-thirds of the lateral supracondylar ridge of the humerus, lateral intermuscular septum",
+    "i": "Lateral side of the base of the radial styloid process",
+    "a": "Elbow flexion (strongest with the forearm in neutral); returns the pronated or supinated forearm to neutral",
+    "n": "Radial nerve (C5–C6)",
+    "b": "Radial recurrent artery",
+    "c": "An elbow flexor despite being supplied by the radial nerve; the brachioradialis reflex tests C5–C6. It stands out clearly on the radial side of the forearm during resisted elbow flexion with the forearm in neutral."
+  },
+  "buccinator": {
+    "kid": "This thin muscle inside your cheek works when you blow up a balloon or suck on a straw, and it pushes food back between your teeth when you eat.",
+    "o": "Lateral surfaces of the alveolar processes of the maxilla and mandible (molar region), pterygomandibular raphe",
+    "i": "Modiolus at the angle of the mouth, fibres blending into orbicularis oris",
+    "a": "Presses the cheek against the teeth (blowing, sucking); keeps food between the dental arches during chewing",
+    "n": "Buccal branch of the facial nerve (CN VII)",
+    "b": "Buccal artery (branch of the maxillary artery), facial artery",
+    "c": "In facial nerve palsy, food collects between the cheek and teeth on the affected side; the parotid duct pierces this muscle and opens opposite the upper second molar."
+  },
+  "calcaneal tendon": {
+    "kid": "This is the thick, strong cord just above your heel that carries the power of your calf muscles to your heel so you can stand on tiptoe and jump.",
+    "o": "Muscle bellies of gastrocnemius and soleus (triceps surae)",
+    "i": "Posterior surface of the calcaneal tuberosity",
+    "a": "Transmits the force of triceps surae to the calcaneus, producing ankle plantarflexion; stores and releases elastic energy during running and jumping",
+    "n": "",
+    "b": "",
+    "c": "The thickest and strongest tendon in the body; blood supply is relatively poor 2–6 cm above the insertion, the common site of tendinopathy and rupture. The Thompson test is positive with rupture, and eccentric heel-raise training is a commonly prescribed treatment for tendinopathy."
+  },
+  "cervical rotator": {
+    "kid": "These are super tiny muscles hugging the bones of your neck, and they work like little sensors that feel and fine-tune how your neck turns.",
+    "o": "Transverse processes (articular processes) of the cervical vertebrae",
+    "i": "Lamina and base of the spinous process of the cervical vertebra one to two levels above",
+    "a": "Assists cervical extension and rotation to the opposite side; mainly responsible for segmental stability and proprioception",
+    "n": "Posterior rami of the cervical nerves",
+    "b": "Muscular branches of the deep cervical, vertebral and occipital arteries",
+    "c": "The deepest layer of the transversospinalis group, rich in muscle spindles, with a function geared toward postural sensing and segmental control; the cervical rotatores are irregularly developed and often indistinct."
+  },
+  "clavicular part of deltoid": {
+    "kid": "This muscle at the front of your shoulder helps you lift your arm forward, like raising your hand to say \"I know the answer!\"",
+    "o": "Anterior border of the lateral third of the clavicle",
+    "i": "Deltoid tuberosity of the humerus",
+    "a": "Shoulder flexion, internal rotation and horizontal adduction; assists abduction",
+    "n": "Axillary nerve (C5–C6)",
+    "b": "Deltoid branch of the thoracoacromial artery, anterior and posterior circumflex humeral arteries",
+    "c": "The deltopectoral groove lies between it and the clavicular part of pectoralis major and contains the cephalic vein; the anterior fibres are often shortened and tight in people with a rounded-shoulder posture."
+  },
+  "clavicular part of pectoralis major": {
+    "kid": "This is the top half of your big chest muscle, near your collarbone, and it helps you lift your arm up in front of you and hug things.",
+    "o": "Anterior surface of the medial half of the clavicle",
+    "i": "Crest of the greater tubercle of the humerus (lateral lip of the intertubercular groove)",
+    "a": "Shoulder flexion, horizontal adduction, adduction and internal rotation",
+    "n": "Lateral pectoral nerve (C5–C6)",
+    "b": "Pectoral branch of the thoracoacromial artery",
+    "c": "The incline bench press emphasises this part more; to stretch, abduct the shoulder to about 90° and then horizontally abduct. Palpable below the clavicle, contracting clearly during resisted shoulder flexion."
+  },
+  "coccygeus": {
+    "kid": "This small muscle sits deep in your bottom and connects to your tailbone, helping hold up the organs in your tummy like a hammock.",
+    "o": "Ischial spine, sacrospinous ligament",
+    "i": "Lateral border of the coccyx and of the lower sacrum (S4–S5)",
+    "a": "Supports the pelvic viscera (posterior part of the pelvic diaphragm); pulls the coccyx forward again after defecation or childbirth",
+    "n": "Anterior rami of the sacral nerves (S4–S5)",
+    "b": "Inferior gluteal artery, internal pudendal artery",
+    "c": "Forms the pelvic diaphragm together with levator ani; can be a source of tenderness in coccydynia or pelvic floor hypertonicity. It lies directly on the pelvic surface of the sacrospinous ligament."
+  },
+  "coracobrachialis": {
+    "kid": "This long, thin muscle on the inside of your upper arm helps you lift your arm forward and bring it close to your body, like putting your hand in your pocket.",
+    "o": "Tip of the coracoid process of the scapula (common origin with the short head of biceps brachii)",
+    "i": "Medial surface of the middle of the humeral shaft",
+    "a": "Shoulder flexion and adduction; helps stabilise the humeral head in the glenoid",
+    "n": "Musculocutaneous nerve (C5–C7)",
+    "b": "Muscular branches of the brachial artery",
+    "c": "The musculocutaneous nerve pierces this muscle and may be compressed when the muscle is hypertrophied or overused; palpable medial to the anterior wall of the axilla with the shoulder abducted and externally rotated."
+  },
+  "corrugator supercilii": {
+    "kid": "This little muscle inside your eyebrow squeezes your eyebrows together to make a frown when you are angry or thinking hard.",
+    "o": "Medial end of the superciliary arch of the frontal bone",
+    "i": "Skin above the middle of the eyebrow",
+    "a": "Draws the eyebrow medially and downward, producing vertical wrinkles between the eyebrows (frowning)",
+    "n": "Temporal branch of the facial nerve (CN VII)",
+    "b": "Supratrochlear artery, supraorbital artery",
+    "c": "Lies deep to frontalis and orbicularis oculi; the main target muscle for botulinum toxin injection for glabellar lines. Ask the patient to frown when assessing facial nerve function."
+  },
+  "deep head of flexor pollicis brevis": {
+    "kid": "This little muscle deep at the bottom of your thumb helps your thumb bend toward your palm so you can pinch things.",
+    "o": "Trapezoid, capitate",
+    "i": "Radial side of the base of the proximal phalanx of the thumb (via the radial sesamoid)",
+    "a": "Flexion of the thumb metacarpophalangeal joint; assists opposition",
+    "n": "Deep branch of the ulnar nerve (C8–T1)",
+    "b": "Superficial palmar branch of the radial artery, branches of the deep palmar arch",
+    "c": "The superficial head is supplied by the recurrent branch of the median nerve and the deep head mostly by the deep branch of the ulnar nerve, so some thumb flexion strength may be preserved after median nerve injury."
+  },
+  "deep part of masseter": {
+    "kid": "This is the inner layer of the chewing muscle at the back of your cheek, and it gets hard when you bite down to help you crunch up your food.",
+    "o": "Medial surface of the zygomatic arch and the lower border of its posterior third",
+    "i": "Upper part of the lateral surface of the ramus of the mandible and the coronoid process",
+    "a": "Elevates the mandible (mouth closing, biting); assists retraction of the mandible",
+    "n": "Masseteric nerve (mandibular division of the trigeminal nerve, V3)",
+    "b": "Masseteric artery (branch of the maxillary artery)",
+    "c": "The deep fibres are more vertical and more posterior; tenderness and trigger points are common with bruxism, clenching and temporomandibular disorders, and it can be palpated and released with an intraoral–extraoral pincer grip."
+  },
+  "depressor anguli oris": {
+    "kid": "This little triangle-shaped muscle below the corner of your mouth pulls the corners down to make a pouty face when you feel sad and want to cry.",
+    "o": "Oblique line of the mandible (lateral to the mental tubercle)",
+    "i": "Modiolus and skin at the angle of the mouth",
+    "a": "Draws the angle of the mouth downward and laterally (expressions of sadness or displeasure)",
+    "n": "Marginal mandibular branch (and buccal branch) of the facial nerve (CN VII)",
+    "b": "Inferior labial artery (from the facial artery)",
+    "c": "Injury to the marginal mandibular branch of the facial nerve (e.g. in submandibular surgery) leaves the angle of the mouth on the affected side unable to be pulled down, so the mouth is asymmetrical when smiling or opening."
+  },
+  "depressor labii inferioris": {
+    "kid": "This little muscle under your bottom lip pulls the lip down and out so your bottom teeth show.",
+    "o": "Oblique line of the mandible (between the mental symphysis and the mental foramen)",
+    "i": "Skin and mucosa of the lower lip, interlacing with orbicularis oris",
+    "a": "Draws the lower lip downward and laterally (everts the lower lip, as in expressing doubt or pouting)",
+    "n": "Marginal mandibular branch of the facial nerve (CN VII)",
+    "b": "Inferior labial artery (from the facial artery), mental artery",
+    "c": "Its lateral part is covered by depressor anguli oris; in facial palsy rehabilitation it can be facilitated by asking the patient to show the lower teeth."
+  },
+  "depressor septi nasi": {
+    "kid": "This little muscle right under your nose pulls the tip of your nose down when you breathe in hard, helping your nostrils open a bit wider.",
+    "o": "Incisive fossa of the maxilla",
+    "i": "Cartilaginous (mobile) part of the nasal septum and posterior part of the ala of the nose",
+    "a": "Pulls the nasal septum and tip of the nose downward; assists widening of the nostrils (during deep inspiration)",
+    "n": "Buccal branch (and zygomatic branch) of the facial nerve (CN VII)",
+    "b": "Superior labial artery (from the facial artery)",
+    "c": "Lies deep to orbicularis oris; when this muscle is overactive, the tip of the nose droops noticeably and the upper lip shortens on smiling."
+  },
+  "descending part of trapezius": {
+    "kid": "This muscle runs from the back of your head to your shoulder and helps you shrug and carry your backpack, and it gets sore if you look down for too long.",
+    "o": "Medial third of the superior nuchal line of the occipital bone, external occipital protuberance, ligamentum nuchae",
+    "i": "Posterior border of the lateral third of the clavicle",
+    "a": "Elevates the shoulder girdle and helps upwardly rotate the scapula; unilateral contraction laterally flexes the neck to the same side and rotates it to the opposite side, bilateral contraction extends the head and neck",
+    "n": "Accessory nerve (CN XI); branches of the cervical plexus (C3–C4) for proprioception",
+    "b": "Transverse cervical artery, occipital artery",
+    "c": "One of the most common sites of myofascial trigger points, which can cause temporal tension-type headache; stretch with contralateral lateral flexion and ipsilateral rotation of the neck plus scapular depression. Accessory nerve injury causes a drooping shoulder and a weak shrug."
+  },
+  "diaphragm": {
+    "kid": "This muscle is shaped like a parachute between your chest and your tummy, and when it pulls down, air gets sucked into your lungs, so it is the star of breathing.",
+    "o": "Sternal part: posterior surface of the xiphoid process; costal part: inner surfaces of the lower six ribs and costal cartilages; lumbar part: bodies of L1–L3 (left and right crura) and the medial and lateral arcuate ligaments",
+    "i": "Central tendon",
+    "a": "Main muscle of inspiration: the dome descends on contraction, enlarging the thoracic cavity; raises intra-abdominal pressure (coughing, defecation, core stability)",
+    "n": "Phrenic nerve (C3–C5); peripheral sensation from the lower intercostal nerves",
+    "b": "Pericardiacophrenic, musculophrenic, superior phrenic and inferior phrenic arteries",
+    "c": "\"C3, 4, 5 keeps the diaphragm alive\"; high cervical cord injury affects breathing. Irritation of the diaphragm can refer pain to the shoulder (C4). Abdominal (diaphragmatic) breathing training is fundamental to cardiopulmonary and core rehabilitation."
+  },
+  "extensor carpi radialis brevis": {
+    "kid": "This muscle on the back of your forearm helps you tip your wrist up toward the back of your hand and keeps your wrist steady when you make a strong fist.",
+    "o": "Lateral epicondyle of the humerus (common extensor tendon)",
+    "i": "Dorsal surface of the base of the third metacarpal",
+    "a": "Wrist extension; assists radial deviation of the wrist, stabilises the wrist during gripping",
+    "n": "Deep branch of the radial nerve (C7–C8)",
+    "b": "Radial artery, radial recurrent artery",
+    "c": "The tendon most often involved in tennis elbow (lateral epicondylitis / common extensor tendinopathy); the Cozen test and resisted middle finger extension provoke pain, and eccentric training is commonly prescribed."
+  },
+  "extensor carpi radialis longus": {
+    "kid": "This long muscle on the thumb side of your forearm helps you tip your wrist up and tilt it toward your thumb.",
+    "o": "Distal third of the lateral supracondylar ridge of the humerus, lateral intermuscular septum",
+    "i": "Dorsal surface of the base of the second metacarpal",
+    "a": "Wrist extension and radial deviation; weakly assists elbow flexion",
+    "n": "Radial nerve (C6–C7)",
+    "b": "Radial artery, radial recurrent artery",
+    "c": "Supplied by the main trunk of the radial nerve (before the deep branch is given off), so wrist extension is still possible in posterior interosseous neuropathy, but the wrist deviates radially as it extends."
+  },
+  "extensor digiti minimi": {
+    "kid": "This skinny muscle on the back of your forearm has one special job: straightening your little finger so you can stick your pinky up all by itself.",
+    "o": "Lateral epicondyle of the humerus (common extensor tendon)",
+    "i": "Extensor expansion of the little finger (dorsal digital expansion)",
+    "a": "Extension of the little finger (metacarpophalangeal and interphalangeal joints); assists wrist extension",
+    "n": "Posterior interosseous nerve (deep branch of the radial nerve) (C7–C8)",
+    "b": "Posterior interosseous artery",
+    "c": "Its tendon runs in the fifth extensor compartment (dorsal to the distal radioulnar joint); in rheumatoid arthritis it is one of the first extensor tendons to rupture (Vaughan-Jackson syndrome)."
+  },
+  "extensor digitorum": {
+    "kid": "This muscle on the back of your forearm splits into four cords going to your fingers and helps you straighten and spread your four fingers together.",
+    "o": "Lateral epicondyle of the humerus (common extensor tendon)",
+    "i": "Extensor expansions of digits 2–5, inserting on the dorsal bases of the middle and distal phalanges",
+    "a": "Extension of digits 2–5 (acting mainly at the metacarpophalangeal joints and assisting extension of the interphalangeal joints); assists wrist extension",
+    "n": "Posterior interosseous nerve (deep branch of the radial nerve) (C7–C8)",
+    "b": "Posterior interosseous artery, interosseous recurrent artery",
+    "c": "Rupture of the distal insertion causes mallet finger, and rupture of the central slip causes a boutonnière deformity; intertendinous connections between the tendons on the back of the hand limit independent extension of each finger."
+  },
+  "extensor digitorum brevis": {
+    "kid": "This small, soft lump of muscle on the outer top of your foot helps your middle toes lift up.",
+    "o": "Superolateral surface of the calcaneus (anterior to the sinus tarsi), inferior extensor retinaculum",
+    "i": "Lateral sides of the extensor digitorum longus tendons to toes 2–4 (dorsal digital expansion)",
+    "a": "Assists extension of toes 2–4 (metatarsophalangeal and interphalangeal joints)",
+    "n": "Deep fibular nerve (L5–S1)",
+    "b": "Dorsalis pedis artery, lateral tarsal artery",
+    "c": "The soft bulge on the dorsum of the foot in front of the lateral malleolus is this muscle belly, easily mistaken for swelling after an ankle sprain; its wasting can be a sign of L5 nerve root or deep fibular nerve pathology."
+  },
+  "extensor digitorum longus": {
+    "kid": "This long muscle on the outer front of your lower leg lifts your four smaller toes up and raises the front of your foot when you walk so you do not trip.",
+    "o": "Lateral condyle of the tibia, upper three-quarters of the anterior surface of the fibula, interosseous membrane of the leg",
+    "i": "Dorsal bases of the middle and distal phalanges of toes 2–5 (via the dorsal digital expansion)",
+    "a": "Extension of toes 2–5; ankle dorsiflexion",
+    "n": "Deep fibular nerve (L5–S1)",
+    "b": "Anterior tibial artery",
+    "c": "Also weak in foot drop caused by deep fibular nerve or L5 injury; when tibialis anterior is weak it compensates for dorsiflexion, which over time can lead to claw toes."
+  },
+  "extensor hallucis brevis": {
+    "kid": "This little muscle on the top of your foot has one special job: lifting your big toe up.",
+    "o": "Superolateral surface of the calcaneus (anterior to the sinus tarsi), inferior extensor retinaculum",
+    "i": "Dorsal surface of the base of the proximal phalanx of the great toe",
+    "a": "Extension of the great toe metatarsophalangeal joint",
+    "n": "Deep fibular nerve (L5–S1)",
+    "b": "Dorsalis pedis artery",
+    "c": "The most medial slip of extensor digitorum brevis, often regarded as part of the same muscle; its tendon crosses obliquely over the dorsalis pedis artery on the dorsum of the foot and is a guide to finding that artery."
+  },
+  "extensor hallucis longus": {
+    "kid": "This muscle runs from the front of your lower leg to your big toe, and it lifts your big toe up strongly and helps pull your foot up too.",
+    "o": "Middle part of the anterior surface of the fibula, interosseous membrane of the leg",
+    "i": "Dorsal surface of the base of the distal phalanx of the great toe",
+    "a": "Extension of the great toe (metatarsophalangeal and interphalangeal joints); ankle dorsiflexion",
+    "n": "Deep fibular nerve (L5–S1)",
+    "b": "Anterior tibial artery",
+    "c": "Resisted extension of the great toe is the key muscle test for the L5 nerve root; the dorsalis pedis pulse can be felt lateral to its tendon at the front of the ankle."
+  },
+  "extensor indicis": {
+    "kid": "This little muscle deep in your forearm lets your pointer finger straighten all by itself, so it is what you use to point at things.",
+    "o": "Distal third of the posterior surface of the ulna, interosseous membrane of the forearm",
+    "i": "Extensor expansion of the index finger (on the ulnar side of the extensor digitorum tendon to the index finger)",
+    "a": "Independent extension of the index finger (metacarpophalangeal and interphalangeal joints); assists wrist extension",
+    "n": "Posterior interosseous nerve (deep branch of the radial nerve) (C7–C8)",
+    "b": "Posterior interosseous artery",
+    "c": "Shares the fourth extensor compartment with extensor digitorum; because it can be sacrificed on its own, it is often used as a donor tendon for tendon transfer (e.g. reconstruction of a ruptured extensor pollicis longus)."
+  },
+  "extensor pollicis brevis": {
+    "kid": "This little muscle runs from the back of your forearm to your thumb and helps straighten the bottom part of your thumb, like when you give a thumbs-up.",
+    "o": "Distal third of the posterior surface of the radius, interosseous membrane of the forearm",
+    "i": "Dorsal surface of the base of the proximal phalanx of the thumb",
+    "a": "Extension of the thumb metacarpophalangeal joint; assists extension and abduction of the thumb carpometacarpal joint",
+    "n": "Posterior interosseous nerve (deep branch of the radial nerve) (C7–C8)",
+    "b": "Posterior interosseous artery",
+    "c": "Shares the first extensor compartment with abductor pollicis longus and is one of the tendons involved in de Quervain's tenosynovitis; forms the radial border of the anatomical snuffbox."
+  },
+  "extensor pollicis longus": {
+    "kid": "This muscle runs from the back of your forearm to the tip of your thumb and helps your whole thumb straighten and tip backward, like a hitchhiker's thumb.",
+    "o": "Middle third of the posterior surface of the ulna, interosseous membrane of the forearm",
+    "i": "Dorsal surface of the base of the distal phalanx of the thumb",
+    "a": "Extension of the thumb interphalangeal joint, and extension of the metacarpophalangeal and carpometacarpal joints; assists thumb adduction and retroposition",
+    "n": "Posterior interosseous nerve (deep branch of the radial nerve) (C7–C8)",
+    "b": "Posterior interosseous artery",
+    "c": "Its tendon changes direction around the dorsal tubercle of the radius (Lister's tubercle) and may fray and rupture after a distal radius fracture or in rheumatoid arthritis; forms the ulnar border of the anatomical snuffbox."
+  },
+  "external anal sphincter": {
+    "kid": "This ring of muscle around the opening of your bottom squeezes tight like a rubber band so you can hold your poo until you get to the toilet.",
+    "o": "Perineal body (central tendon of the perineum) and perianal skin",
+    "i": "Anococcygeal ligament (attached to the tip of the coccyx)",
+    "a": "Voluntary contraction closes the anal canal and maintains faecal continence; keeps a resting tonic contraction",
+    "n": "Inferior rectal nerve from the pudendal nerve (S2–S4)",
+    "b": "Inferior rectal artery (branch of the internal pudendal artery)",
+    "c": "Divided into subcutaneous, superficial and deep parts, the deep part being continuous with puborectalis; obstetric injury or pudendal neuropathy can cause faecal incontinence, which can be treated with pelvic floor muscle training and biofeedback."
+  },
+  "external intercostal muscle": {
+    "kid": "These muscles sit between your ribs and lift the ribs up when you breathe in, making your chest bigger to hold more air.",
+    "o": "Lower border of the rib above",
+    "i": "Upper border of the rib below (fibres run obliquely forward and downward)",
+    "a": "Elevates the ribs and expands the thoracic cage during inspiration; maintains tension of the intercostal spaces, preventing them from being drawn in or bulging out during breathing",
+    "n": "Intercostal nerves (T1–T11)",
+    "b": "Posterior intercostal arteries, anterior intercostal arteries (branches of the internal thoracic and musculophrenic arteries)",
+    "c": "Fibres run forward and downward like \"hands in pockets\"; anteriorly, near the sternum, it is replaced by the external intercostal membrane. The intercostal neurovascular bundle runs along the lower border of the rib, so the needle in thoracentesis should be inserted along the upper border of the rib."
+  },
+  "external oblique": {
+    "kid": "This is the outermost muscle on the sides of your tummy, and it helps you bend forward, twist and lean sideways, and it squeezes your tummy tight when you cough.",
+    "o": "External surfaces of ribs 5–12 (interdigitating with serratus anterior and latissimus dorsi)",
+    "i": "Linea alba, pubic tubercle, outer lip of the anterior half of the iliac crest; the lower border of the aponeurosis forms the inguinal ligament",
+    "a": "Bilateral: trunk flexion, raises intra-abdominal pressure, assists forced expiration; unilateral: lateral flexion of the trunk to the same side, rotation to the opposite side",
+    "n": "Thoracoabdominal nerves (T7–T11), subcostal nerve (T12)",
+    "b": "Lower posterior intercostal arteries, subcostal artery, deep circumflex iliac artery",
+    "c": "Fibres run forward and downward (hands in pockets); the right external oblique works with the left internal oblique to rotate the trunk to the left. The superficial inguinal ring in its aponeurosis is the exit point for inguinal hernias."
+  },
+  "fibularis brevis": {
+    "kid": "This muscle on the lower outside of your leg turns the sole of your foot outward and protects your ankle from twisting when you walk on bumpy ground.",
+    "o": "Distal two-thirds of the lateral surface of the fibula",
+    "i": "Tuberosity of the fifth metatarsal (lateral side of the base)",
+    "a": "Eversion of the foot; assists ankle plantarflexion",
+    "n": "Superficial fibular nerve (L5–S2)",
+    "b": "Fibular artery, branches of the anterior tibial artery",
+    "c": "An inversion ankle sprain can cause an avulsion fracture of the base of the fifth metatarsal; the tendon is prone to longitudinal tears or subluxation behind the lateral malleolus. A focus of eversion strength training after ankle sprain."
+  },
+  "fibularis longus": {
+    "kid": "This long muscle on the outside of your lower leg has a cord that wraps under your foot, turning your sole outward and holding up the arch of your foot.",
+    "o": "Head of the fibula, proximal two-thirds of the lateral surface of the fibula",
+    "i": "Medial cuneiform and base of the first metatarsal (lateral side of the plantar surface)",
+    "a": "Eversion of the foot, ankle plantarflexion; depresses the first metatarsal, supports the transverse arch and lateral longitudinal arch of the foot",
+    "n": "Superficial fibular nerve (L5–S2)",
+    "b": "Fibular artery, branches of the anterior tibial artery",
+    "c": "Its tendon passes behind the lateral malleolus and then through the groove of the cuboid to cross the sole obliquely; the common fibular nerve lies deep to this muscle as it winds around the neck of the fibula, where it is vulnerable to compression. Reaction time of this muscle is often delayed in chronic ankle instability."
+  },
+  "fibularis tertius": {
+    "kid": "This little muscle at the lower front of your leg helps pull your foot up and turns the sole outward a little at the same time.",
+    "o": "Distal third of the anterior surface of the fibula, interosseous membrane of the leg",
+    "i": "Dorsal surface of the base of the fifth metatarsal",
+    "a": "Ankle dorsiflexion; eversion of the foot",
+    "n": "Deep fibular nerve (L5–S1)",
+    "b": "Anterior tibial artery",
+    "c": "Really a part split off from extensor digitorum longus, belonging to the anterior compartment (not the lateral compartment); absent in some people. Helps lift the lateral border of the foot during swing phase."
+  },
+  "first lumbrical of foot": {
+    "kid": "This skinny muscle in the bottom of your foot looks like a little worm, and it bends the base of your second toe while keeping its tip straight so your foot grips the ground well.",
+    "o": "Medial border of the flexor digitorum longus tendon to the second toe",
+    "i": "Medial side of the base of the proximal phalanx of the second toe and the dorsal digital expansion (extensor expansion)",
+    "a": "Flexes the metatarsophalangeal joint of the second toe while extending the interphalangeal joints",
+    "n": "Medial plantar nerve (S2–S3)",
+    "b": "Medial plantar artery",
+    "c": "A second-layer muscle of the sole; the first lumbrical is supplied by the medial plantar nerve and the other three by the lateral plantar nerve. Weakness of the intrinsic foot muscles is associated with claw toes and hammer toes."
+  },
+  "first plantar interosseous of foot": {
+    "kid": "This little muscle hides between the bones of your foot and helps your third toe move toward your second toe, bringing your toes together.",
+    "o": "Base and medial surface of the third metatarsal",
+    "i": "Medial side of the base of the proximal phalanx of the third toe and the dorsal digital expansion",
+    "a": "Adduction of the third toe (toward the second toe); flexes the metatarsophalangeal joint, assists extension of the interphalangeal joints",
+    "n": "Deep branch of the lateral plantar nerve (S2–S3)",
+    "b": "Plantar arterial arch, plantar metatarsal arteries",
+    "c": "A fourth-layer (deepest) muscle of the sole; the axis for adduction and abduction in the foot is the second toe (the middle finger in the hand). Plantar interossei adduct (PAD), dorsal interossei abduct (DAB)."
+  },
+  "flexor accessorius": {
+    "kid": "This square muscle in the middle of the bottom of your foot tugs on the long cord that bends your toes so they can curl straight down.",
+    "o": "Medial border (medial head) and lateral border (lateral head) of the plantar surface of the calcaneus",
+    "i": "Posterolateral border of the flexor digitorum longus tendon",
+    "a": "Assists flexion of toes 2–5; corrects the oblique pull of the flexor digitorum longus tendon so the toes flex along their long axis",
+    "n": "Lateral plantar nerve (S1–S3)",
+    "b": "Lateral plantar artery, medial plantar artery",
+    "c": "Also known as quadratus plantae, a second-layer muscle of the sole; with pain on the plantar surface of the calcaneus, differentiate from plantar fasciitis. It can still assist toe flexion when the ankle is plantarflexed."
+  },
+  "flexor carpi radialis": {
+    "kid": "This muscle on the inside of your forearm helps you bend your wrist toward your palm and tilt it toward your thumb, like when you throw a ball.",
+    "o": "Medial epicondyle of the humerus (common flexor tendon)",
+    "i": "Palmar surface of the base of the second metacarpal (some fibres to the base of the third metacarpal)",
+    "a": "Wrist flexion and radial deviation; weakly assists forearm pronation and elbow flexion",
+    "n": "Median nerve (C6–C7)",
+    "b": "Branches of the ulnar artery (ulnar recurrent artery), radial artery",
+    "c": "Its tendon is prominent at the wrist, and the radial pulse is palpated just on its radial side; the median nerve lies deep in the interval between it and the palmaris longus tendon. Part of the flexor–pronator group associated with golfer's elbow."
+  },
+  "flexor digiti minimi brevis of foot": {
+    "kid": "This little muscle on the outer side of the bottom of your foot helps bend the base of your little toe downward to grip the ground.",
+    "o": "Plantar surface of the base of the fifth metatarsal, sheath of the fibularis longus tendon",
+    "i": "Lateral side of the base of the proximal phalanx of the little toe",
+    "a": "Flexion of the little toe metatarsophalangeal joint",
+    "n": "Superficial branch of the lateral plantar nerve (S2–S3)",
+    "b": "Lateral plantar artery",
+    "c": "A third-layer muscle of the sole, lying medial and deep to abductor digiti minimi; palpable along the plantar surface of the fifth metatarsal."
+  },
+  "flexor digiti minimi brevis of hand": {
+    "kid": "This little muscle on the pinky side of your palm helps your little finger bend from its base toward your palm and gives it power when you hold things.",
+    "o": "Hook of the hamate, flexor retinaculum",
+    "i": "Ulnar side of the base of the proximal phalanx of the little finger",
+    "a": "Flexion of the little finger metacarpophalangeal joint",
+    "n": "Deep branch of the ulnar nerve (C8–T1)",
+    "b": "Ulnar artery",
+    "c": "Lies on the radial side of abductor digiti minimi; the deep branch of the ulnar nerve and the deep branch of the ulnar artery pass between the origins of the two muscles. A fracture of the hook of the hamate can affect the nerve here."
+  },
+  "flexor digitorum brevis": {
+    "kid": "This muscle right in the middle of the bottom of your foot helps your four smaller toes curl down to grip the ground and also helps hold up your arch.",
+    "o": "Medial process of the calcaneal tuberosity, plantar aponeurosis",
+    "i": "Both sides of the middle phalanges of toes 2–5 (each tendon splits to let the flexor digitorum longus tendon pass through)",
+    "a": "Flexion of the proximal interphalangeal and metatarsophalangeal joints of toes 2–5; supports the longitudinal arch of the foot",
+    "n": "Medial plantar nerve (S2–S3)",
+    "b": "Medial plantar artery, lateral plantar artery",
+    "c": "A first-layer muscle of the sole lying directly deep to the plantar aponeurosis, equivalent to flexor digitorum superficialis in the hand; it can be trained with towel curls and marble pick-ups, and is often tight in plantar fasciitis."
+  },
+  "flexor digitorum longus": {
+    "kid": "This muscle deep in the back of your lower leg has cords that go around the inside of your ankle to the bottom of your foot, helping the tips of your four smaller toes curl down hard to grip the ground.",
+    "o": "Middle part of the posterior surface of the tibia (below the soleal line)",
+    "i": "Plantar surface of the bases of the distal phalanges of toes 2–5",
+    "a": "Flexion of toes 2–5 (mainly the distal interphalangeal joints); assists ankle plantarflexion and foot inversion, supports the longitudinal arch of the foot",
+    "n": "Tibial nerve (L5–S2)",
+    "b": "Posterior tibial artery",
+    "c": "Its tendon passes through the tarsal tunnel behind the medial malleolus (the Dick in Tom, Dick and Harry); it is often used as the transfer tendon in reconstruction for posterior tibial tendon dysfunction, and is also associated with medial tibial stress syndrome."
+  }
+}

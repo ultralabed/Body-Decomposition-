@@ -1,13 +1,15 @@
 // All DOM / interaction code. The 3D work happens in core.js, motion.js and
 // attach.js; this file wires buttons and panels to them.
+// Every visible string goes through t('中文') so it can be shown in English.
 
 import * as THREE from '../vendor/three.module.min.js';
 import * as core from './core.js';
 import { app, on, NORMAL, GHOST, HIDDEN } from './core.js';
-import { GROUPS, PEEL, SYS_ZH, LAYER_ZH, REGION_ZH, REGION_ORDER, REGIONS, MUSCLE_GROUPS, MOTIONS } from './catalog.js';
+import { GROUPS, PEEL, SYS, LAYER, REGION, REGION_ORDER, REGIONS, MUSCLE_GROUPS, MOTIONS } from './catalog.js';
 import * as motion from './motion.js';
 import * as attach from './attach.js';
 import { createQuiz } from './quiz.js';
+import { t, L, getLang, setLang, keyName, keyAlt, applyStatic } from './i18n.js';
 
 const $ = (s, r = document) => r.querySelector(s);
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -19,13 +21,14 @@ const store = {
 
 const root = document.documentElement;
 const sheet = $('#sheet'), sheetBody = $('#sheet-body'), sheetTitle = $('#sheet-title');
-const selbar = $('#selbar'), tabs = $('#tabs'), peelEl = $('#peel'), toastEl = $('#toast');
+const selbar = $('#selbar'), tabs = $('#tabs'), peelEl = $('#peel'), toastEl = $('#toast'), langBtn = $('#lang-btn');
 const desktop = window.matchMedia('(min-width: 900px)');
 
-const TAB_TITLES = { layers: '圖層', regions: '部位', groups: '肌群', motions: '關節動作', quiz: '測驗', tools: '工具', info: '說明' };
+const tabTitle = (name) => ({ layers: t('圖層'), regions: t('部位'), groups: t('肌群'), motions: t('關節動作'), quiz: t('測驗'), tools: t('工具'), info: t('說明') })[name];
 const PRIME = new THREE.Color('#ffb703'), ASSIST = new THREE.Color('#36c5c0');
 const isSoft = (p) => p.sys === 'muscle' || p.sys === 'tendon';
 const isHard = (p) => p.sys === 'bone' || p.sys === 'joint';
+const info = (key) => app.info[key];
 
 let tab = null;          // open panel name or null
 let mode = 'normal';     // normal | attach | motion | quiz
@@ -59,7 +62,7 @@ function syncLayout() {
 function openTab(name) {
   tab = name;
   sheet.hidden = false;
-  sheetTitle.textContent = TAB_TITLES[name];
+  sheetTitle.textContent = tabTitle(name);
   for (const b of tabs.children) b.setAttribute('aria-pressed', String(b.dataset.tab === name));
   render();
   sheetBody.scrollTop = 0;
@@ -155,36 +158,46 @@ function familyKeys(key) {
   const out = [...app.byKey.keys()].filter((k) => k === base || (k.endsWith(' of ' + base) && /\b(head|part|belly) of /.test(k)));
   return out.length ? out : [key];
 }
+const familyBase = (key) => key.replace(/^.*\b(?:head|part|belly) of /, '');
 function commonPrefix(list) {
   if (!list.length) return '';
   let p = list[0];
   for (const s of list) { let i = 0; while (i < p.length && i < s.length && p[i] === s[i]) i++; p = p.slice(0, i); }
   return p;
 }
+// Name of a whole muscle made of several heads / parts.
+function familyName(keys) {
+  const en = familyBase(keys[0]);
+  const zh = commonPrefix(keys.map((k) => info(k).zh));
+  const enCap = en.charAt(0).toUpperCase() + en.slice(1);
+  if (getLang() === 'en') return { name: enCap, alt: zh.length >= 2 ? zh : '' };
+  return zh.length >= 2 ? { name: zh, alt: en } : null;
+}
 function selectionTitle(parts) {
-  if (!parts.length) return { zh: '', en: '' };
-  if (parts.length === 1) return { zh: parts[0].zh, en: parts[0].en };
+  if (!parts.length) return { name: '', alt: '' };
+  if (parts.length === 1) return { name: parts[0].name, alt: parts[0].alt };
   const keys = [...new Set(parts.map((p) => p.key))];
-  if (keys.length === 1) return { zh: parts[0].info.zh + '（左右兩側）', en: keys[0] };
+  if (keys.length === 1) return { name: t('{name}（左右兩側）', { name: keyName(keys[0]) }), alt: keyAlt(keys[0]) };
   const fam = familyKeys(keys[0]);
   if (keys.every((k) => fam.includes(k))) {
-    const pre = commonPrefix(keys.map((k) => app.info[k].zh));
-    if (pre.length >= 2) return { zh: `${pre}（${keys.length} 個部分）`, en: keys[0].replace(/^.*\b(?:head|part|belly) of /, '') };
+    const f = familyName(keys);
+    if (f) return { name: t('{name}（{n} 個部分）', { name: f.name, n: keys.length }), alt: f.alt };
   }
-  return { zh: `已選 ${parts.length} 個構造`, en: keys.slice(0, 3).map((k) => app.info[k].zh).join('、') + (keys.length > 3 ? '…' : '') };
+  return { name: t('已選 {n} 個構造', { n: parts.length }), alt: keys.slice(0, 3).map(keyName).join(t('、')) + (keys.length > 3 ? '…' : '') };
 }
 
 // ---------------------------------------------------------------- peel + views
 
+const PEEL_SW = ['#dfae8f', '#c5483c', '#a8383a', '#8a2d38', '#e3d6b8'];
 function buildPeel() {
-  const sw = ['#dfae8f', '#c5483c', '#a8383a', '#8a2d38', '#e3d6b8'];
-  peelEl.innerHTML = '<div class="cap">剝層</div>' + PEEL.map((n, i) => `<button data-peel="${i}" style="--sw:${sw[i]}" aria-pressed="false">${n}</button>`).join('');
-  peelEl.addEventListener('click', (e) => {
-    const b = e.target.closest('[data-peel]'); if (!b) return;
-    if (mode !== 'normal') setMode('normal');
-    core.setPeel(Number(b.dataset.peel));
-  });
+  peelEl.innerHTML = `<div class="cap">${t('剝層')}</div>` + PEEL.map((n, i) => `<button data-peel="${i}" style="--sw:${PEEL_SW[i]}" aria-pressed="false">${L(n)}</button>`).join('');
+  syncPeel();
 }
+peelEl.addEventListener('click', (e) => {
+  const b = e.target.closest('[data-peel]'); if (!b) return;
+  if (mode !== 'normal') setMode('normal');
+  core.setPeel(Number(b.dataset.peel));
+});
 function syncPeel() {
   const lv = core.peelLevel();
   for (const b of peelEl.querySelectorAll('[data-peel]')) b.setAttribute('aria-pressed', String(Number(b.dataset.peel) === lv));
@@ -195,22 +208,24 @@ $('#views').addEventListener('click', (e) => {
   if (b.dataset.view) core.setView(b.dataset.view);
   else if (b.dataset.act === 'reset') core.resetView();
   else if (b.dataset.act === 'undo') { if (mode !== 'normal') setMode('normal'); core.undo(); render(); }
-  else if (b.dataset.act === 'showall') { setMode('normal'); core.showAll(); core.select([]); regionOnly = false; render(); toast('全部都回來了'); }
+  else if (b.dataset.act === 'showall') { setMode('normal'); core.showAll(); core.select([]); regionOnly = false; render(); toast(t('全部都回來了')); }
 });
 
 // ---------------------------------------------------------------- search
 
-function buildSearch() {
+function buildSearchIndex() {
   searchIndex = [...app.byKey.entries()].map(([key, parts]) => ({
-    key, parts, zh: parts[0].info.zh, en: key.toLowerCase(), sys: parts[0].sys, color: '#' + parts[0].color.getHexString(),
-    tag: (SYS_ZH[parts[0].sys] || '').split('／')[0] + (parts[0].layer ? '·' + LAYER_ZH[parts[0].layer] : ''),
+    key, zh: parts[0].info.zh, en: key.toLowerCase(), sys: parts[0].sys, color: '#' + parts[0].color.getHexString(),
+    tag: L(SYS[parts[0].sys]).split(/[／/]/)[0].trim() + (parts[0].layer ? ' · ' + L(LAYER[parts[0].layer]) : ''),
   }));
+}
+function setupSearch() {
   const input = $('#q'), results = $('#results'), clear = $('#q-clear');
   const run = () => {
     const raw = input.value.trim();
     clear.hidden = !raw;
     if (!raw) { results.hidden = true; return; }
-    const q = raw.toLowerCase().replace(/^[左右]/, '') || raw.toLowerCase();
+    const q = raw.toLowerCase().replace(/^[左右]|^(left|right)\s+/, '') || raw.toLowerCase();
     const scored = [];
     for (const e of searchIndex) {
       let s = -1;
@@ -221,11 +236,11 @@ function buildSearch() {
       else if (q.split(/\s+/).every((w) => e.en.includes(w))) s = 4;
       if (s >= 0) scored.push([s + (e.sys === 'muscle' || e.sys === 'bone' ? 0 : 0.5), e]);
     }
-    scored.sort((a, b) => a[0] - b[0] || a[1].zh.length - b[1].zh.length);
+    scored.sort((a, b) => a[0] - b[0] || a[1].en.length - b[1].en.length);
     results.hidden = false;
     results.innerHTML = scored.length
-      ? scored.slice(0, 40).map(([, e]) => `<button class="res" data-key="${esc(e.key)}"><i class="dot" style="background:${e.color}"></i><span><b>${esc(e.zh)}</b><small>${esc(e.key)}</small></span><span class="tag">${e.tag}</span></button>`).join('')
-      : '<div class="res-empty">找不到，換個字試試（例如「二頭」或 biceps）</div>';
+      ? scored.slice(0, 40).map(([, e]) => `<button class="res" data-key="${esc(e.key)}"><i class="dot" style="background:${e.color}"></i><span><b>${esc(keyName(e.key))}</b><small>${esc(keyAlt(e.key))}</small></span><span class="tag">${esc(e.tag)}</span></button>`).join('')
+      : `<div class="res-empty">${t('找不到，換個字試試（例如「二頭」或 biceps）')}</div>`;
   };
   input.addEventListener('input', run);
   input.addEventListener('focus', run);
@@ -238,7 +253,7 @@ function buildSearch() {
     const b = e.target.closest('.res'); if (!b) return;
     results.hidden = true; input.value = ''; clear.hidden = true; input.blur();
     spotlightKey(b.dataset.key);
-    toast('其他構造已變淡。按左邊的「全部顯示」可以恢復');
+    toast(t('其他構造已變淡。按左邊的「全部顯示」可以恢復'));
   });
   document.addEventListener('pointerdown', (e) => { if (!e.target.closest('#top')) results.hidden = true; });
 }
@@ -248,13 +263,13 @@ function buildSearch() {
 function updateSelbar() {
   const parts = core.selectedParts();
   if (!parts.length || mode === 'quiz') { selbar.hidden = true; return; }
-  const t = selectionTitle(parts);
+  const s = selectionTitle(parts);
   const btn = (act, ic, label, pressed) => `<button data-act="${act}"${pressed !== undefined ? ` aria-pressed="${pressed}"` : ''}>${icon(ic)}${label}</button>`;
   selbar.hidden = false;
-  selbar.innerHTML = `<button class="sel-name" data-act="info"><b>${esc(t.zh)}</b><small>${esc(t.en)}</small><span class="more">說明${icon('chev')}</span></button>
+  selbar.innerHTML = `<button class="sel-name" data-act="info"><b>${esc(s.name)}</b><small>${esc(s.alt)}</small><span class="more">${t('說明')}${icon('chev')}</span></button>
     <div class="sel-tools">
-      ${btn('hide', 'eye-off', '隱藏')}${btn('ghost', 'ghost', '變透明')}${btn('isolate', 'target', '只看這個')}
-      ${btn('fade-others', 'contrast', '其他變淡')}${btn('focus', 'pin', '靠近看')}${btn('multi', 'multi', '多選', app.state.multi)}
+      ${btn('hide', 'eye-off', t('隱藏'))}${btn('ghost', 'ghost', t('變透明'))}${btn('isolate', 'target', t('只看這個'))}
+      ${btn('fade-others', 'contrast', t('其他變淡'))}${btn('focus', 'pin', t('靠近看'))}${btn('multi', 'multi', t('多選'), app.state.multi)}
     </div>`;
 }
 
@@ -262,10 +277,10 @@ selbar.addEventListener('click', (e) => {
   const b = e.target.closest('[data-act]'); if (!b) return;
   const a = b.dataset.act;
   if (a === 'info') return openTab('info');
-  if (a === 'multi') { app.state.multi = !app.state.multi; updateSelbar(); toast(app.state.multi ? '多選開啟：一個一個點，可以選很多個' : '多選關閉'); return; }
+  if (a === 'multi') { app.state.multi = !app.state.multi; updateSelbar(); toast(app.state.multi ? t('多選開啟：一個一個點，可以選很多個') : t('多選關閉')); return; }
   if (a === 'focus') { const p = core.selectedParts(); return core.focusParts(p, outwardDir(p), { pad: 1.8 }); }
   if (mode !== 'normal') setMode('normal');
-  if (a === 'hide') { core.hideSelected(); toast('已隱藏。按左邊的復原箭頭可以叫回來'); }
+  if (a === 'hide') { core.hideSelected(); toast(t('已隱藏。按左邊的復原箭頭可以叫回來')); }
   else if (a === 'ghost') core.ghostSelected();
   else if (a === 'isolate') core.isolateSelected(HIDDEN);
   else if (a === 'fade-others') core.isolateSelected(GHOST);
@@ -277,23 +292,23 @@ selbar.addEventListener('click', (e) => {
 function layersHtml() {
   const g = app.state.groups;
   const rows = GROUPS.map((x) => {
-    const s = g[x.id];
+    const s = g[x.id], name = L(x.name);
     return `<div class="layer" data-off="${!s.on}">
-      <div class="row"><button class="switch" role="switch" aria-checked="${s.on}" aria-label="${x.zh}" data-act="group-toggle" data-id="${x.id}"></button>
-        <div class="txt"><b>${x.zh}</b><small>${x.hint}</small></div></div>
-      <div class="op"><input type="range" min="5" max="100" step="5" value="${Math.round(s.op * 100)}" data-act="group-op" data-id="${x.id}" aria-label="${x.zh}透明度"><span>${Math.round(s.op * 100)}%</span></div>
+      <div class="row"><button class="switch" role="switch" aria-checked="${s.on}" aria-label="${esc(name)}" data-act="group-toggle" data-id="${x.id}"></button>
+        <div class="txt"><b>${esc(name)}</b><small>${esc(L(x.hint))}</small></div></div>
+      <div class="op"><input type="range" min="5" max="100" step="5" value="${Math.round(s.op * 100)}" data-act="group-op" data-id="${x.id}" aria-label="${esc(t('{name}透明度', { name }))}"><span>${Math.round(s.op * 100)}%</span></div>
     </div>`;
   }).join('');
   const side = app.state.side;
   const counts = {};
   for (const [, parts] of app.byKey) counts[parts[0].sys] = (counts[parts[0].sys] || 0) + 1;
   const tree = ['muscle', 'tendon', 'bone', 'joint', 'organ', 'vessel', 'nerve', 'skin'].map((sys) =>
-    `<details class="tree" data-sys="${sys}"><summary>${icon('chev')}${SYS_ZH[sys]}<small>${counts[sys] || 0} 種</small></summary><div class="tree-body"></div></details>`).join('');
-  return `<p class="hint">打開或關掉每一層，拉桿可以讓它變透明。右邊的「剝層」是一鍵版本。</p>
+    `<details class="tree" data-sys="${sys}"><summary>${icon('chev')}${esc(L(SYS[sys]))}<small>${t('{n} 種', { n: counts[sys] || 0 })}</small></summary><div class="tree-body"></div></details>`).join('');
+  return `<p class="hint">${t('打開或關掉每一層，拉桿可以讓它變透明。右邊的「剝層」是一鍵版本。')}</p>
     ${rows}
-    <div class="h3">只看身體的一邊</div>
-    <div class="seg">${[['all', '兩邊'], ['R', '只看右邊'], ['L', '只看左邊']].map(([v, t]) => `<button data-act="side" data-v="${v}" aria-pressed="${side === v}">${t}</button>`).join('')}</div>
-    <div class="h3">全部構造清單（點名字會帶你去看）</div>
+    <div class="h3">${t('只看身體的一邊')}</div>
+    <div class="seg">${[['all', t('兩邊')], ['R', t('只看右邊')], ['L', t('只看左邊')]].map(([v, label]) => `<button data-act="side" data-v="${v}" aria-pressed="${side === v}">${label}</button>`).join('')}</div>
+    <div class="h3">${t('全部構造清單（點名字會帶你去看）')}</div>
     ${tree}`;
 }
 
@@ -305,14 +320,15 @@ function treeBodyHtml(sys) {
     if (!byRegion.has(r)) byRegion.set(r, []);
     byRegion.get(r).push([key, parts]);
   }
+  const locale = getLang() === 'en' ? 'en' : 'zh-Hant';
   let html = '';
   for (const r of REGION_ORDER) {
     const list = byRegion.get(r); if (!list) continue;
-    list.sort((a, b) => a[1][0].info.zh.localeCompare(b[1][0].info.zh, 'zh-Hant'));
-    html += `<div class="tree-sub">${REGION_ZH[r]}</div>` + list.map(([key, parts]) => {
+    list.sort((a, b) => keyName(a[0]).localeCompare(keyName(b[0]), locale));
+    html += `<div class="tree-sub">${esc(L(REGION[r]))}</div>` + list.map(([key, parts]) => {
       const hidden = parts.every((p) => p.user === HIDDEN);
-      return `<div class="tree-item" data-hidden="${hidden}"><button data-act="tree-go" data-key="${esc(key)}"><b>${esc(parts[0].info.zh)}</b><small>${esc(key)}</small></button>
-        <button class="icon-btn" data-act="tree-eye" data-key="${esc(key)}" aria-label="顯示或隱藏">${icon(hidden ? 'eye-off' : 'eye')}</button></div>`;
+      return `<div class="tree-item" data-hidden="${hidden}"><button data-act="tree-go" data-key="${esc(key)}"><b>${esc(keyName(key))}</b><small>${esc(keyAlt(key))}</small></button>
+        <button class="icon-btn" data-act="tree-eye" data-key="${esc(key)}" aria-label="${t('顯示或隱藏')}">${icon(hidden ? 'eye-off' : 'eye')}</button></div>`;
     }).join('');
   }
   return html;
@@ -322,8 +338,8 @@ function treeBodyHtml(sys) {
 
 function regionBox(r) {
   if (r.anchor) {
-    const L = motion.landmarks('R');
-    if (L) return new THREE.Box3().setFromCenterAndSize(L[r.anchor], new THREE.Vector3(r.r * 2, r.r * 2, r.r * 2));
+    const lm = motion.landmarks('R');
+    if (lm) return new THREE.Box3().setFromCenterAndSize(lm[r.anchor], new THREE.Vector3(r.r * 2, r.r * 2, r.r * 2));
   }
   const want = r.frame || r.regions;
   if (!want) return app.bounds.clone();
@@ -342,10 +358,10 @@ function goRegion(id) {
   render();
 }
 function regionsHtml() {
-  return `<p class="hint">點一下就飛過去看那個部位（手腳以右邊為主）。</p>
-    <div class="grid3">${REGIONS.map((r) => `<button class="btn" data-act="region" data-id="${r.id}" aria-pressed="${activeRegion === r.id}">${r.zh}</button>`).join('')}</div>
-    <div class="opt" style="margin-top:10px"><div class="txt"><b>只顯示這個部位</b><small>把其他部位的肌肉骨頭先收起來，畫面比較乾淨</small></div>
-      <button class="switch" role="switch" aria-checked="${regionOnly}" aria-label="只顯示這個部位" data-act="region-only"></button></div>`;
+  return `<p class="hint">${t('點一下就飛過去看那個部位（手腳以右邊為主）。')}</p>
+    <div class="grid3">${REGIONS.map((r) => `<button class="btn" data-act="region" data-id="${r.id}" aria-pressed="${activeRegion === r.id}">${esc(L(r.name))}</button>`).join('')}</div>
+    <div class="opt" style="margin-top:10px"><div class="txt"><b>${t('只顯示這個部位')}</b><small>${t('把其他部位的肌肉骨頭先收起來，畫面比較乾淨')}</small></div>
+      <button class="switch" role="switch" aria-checked="${regionOnly}" aria-label="${t('只顯示這個部位')}" data-act="region-only"></button></div>`;
 }
 
 // ---------------------------------------------------------------- panel: muscle groups
@@ -355,9 +371,10 @@ function groupParts(item) {
   return app.parts.filter((p) => isSoft(p) && re.test(p.key));
 }
 function groupsHtml() {
-  return `<p class="hint">常一起工作的肌肉。點一下，這群肌肉會亮起來，其他的會變淡。</p>` +
-    MUSCLE_GROUPS.map((c, ci) => `<div class="h3">${c.cat}</div>` + c.items.map((it, ii) =>
-      `<button class="card-btn" data-act="mgroup" data-c="${ci}" data-i="${ii}"><b>${it.zh}</b><em>${it.en}</em><small>${it.kid}</small></button>`).join('')).join('');
+  const other = getLang() === 'en' ? 0 : 1; // show the other language as a small subtitle
+  return `<p class="hint">${t('常一起工作的肌肉。點一下，這群肌肉會亮起來，其他的會變淡。')}</p>` +
+    MUSCLE_GROUPS.map((c, ci) => `<div class="h3">${esc(L(c.cat))}</div>` + c.items.map((it, ii) =>
+      `<button class="card-btn" data-act="mgroup" data-c="${ci}" data-i="${ii}"><b>${esc(L(it.name))}</b><em>${esc(it.name[other])}</em><small>${esc(L(it.kid))}</small></button>`).join('')).join('');
 }
 
 // ---------------------------------------------------------------- panel: motions
@@ -378,9 +395,9 @@ function motionBox(m, side) {
   if (m.planted) return app.bounds.clone();
   if (joint === 'trunk') { const b = app.bounds.clone(); b.min.y = 0.55; return b; }
   if (joint === 'neck') { const b = app.bounds.clone(); b.min.y = 1.22; b.min.x = -0.2; b.max.x = 0.2; return b; }
-  const L = motion.landmarks(side);
+  const lm = motion.landmarks(side);
   const r = { shoulder: 0.42, elbow: 0.3, wrist: 0.2, hip: 0.6, knee: 0.48, ankle: 0.24 }[joint] || 0.4;
-  const c = L[joint].clone();
+  const c = lm[joint].clone();
   if (joint === 'shoulder' || joint === 'hip') c.y -= r * 0.35;
   if (joint === 'elbow') c.y += 0.08;
   return new THREE.Box3().setFromCenterAndSize(c, new THREE.Vector3(r * 2, r * 2, r * 2));
@@ -404,7 +421,7 @@ function startMotion(m, both) {
   render();
   sheetBody.scrollTop = 0;
 }
-const easeInOut = (t) => t * t * (3 - 2 * t);
+const easeInOut = (x) => x * x * (3 - 2 * x);
 function playerTick(dt) {
   if (!playing) return;
   if (playHold > 0) { playHold -= dt; return; }
@@ -419,75 +436,77 @@ function stopPlayer() { playing = false; core.removeFrameHook(playerTick); motio
 
 function motionsHtml() {
   if (!activeMotion) {
-    return `<p class="hint">選一個動作：模型會動給你看，而且把「負責出力的肌肉」亮起來。</p>` +
-      MOTIONS.map((c, ci) => `<div class="h3">${c.cat}</div><div class="grid2">` + c.items.map((m, mi) =>
-        `<button class="btn" data-act="motion" data-c="${ci}" data-i="${mi}">${m.zh}</button>`).join('') + '</div>').join('');
+    return `<p class="hint">${t('選一個動作：模型會動給你看，而且把「負責出力的肌肉」亮起來。')}</p>` +
+      MOTIONS.map((c, ci) => `<div class="h3">${esc(L(c.cat))}</div><div class="grid2">` + c.items.map((m, mi) =>
+        `<button class="btn" data-act="motion" data-c="${ci}" data-i="${mi}">${esc(L(m.name))}</button>`).join('') + '</div>').join('');
   }
   const m = activeMotion;
-  const chip = (p, cls) => `<button class="chip ${cls}" data-act="motion-muscle" data-id="${p.id}">${esc(p.zh)}</button>`;
+  const other = getLang() === 'en' ? 0 : 1;
+  const label = (p) => (motionBoth ? keyName(p.key) : p.name);
+  const chip = (p, cls) => `<button class="chip ${cls}" data-act="motion-muscle" data-id="${p.id}">${esc(label(p))}</button>`;
   const uniq = (set) => { const seen = new Set(); return [...set].filter((p) => (motionBoth ? !seen.has(p.key) && seen.add(p.key) : true)); };
-  const name = (p) => (motionBoth ? { ...p, zh: p.info.zh } : p);
-  return `<div class="info"><h3>${m.zh}</h3><div class="en">${m.en}</div></div>
-    <div class="kid">${m.kid}</div>
-    <dl class="facts"><dt>正常角度</dt><dd>${m.rom}</dd></dl>
-    <div class="player"><button class="btn primary" data-act="motion-play" aria-label="${playing ? '暫停' : '播放'}">${icon(playing ? 'pause' : 'play')}</button>
-      <input id="motion-t" type="range" min="0" max="100" value="${Math.round(playT * 100)}" data-act="motion-t" aria-label="動作進度"><output id="motion-o">${Math.round(playT * 100)}%</output></div>
-    ${motionBoth ? '' : `<div class="seg" style="margin-bottom:10px">${[['R', '右邊'], ['L', '左邊']].map(([v, t]) => `<button data-act="motion-side" data-v="${v}" aria-pressed="${motionSide === v}">${t}</button>`).join('')}</div>`}
-    <div class="h3">主要出力的肌肉（金色）</div><div class="chips">${uniq(primeSet).map((p) => chip(name(p), 'prime')).join('')}</div>
-    ${assistSet.size ? `<div class="h3">幫忙的肌肉（青色）</div><div class="chips">${uniq(assistSet).map((p) => chip(name(p), 'assist')).join('')}</div>` : ''}
-    <div class="opt" style="margin-top:10px"><div class="txt"><b>其他肌肉變淡</b><small>只留下有出力的肌肉，比較好看清楚</small></div>
-      <button class="switch" role="switch" aria-checked="${motionFocus}" aria-label="其他肌肉變淡" data-act="motion-focus"></button></div>
-    <button class="btn wide" data-act="motion-exit" style="margin-top:12px">結束這個動作</button>
-    <p class="fine">動作是用「彎曲變形」模擬的示意動畫，肌肉在關節附近的形狀只是近似，不是精確的生物力學模擬。</p>`;
+  return `<div class="info"><h3>${esc(L(m.name))}</h3><div class="en">${esc(m.name[other])}</div></div>
+    <div class="kid" data-lead="${t('簡單說：')}">${esc(L(m.kid))}</div>
+    <dl class="facts"><dt>${t('正常角度')}</dt><dd>${esc(L(m.rom))}</dd></dl>
+    <div class="player"><button class="btn primary" data-act="motion-play" aria-label="${playing ? t('暫停') : t('播放')}">${icon(playing ? 'pause' : 'play')}</button>
+      <input id="motion-t" type="range" min="0" max="100" value="${Math.round(playT * 100)}" data-act="motion-t" aria-label="${t('動作進度')}"><output id="motion-o">${Math.round(playT * 100)}%</output></div>
+    ${motionBoth ? '' : `<div class="seg" style="margin-bottom:10px">${[['R', t('右邊')], ['L', t('左邊')]].map(([v, s]) => `<button data-act="motion-side" data-v="${v}" aria-pressed="${motionSide === v}">${s}</button>`).join('')}</div>`}
+    <div class="h3">${t('主要出力的肌肉（金色）')}</div><div class="chips">${uniq(primeSet).map((p) => chip(p, 'prime')).join('')}</div>
+    ${assistSet.size ? `<div class="h3">${t('幫忙的肌肉（青色）')}</div><div class="chips">${uniq(assistSet).map((p) => chip(p, 'assist')).join('')}</div>` : ''}
+    <div class="opt" style="margin-top:10px"><div class="txt"><b>${t('其他肌肉變淡')}</b><small>${t('只留下有出力的肌肉，比較好看清楚')}</small></div>
+      <button class="switch" role="switch" aria-checked="${motionFocus}" aria-label="${t('其他肌肉變淡')}" data-act="motion-focus"></button></div>
+    <button class="btn wide" data-act="motion-exit" style="margin-top:12px">${t('結束這個動作')}</button>
+    <p class="fine">${t('動作是用「彎曲變形」模擬的示意動畫，肌肉在關節附近的形狀只是近似，不是精確的生物力學模擬。')}</p>`;
 }
 
 // ---------------------------------------------------------------- panel: info
 
 function infoHtml() {
   const parts = core.selectedParts();
-  if (!parts.length) return `<p class="hint">還沒選東西。在模型上點一塊肌肉或骨頭，這裡就會出現它的說明。</p>`;
+  if (!parts.length) return `<p class="hint">${t('還沒選東西。在模型上點一塊肌肉或骨頭，這裡就會出現它的說明。')}</p>`;
   const keys = [...new Set(parts.map((p) => p.key))];
+  const lead = t('簡單說：');
   if (keys.length > 1) {
-    return `<p class="hint">你選了 ${parts.length} 個構造。點名字看單一個的說明。</p>` +
-      keys.map((k) => `<button class="card-btn" data-act="info-one" data-key="${esc(k)}"><b>${esc(app.info[k].zh)}</b><em>${esc(k)}</em><small>${esc(app.info[k].kid || '')}</small></button>`).join('') +
-      (parts.every(isSoft) ? `<button class="btn wide" data-act="attach" aria-pressed="${mode === 'attach'}">${icon('pin')}${mode === 'attach' ? '關閉起點／止點' : '在骨頭上顯示起點／止點'}</button>${mode === 'attach' ? attachLegend() : ''}` : '');
+    return `<p class="hint">${t('你選了 {n} 個構造。點名字看單一個的說明。', { n: parts.length })}</p>` +
+      keys.map((k) => `<button class="card-btn" data-act="info-one" data-key="${esc(k)}"><b>${esc(keyName(k))}</b><em>${esc(keyAlt(k))}</em><small>${esc(core.text(k).kid || '')}</small></button>`).join('') +
+      (parts.every(isSoft) ? `<button class="btn wide" data-act="attach" aria-pressed="${mode === 'attach'}">${icon('pin')}${mode === 'attach' ? t('關閉起點／止點') : t('在骨頭上顯示起點／止點')}</button>${mode === 'attach' ? attachLegend() : ''}` : '');
   }
-  const p = parts[0], inf = p.info, key = p.key;
-  const title = parts.length === 1 ? p.zh : inf.zh;
-  const en = parts.length === 1 ? p.en : key;
-  const chips = [SYS_ZH[p.sys], p.layer ? LAYER_ZH[p.layer] : null, REGION_ZH[p.region], parts.length > 1 ? '左右兩側' : p.side === 'R' ? '右側' : p.side === 'L' ? '左側' : null]
-    .filter(Boolean).map((c) => `<span class="chip">${c}</span>`).join('');
+  const p = parts[0], key = p.key, tx = core.text(key);
+  const title = parts.length === 1 ? p.name : keyName(key);
+  const alt = parts.length === 1 ? p.alt : keyAlt(key);
+  const chips = [L(SYS[p.sys]), p.layer ? L(LAYER[p.layer]) : null, L(REGION[p.region]), parts.length > 1 ? t('左右兩側') : p.side === 'R' ? t('右側') : p.side === 'L' ? t('左側') : null]
+    .filter(Boolean).map((c) => `<span class="chip">${esc(c)}</span>`).join('');
   const fact = (label, value, dot) => (value ? `<dt>${dot ? `<i style="background:var(--${dot})"></i>` : ''}${label}</dt><dd>${esc(value)}</dd>` : '');
   const facts = isSoft(p)
-    ? `<dl class="facts">${fact('起點', inf.o, 'origin')}${fact('止點', inf.i, 'insert')}${fact('動作', inf.a)}${fact('神經支配', inf.n)}${fact('血液供應', inf.b)}</dl>`
+    ? `<dl class="facts">${fact(t('起點'), tx.o, 'origin')}${fact(t('止點'), tx.i, 'insert')}${fact(t('動作'), tx.a)}${fact(t('神經支配'), tx.n)}${fact(t('血液供應'), tx.b)}</dl>`
     : '';
   const fam = familyKeys(key);
   const both = app.byKey.get(key).length > 1;
   const note = store.get('notes', {})[key] || '';
   const actions = [
-    isSoft(p) ? `<button class="btn" data-act="attach" aria-pressed="${mode === 'attach'}">${icon('pin')}${mode === 'attach' ? '關閉起止點' : '看起點／止點'}</button>` : '',
-    both ? `<button class="btn" data-act="info-both">${parts.length > 1 ? '只選右邊' : '左右一起選'}</button>` : '',
-    fam.length > 1 ? `<button class="btn" data-act="info-family" data-key="${esc(key)}">選整塊肌肉（${fam.length} 部分）</button>` : '',
-    `<button class="btn" data-act="info-focus">${icon('target')}靠近看</button>`,
+    isSoft(p) ? `<button class="btn" data-act="attach" aria-pressed="${mode === 'attach'}">${icon('pin')}${mode === 'attach' ? t('關閉起止點') : t('看起點／止點')}</button>` : '',
+    both ? `<button class="btn" data-act="info-both">${parts.length > 1 ? t('只選右邊') : t('左右一起選')}</button>` : '',
+    fam.length > 1 ? `<button class="btn" data-act="info-family" data-key="${esc(key)}">${t('選整塊肌肉（{n} 部分）', { n: fam.length })}</button>` : '',
+    `<button class="btn" data-act="info-focus">${icon('target')}${t('靠近看')}</button>`,
   ].filter(Boolean).join('');
   return `<div class="info">
     <h3>${esc(title)}</h3>
-    <div class="en">${esc(en)}<button class="icon-btn" data-act="speak" data-text="${esc(key)}" aria-label="唸出英文名稱" title="唸出英文名稱">${icon('speak')}</button></div>
+    <div class="en">${esc(alt)}<button class="icon-btn" data-act="speak" data-text="${esc(key)}" aria-label="${t('唸出英文名稱')}" title="${t('唸出英文名稱')}">${icon('speak')}</button></div>
     <div class="chips">${chips}</div>
-    ${inf.kid ? `<div class="kid">${esc(inf.kid)}</div>` : ''}
+    ${tx.kid ? `<div class="kid" data-lead="${lead}">${esc(tx.kid)}</div>` : ''}
     ${facts}
-    ${inf.d ? `<div class="note">${esc(inf.d)}</div>` : ''}
-    ${inf.c ? `<div class="note"><b>臨床重點　</b>${esc(inf.c)}</div>` : ''}
+    ${tx.d ? `<div class="note">${esc(tx.d)}</div>` : ''}
+    ${tx.c ? `<div class="note"><b>${t('臨床重點')}　</b>${esc(tx.c)}</div>` : ''}
     <div class="grid2" style="margin:10px 0">${actions}</div>
     ${mode === 'attach' ? attachLegend() : ''}
-    <div class="h3">我的筆記（只存在這台裝置）</div>
-    <textarea data-act="note" data-key="${esc(key)}" placeholder="例如：觸診位置、牽拉方式、上課重點…">${esc(note)}</textarea>
-    <p class="fine">模型編號 ${parts.map((x) => x.id).join('、')}</p>
+    <div class="h3">${t('我的筆記（只存在這台裝置）')}</div>
+    <textarea data-act="note" data-key="${esc(key)}" placeholder="${t('例如：觸診位置、牽拉方式、上課重點…')}">${esc(note)}</textarea>
+    <p class="fine">${t('模型編號')} ${parts.map((x) => x.id).join(', ')}</p>
   </div>`;
 }
 function attachLegend() {
-  return `<div class="legend"><span><i style="background:var(--origin)"></i>紅色＝起點</span><span><i style="background:var(--insert)"></i>藍色＝止點</span><span><i style="background:var(--both)"></i>紫色＝兩端都在這塊骨頭</span></div>
-    <p class="fine">顏色是用「肌肉離骨頭表面夠近的地方」自動算出來的，是大概位置；附在筋膜或其他肌肉上的部分不會顯示。</p>`;
+  return `<div class="legend"><span><i style="background:var(--origin)"></i>${t('紅色＝起點')}</span><span><i style="background:var(--insert)"></i>${t('藍色＝止點')}</span><span><i style="background:var(--both)"></i>${t('紫色＝兩端都在這塊骨頭')}</span></div>
+    <p class="fine">${t('顏色是用「肌肉離骨頭表面夠近的地方」自動算出來的，是大概位置；附在筋膜或其他肌肉上的部分不會顯示。')}</p>`;
 }
 function toggleAttach() {
   if (mode === 'attach') { setMode('normal'); render(); return; }
@@ -504,7 +523,7 @@ function toggleAttach() {
   };
   const n = attach.showAttachments(muscles);
   const total = n.o + n.i + n.b;
-  toast(total ? `在 ${total} 塊骨頭上標出了附著位置` : '這條肌肉沒有貼在骨頭上的部分（或模型上離骨頭太遠），所以沒有顏色');
+  toast(total ? t('在 {n} 塊骨頭上標出了附著位置', { n: total }) : t('這條肌肉沒有貼在骨頭上的部分（或模型上離骨頭太遠），所以沒有顏色'));
   const right = (list) => { const r = list.filter((p) => p.side !== 'L'); return r.length ? r : list; };
   const m = right(muscles), bones = right(attach.paintedBones());
   core.focusParts(m, outwardDir(m), { pad: bones.length ? 1.7 : 1.5 });
@@ -539,6 +558,7 @@ function shareLink() {
   const q = new URLSearchParams({
     g: GROUPS.map((x) => (s.groups[x.id].on ? 1 : 0)).join(''),
     c: [...c.p, ...c.t].map((n) => n.toFixed(3)).join(','),
+    lang: getLang(),
   });
   if (s.selection.size) q.set('s', [...s.selection].slice(0, 30).join('.'));
   return location.origin + location.pathname + '#' + q.toString();
@@ -555,76 +575,84 @@ export function applyHash() {
   return false;
 }
 
+// Light when chosen here, otherwise whatever the device / host page uses.
+function isLight() {
+  const th = root.dataset.theme;
+  return th ? th === 'light' : window.matchMedia('(prefers-color-scheme: light)').matches;
+}
+
 function toolsHtml() {
   const s = app.state, c = s.clip;
-  const sw = (act, on, label) => `<button class="switch" role="switch" aria-checked="${on}" aria-label="${label}" data-act="${act}"></button>`;
+  const sw = (act, on, label) => `<button class="switch" role="switch" aria-checked="${on}" aria-label="${esc(label)}" data-act="${act}"></button>`;
   const opt = (act, on, title, sub) => `<div class="opt"><div class="txt"><b>${title}</b><small>${sub}</small></div>${sw(act, on, title)}</div>`;
   const views = savedViews();
   const notes = Object.entries(store.get('notes', {})).filter(([k, v]) => v && app.info[k]);
   return `
-    ${opt('xray', s.xray, 'X 光模式', '全部變成半透明，一次看穿裡面')}
-    ${opt('labels', s.labels, '名稱標籤', '選到的構造旁邊顯示名字')}
-    ${opt('autorotate', app.controls.autoRotate, '自動旋轉', '模型自己慢慢轉')}
-    ${opt('theme', isLight(), '淺色背景', '白天或投影時比較清楚')}
+    <div class="h3" style="margin-top:4px">語言 · Language</div>
+    <div class="seg">${[['zh', '繁體中文'], ['en', 'English']].map(([v, label]) => `<button data-act="lang" data-v="${v}" aria-pressed="${getLang() === v}">${label}</button>`).join('')}</div>
 
-    <div class="h3">切開來看（切面）</div>
-    <div class="opt"><div class="txt"><b>打開切面</b><small>像切蛋糕一樣把身體切開，看裡面一層一層</small></div>${sw('clip-on', c.on, '切面')}</div>
+    <div class="h3">${t('顯示')}</div>
+    ${opt('xray', s.xray, t('X 光模式'), t('全部變成半透明，一次看穿裡面'))}
+    ${opt('labels', s.labels, t('名稱標籤'), t('選到的構造旁邊顯示名字'))}
+    ${opt('autorotate', app.controls.autoRotate, t('自動旋轉'), t('模型自己慢慢轉'))}
+    ${opt('theme', isLight(), t('淺色背景'), t('白天或投影時比較清楚'))}
+
+    <div class="h3">${t('切開來看（切面）')}</div>
+    <div class="opt"><div class="txt"><b>${t('打開切面')}</b><small>${t('像切蛋糕一樣把身體切開，看裡面一層一層')}</small></div>${sw('clip-on', c.on, t('打開切面'))}</div>
     <div ${c.on ? '' : 'style="opacity:.4;pointer-events:none"'}>
-      <div class="seg" style="margin:8px 0">${[['x', '左右切'], ['y', '上下切'], ['z', '前後切']].map(([v, t]) => `<button data-act="clip-axis" data-v="${v}" aria-pressed="${c.axis === v}">${t}</button>`).join('')}</div>
-      <input type="range" min="0" max="100" value="${Math.round(c.pos * 100)}" data-act="clip-pos" aria-label="切面位置">
-      <button class="btn wide" data-act="clip-flip">換看另一邊</button>
+      <div class="seg" style="margin:8px 0">${[['x', t('左右切')], ['y', t('上下切')], ['z', t('前後切')]].map(([v, label]) => `<button data-act="clip-axis" data-v="${v}" aria-pressed="${c.axis === v}">${label}</button>`).join('')}</div>
+      <input type="range" min="0" max="100" value="${Math.round(c.pos * 100)}" data-act="clip-pos" aria-label="${t('切面位置')}">
+      <button class="btn wide" data-act="clip-flip">${t('換看另一邊')}</button>
     </div>
 
-    <div class="h3">分解圖（把零件散開）</div>
-    <input type="range" min="0" max="100" value="${Math.round(s.explode * 100)}" data-act="explode" aria-label="分解程度">
+    <div class="h3">${t('分解圖（把零件散開）')}</div>
+    <input type="range" min="0" max="100" value="${Math.round(s.explode * 100)}" data-act="explode" aria-label="${t('分解程度')}">
 
-    <div class="h3">儲存與分享</div>
+    <div class="h3">${t('儲存與分享')}</div>
     <div class="grid3">
-      <button class="btn" data-act="shot">${icon('camera')}截圖</button>
-      ${window.claude ? '' : `<button class="btn" data-act="share">${icon('share')}分享</button>`}
-      <button class="btn" data-act="save-view">${icon('bookmark')}存畫面</button>
+      <button class="btn" data-act="shot">${icon('camera')}${t('截圖')}</button>
+      ${window.claude ? '' : `<button class="btn" data-act="share">${icon('share')}${t('分享')}</button>`}
+      <button class="btn" data-act="save-view">${icon('bookmark')}${t('存畫面')}</button>
     </div>
-    ${views.length ? `<div class="h3">我存的畫面</div>` + views.map((v, i) => `<div class="saved"><button data-act="load-view" data-i="${i}">${esc(v.name)}</button><button class="icon-btn" data-act="del-view" data-i="${i}" aria-label="刪除">${icon('x')}</button></div>`).join('') : ''}
-    ${notes.length ? `<div class="h3">我寫過筆記的構造</div><div class="chips">${notes.map(([k]) => `<button class="chip" data-act="tree-go" data-key="${esc(k)}">${esc(app.info[k].zh)}</button>`).join('')}</div>` : ''}
+    ${views.length ? `<div class="h3">${t('我存的畫面')}</div>` + views.map((v, i) => `<div class="saved"><button data-act="load-view" data-i="${i}">${esc(v.name)}</button><button class="icon-btn" data-act="del-view" data-i="${i}" aria-label="${t('刪除')}">${icon('x')}</button></div>`).join('') : ''}
+    ${notes.length ? `<div class="h3">${t('我寫過筆記的構造')}</div><div class="chips">${notes.map(([k]) => `<button class="chip" data-act="tree-go" data-key="${esc(k)}">${esc(keyName(k))}</button>`).join('')}</div>` : ''}
 
-    <div class="h3">其他</div>
-    <div class="grid2"><button class="btn" data-act="help">${icon('help')}操作教學</button><button class="btn" data-act="about">${icon('info')}關於與授權</button></div>`;
+    <div class="h3">${t('其他')}</div>
+    <div class="grid2"><button class="btn" data-act="help">${icon('help')}${t('操作教學')}</button><button class="btn" data-act="about">${icon('info')}${t('關於與授權')}</button></div>`;
 }
 
 function showHelp() {
-  modal(`<h2>怎麼玩</h2>
+  modal(`<h2>${t('怎麼玩')}</h2>
     <div class="gesture">
-      <b>一根手指</b><span>在模型上滑：轉動模型</span>
-      <b>兩根手指</b><span>張開或捏合：放大縮小；一起移動：搬動模型</span>
-      <b>點一下</b><span>選一塊肌肉或骨頭，它會變亮藍色</span>
-      <b>點兩下</b><span>飛過去靠近看</span>
-      <b>右邊剝層</b><span>像剝洋蔥，一層一層往裡面看</span>
-      <b>滑鼠</b><span>左鍵轉、右鍵搬、滾輪放大縮小</span>
+      <b>${t('一根手指')}</b><span>${t('在模型上滑：轉動模型')}</span>
+      <b>${t('兩根手指')}</b><span>${t('張開或捏合：放大縮小；一起移動：搬動模型')}</span>
+      <b>${t('點一下')}</b><span>${t('選一塊肌肉或骨頭，它會變亮藍色')}</span>
+      <b>${t('點兩下')}</b><span>${t('飛過去靠近看')}</span>
+      <b>${t('右邊剝層')}</b><span>${t('像剝洋蔥，一層一層往裡面看')}</span>
+      <b>${t('滑鼠')}</b><span>${t('左鍵轉、右鍵搬、滾輪放大縮小')}</span>
     </div>
-    <p class="hint">選到東西後，下面會出現工具：隱藏、變透明、只看這個、其他變淡。左邊的箭頭可以復原上一步。</p>
-    <button class="btn primary wide" data-close>開始</button>`);
+    <p class="hint">${t('選到東西後，下面會出現工具：隱藏、變透明、只看這個、其他變淡。左邊的箭頭可以復原上一步。')}</p>
+    <div class="grid2"><button class="btn" data-act-lang="${getLang() === 'en' ? 'zh' : 'en'}">${getLang() === 'en' ? '繁體中文' : 'English'}</button><button class="btn primary" data-close>${t('開始')}</button></div>`);
 }
 function showAbout() {
-  modal(`<h2>關於</h2>
-    <p>Body Decomposition 是給物理治療學習用的 3D 肌肉骨骼分層圖，共 ${app.parts.length} 個可以點選的構造。</p>
-    <p class="hint"><b>3D 模型</b>：BodyParts3D, © The Database Center for Life Science（日本生命科學資料庫中心），以 CC 姓名標示-相同方式分享 2.1 日本 授權。本專案將原始模型簡化、壓縮後使用，衍生的模型檔沿用相同授權。</p>
-    <p class="hint"><b>文字說明</b>：依一般解剖學教科書內容整理，僅供學習參考，不能取代專業醫療判斷。神經根節與附著點細節各教科書略有出入。</p>
-    <p class="hint"><b>程式</b>：使用 three.js（MIT 授權）。</p>
-    <button class="btn primary wide" data-close>關閉</button>`);
+  modal(`<h2>${t('關於')}</h2>
+    <p>${t('Body Decomposition 是給物理治療學習用的 3D 肌肉骨骼分層圖，共 {n} 個可以點選的構造。', { n: app.parts.length })}</p>
+    <p class="hint"><b>${t('3D 模型')}</b>${t('：')}${t('BodyParts3D, © The Database Center for Life Science（日本生命科學資料庫中心），以 CC 姓名標示-相同方式分享 2.1 日本 授權。本專案將原始模型簡化、壓縮後使用，衍生的模型檔沿用相同授權。')}</p>
+    <p class="hint"><b>${t('文字說明')}</b>${t('：')}${t('依一般解剖學教科書內容整理，僅供學習參考，不能取代專業醫療判斷。神經根節與附著點細節各教科書略有出入。')}</p>
+    <p class="hint"><b>${t('程式')}</b>${t('：')}${t('使用 three.js（MIT 授權）。')}</p>
+    <button class="btn primary wide" data-close>${t('關閉')}</button>`);
 }
 function modal(html) {
   const el = document.createElement('div');
   el.className = 'modal';
   el.innerHTML = `<div class="modal-card" role="dialog" aria-modal="true">${html}</div>`;
-  el.addEventListener('click', (e) => { if (e.target === el || e.target.closest('[data-close]')) el.remove(); });
+  el.addEventListener('click', (e) => {
+    const lb = e.target.closest('[data-act-lang]');
+    if (lb) { el.remove(); changeLang(lb.dataset.actLang).then(showHelp); return; }
+    if (e.target === el || e.target.closest('[data-close]')) el.remove();
+  });
   document.body.appendChild(el);
   el.querySelector('[data-close]')?.focus();
-}
-
-// Light when chosen here, otherwise whatever the device / host page uses.
-function isLight() {
-  const t = root.dataset.theme;
-  return t ? t === 'light' : window.matchMedia('(prefers-color-scheme: light)').matches;
 }
 
 let rotateHook = null;
@@ -633,6 +661,29 @@ function setAutoRotate(v) {
   if (v && !rotateHook) { rotateHook = () => core.requestRender(); core.addFrameHook(rotateHook); }
   if (!v && rotateHook) { core.removeFrameHook(rotateHook); rotateHook = null; }
 }
+
+// ---------------------------------------------------------------- language
+
+function applyLangToPage() {
+  root.lang = getLang() === 'en' ? 'en' : 'zh-Hant';
+  applyStatic();
+  langBtn.textContent = getLang() === 'en' ? '中' : 'EN';
+  langBtn.setAttribute('aria-label', getLang() === 'en' ? '切換成繁體中文' : 'Switch to English');
+  buildPeel();
+  if (app.ready) buildSearchIndex();
+  if (tab) sheetTitle.textContent = tabTitle(tab);
+  render();
+  updateSelbar();
+  core.requestRender();
+}
+async function changeLang(l) {
+  if (l === getLang()) return;
+  try { await core.loadText(l); } catch { toast(l === 'en' ? 'Could not load the English text. Check your connection.' : '中文說明載入失敗，請檢查網路。'); return; }
+  setLang(l);
+  store.set('lang', l);
+  applyLangToPage();
+}
+langBtn.addEventListener('click', () => changeLang(getLang() === 'en' ? 'zh' : 'en'));
 
 // ---------------------------------------------------------------- actions
 
@@ -655,14 +706,14 @@ const actions = {
     const it = MUSCLE_GROUPS[el.dataset.c].items[el.dataset.i];
     const parts = groupParts(it);
     spotlight(parts);
-    toast(`${it.zh}：亮起來的就是（共 ${new Set(parts.map((p) => p.key)).size} 條）`);
+    toast(t('{name}：亮起來的就是（共 {n} 條）', { name: L(it.name), n: new Set(parts.map((p) => p.key)).size }));
   },
   motion: (el) => { const c = MOTIONS[el.dataset.c]; startMotion(c.items[el.dataset.i], c.both); },
   'motion-play': () => { if (playing) stopPlayer(); else startPlayer(); render(); },
   'motion-side': (el) => { motionSide = el.dataset.v; startMotion(activeMotion, motionBoth); },
   'motion-focus': () => { motionFocus = !motionFocus; core.refresh(); render(); },
   'motion-exit': () => { setMode('normal'); render(); sheetBody.scrollTop = 0; },
-  'motion-muscle': (el) => { const p = app.byId.get(el.dataset.id); setMode('normal'); spotlight(motionBoth ? app.byKey.get(p.key) : [p]); openTab('info'); },
+  'motion-muscle': (el) => { const p = app.byId.get(el.dataset.id); const both = motionBoth; setMode('normal'); spotlight(both ? app.byKey.get(p.key) : [p]); openTab('info'); },
   info: () => openTab('info'),
   'info-one': (el) => { core.select((app.byKey.get(el.dataset.key) || []).filter((p) => app.state.selection.has(p.id)).map((p) => p.id)); },
   'info-both': () => {
@@ -678,36 +729,38 @@ const actions = {
   'info-focus': () => { const p = core.selectedParts(); core.focusParts(p, outwardDir(p), { pad: 1.8 }); },
   attach: () => toggleAttach(),
   speak: (el) => {
-    if (!('speechSynthesis' in window)) return toast('這個瀏覽器不支援朗讀');
+    if (!('speechSynthesis' in window)) return toast(t('這個瀏覽器不支援朗讀'));
     const u = new SpeechSynthesisUtterance(el.dataset.text); u.lang = 'en-US'; u.rate = 0.9;
     speechSynthesis.cancel(); speechSynthesis.speak(u);
   },
+  lang: (el) => changeLang(el.dataset.v),
   xray: () => { app.state.xray = !app.state.xray; core.refresh(); render(); },
   labels: () => { app.state.labels = !app.state.labels; core.requestRender(); render(); },
   autorotate: () => { setAutoRotate(!app.controls.autoRotate); render(); },
-  theme: () => { const t = isLight() ? 'dark' : 'light'; root.dataset.theme = t; store.set('theme', t); render(); },
+  theme: () => { const th = isLight() ? 'dark' : 'light'; root.dataset.theme = th; store.set('theme', th); render(); },
   'clip-on': () => { app.state.clip.on = !app.state.clip.on; core.refresh(); render(); },
   'clip-axis': (el) => { app.state.clip.axis = el.dataset.v; app.state.clip.pos = 0.5; core.refresh(); render(); },
   'clip-flip': () => { app.state.clip.flip = !app.state.clip.flip; core.refresh(); },
   shot: async () => {
     const blob = await core.screenshot(getComputedStyle(root).getPropertyValue('--bg0').trim());
     const url = URL.createObjectURL(blob);
-    modal(`<h2>截圖</h2><img src="${url}" alt="目前畫面的截圖" style="max-width:100%;max-height:52vh;border-radius:10px;display:block;margin:10px auto">
-      <p class="hint">手機：長按圖片就能儲存或分享。電腦：按下面的按鈕下載。</p>
-      <div class="grid2"><a class="btn primary" href="${url}" download="body-decomposition-${Date.now()}.png">下載圖片</a><button class="btn" data-close>關閉</button></div>`);
+    modal(`<h2>${t('截圖')}</h2><img src="${url}" alt="${t('目前畫面的截圖')}" style="max-width:100%;max-height:52vh;border-radius:10px;display:block;margin:10px auto">
+      <p class="hint">${t('手機：長按圖片就能儲存或分享。電腦：按下面的按鈕下載。')}</p>
+      <div class="grid2"><a class="btn primary" href="${url}" download="body-decomposition-${Date.now()}.png">${t('下載圖片')}</a><button class="btn" data-close>${t('關閉')}</button></div>`);
   },
   share: async () => {
     const url = shareLink();
     try {
       if (navigator.share) await navigator.share({ title: 'Body Decomposition', url });
-      else { await navigator.clipboard.writeText(url); toast('連結已複製，貼給別人就能看到同一個畫面'); }
-    } catch { history.replaceState(null, '', url); toast('連結已放到網址列，可以直接複製'); }
+      else { await navigator.clipboard.writeText(url); toast(t('連結已複製，貼給別人就能看到同一個畫面')); }
+    } catch { history.replaceState(null, '', url); toast(t('連結已放到網址列，可以直接複製')); }
   },
   'save-view': () => {
     const views = savedViews();
-    const t = selectionTitle(core.selectedParts()).zh || REGIONS.find((r) => r.id === activeRegion)?.zh || '畫面';
-    views.unshift(captureView(`${t} · ${new Date().toLocaleString('zh-TW', { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' })}`));
-    store.set('views', views.slice(0, 30)); render(); toast('畫面存好了，在下面的清單裡');
+    const name = selectionTitle(core.selectedParts()).name || L(REGIONS.find((r) => r.id === activeRegion)?.name || ['畫面', 'View']);
+    const when = new Date().toLocaleString(getLang() === 'en' ? 'en' : 'zh-TW', { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+    views.unshift(captureView(`${name} · ${when}`));
+    store.set('views', views.slice(0, 30)); render(); toast(t('畫面存好了，在下面的清單裡'));
   },
   'load-view': (el) => { const v = savedViews()[el.dataset.i]; if (v) { applyView(v); render(); } },
   'del-view': (el) => { const views = savedViews(); views.splice(el.dataset.i, 1); store.set('views', views); render(); },
@@ -768,10 +821,20 @@ document.addEventListener('keydown', (e) => {
 
 // ---------------------------------------------------------------- start
 
+// Language to start in: a shared link, then the saved choice, then the
+// browser's own language.
+export function initialLang() {
+  const fromUrl = new URLSearchParams(location.hash.slice(1)).get('lang') || new URLSearchParams(location.search).get('lang');
+  const saved = store.get('lang', null);
+  const pick = fromUrl || saved || ((navigator.language || 'zh').toLowerCase().startsWith('zh') ? 'zh' : 'en');
+  return pick === 'en' ? 'en' : 'zh';
+}
+
 export function initUI() {
   const savedTheme = store.get('theme', null);
   if (savedTheme === 'light' || savedTheme === 'dark') root.dataset.theme = savedTheme;
-  buildPeel();
+  applyLangToPage();
+  setupSearch();
   quiz = createQuiz({
     store, toast, outwardDir, spotlightKey,
     rerender: () => { if (tab === 'quiz') render(); },
@@ -794,7 +857,7 @@ export function initUI() {
   on('groups', () => { syncPeel(); if (tab === 'layers') render(); });
   on('undo', (n) => { $('#views [data-act="undo"]').disabled = !n; });
   on('ready', () => {
-    buildSearch();
+    buildSearchIndex();
     syncPeel();
     const fromLink = applyHash();
     if (!fromLink) core.resetView();

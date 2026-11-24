@@ -1,0 +1,506 @@
+{
+  "set of interspinales lumborum": {
+    "kid": "These are tiny muscles between the bony bumps of your lower back that help you stand up straight and keep each back bone steady.",
+    "o": "Superior border of the spinous process of the vertebra below (between adjacent spinous processes L1–L5, paired left and right)",
+    "i": "Inferior border of the spinous process of the lumbar vertebra above",
+    "a": "Assist lumbar extension; segmental stabilization and proprioceptive feedback",
+    "n": "Posterior rami of lumbar spinal nerves (L1–L5)",
+    "b": "Dorsal branches of the lumbar arteries",
+    "c": "Short, small muscles with a high muscle spindle density; their main role is segmental stability and position sense, and they are activated together with multifidus during lumbar stabilization training."
+  },
+  "set of interspinales thoracis": {
+    "kid": "These are very tiny muscles between the bony bumps of your back that help two neighboring back bones stay snug and steady.",
+    "o": "Superior border of the spinous process of the thoracic vertebra below (usually present only between T1–T2 and T11–T12)",
+    "i": "Inferior border of the spinous process of the thoracic vertebra above",
+    "a": "Assist thoracic extension; segmental stabilization and proprioception",
+    "n": "Posterior rami of thoracic spinal nerves",
+    "b": "Dorsal branches of the posterior intercostal arteries",
+    "c": "The thoracic interspinales are often poorly developed or absent, and are distinct only at the uppermost and lowermost thoracic segments."
+  },
+  "set of lateral lumbar intertransversarius muscles": {
+    "kid": "These muscles join the bony bumps on the sides of your lower back bones, helping you bend sideways and keeping your lower back steady.",
+    "o": "Superior border of the transverse (costal) process of the lumbar vertebra below",
+    "i": "Inferior border of the transverse (costal) process of the lumbar vertebra above",
+    "a": "Assist ipsilateral lateral flexion of the lumbar spine; bilateral contraction stabilizes the lumbar segments",
+    "n": "Anterior rami of lumbar spinal nerves (L1–L4)",
+    "b": "Lumbar arteries",
+    "c": "Unlike the medial intertransversarii, the lateral ones are supplied by anterior rami of the spinal nerves and developmentally belong to the ventrolateral trunk musculature."
+  },
+  "set of levatores costarum breves": {
+    "kid": "These muscles run from your back bones down to the rib just below, and help lift your ribs when you breathe in.",
+    "o": "Tips of the transverse processes of C7–T11",
+    "i": "Outer surface of the rib immediately below (between the tubercle and the angle of the rib)",
+    "a": "Elevate the ribs, assisting inspiration; assist thoracic extension, lateral flexion and rotation",
+    "n": "Posterior rami of spinal nerves (C8–T11)",
+    "b": "Dorsal branches of the posterior intercostal arteries",
+    "c": "Lie deep to erector spinae near the costotransverse joints; local tenderness here is common with costovertebral joint dysfunction."
+  },
+  "set of levatores costarum longi": {
+    "kid": "These muscles run down from your back bones, skip over one rib and grab the next one down to help you breathe in.",
+    "o": "Tips of the transverse processes of the lower thoracic vertebrae (about T7–T10)",
+    "i": "Pass down over one rib to insert on the outer surface of the second rib below (between the tubercle and the angle of the rib)",
+    "a": "Elevate the ribs, assisting inspiration; assist thoracic extension, lateral flexion and rotation",
+    "n": "Posterior rami of spinal nerves (lower thoracic nerves)",
+    "b": "Dorsal branches of the posterior intercostal arteries",
+    "c": "Found only in the lower thoracic region; their fibers are longer than those of the levatores costarum breves and span two intercostal spaces."
+  },
+  "set of lumbricals of hand": {
+    "kid": "Four little worm-shaped muscles in your palm that bend your fingers at the bottom while keeping the rest straight, so you can pinch things.",
+    "o": "Tendons of flexor digitorum profundus (1st and 2nd from the radial side of a single tendon; 3rd and 4th from two adjacent tendons)",
+    "i": "Radial side of the extensor expansion (dorsal digital expansion) of digits 2–5",
+    "a": "Flex the metacarpophalangeal joints while extending the proximal and distal interphalangeal joints",
+    "n": "1st and 2nd lumbricals: median nerve; 3rd and 4th lumbricals: deep branch of the ulnar nerve (C8–T1)",
+    "b": "Superficial and deep palmar arches, common palmar digital arteries",
+    "c": "Neither the origin nor the insertion is on bone; the \"lumbrical grip\" (metacarpophalangeal flexion with interphalangeal extension) is a common position for training the intrinsic hand muscles."
+  },
+  "set of medial lumbar intertransversarius muscles": {
+    "kid": "These are tiny muscles at the back of your lower back bones that link one bone to the next and help your lower back stay steady.",
+    "o": "Accessory process of the lumbar vertebra above",
+    "i": "Mammillary process of the lumbar vertebra below",
+    "a": "Segmental stabilization and proprioception; assist ipsilateral lateral flexion of the lumbar spine",
+    "n": "Posterior rami of lumbar spinal nerves (L1–L4)",
+    "b": "Dorsal branches of the lumbar arteries",
+    "c": "Supplied by posterior rami of the spinal nerves, so they are true intrinsic back muscles; with a high muscle spindle density, they are regarded as position sensors of the spine."
+  },
+  "set of palmar interossei of hand": {
+    "kid": "Muscles hidden between the bones of your palm that pull your spread fingers back toward the middle finger, like closing a fan.",
+    "o": "Ulnar side of the 2nd metacarpal, radial sides of the 4th and 5th metacarpals (palmar aspect)",
+    "i": "Base of the proximal phalanx and extensor expansion of the same finger (ulnar side of digit 2; radial side of digits 4 and 5)",
+    "a": "Adduct the fingers (toward the middle finger); assist metacarpophalangeal flexion and interphalangeal extension",
+    "n": "Deep branch of the ulnar nerve (C8–T1)",
+    "b": "Palmar metacarpal arteries from the deep palmar arch",
+    "c": "Mnemonic PAD (Palmar ADduct); the paper-grip test between the fingers checks ulnar nerve function, and adduction is weak with ulnar nerve injury."
+  },
+  "set of posterior cervical intertransversarii": {
+    "kid": "Tiny muscles between the bony bumps on the sides of your neck that help tilt your head sideways and keep your neck steady.",
+    "o": "Posterior tubercle of the transverse process of the cervical vertebra below",
+    "i": "Posterior tubercle of the transverse process of the cervical vertebra above",
+    "a": "Assist ipsilateral lateral flexion of the cervical spine; stabilize the cervical segments",
+    "n": "Anterior rami (lateral part) and posterior rami (medial part) of cervical spinal nerves",
+    "b": "Branches of the vertebral, deep cervical and occipital arteries",
+    "c": "The anterior rami of the cervical spinal nerves emerge between the anterior and posterior intertransversarii, an anatomical landmark for identifying the cervical nerve roots."
+  },
+  "short head of biceps brachii": {
+    "kid": "The inner half of the muscle that bulges on the front of your upper arm, helping you bend your elbow and turn your palm up.",
+    "o": "Tip of the coracoid process of the scapula (common origin with coracobrachialis)",
+    "i": "Radial tuberosity; also to the antebrachial fascia via the bicipital aponeurosis",
+    "a": "Elbow flexion, forearm supination; assists shoulder flexion and adduction",
+    "n": "Musculocutaneous nerve (C5–C6)",
+    "b": "Muscular branches of the brachial artery",
+    "c": "Shares the coracoid process attachment with coracobrachialis and pectoralis minor, so tenderness at the coracoid must be differentiated among them; supination strength is greatest with the elbow flexed to 90°."
+  },
+  "short head of biceps femoris": {
+    "kid": "A deeper muscle on the outer back of your thigh that helps you bend your knee and turn your lower leg outward.",
+    "o": "Lateral lip of the linea aspera, lateral supracondylar line and lateral intermuscular septum of the femur",
+    "i": "Head of the fibula (common tendon with the long head)",
+    "a": "Knee flexion; laterally rotates the leg when the knee is flexed",
+    "n": "Common fibular division of the sciatic nerve (L5–S2)",
+    "b": "Perforating branches of the deep femoral artery, muscular branches of the popliteal artery",
+    "c": "The only part of the hamstrings that does not cross the hip joint and is supplied by the common fibular division, so it takes no part in hip extension."
+  },
+  "soleus": {
+    "kid": "A flat muscle hidden inside your calf that helps you stand on tiptoe and stops you from tipping forward when you stand.",
+    "o": "Head and upper 1/3 of the posterior surface of the fibular shaft, soleal line and middle 1/3 of the medial border of the tibia, and the tendinous arch between them",
+    "i": "Posterior surface of the calcaneal tuberosity via the calcaneal (Achilles) tendon",
+    "a": "Ankle plantarflexion; stabilizes the leg in standing and prevents the body from leaning forward",
+    "n": "Tibial nerve (S1–S2)",
+    "b": "Posterior tibial artery, fibular artery, sural branches of the popliteal artery",
+    "c": "Does not cross the knee, so it can be stretched in isolation by ankle dorsiflexion with the knee flexed; known as the \"second heart\" because its contraction aids venous return from the lower limb."
+  },
+  "spinal part of deltoid": {
+    "kid": "The muscle at the back of your shoulder that helps you pull your arm backward, like rowing a boat or pulling open a drawer.",
+    "o": "Inferior border of the spine of the scapula",
+    "i": "Deltoid tuberosity on the lateral shaft of the humerus",
+    "a": "Shoulder extension, lateral rotation, horizontal abduction",
+    "n": "Axillary nerve (C5–C6)",
+    "b": "Posterior circumflex humeral artery, deltoid branch of the thoracoacromial artery",
+    "c": "The posterior fibers are often weak in people with rounded shoulders; prone horizontal abduction or reverse flyes train them specifically."
+  },
+  "spinalis cervicis": {
+    "kid": "A thin, long muscle right beside the middle bones at the back of your neck that helps you tip your neck back and lift your head.",
+    "o": "Lower part of the ligamentum nuchae, spinous process of C7 (sometimes T1–T2)",
+    "i": "Spinous process of the axis (C2), sometimes extending to the spinous processes of C3–C4",
+    "a": "Cervical extension",
+    "n": "Posterior rami of cervical spinal nerves",
+    "b": "Deep cervical artery, muscular branches of the vertebral artery",
+    "c": "The cervical part of the most medial column of erector spinae; often poorly developed or absent and highly variable."
+  },
+  "spinalis thoracis": {
+    "kid": "A thin, long muscle hugging both sides of the middle of your backbone that helps you keep your back straight and not slouch.",
+    "o": "Spinous processes of T11–L2",
+    "i": "Spinous processes of the upper thoracic vertebrae (about T2–T8)",
+    "a": "Thoracic extension; unilateral contraction assists lateral flexion",
+    "n": "Posterior rami of thoracic spinal nerves",
+    "b": "Dorsal branches of the posterior intercostal arteries",
+    "c": "The most medial and smallest of the three erector spinae columns, closely blended with longissimus thoracis and hard to separate from it."
+  },
+  "splenius capitis": {
+    "kid": "A muscle wrapped slantwise around the back of your neck like a bandage that helps you lift your head back and turn it.",
+    "o": "Lower half of the ligamentum nuchae, spinous processes of C7–T3 (T4)",
+    "i": "Mastoid process of the temporal bone, lateral 1/3 of the superior nuchal line of the occipital bone",
+    "a": "Bilateral: extension of the head and neck; unilateral: ipsilateral rotation and lateral flexion of the head and neck",
+    "n": "Lateral branches of the posterior rami of the middle cervical spinal nerves (C2–C4)",
+    "b": "Muscular branches of the occipital artery, deep cervical artery",
+    "c": "Commonly tight with forward head posture and acute stiff neck, and its trigger points can refer pain to the top of the head; palpable between trapezius and sternocleidomastoid."
+  },
+  "splenius cervicis": {
+    "kid": "A muscle running slantwise from your upper back to the top part of your neck that helps you stretch your neck back and turn it.",
+    "o": "Spinous processes of T3–T6",
+    "i": "Posterior tubercles of the transverse processes of C1–C3",
+    "a": "Bilateral: cervical extension; unilateral: ipsilateral rotation and lateral flexion of the cervical spine",
+    "n": "Lateral branches of the posterior rami of the lower cervical spinal nerves (C5–C7)",
+    "b": "Branches of the occipital, deep cervical and transverse cervical arteries",
+    "c": "Inserts on the upper cervical transverse processes together with levator scapulae, and the two are often tight together when neck rotation is restricted."
+  },
+  "sternocleidomastoid": {
+    "kid": "The big slanted muscle on each side of your neck that pops out when you turn your head, helping you turn, nod and tilt your head.",
+    "o": "Sternal head: upper anterior surface of the manubrium; clavicular head: superior surface of the medial 1/3 of the clavicle",
+    "i": "Lateral surface of the mastoid process of the temporal bone, lateral half of the superior nuchal line of the occipital bone",
+    "a": "Unilateral: lateral flexion of the head to the same side with rotation of the face to the opposite side; bilateral: neck flexion, head protraction, and assists forced inspiration",
+    "n": "Accessory nerve (CN XI); anterior rami of C2–C3 for proprioception",
+    "b": "Sternocleidomastoid branches of the occipital and superior thyroid arteries",
+    "c": "The affected muscle in congenital muscular torticollis; often shortened and tight with forward head posture. It is the landmark dividing the anterior and posterior triangles of the neck."
+  },
+  "sternocostal part of pectoralis major": {
+    "kid": "The lower half of your biggest chest muscle, helping you hug things, push doors and pull your raised arm back down.",
+    "o": "Anterior surface of the sternum, costal cartilages 1–6, aponeurosis of the external oblique",
+    "i": "Lateral lip of the intertubercular sulcus of the humerus (crest of the greater tubercle)",
+    "a": "Shoulder adduction, medial rotation, horizontal adduction; extends the arm downward from a flexed position",
+    "n": "Medial and lateral pectoral nerves (C7–T1)",
+    "b": "Pectoral branch of the thoracoacromial artery, perforating branches of the internal thoracic artery, lateral thoracic artery",
+    "c": "Commonly shortened with rounded shoulders; the sternocostal fibers are stretched with the shoulder abducted about 120°–135° and horizontally abducted. Tendon ruptures during the bench press mostly occur in this part."
+  },
+  "sternohyoid": {
+    "kid": "A thin, long strap muscle at the front of your neck that pulls the little bone above your throat back down after you swallow.",
+    "o": "Posterior surface of the manubrium, posterior surface of the medial end of the clavicle and the posterior sternoclavicular ligament",
+    "i": "Inferior border of the body of the hyoid bone",
+    "a": "Depresses the hyoid (returning it after swallowing, phonation); fixes the hyoid so the suprahyoid muscles can open the mouth",
+    "n": "Ansa cervicalis (C1–C3)",
+    "b": "Branches of the superior thyroid and lingual arteries",
+    "c": "One of the infrahyoid (strap) muscles; swallowing and voice may be affected after a whiplash injury of the neck or thyroid surgery."
+  },
+  "sternothyroid": {
+    "kid": "A deeper strap muscle at the front of your neck that pulls your voice box down after you swallow or when you make low sounds.",
+    "o": "Posterior surface of the manubrium, 1st costal cartilage",
+    "i": "Oblique line of the lamina of the thyroid cartilage",
+    "a": "Depresses the larynx (thyroid cartilage)",
+    "n": "Ansa cervicalis (C1–C3)",
+    "b": "Branches of the superior and inferior thyroid arteries",
+    "c": "Lies deep to sternohyoid and covers the front of the thyroid gland; it is stretched out when the thyroid enlarges."
+  },
+  "stylohyoid": {
+    "kid": "A thin muscle running from a little pointy bone under your ear to the small bone above your throat, pulling it up and back when you swallow.",
+    "o": "Posterolateral surface of the styloid process of the temporal bone",
+    "i": "Junction of the body and greater horn of the hyoid bone",
+    "a": "Elevates and retracts the hyoid (elongating the floor of the mouth during swallowing)",
+    "n": "Stylohyoid branch of the facial nerve (CN VII)",
+    "b": "Branches of the facial, occipital and posterior auricular arteries",
+    "c": "Its tendon splits near the insertion to let the intermediate tendon of the digastric pass through; an elongated styloid process (Eagle syndrome) can cause throat pain on swallowing."
+  },
+  "subclavius": {
+    "kid": "A small muscle hiding under your collarbone that holds the collarbone down in place and protects the blood vessels and nerves underneath.",
+    "o": "Junction of the 1st rib and its costal cartilage",
+    "i": "Subclavian groove on the inferior surface of the middle 1/3 of the clavicle",
+    "a": "Depresses and draws the clavicle forward; stabilizes the sternoclavicular joint",
+    "n": "Nerve to subclavius (C5–C6)",
+    "b": "Clavicular branch of the thoracoacromial artery",
+    "c": "Cushions and protects the subclavian vessels and brachial plexus in clavicle fractures; when tight it may contribute to narrowing of the costoclavicular space (thoracic outlet syndrome)."
+  },
+  "subscapularis": {
+    "kid": "A muscle hidden on the front of your shoulder blade against your ribs that helps turn your arm inward and hugs your shoulder joint tight.",
+    "o": "Subscapular fossa of the scapula",
+    "i": "Lesser tubercle of the humerus and the anterior part of the shoulder joint capsule",
+    "a": "Medial rotation of the shoulder; stabilizes the humeral head in the glenoid and prevents anterior dislocation",
+    "n": "Upper and lower subscapular nerves (C5–C6)",
+    "b": "Subscapular artery, suprascapular artery, circumflex scapular artery",
+    "c": "The largest rotator cuff muscle and its only medial rotator; tested with the lift-off test and the belly-press test. Can be palpated from the anterior border of the axilla toward the anterior surface of the scapula."
+  },
+  "superficial head of flexor pollicis brevis": {
+    "kid": "One of the muscles in the fleshy pad at the bottom of your thumb that helps you bend your thumb toward your palm to grab things.",
+    "o": "Flexor retinaculum, tubercle of the trapezium",
+    "i": "Radial side of the base of the proximal phalanx of the thumb (via the radial sesamoid)",
+    "a": "Flexes the metacarpophalangeal joint of the thumb; assists thumb opposition",
+    "n": "Recurrent branch of the median nerve (C8–T1)",
+    "b": "Superficial palmar branch of the radial artery",
+    "c": "A thenar muscle that wastes along with the rest of the thenar eminence in long-standing carpal tunnel syndrome; the flexor pollicis longus tendon runs between the superficial and deep heads."
+  },
+  "superficial part of masseter": {
+    "kid": "The muscle at the back of your cheek that bulges when you clench your teeth, helping you close your mouth hard to bite.",
+    "o": "Maxillary process of the zygomatic bone, anterior 2/3 of the inferior border of the zygomatic arch",
+    "i": "Angle of the mandible and the lower half of the lateral surface of the ramus (masseteric tuberosity)",
+    "a": "Elevates the mandible (closing the jaw to bite); assists mandibular protrusion",
+    "n": "Masseteric nerve from the mandibular nerve (CN V3)",
+    "b": "Masseteric branch of the maxillary artery, transverse facial artery, facial artery",
+    "c": "Easily palpated above the angle of the mandible when the teeth are clenched; with bruxism and temporomandibular disorders it is often hypertrophied, with trigger points that refer toothache or preauricular pain."
+  },
+  "superior oblique part of longus colli": {
+    "kid": "A very deep muscle right on the front of your neck bones that helps you nod and tuck your chin so your neck doesn't wobble.",
+    "o": "Anterior tubercles of the transverse processes of C3–C5",
+    "i": "Anterior tubercle on the anterior arch of the atlas (C1)",
+    "a": "Flexes the cervical spine; unilateral contraction assists ipsilateral lateral flexion and rotation; stabilizes the cervical spine",
+    "n": "Anterior rami of cervical spinal nerves (C2–C6)",
+    "b": "Branches of the ascending pharyngeal, ascending cervical and vertebral arteries",
+    "c": "One of the deep neck flexors; often inhibited after neck pain and whiplash injury, and reactivated with craniocervical flexion (chin-tuck) training."
+  },
+  "supinator": {
+    "kid": "A muscle wrapped around the bone just below your elbow that helps you turn your palm up, like turning a doorknob or a screw.",
+    "o": "Lateral epicondyle of the humerus, radial collateral ligament, annular ligament of the radius, supinator crest of the ulna",
+    "i": "Lateral, anterior and posterior surfaces of the proximal 1/3 of the radius",
+    "a": "Forearm supination (acts at any elbow angle)",
+    "n": "Deep branch of the radial nerve (C6–C7)",
+    "b": "Radial recurrent artery, posterior interosseous artery, interosseous recurrent artery",
+    "c": "The deep branch of the radial nerve passes between its superficial and deep layers (arcade of Frohse); entrapment here causes posterior interosseous nerve syndrome, which must be differentiated from tennis elbow."
+  },
+  "supraspinatus": {
+    "kid": "A muscle tucked in the hollow on top of your shoulder blade that helps you start lifting your arm out to the side.",
+    "o": "Supraspinous fossa of the scapula",
+    "i": "Superior facet of the greater tubercle of the humerus and the superior part of the shoulder joint capsule",
+    "a": "Initiates shoulder abduction and assists the deltoid in abduction; holds the humeral head steady in the glenoid",
+    "n": "Suprascapular nerve (C5–C6)",
+    "b": "Suprascapular artery",
+    "c": "The most commonly torn rotator cuff tendon, prone to impingement as it passes through the subacromial space; tested with the empty can test and the drop arm test."
+  },
+  "temporalis": {
+    "kid": "The fan-shaped muscle at your temples on the sides of your head that moves when you chew and helps you close your mouth.",
+    "o": "Temporal fossa (frontal, parietal, temporal and sphenoid bones below the inferior temporal line) and the deep surface of the temporal fascia",
+    "i": "Tip and medial surface of the coronoid process of the mandible, anterior border of the ramus of the mandible",
+    "a": "Elevates the mandible (closes the jaw); posterior fibers retract the mandible; unilaterally assists side-to-side grinding",
+    "n": "Deep temporal nerves from the mandibular nerve (CN V3)",
+    "b": "Deep temporal arteries from the maxillary artery, middle temporal artery from the superficial temporal artery",
+    "c": "Its contraction can be felt at the temple when clenching the teeth; tightness or trigger points commonly cause tension-type headache in the temporal region and pain in the upper teeth."
+  },
+  "temporoparietalis": {
+    "kid": "A thin sheet of muscle above your ear that can tighten your scalp, and some people can even use it to wiggle their ears.",
+    "o": "Temporal fascia above the auricle",
+    "i": "Lateral border of the epicranial aponeurosis (galea aponeurotica)",
+    "a": "Tightens the scalp, elevates the auricle",
+    "n": "Temporal branch of the facial nerve (CN VII)",
+    "b": "Superficial temporal artery",
+    "c": "Part of the epicranius; thin and variable, and of little functional importance."
+  },
+  "tendinous arch of levator ani": {
+    "kid": "A strong band inside your hips that gives the muscles holding up the organs in your tummy a place to hang on to.",
+    "o": "Posterior surface of the body of the pubis",
+    "i": "Ischial spine",
+    "a": "Thickened band of the obturator internus fascia that gives origin to levator ani (iliococcygeus) and supports the pelvic floor",
+    "n": "",
+    "b": "",
+    "c": "When its attachment becomes lax or torn through childbirth or aging, pelvic floor support is inadequate, and pelvic organ prolapse and stress urinary incontinence may develop."
+  },
+  "tensor fasciae latae": {
+    "kid": "A small muscle at the front of the outside of your hip that tightens the long band down the outside of your thigh, helping you lift your leg and stand steady.",
+    "o": "Anterior superior iliac spine, anterior part of the outer lip of the iliac crest",
+    "i": "Iliotibial tract (through it to Gerdy's tubercle on the lateral condyle of the tibia)",
+    "a": "Hip flexion, abduction, medial rotation; helps stabilize the extended knee via the iliotibial tract",
+    "n": "Superior gluteal nerve (L4–S1)",
+    "b": "Superior gluteal artery, ascending branch of the lateral circumflex femoral artery",
+    "c": "Often overused in compensation when gluteus medius is weak; tightness is associated with iliotibial band syndrome (runner's knee) and is assessed with the Ober test."
+  },
+  "teres major": {
+    "kid": "A round muscle from the bottom corner of your shoulder blade to your arm that helps pull your arm down and back and turn it inward.",
+    "o": "Dorsal surface of the inferior angle of the scapula",
+    "i": "Medial lip of the intertubercular sulcus of the humerus (crest of the lesser tubercle)",
+    "a": "Shoulder medial rotation, adduction, extension",
+    "n": "Lower subscapular nerve (C5–C6)",
+    "b": "Circumflex scapular artery, thoracodorsal artery",
+    "c": "Known as \"lat's little helper\", it forms the posterior axillary fold together with latissimus dorsi; tightness limits shoulder flexion and lateral rotation. It is not part of the rotator cuff."
+  },
+  "teres minor": {
+    "kid": "A small muscle on the outer edge of your shoulder blade that helps turn your arm outward and keeps your shoulder joint steady.",
+    "o": "Dorsal surface of the upper 2/3 of the lateral border of the scapula",
+    "i": "Inferior facet of the greater tubercle of the humerus and the posterior part of the shoulder joint capsule",
+    "a": "Lateral rotation of the shoulder; stabilizes the humeral head; weak adduction",
+    "n": "Axillary nerve (C5–C6)",
+    "b": "Circumflex scapular artery, posterior circumflex humeral artery",
+    "c": "One of the rotator cuff muscles; tested with the hornblower's sign. It may atrophy in isolation when the axillary nerve is compressed in quadrilateral space syndrome."
+  },
+  "third lumbrical of foot": {
+    "kid": "A little worm-shaped muscle in the sole of your foot that bends your fourth toe at the bottom while keeping it straight, so you walk more steadily.",
+    "o": "Adjacent sides of the flexor digitorum longus tendons to the 3rd and 4th toes",
+    "i": "Medial side of the base of the proximal phalanx of the 4th toe and the extensor expansion",
+    "a": "Flexes the metatarsophalangeal joint of the 4th toe and extends its interphalangeal joints",
+    "n": "Deep branch of the lateral plantar nerve (S2–S3)",
+    "b": "Lateral plantar artery, plantar metatarsal arteries",
+    "c": "When the intrinsic foot muscles are weak, the metatarsophalangeal joints hyperextend and the interphalangeal joints flex, producing claw toes; they can be trained with the short foot exercise."
+  },
+  "third plantar interosseous of foot": {
+    "kid": "A small muscle between the bones deep in the sole of your foot that pulls your little toe in toward your second toe.",
+    "o": "Base and medial surface of the 5th metatarsal",
+    "i": "Medial side of the base of the proximal phalanx of the 5th toe and the extensor expansion",
+    "a": "Adducts the 5th toe (toward the 2nd toe); assists flexion of the metatarsophalangeal joint",
+    "n": "Deep branch of the lateral plantar nerve (S2–S3)",
+    "b": "Plantar metatarsal arteries from the plantar arch",
+    "c": "The reference axis for adduction and abduction in the foot is the 2nd toe (the middle finger in the hand); it belongs to the fourth layer of plantar muscles."
+  },
+  "thoracic rotator": {
+    "kid": "The deepest, shortest little muscles of your back that link neighboring back bones, helping your body feel twisting and keeping your spine steady.",
+    "o": "Transverse process of a thoracic vertebra",
+    "i": "Lamina and base of the spinous process of the vertebra one level above (rotatores breves) or two levels above (rotatores longi)",
+    "a": "Segmental stabilization and proprioception; assist contralateral rotation and extension of the thoracic spine",
+    "n": "Medial branches of the posterior rami of thoracic spinal nerves",
+    "b": "Dorsal branches of the posterior intercostal arteries",
+    "c": "The deepest layer of the transversospinalis group, best developed in the thoracic region; with an extremely high muscle spindle density, their function leans toward position sense rather than force production."
+  },
+  "thyrohyoid": {
+    "kid": "A short little muscle above your Adam's apple that lifts your voice box when you swallow so food doesn't go down the wrong way.",
+    "o": "Oblique line of the lamina of the thyroid cartilage",
+    "i": "Inferior border of the body and greater horn of the hyoid bone",
+    "a": "Depresses the hyoid; elevates the larynx when the hyoid is fixed (during swallowing)",
+    "n": "Fibers of the 1st cervical nerve (C1) traveling with the hypoglossal nerve (CN XII)",
+    "b": "Superior thyroid artery, infrahyoid branch of the lingual artery",
+    "c": "The only infrahyoid muscle not supplied by the ansa cervicalis itself; laryngeal elevation training in swallowing rehabilitation involves this muscle."
+  },
+  "tibialis anterior": {
+    "kid": "The muscle beside the bone at the front of your shin that lifts your foot up so your toes don't trip on the ground when you walk.",
+    "o": "Lateral condyle of the tibia, upper 1/2 to 2/3 of the lateral surface of the tibia, interosseous membrane of the leg",
+    "i": "Medial and inferior surface of the medial cuneiform, base of the 1st metatarsal",
+    "a": "Ankle dorsiflexion, foot inversion; supports the medial longitudinal arch of the foot",
+    "n": "Deep fibular nerve (L4–L5)",
+    "b": "Anterior tibial artery",
+    "c": "Weakness causes foot drop and a steppage gait (L4 nerve root or common fibular nerve injury); overuse can cause anterior shin pain and anterior compartment syndrome."
+  },
+  "tibialis posterior": {
+    "kid": "The deepest muscle in your calf, whose cord wraps under your foot and holds your arch up high so your foot doesn't flatten.",
+    "o": "Posterior surface of the interosseous membrane of the leg, lateral part of the posterior surface of the tibia (below the soleal line), medial part of the posterior surface of the fibula",
+    "i": "Navicular tuberosity, medial cuneiform; with extensions to the other cuneiforms, the cuboid and the bases of the 2nd–4th metatarsals",
+    "a": "Foot inversion, ankle plantarflexion; supports the medial longitudinal arch of the foot",
+    "n": "Tibial nerve (L4–L5)",
+    "b": "Posterior tibial artery, fibular artery",
+    "c": "Posterior tibial tendon dysfunction is the most common cause of adult acquired flatfoot; the single-leg heel raise test is positive when the raise is weak or the calcaneus fails to invert."
+  },
+  "transverse head of adductor hallucis": {
+    "kid": "A small muscle lying across deep in the front of your foot that pulls your big toe closer to the other toes and helps hold up the arch across your foot.",
+    "o": "Plantar ligaments (plantar plates) of the 3rd–5th metatarsophalangeal joints and the deep transverse metatarsal ligament",
+    "i": "Lateral side of the base of the proximal phalanx of the great toe (with the oblique head, via the lateral sesamoid)",
+    "a": "Adducts the great toe (toward the 2nd toe); helps maintain the transverse arch of the foot",
+    "n": "Deep branch of the lateral plantar nerve (S2–S3)",
+    "b": "Plantar arch, 1st plantar metatarsal artery",
+    "c": "In hallux valgus, contracture of this muscle keeps pulling the great toe laterally, and surgical correction often requires release of its tendon."
+  },
+  "transverse head of adductor pollicis": {
+    "kid": "A fan-shaped muscle deep in your palm that pulls your thumb toward your palm so you can pinch a key or a piece of paper firmly.",
+    "o": "Palmar surface of the shaft of the 3rd metacarpal",
+    "i": "Ulnar side of the base of the proximal phalanx of the thumb (via the ulnar sesamoid)",
+    "a": "Thumb adduction; provides the power for lateral (key) pinch",
+    "n": "Deep branch of the ulnar nerve (C8–T1)",
+    "b": "Deep palmar arch, princeps pollicis artery",
+    "c": "With ulnar nerve injury adduction is weak, and when gripping paper flexor pollicis longus compensates by flexing the thumb interphalangeal joint, which is Froment's sign."
+  },
+  "transverse part of trapezius": {
+    "kid": "The muscle running across the middle of your upper back that squeezes your shoulder blades together so you can stand tall with your chest out.",
+    "o": "Spinous processes of C7–T3 and the supraspinous ligament",
+    "i": "Medial border of the acromion, superior border of the spine of the scapula",
+    "a": "Scapular retraction (adduction); stabilizes the scapula on the thorax",
+    "n": "Accessory nerve (CN XI); anterior rami of C3–C4 for proprioception",
+    "b": "Transverse cervical artery",
+    "c": "Often lengthened and weak in people with rounded shoulders and a hunched back; prone T horizontal abduction and rowing exercises strengthen it."
+  },
+  "transversus abdominis": {
+    "kid": "The innermost muscle of your tummy that wraps around like a belt, pulling your tummy in tight to protect your insides and your lower back.",
+    "o": "Inner surfaces of costal cartilages 7–12, thoracolumbar fascia, anterior 2/3 of the inner lip of the iliac crest, lateral 1/3 of the inguinal ligament",
+    "i": "Linea alba via its aponeurosis, which contributes to the rectus sheath; lower part to the pubic crest and pecten pubis via the conjoint tendon",
+    "a": "Compresses the abdominal cavity and raises intra-abdominal pressure; stabilizes the lumbar spine and pelvis via the thoracolumbar fascia; assists forced expiration",
+    "n": "Thoracoabdominal nerves (T7–T11), subcostal nerve (T12), iliohypogastric and ilioinguinal nerves (L1)",
+    "b": "Lower posterior intercostal arteries, subcostal artery, superior and inferior epigastric arteries, deep circumflex iliac artery",
+    "c": "A key muscle for core stability whose activation is often delayed in patients with low back pain; trained with the abdominal drawing-in maneuver and palpable about 2 cm medial and inferior to the anterior superior iliac spine."
+  },
+  "transversus thoracis": {
+    "kid": "A thin muscle on the inside of your breastbone that pulls your ribs down when you blow air out hard.",
+    "o": "Posterior surface of the lower body of the sternum and of the xiphoid process",
+    "i": "Inner surfaces of costal cartilages 2–6",
+    "a": "Depresses the ribs, assisting forced expiration",
+    "n": "Intercostal nerves (T2–T6)",
+    "b": "Internal thoracic artery",
+    "c": "Lies on the inner surface of the anterior chest wall, with the internal thoracic artery running anterior to it; it cannot be palpated from the surface."
+  },
+  "ulnar head of extensor carpi ulnaris": {
+    "kid": "A muscle on the back of your forearm on the little-finger side that helps you bend your wrist back and tilt it toward your little finger.",
+    "o": "Posterior border of the ulna (via an aponeurosis shared with flexor carpi ulnaris)",
+    "i": "Ulnar side of the dorsal surface of the base of the 5th metacarpal",
+    "a": "Wrist extension, ulnar deviation (adduction) of the wrist",
+    "n": "Deep branch of the radial nerve (posterior interosseous nerve) (C7–C8)",
+    "b": "Posterior interosseous artery, ulnar artery",
+    "c": "Its tendon runs in a groove on the dorsum of the head of the ulna (sixth extensor compartment); tendinitis or subluxation is common in tennis players and golfers."
+  },
+  "ulnar head of flexor carpi ulnaris": {
+    "kid": "A muscle on the inner side of your forearm on the little-finger side that helps you bend your wrist toward your palm and tilt it toward your little finger.",
+    "o": "Medial border of the olecranon, upper 2/3 of the posterior border of the ulna",
+    "i": "Pisiform; extends via the pisohamate and pisometacarpal ligaments to the hook of the hamate and the base of the 5th metacarpal",
+    "a": "Wrist flexion, ulnar deviation (adduction) of the wrist",
+    "n": "Ulnar nerve (C7–T1)",
+    "b": "Ulnar artery, ulnar recurrent arteries",
+    "c": "The ulnar nerve enters the forearm through the tendinous arch between the humeral and ulnar heads (cubital tunnel), a common site of ulnar nerve entrapment."
+  },
+  "ulnar head of pronator teres": {
+    "kid": "A small, deeper muscle at the front of your elbow that helps you turn your palm down, like pouring water out of a cup.",
+    "o": "Medial border of the coronoid process of the ulna",
+    "i": "Middle of the lateral surface of the radius (pronator tuberosity), by a common tendon with the humeral head",
+    "a": "Forearm pronation; assists elbow flexion",
+    "n": "Median nerve (C6–C7)",
+    "b": "Ulnar artery, anterior ulnar recurrent artery",
+    "c": "The median nerve passes between the humeral and ulnar heads; entrapment here is called pronator teres syndrome and must be differentiated from carpal tunnel syndrome."
+  },
+  "upper head of lateral pterygoid": {
+    "kid": "A small, very deep muscle in front of your ear that helps control the little cushion inside your jaw joint when you close your mouth to bite.",
+    "o": "Infratemporal surface and infratemporal crest of the greater wing of the sphenoid",
+    "i": "Capsule of the temporomandibular joint and anterior border of the articular disc, upper part of the pterygoid fovea on the neck of the mandibular condyle",
+    "a": "Stabilizes and controls the backward movement of the articular disc and condyle during jaw closing and biting; assists mandibular protrusion and lateral movements",
+    "n": "Nerve to lateral pterygoid from the mandibular nerve (CN V3)",
+    "b": "Pterygoid branches of the maxillary artery",
+    "c": "Associated with anterior displacement of the temporomandibular joint disc and clicking; when overly tight it pulls the disc forward, making it a treatment focus in temporomandibular disorders."
+  },
+  "vastus intermedius": {
+    "kid": "The deepest muscle at the front of your thigh, right against the bone, that helps you straighten your knee when you stand up or kick a ball.",
+    "o": "Anterior and lateral surfaces of the upper 2/3 of the femoral shaft",
+    "i": "Base of the patella via the quadriceps tendon, then the tibial tuberosity via the patellar ligament",
+    "a": "Knee extension",
+    "n": "Femoral nerve (L2–L4)",
+    "b": "Lateral circumflex femoral artery, deep femoral artery",
+    "c": "Lies deep to rectus femoris and cannot be palpated directly; it is the most common site of myositis ossificans after an anterior thigh contusion."
+  },
+  "vastus lateralis": {
+    "kid": "The biggest muscle on the outside of your thigh that helps you straighten your knee, and you rely on it for running, jumping and climbing stairs.",
+    "o": "Upper part of the intertrochanteric line, anterior and inferior borders of the greater trochanter, lateral side of the gluteal tuberosity, lateral lip of the linea aspera",
+    "i": "Base and lateral border of the patella via the quadriceps tendon, then the tibial tuberosity via the patellar ligament; also forms the lateral patellar retinaculum",
+    "a": "Knee extension; pulls the patella superolaterally",
+    "n": "Femoral nerve (L2–L4)",
+    "b": "Descending branch of the lateral circumflex femoral artery",
+    "c": "The largest head of the quadriceps; when too strong or too tight relative to vastus medialis, the patella tracks laterally and patellofemoral pain syndrome develops. It is also a common intramuscular injection site."
+  },
+  "vastus medialis": {
+    "kid": "The teardrop-shaped muscle above the inside of your knee that helps you straighten your knee all the way and keeps your kneecap in the middle.",
+    "o": "Lower part of the intertrochanteric line, spiral line, medial lip of the linea aspera, medial supracondylar line",
+    "i": "Base and medial border of the patella via the quadriceps tendon, then the tibial tuberosity via the patellar ligament; also forms the medial patellar retinaculum",
+    "a": "Knee extension; the lower oblique fibers pull the patella medially and stabilize patellar tracking",
+    "n": "Femoral nerve (L2–L4)",
+    "b": "Femoral artery, deep femoral artery, descending genicular artery",
+    "c": "The quickest to atrophy after knee injury, swelling or surgery; the lower oblique fibers (VMO) are a training focus in rehabilitation for patellofemoral pain and after anterior cruciate ligament surgery."
+  },
+  "vertical intermediate part of longus colli": {
+    "kid": "A deep muscle running straight up the front of your neck bones that helps you nod and keeps your neck steady.",
+    "o": "Anterior surfaces of the vertebral bodies of C5–T3",
+    "i": "Anterior surfaces of the vertebral bodies of C2–C4",
+    "a": "Flexes the cervical spine and reduces cervical lordosis; stabilizes the cervical spine",
+    "n": "Anterior rami of cervical spinal nerves (C2–C6)",
+    "b": "Branches of the ascending pharyngeal, ascending cervical and vertebral arteries",
+    "c": "The main part of the deep neck flexors; vulnerable to injury in whiplash (neck hyperextension), and its endurance is trained with craniocervical flexion exercise assisted by a pressure biofeedback unit."
+  },
+  "zygomaticus major": {
+    "kid": "A muscle running slantwise from your cheekbone to the corner of your mouth that pulls the corner up when you're happy to make you smile.",
+    "o": "Lateral surface of the zygomatic bone (anterior to the zygomaticotemporal suture)",
+    "i": "Skin and muscle at the angle of the mouth (modiolus)",
+    "a": "Draws the angle of the mouth upward and laterally (smiling, laughing)",
+    "n": "Zygomatic and buccal branches of the facial nerve (CN VII)",
+    "b": "Superior labial branch of the facial artery",
+    "c": "In facial nerve palsy (such as Bell's palsy) the corner of the mouth on the affected side cannot be raised; it is one of the main muscles trained in facial expression re-education."
+  },
+  "zygomaticus minor": {
+    "kid": "A tiny muscle from your cheekbone to your upper lip that lifts the lip to make a smile or a sneering face.",
+    "o": "Lateral surface of the zygomatic bone (posterior to the zygomaticomaxillary suture)",
+    "i": "Skin and muscle of the lateral part of the upper lip",
+    "a": "Elevates the upper lip, deepens the nasolabial fold",
+    "n": "Zygomatic and buccal branches of the facial nerve (CN VII)",
+    "b": "Superior labial branch of the facial artery",
+    "c": "Works with zygomaticus major and levator labii superioris to produce the smiling expression; the nasolabial fold becomes shallower in facial nerve palsy."
+  }
+}

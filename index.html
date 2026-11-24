@@ -46,47 +46,50 @@
   </defs>
 </svg>
 
-<div id="stage"><canvas id="gl" aria-label="3D 人體模型"></canvas><div id="labels" aria-hidden="true"></div></div>
+<div id="stage"><canvas id="gl" aria-label="3D 人體模型" data-t-attr="aria-label=3D 人體模型"></canvas><div id="labels" aria-hidden="true"></div></div>
 
 <header id="top">
-  <label class="search">
-    <svg class="ic"><use href="#i-search"/></svg>
-    <input id="q" type="search" inputmode="search" autocomplete="off" spellcheck="false" placeholder="搜尋肌肉、骨頭…（中文或英文）" aria-label="搜尋構造">
-    <button id="q-clear" class="icon-btn" hidden aria-label="清除搜尋"><svg class="ic"><use href="#i-x"/></svg></button>
-  </label>
+  <div class="top-row">
+    <label class="search">
+      <svg class="ic"><use href="#i-search"/></svg>
+      <input id="q" type="search" inputmode="search" autocomplete="off" spellcheck="false" placeholder="搜尋肌肉、骨頭…（中文或英文）" aria-label="搜尋構造" data-t-attr="placeholder=搜尋肌肉、骨頭…（中文或英文）|aria-label=搜尋構造">
+      <button id="q-clear" class="icon-btn" hidden aria-label="清除搜尋" data-t-attr="aria-label=清除搜尋"><svg class="ic"><use href="#i-x"/></svg></button>
+    </label>
+    <button id="lang-btn" aria-label="Switch to English">EN</button>
+  </div>
   <div id="results" hidden></div>
 </header>
 
-<div id="views" role="group" aria-label="視角">
-  <button data-view="front">前</button>
-  <button data-view="back">後</button>
-  <button data-view="left">左</button>
-  <button data-view="right">右</button>
-  <button data-act="reset" aria-label="重設視角" title="重設視角"><svg class="ic"><use href="#i-reset"/></svg></button>
+<div id="views" role="group" aria-label="視角" data-t-attr="aria-label=視角">
+  <button data-view="front" data-t="前" title="前面" data-t-attr="title=前面">前</button>
+  <button data-view="back" data-t="後" title="後面" data-t-attr="title=後面">後</button>
+  <button data-view="left" data-t="左" title="左側面" data-t-attr="title=左側面">左</button>
+  <button data-view="right" data-t="右" title="右側面" data-t-attr="title=右側面">右</button>
+  <button data-act="reset" aria-label="重設視角" title="重設視角" data-t-attr="aria-label=重設視角|title=重設視角"><svg class="ic"><use href="#i-reset"/></svg></button>
   <span class="sep"></span>
-  <button data-act="undo" aria-label="復原上一步" title="復原上一步" disabled><svg class="ic"><use href="#i-undo"/></svg></button>
-  <button data-act="showall" aria-label="全部顯示" title="全部顯示"><svg class="ic"><use href="#i-showall"/></svg></button>
+  <button data-act="undo" aria-label="復原上一步" title="復原上一步" data-t-attr="aria-label=復原上一步|title=復原上一步" disabled><svg class="ic"><use href="#i-undo"/></svg></button>
+  <button data-act="showall" aria-label="全部顯示" title="全部顯示" data-t-attr="aria-label=全部顯示|title=全部顯示"><svg class="ic"><use href="#i-showall"/></svg></button>
 </div>
 
-<div id="peel" role="group" aria-label="剝層"></div>
+<div id="peel" role="group" aria-label="剝層" data-t-attr="aria-label=剝層"></div>
 
 <div id="selbar" hidden></div>
 
 <section id="sheet" hidden aria-live="polite">
   <header>
     <h2 id="sheet-title"></h2>
-    <button id="sheet-close" class="icon-btn" aria-label="關閉面板"><svg class="ic"><use href="#i-x"/></svg></button>
+    <button id="sheet-close" class="icon-btn" aria-label="關閉面板" data-t-attr="aria-label=關閉面板"><svg class="ic"><use href="#i-x"/></svg></button>
   </header>
   <div id="sheet-body"></div>
 </section>
 
-<nav id="tabs" aria-label="主選單">
-  <button data-tab="layers"><svg class="ic"><use href="#i-layers"/></svg><span>圖層</span></button>
-  <button data-tab="regions"><svg class="ic"><use href="#i-body"/></svg><span>部位</span></button>
-  <button data-tab="groups"><svg class="ic"><use href="#i-muscle"/></svg><span>肌群</span></button>
-  <button data-tab="motions"><svg class="ic"><use href="#i-motion"/></svg><span>動作</span></button>
-  <button data-tab="quiz"><svg class="ic"><use href="#i-quiz"/></svg><span>測驗</span></button>
-  <button data-tab="tools"><svg class="ic"><use href="#i-tools"/></svg><span>工具</span></button>
+<nav id="tabs" aria-label="主選單" data-t-attr="aria-label=主選單">
+  <button data-tab="layers"><svg class="ic"><use href="#i-layers"/></svg><span data-t="圖層">圖層</span></button>
+  <button data-tab="regions"><svg class="ic"><use href="#i-body"/></svg><span data-t="部位">部位</span></button>
+  <button data-tab="groups"><svg class="ic"><use href="#i-muscle"/></svg><span data-t="肌群">肌群</span></button>
+  <button data-tab="motions"><svg class="ic"><use href="#i-motion"/></svg><span data-t="動作@tab">動作</span></button>
+  <button data-tab="quiz"><svg class="ic"><use href="#i-quiz"/></svg><span data-t="測驗">測驗</span></button>
+  <button data-tab="tools"><svg class="ic"><use href="#i-tools"/></svg><span data-t="工具">工具</span></button>
 </nav>
 
 <div id="toast" hidden role="status"></div>
@@ -94,10 +97,10 @@
 <div id="loading">
   <div class="load-card">
     <div class="load-title">Body Decomposition</div>
-    <div class="load-sub">3D 肌肉骨骼分層圖</div>
+    <div class="load-sub" data-t="3D 肌肉骨骼分層圖">3D 肌肉骨骼分層圖</div>
     <div class="bar"><i id="load-bar"></i></div>
-    <div id="load-text">正在載入模型…</div>
-    <div class="load-credit">模型：BodyParts3D © 日本生命科學資料庫中心（DBCLS），CC BY-SA 2.1 JP</div>
+    <div id="load-text" data-t="正在載入模型…">正在載入模型…</div>
+    <div class="load-credit" data-t="模型：BodyParts3D © 日本生命科學資料庫中心（DBCLS），CC BY-SA 2.1 JP">模型：BodyParts3D © 日本生命科學資料庫中心（DBCLS），CC BY-SA 2.1 JP</div>
   </div>
 </div>
 

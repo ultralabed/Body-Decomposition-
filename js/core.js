@@ -6,6 +6,7 @@ import * as THREE from '../vendor/three.module.min.js';
 import { OrbitControls } from '../vendor/OrbitControls.js';
 import { GLTFLoader } from '../vendor/GLTFLoader.js';
 import { MeshoptDecoder } from '../vendor/meshopt_decoder.module.js';
+import { getLang, setInfo, partName, partAlt } from './i18n.js';
 
 const bus = new EventTarget();
 export const emit = (type, detail) => bus.dispatchEvent(new CustomEvent(type, { detail }));
@@ -210,6 +211,8 @@ export async function load(onProgress) {
     fetch('models/manifest.json').then((r) => r.json()),
   ]);
   app.info = anatomy.info;
+  setInfo(anatomy.info);
+  const textReady = loadText(getLang());
   const meta = new Map(anatomy.parts.map((p) => [p.id, p]));
 
   const loader = new GLTFLoader().setMeshoptDecoder(await pickDecoder());
@@ -227,12 +230,24 @@ export async function load(onProgress) {
     emit('partsAdded', f);
   }));
 
+  await textReady;
   app.bounds.makeEmpty();
   for (const p of app.parts) app.bounds.union(p.box);
   app.ready = true;
   refresh();
   emit('ready');
 }
+
+// Descriptions (origin, insertion, ...) live in one file per language and
+// are loaded when that language is first used.
+const texts = {};
+export async function loadText(lang) {
+  if (texts[lang]) return;
+  const res = await fetch(`data/text-${lang}.json`);
+  if (!res.ok) throw new Error(`text-${lang}: HTTP ${res.status}`);
+  texts[lang] = await res.json();
+}
+export const text = (key) => texts[getLang()]?.[key] || texts.zh?.[key] || texts.en?.[key] || {};
 
 // Download one model file, reporting progress. Hosts that cannot serve
 // binary .glb files can set `window.BD_MODELS_BASE64 = true` and provide the
@@ -303,13 +318,15 @@ function addParts(root, meta) {
     const part = {
       id, en: m.en, key: m.key, side: m.side, info,
       sys: info.sys, layer: info.layer || 0, region: info.region,
-      zh: (m.side === 'R' ? '右' : m.side === 'L' ? '左' : '') + info.zh,
       user: NORMAL, tint: null,
       box: geo.boundingBox.clone(),
       center: geo.boundingBox.getCenter(new THREE.Vector3()),
     };
     // A better "middle" for labels and camera targets than the box centre.
     part.center.copy(centroidOf(pos));
+    // name / alt follow the current language (see i18n.js)
+    Object.defineProperty(part, 'name', { get() { return partName(this); } });
+    Object.defineProperty(part, 'alt', { get() { return partAlt(this); } });
     part.color = baseColor(part);
     part.group = groupOf(part);
     const mat = new THREE.MeshStandardMaterial({
@@ -661,7 +678,7 @@ function updateLabels() {
   if (!labelLayer) return;
   const s = app.state;
   const items = [];
-  if (s.labels && s.selection.size <= 4) for (const p of selectedParts()) if (p.mesh.visible) items.push({ part: p, text: p.zh, cls: 'sel' });
+  if (s.labels && s.selection.size <= 4) for (const p of selectedParts()) if (p.mesh.visible) items.push({ part: p, cls: 'sel' });
   for (const e of extraLabels) if (e.part.mesh.visible) items.push(e);
   while (labelPool.length < items.length) {
     const el = document.createElement('div');
@@ -678,7 +695,7 @@ function updateLabels() {
     if (projected.z > 1) { el.hidden = true; return; }
     el.hidden = false;
     el.dataset.cls = it.cls || '';
-    el.lastChild.textContent = it.text;
+    el.lastChild.textContent = it.text ?? it.part.name;
     el.style.transform = `translate(${((projected.x + 1) / 2 * w).toFixed(1)}px, ${((1 - projected.y) / 2 * h).toFixed(1)}px)`;
   });
 }
@@ -696,6 +713,6 @@ export function screenshot(background) {
   const scale = out.width / canvas.clientWidth;
   ctx.font = `${12 * scale}px system-ui, sans-serif`;
   ctx.fillStyle = 'rgba(255,255,255,.55)';
-  ctx.fillText('Body Decomposition · 模型：BodyParts3D © DBCLS (CC BY-SA 2.1 JP)', 12 * scale, out.height - 12 * scale);
+  ctx.fillText('Body Decomposition · Model: BodyParts3D © DBCLS (CC BY-SA 2.1 JP)', 12 * scale, out.height - 12 * scale);
   return new Promise((res) => out.toBlob(res, 'image/png'));
 }

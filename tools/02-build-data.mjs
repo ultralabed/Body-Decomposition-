@@ -3,10 +3,11 @@
 //
 //   node 02-build-data.mjs
 //
-// Output shape:
-//   { parts: [ { id, en, key, side } ],          one entry per 3D mesh
-//     info:  { [key]: { zh, sys, region, ... } } one entry per structure
-//   }
+// Output:
+//   data/anatomy.json  { parts: [ { id, en, key, side } ],            one per 3D mesh
+//                        info:  { [key]: { zh, sys, layer, region, ob, ib } } }
+//   data/text-zh.json  { [key]: { kid, o, i, a, n, b, c, d } }        Chinese text
+//   data/text-en.json  same fields in English (from data/src/en/*.json)
 // "key" is the English name without left/right, so both sides share text.
 
 import fs from 'node:fs';
@@ -63,7 +64,25 @@ for (const key of Object.keys(info)) {
   if (!parts.some((p) => p.key === key)) { problems.push(`${key}: content without mesh`); delete info[key]; }
 }
 
-fs.writeFileSync(path.join(root, 'data', 'anatomy.json'), JSON.stringify({ parts, info }));
+// Split: structure facts the 3D code needs (anatomy.json) and the
+// descriptive text, one file per language (text-zh.json, text-en.json).
+const TEXT_FIELDS = ['kid', 'o', 'i', 'a', 'n', 'b', 'c', 'd'];
+const core = {}, zh = {}, en = {};
+const enSrc = {};
+const enDir = path.join(src, 'en');
+if (fs.existsSync(enDir)) for (const f of fs.readdirSync(enDir)) if (f.endsWith('.json')) Object.assign(enSrc, readJson(path.join(enDir, f)));
+for (const [key, e] of Object.entries(info)) {
+  core[key] = {}; zh[key] = {}; en[key] = {};
+  for (const [k, v] of Object.entries(e)) (TEXT_FIELDS.includes(k) ? zh[key] : core[key])[k] = v;
+  for (const k of TEXT_FIELDS) {
+    const v = enSrc[key]?.[k];
+    if (v) en[key][k] = v;
+    else if (zh[key][k]) problems.push(`${key}: no English for "${k}"`);
+  }
+}
+fs.writeFileSync(path.join(root, 'data', 'anatomy.json'), JSON.stringify({ parts, info: core }));
+fs.writeFileSync(path.join(root, 'data', 'text-zh.json'), JSON.stringify(zh));
+fs.writeFileSync(path.join(root, 'data', 'text-en.json'), JSON.stringify(en));
 const count = {};
 for (const p of parts) count[info[p.key].sys] = (count[info[p.key].sys] || 0) + 1;
 console.log(`${parts.length} meshes, ${Object.keys(info).length} structures`, count);

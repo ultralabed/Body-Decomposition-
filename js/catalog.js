@@ -1,89 +1,93 @@
 // Static lists shown in the UI: layers, body regions, functional muscle
-// groups and joint movements. Text is Traditional Chinese.
+// groups and joint movements.
+// Text that is shown to people is written as a pair: [繁體中文, English].
+// Use L(pair) from i18n.js to pick the current language.
 
 export const GROUPS = [
-  { id: 'skin', zh: '皮膚', hint: '身體最外面的外衣' },
-  { id: 'm1', zh: '淺層肌肉', hint: '皮膚底下第一層，摸得到的肌肉' },
-  { id: 'm2', zh: '中層肌肉', hint: '藏在淺層肌肉下面' },
-  { id: 'm3', zh: '深層肌肉', hint: '最裡面、貼著骨頭的肌肉' },
-  { id: 'bone', zh: '骨骼', hint: '撐起身體的骨頭和牙齒' },
-  { id: 'joint', zh: '軟骨與椎間盤', hint: '骨頭之間的軟墊和連接' },
-  { id: 'organ', zh: '內臟', hint: '肺、肝、胃、腸、腎…' },
-  { id: 'vessel', zh: '心臟與血管', hint: '心臟和大條的動脈、靜脈' },
-  { id: 'nerve', zh: '腦與神經', hint: '大腦、小腦、腦幹' },
+  { id: 'skin', name: ['皮膚', 'Skin'], hint: ['身體最外面的外衣', 'The body\'s outer coat'] },
+  { id: 'm1', name: ['淺層肌肉', 'Superficial muscles'], hint: ['皮膚底下第一層，摸得到的肌肉', 'First layer under the skin — the ones you can feel'] },
+  { id: 'm2', name: ['中層肌肉', 'Intermediate muscles'], hint: ['藏在淺層肌肉下面', 'Hidden under the superficial layer'] },
+  { id: 'm3', name: ['深層肌肉', 'Deep muscles'], hint: ['最裡面、貼著骨頭的肌肉', 'Deepest layer, lying against the bones'] },
+  { id: 'bone', name: ['骨骼', 'Bones'], hint: ['撐起身體的骨頭和牙齒', 'Bones and teeth that hold the body up'] },
+  { id: 'joint', name: ['軟骨與椎間盤', 'Cartilage & discs'], hint: ['骨頭之間的軟墊和連接', 'Soft cushions and links between bones'] },
+  { id: 'organ', name: ['內臟', 'Organs'], hint: ['肺、肝、胃、腸、腎…', 'Lungs, liver, stomach, intestines, kidneys…'] },
+  { id: 'vessel', name: ['心臟與血管', 'Heart & vessels'], hint: ['心臟和大條的動脈、靜脈', 'The heart and the large arteries and veins'] },
+  { id: 'nerve', name: ['腦與神經', 'Brain & nerves'], hint: ['大腦、小腦、腦幹', 'Cerebrum, cerebellum and brainstem'] },
 ];
 
-export const PEEL = ['皮膚', '淺層肌', '中層肌', '深層肌', '骨骼'];
+export const PEEL = [['皮膚', 'Skin'], ['淺層肌', 'Superf.'], ['中層肌', 'Middle'], ['深層肌', 'Deep'], ['骨骼', 'Bones']];
 
-export const SYS_ZH = {
-  skin: '皮膚', muscle: '肌肉', tendon: '肌腱／韌帶／筋膜', bone: '骨骼', joint: '軟骨／椎間盤',
-  organ: '內臟', vessel: '心血管', nerve: '神經系統',
+export const SYS = {
+  skin: ['皮膚', 'Skin'], muscle: ['肌肉', 'Muscle'], tendon: ['肌腱／韌帶／筋膜', 'Tendon / ligament / fascia'], bone: ['骨骼', 'Bone'],
+  joint: ['軟骨／椎間盤', 'Cartilage / disc'], organ: ['內臟', 'Organ'], vessel: ['心血管', 'Cardiovascular'], nerve: ['神經系統', 'Nervous system'],
 };
-export const LAYER_ZH = { 1: '淺層', 2: '中層', 3: '深層' };
-export const REGION_ZH = {
-  head: '頭部', neck: '頸部', chest: '胸部', abdomen: '腹部', back: '背部', pelvis: '骨盆',
-  shoulder: '肩部', arm: '上臂', forearm: '前臂', hand: '手部', hip: '髖部', thigh: '大腿', leg: '小腿', foot: '足部',
+export const LAYER = { 1: ['淺層', 'Superficial'], 2: ['中層', 'Intermediate'], 3: ['深層', 'Deep'] };
+export const REGION = {
+  head: ['頭部', 'Head'], neck: ['頸部', 'Neck'], chest: ['胸部', 'Chest'], abdomen: ['腹部', 'Abdomen'], back: ['背部', 'Back'], pelvis: ['骨盆', 'Pelvis'],
+  shoulder: ['肩部', 'Shoulder'], arm: ['上臂', 'Upper arm'], forearm: ['前臂', 'Forearm'], hand: ['手部', 'Hand'],
+  hip: ['髖部', 'Hip'], thigh: ['大腿', 'Thigh'], leg: ['小腿', 'Lower leg'], foot: ['足部', 'Foot'],
 };
-export const REGION_ORDER = Object.keys(REGION_ZH);
+export const REGION_ORDER = Object.keys(REGION);
 
 // Quick jumps. `regions` = which region tags belong to it (used for
 // "only show this area"); `anchor` picks the spot to frame.
 // dir = direction from the body towards the camera (x: body-left, y: up, z: front).
 export const REGIONS = [
-  { id: 'all', zh: '全身', regions: null, dir: [0, 0.05, 1] },
-  { id: 'head', zh: '頭部', regions: ['head'], dir: [-0.45, 0.05, 1] },
-  { id: 'neck', zh: '頸部', regions: ['neck', 'head'], frame: ['neck'], dir: [-0.6, 0.1, 1] },
-  { id: 'shoulder', zh: '肩膀', regions: ['shoulder', 'arm', 'chest', 'back', 'neck'], anchor: 'shoulder', r: 0.2, dir: [-0.7, 0.15, 1] },
-  { id: 'elbow', zh: '手肘', regions: ['arm', 'forearm'], anchor: 'elbow', r: 0.17, dir: [-0.5, 0.05, 1] },
-  { id: 'hand', zh: '手腕手掌', regions: ['forearm', 'hand'], anchor: 'wrist', r: 0.15, dir: [-0.3, 0.1, 1] },
-  { id: 'chest', zh: '胸部', regions: ['chest', 'shoulder'], frame: ['chest'], dir: [0, 0.05, 1] },
-  { id: 'abdomen', zh: '腹部', regions: ['abdomen', 'pelvis'], frame: ['abdomen'], dir: [0, 0.05, 1] },
-  { id: 'back', zh: '腰背', regions: ['back', 'neck', 'shoulder', 'pelvis', 'hip'], frame: ['back'], dir: [0.25, 0.1, -1] },
-  { id: 'hip', zh: '髖部骨盆', regions: ['hip', 'pelvis', 'thigh'], anchor: 'hip', r: 0.24, dir: [-0.8, 0.05, 0.8] },
-  { id: 'knee', zh: '膝蓋', regions: ['thigh', 'leg'], anchor: 'knee', r: 0.19, dir: [-0.5, 0.05, 1] },
-  { id: 'ankle', zh: '足踝', regions: ['leg', 'foot'], anchor: 'ankle', r: 0.17, dir: [-1, 0.2, 0.7] },
+  { id: 'all', name: ['全身', 'Full body'], regions: null, dir: [0, 0.05, 1] },
+  { id: 'head', name: ['頭部', 'Head'], regions: ['head'], dir: [-0.45, 0.05, 1] },
+  { id: 'neck', name: ['頸部', 'Neck'], regions: ['neck', 'head'], frame: ['neck'], dir: [-0.6, 0.1, 1] },
+  { id: 'shoulder', name: ['肩膀', 'Shoulder'], regions: ['shoulder', 'arm', 'chest', 'back', 'neck'], anchor: 'shoulder', r: 0.2, dir: [-0.7, 0.15, 1] },
+  { id: 'elbow', name: ['手肘', 'Elbow'], regions: ['arm', 'forearm'], anchor: 'elbow', r: 0.17, dir: [-0.5, 0.05, 1] },
+  { id: 'hand', name: ['手腕手掌', 'Wrist & hand'], regions: ['forearm', 'hand'], anchor: 'wrist', r: 0.15, dir: [-0.3, 0.1, 1] },
+  { id: 'chest', name: ['胸部', 'Chest'], regions: ['chest', 'shoulder'], frame: ['chest'], dir: [0, 0.05, 1] },
+  { id: 'abdomen', name: ['腹部', 'Abdomen'], regions: ['abdomen', 'pelvis'], frame: ['abdomen'], dir: [0, 0.05, 1] },
+  { id: 'back', name: ['腰背', 'Back'], regions: ['back', 'neck', 'shoulder', 'pelvis', 'hip'], frame: ['back'], dir: [0.25, 0.1, -1] },
+  { id: 'hip', name: ['髖部骨盆', 'Hip & pelvis'], regions: ['hip', 'pelvis', 'thigh'], anchor: 'hip', r: 0.24, dir: [-0.8, 0.05, 0.8] },
+  { id: 'knee', name: ['膝蓋', 'Knee'], regions: ['thigh', 'leg'], anchor: 'knee', r: 0.19, dir: [-0.5, 0.05, 1] },
+  { id: 'ankle', name: ['足踝', 'Ankle & foot'], regions: ['leg', 'foot'], anchor: 'ankle', r: 0.17, dir: [-1, 0.2, 0.7] },
 ];
 
 // Functional muscle groups. `match` is a regular expression tested against
 // the English structure name (without left/right).
+const G = (zh, en, kidZh, kidEn, match) => ({ name: [zh, en], kid: [kidZh, kidEn], match });
 export const MUSCLE_GROUPS = [
-  { cat: '肩與上肢', items: [
-    { zh: '旋轉肌袖', en: 'Rotator cuff', kid: '四條小肌肉像袖子一樣抱住肩膀的球，讓手臂轉動時不會跑掉。', match: '^(supraspinatus|infraspinatus muscle|teres minor|subscapularis)$' },
-    { zh: '三角肌', en: 'Deltoid', kid: '蓋在肩膀上的三角形肌肉，把手臂往前、往旁邊、往後抬起來。', match: 'part of deltoid' },
-    { zh: '肩胛穩定肌', en: 'Scapular stabilisers', kid: '把肩胛骨穩穩貼在背上的肌肉，手才有穩固的底座可以出力。', match: 'serratus anterior|rhomboid|part of trapezius|levator scapulae|pectoralis minor' },
-    { zh: '斜方肌', en: 'Trapezius', kid: '背上像風箏的大肌肉，聳肩、夾背、把肩胛骨往下拉都靠它。', match: 'part of trapezius' },
-    { zh: '胸大肌', en: 'Pectoralis major', kid: '胸前的大扇形肌肉，做伏地挺身和抱東西時用力。', match: 'pectoralis major' },
-    { zh: '肱二頭肌', en: 'Biceps brachii', kid: '上臂前面的「小老鼠」，彎手肘、翻手掌朝上。', match: 'biceps brachii' },
-    { zh: '肱三頭肌', en: 'Triceps brachii', kid: '上臂後面的肌肉，把彎起來的手肘伸直。', match: 'triceps brachii' },
-    { zh: '前臂屈肌群', en: 'Forearm flexors', kid: '前臂掌心那一面的肌肉，彎手腕、握拳頭。', match: 'flexor carpi|palmaris longus|flexor digitorum (superficialis|profundus)|flexor pollicis longus|pronator' },
-    { zh: '前臂伸肌群', en: 'Forearm extensors', kid: '前臂手背那一面的肌肉，把手腕和手指翹起來。', match: 'extensor carpi|^extensor digitorum$|extensor digiti minimi|extensor indicis|extensor pollicis|abductor pollicis longus|brachioradialis|supinator|anconeus' },
-    { zh: '大魚際肌群', en: 'Thenar muscles', kid: '大拇指根部鼓鼓的那團肉，讓拇指能和其他手指對捏。', match: 'abductor pollicis brevis|flexor pollicis brevis|opponens pollicis|adductor pollicis' },
-    { zh: '小魚際肌群', en: 'Hypothenar muscles', kid: '小指根部的那團肉，負責小指的活動。', match: '(abductor digiti minimi|flexor digiti minimi brevis|opponens digiti minimi) of hand' },
+  { cat: ['肩與上肢', 'Shoulder & upper limb'], items: [
+    G('旋轉肌袖', 'Rotator cuff', '四條小肌肉像袖子一樣抱住肩膀的球，讓手臂轉動時不會跑掉。', 'Four small muscles hug the ball of the shoulder like a cuff so it stays in place when the arm moves.', '^(supraspinatus|infraspinatus muscle|teres minor|subscapularis)$'),
+    G('三角肌', 'Deltoid', '蓋在肩膀上的三角形肌肉，把手臂往前、往旁邊、往後抬起來。', 'The triangle-shaped cap on the shoulder that lifts the arm forward, sideways and backward.', 'part of deltoid'),
+    G('肩胛穩定肌', 'Scapular stabilisers', '把肩胛骨穩穩貼在背上的肌肉，手才有穩固的底座可以出力。', 'Muscles that hold the shoulder blade steady on the back, giving the arm a firm base to push from.', 'serratus anterior|rhomboid|part of trapezius|levator scapulae|pectoralis minor'),
+    G('斜方肌', 'Trapezius', '背上像風箏的大肌肉，聳肩、夾背、把肩胛骨往下拉都靠它。', 'The big kite-shaped muscle of the upper back: it shrugs, squeezes and pulls down the shoulder blades.', 'part of trapezius'),
+    G('胸大肌', 'Pectoralis major', '胸前的大扇形肌肉，做伏地挺身和抱東西時用力。', 'The large fan-shaped chest muscle that works when you do push-ups or hug something.', 'pectoralis major'),
+    G('肱二頭肌', 'Biceps brachii', '上臂前面的「小老鼠」，彎手肘、翻手掌朝上。', 'The bulge on the front of the upper arm: it bends the elbow and turns the palm up.', 'biceps brachii'),
+    G('肱三頭肌', 'Triceps brachii', '上臂後面的肌肉，把彎起來的手肘伸直。', 'The muscle on the back of the upper arm that straightens a bent elbow.', 'triceps brachii'),
+    G('前臂屈肌群', 'Forearm flexors', '前臂掌心那一面的肌肉，彎手腕、握拳頭。', 'Muscles on the palm side of the forearm that bend the wrist and make a fist.', 'flexor carpi|palmaris longus|flexor digitorum (superficialis|profundus)|flexor pollicis longus|pronator'),
+    G('前臂伸肌群', 'Forearm extensors', '前臂手背那一面的肌肉，把手腕和手指翹起來。', 'Muscles on the back of the forearm that lift the wrist and fingers.', 'extensor carpi|^extensor digitorum$|extensor digiti minimi|extensor indicis|extensor pollicis|abductor pollicis longus|brachioradialis|supinator|anconeus'),
+    G('大魚際肌群', 'Thenar muscles', '大拇指根部鼓鼓的那團肉，讓拇指能和其他手指對捏。', 'The fleshy pad at the base of the thumb that lets the thumb pinch against the fingers.', 'abductor pollicis brevis|flexor pollicis brevis|opponens pollicis|adductor pollicis'),
+    G('小魚際肌群', 'Hypothenar muscles', '小指根部的那團肉，負責小指的活動。', 'The pad at the base of the little finger that moves the little finger.', '(abductor digiti minimi|flexor digiti minimi brevis|opponens digiti minimi) of hand'),
   ] },
-  { cat: '軀幹與頭頸', items: [
-    { zh: '核心肌群', en: 'Core', kid: '像一個桶子包住肚子和腰，讓身體中心穩穩的。', match: 'transversus abdominis|multifidus|^diaphragm$|internal oblique|pubococcygeus|iliococcygeus|puborectalis|coccygeus' },
-    { zh: '腹肌群', en: 'Abdominal wall', kid: '肚子前面和兩側的肌肉，彎腰、轉身、咳嗽都靠它們。', match: 'rectus abdominis|external oblique|internal oblique|transversus abdominis|pyramidalis' },
-    { zh: '豎脊肌', en: 'Erector spinae', kid: '脊椎兩旁長長的肌肉，讓你站直、往後仰。', match: 'iliocostalis|longissimus|spinalis' },
-    { zh: '深層背肌（橫突棘肌）', en: 'Transversospinales', kid: '緊貼脊椎的小肌肉，一節一節微調、穩定脊椎。', match: 'multifidus|semispinalis|rotator' },
-    { zh: '骨盆底肌', en: 'Pelvic floor', kid: '骨盆最下面像吊床的肌肉，托住內臟、幫忙憋尿。', match: 'coccygeus|iliococcygeus|pubococcygeus|puborectalis|external anal sphincter' },
-    { zh: '呼吸肌', en: 'Muscles of respiration', kid: '讓胸腔變大變小、把空氣吸進吐出的肌肉。', match: '^diaphragm$|intercostal|scalenus|serratus posterior|levatores costarum' },
-    { zh: '斜角肌', en: 'Scalenes', kid: '脖子兩側的三條肌肉，側彎脖子、用力吸氣時拉高肋骨。', match: 'scalenus' },
-    { zh: '枕下肌群', en: 'Suboccipitals', kid: '後腦勺下面的四對小肌肉，負責點頭和轉頭的細微動作。', match: 'rectus capitis posterior|obliquus capitis' },
-    { zh: '咀嚼肌', en: 'Muscles of mastication', kid: '讓下巴咬合、磨碎食物的肌肉。', match: 'masseter|temporalis|pterygoid' },
+  { cat: ['軀幹與頭頸', 'Trunk, head & neck'], items: [
+    G('核心肌群', 'Core', '像一個桶子包住肚子和腰，讓身體中心穩穩的。', 'A barrel of muscles around the belly and lower back that keeps the middle of the body steady.', 'transversus abdominis|multifidus|^diaphragm$|internal oblique|pubococcygeus|iliococcygeus|puborectalis|coccygeus'),
+    G('腹肌群', 'Abdominal wall', '肚子前面和兩側的肌肉，彎腰、轉身、咳嗽都靠它們。', 'Muscles on the front and sides of the belly used to bend, twist and cough.', 'rectus abdominis|external oblique|internal oblique|transversus abdominis|pyramidalis'),
+    G('豎脊肌', 'Erector spinae', '脊椎兩旁長長的肌肉，讓你站直、往後仰。', 'Long muscles on both sides of the spine that keep you upright and bend you backward.', 'iliocostalis|longissimus|spinalis'),
+    G('深層背肌（橫突棘肌）', 'Transversospinales', '緊貼脊椎的小肌肉，一節一節微調、穩定脊椎。', 'Small muscles right on the spine that fine-tune and steady it one segment at a time.', 'multifidus|semispinalis|rotator'),
+    G('骨盆底肌', 'Pelvic floor', '骨盆最下面像吊床的肌肉，托住內臟、幫忙憋尿。', 'A hammock of muscle at the bottom of the pelvis that holds up the organs and helps you hold your pee.', 'coccygeus|iliococcygeus|pubococcygeus|puborectalis|external anal sphincter'),
+    G('呼吸肌', 'Muscles of respiration', '讓胸腔變大變小、把空氣吸進吐出的肌肉。', 'Muscles that make the chest bigger and smaller to breathe air in and out.', '^diaphragm$|intercostal|scalenus|serratus posterior|levatores costarum'),
+    G('斜角肌', 'Scalenes', '脖子兩側的三條肌肉，側彎脖子、用力吸氣時拉高肋骨。', 'Three muscles on each side of the neck that tilt the neck and lift the ribs on a deep breath.', 'scalenus'),
+    G('枕下肌群', 'Suboccipitals', '後腦勺下面的四對小肌肉，負責點頭和轉頭的細微動作。', 'Four pairs of tiny muscles under the back of the skull for small nodding and turning movements.', 'rectus capitis posterior|obliquus capitis'),
+    G('咀嚼肌', 'Muscles of mastication', '讓下巴咬合、磨碎食物的肌肉。', 'Muscles that close the jaw and grind food.', 'masseter|temporalis|pterygoid'),
   ] },
-  { cat: '髖與下肢', items: [
-    { zh: '臀肌群', en: 'Gluteals', kid: '屁股的三層肌肉，站起來、走路時讓骨盆不歪掉。', match: 'gluteus' },
-    { zh: '髂腰肌', en: 'Iliopsoas', kid: '從腰椎和骨盆連到大腿的深層肌肉，把大腿往上抬。', match: '^iliacus$|psoas major' },
-    { zh: '深層髖外旋肌', en: 'Deep external rotators', kid: '屁股深處的六條小肌肉，把大腿向外轉。', match: 'piriformis|obturator|gemellus|quadratus femoris' },
-    { zh: '股四頭肌', en: 'Quadriceps femoris', kid: '大腿前面的四條肌肉，把膝蓋伸直、踢球、爬樓梯。', match: 'rectus femoris|vastus' },
-    { zh: '膕旁肌（腿後肌）', en: 'Hamstrings', kid: '大腿後面的肌肉，彎膝蓋、把大腿往後帶。', match: 'biceps femoris|semitendinosus|semimembranosus' },
-    { zh: '內收肌群', en: 'Hip adductors', kid: '大腿內側的肌肉，把兩條腿夾起來。', match: '^adductor (longus|brevis|magnus|minimus)$|gracilis|pectineus' },
-    { zh: '鵝足肌群', en: 'Pes anserinus', kid: '三條肌肉的肌腱在膝蓋內側下方排成鵝掌的形狀。', match: 'sartorius|gracilis|semitendinosus' },
-    { zh: '小腿三頭肌', en: 'Triceps surae', kid: '小腿肚的肌肉，墊腳尖、跳躍、往前推進。', match: 'gastrocnemius|soleus|plantaris|calcaneal tendon' },
-    { zh: '小腿前側肌群', en: 'Anterior compartment', kid: '小腿前面的肌肉，把腳板和腳趾往上勾。', match: 'tibialis anterior|extensor digitorum longus|extensor hallucis longus|fibularis tertius' },
-    { zh: '腓骨肌群', en: 'Fibularis (peroneal) group', kid: '小腿外側的肌肉，把腳板往外翻，預防扭到腳。', match: 'fibularis (longus|brevis)' },
-    { zh: '小腿後深層肌群', en: 'Deep posterior compartment', kid: '小腿深處的肌肉，撐住足弓、彎腳趾。', match: 'tibialis posterior|flexor digitorum longus|flexor hallucis longus|popliteus' },
-    { zh: '足底內在肌', en: 'Intrinsic foot muscles', kid: '腳掌裡的小肌肉，撐住足弓、讓腳趾抓地。', match: 'of foot|abductor hallucis|flexor digitorum brevis|flexor accessorius|flexor hallucis brevis|adductor hallucis|extensor (digitorum|hallucis) brevis' },
+  { cat: ['髖與下肢', 'Hip & lower limb'], items: [
+    G('臀肌群', 'Gluteals', '屁股的三層肌肉，站起來、走路時讓骨盆不歪掉。', 'Three layers of buttock muscle that help you stand up and keep the pelvis level when you walk.', 'gluteus'),
+    G('髂腰肌', 'Iliopsoas', '從腰椎和骨盆連到大腿的深層肌肉，把大腿往上抬。', 'A deep muscle from the lower spine and pelvis to the thigh that lifts the thigh up.', '^iliacus$|psoas major'),
+    G('深層髖外旋肌', 'Deep external rotators', '屁股深處的六條小肌肉，把大腿向外轉。', 'Six small muscles deep in the buttock that turn the thigh outward.', 'piriformis|obturator|gemellus|quadratus femoris'),
+    G('股四頭肌', 'Quadriceps femoris', '大腿前面的四條肌肉，把膝蓋伸直、踢球、爬樓梯。', 'Four muscles on the front of the thigh that straighten the knee for kicking and climbing stairs.', 'rectus femoris|vastus'),
+    G('膕旁肌（腿後肌）', 'Hamstrings', '大腿後面的肌肉，彎膝蓋、把大腿往後帶。', 'Muscles on the back of the thigh that bend the knee and pull the thigh backward.', 'biceps femoris|semitendinosus|semimembranosus'),
+    G('內收肌群', 'Hip adductors', '大腿內側的肌肉，把兩條腿夾起來。', 'Inner-thigh muscles that squeeze the legs together.', '^adductor (longus|brevis|magnus|minimus)$|gracilis|pectineus'),
+    G('鵝足肌群', 'Pes anserinus', '三條肌肉的肌腱在膝蓋內側下方排成鵝掌的形狀。', 'Three tendons that fan out like a goose\'s foot just below the inner side of the knee.', 'sartorius|gracilis|semitendinosus'),
+    G('小腿三頭肌', 'Triceps surae', '小腿肚的肌肉，墊腳尖、跳躍、往前推進。', 'The calf muscles used to stand on tiptoe, jump and push off.', 'gastrocnemius|soleus|plantaris|calcaneal tendon'),
+    G('小腿前側肌群', 'Anterior compartment', '小腿前面的肌肉，把腳板和腳趾往上勾。', 'Muscles on the front of the shin that pull the foot and toes upward.', 'tibialis anterior|extensor digitorum longus|extensor hallucis longus|fibularis tertius'),
+    G('腓骨肌群', 'Fibularis (peroneal) group', '小腿外側的肌肉，把腳板往外翻，預防扭到腳。', 'Muscles on the outside of the lower leg that turn the sole outward and guard against ankle sprains.', 'fibularis (longus|brevis)'),
+    G('小腿後深層肌群', 'Deep posterior compartment', '小腿深處的肌肉，撐住足弓、彎腳趾。', 'Deep calf muscles that hold up the arch of the foot and curl the toes.', 'tibialis posterior|flexor digitorum longus|flexor hallucis longus|popliteus'),
+    G('足底內在肌', 'Intrinsic foot muscles', '腳掌裡的小肌肉，撐住足弓、讓腳趾抓地。', 'Small muscles inside the foot that support the arch and let the toes grip the ground.', 'of foot|abductor hallucis|flexor digitorum brevis|flexor accessorius|flexor hallucis brevis|adductor hallucis|extensor (digitorum|hallucis) brevis'),
   ] },
 ];
 
@@ -92,76 +96,78 @@ export const MUSCLE_GROUPS = [
 // a "R:" / "L:" prefix limits the match to one side, otherwise the
 // movement's own side (or both for the trunk) is used.
 const S = (joint, axis, to, from = 0) => ({ joint, axis, from, to });
+const M = (id, name, rom, kid, steps, view, prime, assist, extra = {}) => ({ id, name, rom, kid, steps, view, prime, assist, ...extra });
 export const MOTIONS = [
-  { cat: '肩關節', items: [
-    { id: 'sh-flex', zh: '肩屈曲', en: 'Shoulder flexion', rom: '0–180°（盂肱關節約 120°，其餘靠肩胛骨上轉）', kid: '手臂往前舉高，像舉手發問。', steps: [S('shoulder', 'flex', 110)], view: 'side',
-      prime: ['clavicular part of deltoid', 'clavicular part of pectoralis major', 'coracobrachialis'], assist: ['biceps brachii'] },
-    { id: 'sh-ext', zh: '肩伸展', en: 'Shoulder extension', rom: '0–60°', kid: '手臂往後擺，像走路時手往後甩。', steps: [S('shoulder', 'flex', -50)], view: 'side',
-      prime: ['latissimus dorsi', 'teres major', 'spinal part of deltoid'], assist: ['long head of triceps brachii'] },
-    { id: 'sh-abd', zh: '肩外展', en: 'Shoulder abduction', rom: '0–180°', kid: '手臂往旁邊抬高，像小鳥張開翅膀。', steps: [S('shoulder', 'abd', 95)], view: 'front',
-      prime: ['acromial part of deltoid', 'supraspinatus'], assist: ['clavicular part of deltoid', 'spinal part of deltoid'] },
-    { id: 'sh-add', zh: '肩內收', en: 'Shoulder adduction', rom: '從外展位回到身體旁', kid: '把張開的手臂夾回身體旁邊。', steps: [S('shoulder', 'abd', 0, 90)], view: 'front',
-      prime: ['pectoralis major', 'latissimus dorsi', 'teres major'], assist: ['coracobrachialis', 'long head of triceps brachii'] },
-    { id: 'sh-er', zh: '肩外旋', en: 'Shoulder external rotation', rom: '0–90°', kid: '手肘彎著貼在身邊，把前臂往外打開。', steps: [S('elbow', 'flex', 90, 90), S('shoulder', 'rot', 60)], view: 'top',
-      prime: ['infraspinatus', 'teres minor'], assist: ['spinal part of deltoid'] },
-    { id: 'sh-ir', zh: '肩內旋', en: 'Shoulder internal rotation', rom: '0–70°', kid: '手肘彎著貼在身邊，把前臂往肚子方向關起來。', steps: [S('elbow', 'flex', 90, 90), S('shoulder', 'rot', -65)], view: 'top',
-      prime: ['subscapularis', 'pectoralis major', 'latissimus dorsi', 'teres major'], assist: ['clavicular part of deltoid'] },
+  { cat: ['肩關節', 'Shoulder'], items: [
+    M('sh-flex', ['肩屈曲', 'Shoulder flexion'], ['0–180°（盂肱關節約 120°，其餘靠肩胛骨上轉）', '0–180° (about 120° at the glenohumeral joint; the rest is scapular upward rotation)'], ['手臂往前舉高，像舉手發問。', 'Lift the arm forward and up, like raising your hand in class.'],
+      [S('shoulder', 'flex', 110)], 'side', ['clavicular part of deltoid', 'clavicular part of pectoralis major', 'coracobrachialis'], ['biceps brachii']),
+    M('sh-ext', ['肩伸展', 'Shoulder extension'], ['0–60°', '0–60°'], ['手臂往後擺，像走路時手往後甩。', 'Swing the arm backward, like the back-swing when you walk.'],
+      [S('shoulder', 'flex', -50)], 'side', ['latissimus dorsi', 'teres major', 'spinal part of deltoid'], ['long head of triceps brachii']),
+    M('sh-abd', ['肩外展', 'Shoulder abduction'], ['0–180°', '0–180°'], ['手臂往旁邊抬高，像小鳥張開翅膀。', 'Lift the arm out to the side, like a bird opening its wing.'],
+      [S('shoulder', 'abd', 95)], 'front', ['acromial part of deltoid', 'supraspinatus'], ['clavicular part of deltoid', 'spinal part of deltoid']),
+    M('sh-add', ['肩內收', 'Shoulder adduction'], ['從外展位回到身體旁', 'From the abducted position back to the side'], ['把張開的手臂夾回身體旁邊。', 'Bring the raised arm back down to your side.'],
+      [S('shoulder', 'abd', 0, 90)], 'front', ['pectoralis major', 'latissimus dorsi', 'teres major'], ['coracobrachialis', 'long head of triceps brachii']),
+    M('sh-er', ['肩外旋', 'Shoulder external rotation'], ['0–90°', '0–90°'], ['手肘彎著貼在身邊，把前臂往外打開。', 'With the elbow bent at your side, swing the forearm outward like opening a door.'],
+      [S('elbow', 'flex', 90, 90), S('shoulder', 'rot', 60)], 'top', ['infraspinatus', 'teres minor'], ['spinal part of deltoid']),
+    M('sh-ir', ['肩內旋', 'Shoulder internal rotation'], ['0–70°', '0–70°'], ['手肘彎著貼在身邊，把前臂往肚子方向關起來。', 'With the elbow bent at your side, swing the forearm in toward the belly.'],
+      [S('elbow', 'flex', 90, 90), S('shoulder', 'rot', -65)], 'top', ['subscapularis', 'pectoralis major', 'latissimus dorsi', 'teres major'], ['clavicular part of deltoid']),
   ] },
-  { cat: '手肘與手腕', items: [
-    { id: 'el-flex', zh: '肘屈曲', en: 'Elbow flexion', rom: '0–150°', kid: '把手肘彎起來，像把食物送到嘴邊。', steps: [S('elbow', 'flex', 135)], view: 'side',
-      prime: ['brachialis', 'biceps brachii', 'brachioradialis'], assist: ['pronator teres'] },
-    { id: 'el-ext', zh: '肘伸展', en: 'Elbow extension', rom: '從屈曲回到 0°', kid: '把彎著的手肘伸直，像把東西推開。', steps: [S('elbow', 'flex', 0, 130)], view: 'side',
-      prime: ['triceps brachii'], assist: ['anconeus'] },
-    { id: 'wr-flex', zh: '腕屈曲', en: 'Wrist flexion', rom: '0–80°', kid: '手掌往手心方向彎下去。', steps: [S('wrist', 'flex', 70)], view: 'side',
-      prime: ['flexor carpi radialis', 'flexor carpi ulnaris', 'palmaris longus'], assist: ['flexor digitorum superficialis', 'flexor digitorum profundus'] },
-    { id: 'wr-ext', zh: '腕伸展', en: 'Wrist extension', rom: '0–70°', kid: '手背往上翹，像叫人「停」的手勢。', steps: [S('wrist', 'flex', -65)], view: 'side',
-      prime: ['extensor carpi radialis longus', 'extensor carpi radialis brevis', 'extensor carpi ulnaris'], assist: ['^extensor digitorum$'] },
+  { cat: ['手肘與手腕', 'Elbow & wrist'], items: [
+    M('el-flex', ['肘屈曲', 'Elbow flexion'], ['0–150°', '0–150°'], ['把手肘彎起來，像把食物送到嘴邊。', 'Bend the elbow, like bringing food to your mouth.'],
+      [S('elbow', 'flex', 135)], 'side', ['brachialis', 'biceps brachii', 'brachioradialis'], ['pronator teres']),
+    M('el-ext', ['肘伸展', 'Elbow extension'], ['從屈曲回到 0°', 'From flexion back to 0°'], ['把彎著的手肘伸直，像把東西推開。', 'Straighten the bent elbow, like pushing something away.'],
+      [S('elbow', 'flex', 0, 130)], 'side', ['triceps brachii'], ['anconeus']),
+    M('wr-flex', ['腕屈曲', 'Wrist flexion'], ['0–80°', '0–80°'], ['手掌往手心方向彎下去。', 'Bend the hand toward the palm side.'],
+      [S('wrist', 'flex', 70)], 'side', ['flexor carpi radialis', 'flexor carpi ulnaris', 'palmaris longus'], ['flexor digitorum superficialis', 'flexor digitorum profundus']),
+    M('wr-ext', ['腕伸展', 'Wrist extension'], ['0–70°', '0–70°'], ['手背往上翹，像叫人「停」的手勢。', 'Tip the back of the hand up, like a "stop" sign.'],
+      [S('wrist', 'flex', -65)], 'side', ['extensor carpi radialis longus', 'extensor carpi radialis brevis', 'extensor carpi ulnaris'], ['^extensor digitorum$']),
   ] },
-  { cat: '髖關節', items: [
-    { id: 'hip-flex', zh: '髖屈曲', en: 'Hip flexion', rom: '0–120°', kid: '把大腿往前抬高，像原地踏步。', steps: [S('knee', 'flex', 70), S('hip', 'flex', 100)], view: 'side',
-      prime: ['^iliacus$', 'psoas major', 'rectus femoris'], assist: ['sartorius', 'tensor fasciae latae', 'pectineus'] },
-    { id: 'hip-ext', zh: '髖伸展', en: 'Hip extension', rom: '0–20°', kid: '把大腿往後踢，像走路時後腳往後推。', steps: [S('hip', 'flex', -25)], view: 'side',
-      prime: ['gluteus maximus', 'long head of biceps femoris', 'semitendinosus', 'semimembranosus'], assist: ['adductor magnus'] },
-    { id: 'hip-abd', zh: '髖外展', en: 'Hip abduction', rom: '0–45°', kid: '把腿往旁邊抬開。', steps: [S('hip', 'abd', 42)], view: 'front',
-      prime: ['gluteus medius', 'gluteus minimus'], assist: ['tensor fasciae latae'] },
-    { id: 'hip-add', zh: '髖內收', en: 'Hip adduction', rom: '從外展位回到中線（可再過中線 20–30°）', kid: '把張開的腿夾回來。', steps: [S('hip', 'abd', 0, 40)], view: 'front',
-      prime: ['adductor longus', 'adductor brevis', 'adductor magnus', 'gracilis'], assist: ['pectineus'] },
-    { id: 'hip-er', zh: '髖外旋', en: 'Hip external rotation', rom: '0–45°', kid: '把大腿向外轉，腳尖朝外。', steps: [S('hip', 'rot', 42)], view: 'front',
-      prime: ['piriformis', 'obturator internus', 'obturator externus', 'gemellus', 'quadratus femoris'], assist: ['gluteus maximus', 'sartorius'] },
-    { id: 'hip-ir', zh: '髖內旋', en: 'Hip internal rotation', rom: '0–40°', kid: '把大腿向內轉，腳尖朝內。', steps: [S('hip', 'rot', -35)], view: 'front',
-      prime: ['gluteus minimus', 'gluteus medius'], assist: ['tensor fasciae latae'] },
+  { cat: ['髖關節', 'Hip'], items: [
+    M('hip-flex', ['髖屈曲', 'Hip flexion'], ['0–120°', '0–120°'], ['把大腿往前抬高，像原地踏步。', 'Lift the thigh up in front, like marching on the spot.'],
+      [S('knee', 'flex', 70), S('hip', 'flex', 100)], 'side', ['^iliacus$', 'psoas major', 'rectus femoris'], ['sartorius', 'tensor fasciae latae', 'pectineus']),
+    M('hip-ext', ['髖伸展', 'Hip extension'], ['0–20°', '0–20°'], ['把大腿往後踢，像走路時後腳往後推。', 'Move the thigh backward, like the push-off leg when walking.'],
+      [S('hip', 'flex', -25)], 'side', ['gluteus maximus', 'long head of biceps femoris', 'semitendinosus', 'semimembranosus'], ['adductor magnus']),
+    M('hip-abd', ['髖外展', 'Hip abduction'], ['0–45°', '0–45°'], ['把腿往旁邊抬開。', 'Lift the leg out to the side.'],
+      [S('hip', 'abd', 42)], 'front', ['gluteus medius', 'gluteus minimus'], ['tensor fasciae latae']),
+    M('hip-add', ['髖內收', 'Hip adduction'], ['從外展位回到中線（可再過中線 20–30°）', 'From abduction back to the midline (and 20–30° past it)'], ['把張開的腿夾回來。', 'Bring the lifted leg back in.'],
+      [S('hip', 'abd', 0, 40)], 'front', ['adductor longus', 'adductor brevis', 'adductor magnus', 'gracilis'], ['pectineus']),
+    M('hip-er', ['髖外旋', 'Hip external rotation'], ['0–45°', '0–45°'], ['把大腿向外轉，腳尖朝外。', 'Turn the thigh outward so the toes point out.'],
+      [S('hip', 'rot', 42)], 'front', ['piriformis', 'obturator internus', 'obturator externus', 'gemellus', 'quadratus femoris'], ['gluteus maximus', 'sartorius']),
+    M('hip-ir', ['髖內旋', 'Hip internal rotation'], ['0–40°', '0–40°'], ['把大腿向內轉，腳尖朝內。', 'Turn the thigh inward so the toes point in.'],
+      [S('hip', 'rot', -35)], 'front', ['gluteus minimus', 'gluteus medius'], ['tensor fasciae latae']),
   ] },
-  { cat: '膝與踝', items: [
-    { id: 'kn-flex', zh: '膝屈曲', en: 'Knee flexion', rom: '0–135°', kid: '把膝蓋彎起來，腳跟靠近屁股。', steps: [S('knee', 'flex', 125)], view: 'side',
-      prime: ['biceps femoris', 'semitendinosus', 'semimembranosus'], assist: ['gastrocnemius', 'gracilis', 'sartorius', 'popliteus'] },
-    { id: 'kn-ext', zh: '膝伸展', en: 'Knee extension', rom: '從屈曲回到 0°', kid: '把彎著的膝蓋伸直，像踢球。', steps: [S('knee', 'flex', 0, 110)], view: 'side',
-      prime: ['rectus femoris', 'vastus lateralis', 'vastus medialis', 'vastus intermedius'], assist: [] },
-    { id: 'an-df', zh: '踝背屈', en: 'Ankle dorsiflexion', rom: '0–20°', kid: '把腳板往上勾，用腳跟走路。', steps: [S('ankle', 'flex', 22)], view: 'side',
-      prime: ['tibialis anterior'], assist: ['extensor digitorum longus', 'extensor hallucis longus', 'fibularis tertius'] },
-    { id: 'an-pf', zh: '踝蹠屈', en: 'Ankle plantarflexion', rom: '0–50°', kid: '把腳板往下踩，像墊腳尖。', steps: [S('ankle', 'flex', -45)], view: 'side',
-      prime: ['gastrocnemius', 'soleus'], assist: ['plantaris', 'tibialis posterior', 'flexor hallucis longus', 'flexor digitorum longus', 'fibularis longus', 'fibularis brevis'] },
+  { cat: ['膝與踝', 'Knee & ankle'], items: [
+    M('kn-flex', ['膝屈曲', 'Knee flexion'], ['0–135°', '0–135°'], ['把膝蓋彎起來，腳跟靠近屁股。', 'Bend the knee so the heel moves toward the buttock.'],
+      [S('knee', 'flex', 125)], 'side', ['biceps femoris', 'semitendinosus', 'semimembranosus'], ['gastrocnemius', 'gracilis', 'sartorius', 'popliteus']),
+    M('kn-ext', ['膝伸展', 'Knee extension'], ['從屈曲回到 0°', 'From flexion back to 0°'], ['把彎著的膝蓋伸直，像踢球。', 'Straighten the bent knee, like kicking a ball.'],
+      [S('knee', 'flex', 0, 110)], 'side', ['rectus femoris', 'vastus lateralis', 'vastus medialis', 'vastus intermedius'], []),
+    M('an-df', ['踝背屈', 'Ankle dorsiflexion'], ['0–20°', '0–20°'], ['把腳板往上勾，用腳跟走路。', 'Pull the foot up toward the shin, like walking on your heels.'],
+      [S('ankle', 'flex', 22)], 'side', ['tibialis anterior'], ['extensor digitorum longus', 'extensor hallucis longus', 'fibularis tertius']),
+    M('an-pf', ['踝蹠屈', 'Ankle plantarflexion'], ['0–50°', '0–50°'], ['把腳板往下踩，像墊腳尖。', 'Point the foot down, like standing on tiptoe.'],
+      [S('ankle', 'flex', -45)], 'side', ['gastrocnemius', 'soleus'], ['plantaris', 'tibialis posterior', 'flexor hallucis longus', 'flexor digitorum longus', 'fibularis longus', 'fibularis brevis']),
   ] },
-  { cat: '軀幹與頸部', both: true, items: [
-    { id: 'tr-flex', zh: '軀幹前彎', en: 'Trunk flexion', rom: '0–80°（腰椎約 40–60°）', kid: '身體往前彎，像鞠躬。', steps: [S('trunk', 'flex', 55)], view: 'side',
-      prime: ['rectus abdominis'], assist: ['external oblique', 'internal oblique', 'psoas major'] },
-    { id: 'tr-ext', zh: '軀幹後仰', en: 'Trunk extension', rom: '0–25°', kid: '身體往後仰，像伸懶腰。', steps: [S('trunk', 'flex', -28)], view: 'side',
-      prime: ['iliocostalis', 'longissimus thoracis', 'spinalis thoracis'], assist: ['multifidus', 'quadratus lumborum', 'semispinalis thoracis'] },
-    { id: 'tr-side', zh: '軀幹右側彎', en: 'Trunk lateral flexion', rom: '0–35°', kid: '身體往右邊倒，像小茶壺倒水。', steps: [S('trunk', 'side', 30)], view: 'front',
-      prime: ['R:quadratus lumborum', 'R:external oblique', 'R:internal oblique'], assist: ['R:iliocostalis', 'R:longissimus thoracis', 'R:rectus abdominis'] },
-    { id: 'tr-rot', zh: '軀幹向左旋轉', en: 'Trunk rotation', rom: '0–45°', kid: '上半身轉向左邊，像回頭看後面。', steps: [S('trunk', 'rot', 40)], view: 'front',
-      prime: ['R:external oblique', 'L:internal oblique'], assist: ['multifidus', 'rotator'] },
-    { id: 'nk-flex', zh: '頸前屈', en: 'Neck flexion', rom: '0–50°', kid: '低頭，下巴靠近胸口。', steps: [S('neck', 'flex', 45)], view: 'side',
-      prime: ['sternocleidomastoid', 'longus colli', 'longus capitis'], assist: ['scalenus anterior'] },
-    { id: 'nk-ext', zh: '頸後仰', en: 'Neck extension', rom: '0–60°', kid: '抬頭看天花板。', steps: [S('neck', 'flex', -45)], view: 'side',
-      prime: ['splenius capitis', 'semispinalis capitis', 'descending part of trapezius'], assist: ['splenius cervicis', 'rectus capitis posterior', 'longissimus capitis'] },
-    { id: 'nk-side', zh: '頸右側彎', en: 'Neck lateral flexion', rom: '0–45°', kid: '耳朵靠向右邊肩膀。', steps: [S('neck', 'side', 38)], view: 'front',
-      prime: ['R:scalenus', 'R:sternocleidomastoid'], assist: ['R:levator scapulae', 'R:splenius capitis', 'R:descending part of trapezius'] },
-    { id: 'nk-rot', zh: '頸向左旋轉', en: 'Neck rotation', rom: '0–80°', kid: '轉頭看左邊。', steps: [S('neck', 'rot', 60)], view: 'front',
-      prime: ['R:sternocleidomastoid', 'L:splenius capitis'], assist: ['L:obliquus capitis inferior', 'L:longissimus capitis'] },
+  { cat: ['軀幹與頸部', 'Trunk & neck'], both: true, items: [
+    M('tr-flex', ['軀幹前彎', 'Trunk flexion'], ['0–80°（腰椎約 40–60°）', '0–80° (about 40–60° from the lumbar spine)'], ['身體往前彎，像鞠躬。', 'Bend the body forward, like taking a bow.'],
+      [S('trunk', 'flex', 55)], 'side', ['rectus abdominis'], ['external oblique', 'internal oblique', 'psoas major']),
+    M('tr-ext', ['軀幹後仰', 'Trunk extension'], ['0–25°', '0–25°'], ['身體往後仰，像伸懶腰。', 'Lean the body backward, like a big stretch.'],
+      [S('trunk', 'flex', -28)], 'side', ['iliocostalis', 'longissimus thoracis', 'spinalis thoracis'], ['multifidus', 'quadratus lumborum', 'semispinalis thoracis']),
+    M('tr-side', ['軀幹右側彎', 'Trunk lateral flexion (right)'], ['0–35°', '0–35°'], ['身體往右邊倒，像小茶壺倒水。', 'Tip the body to the right, like a little teapot pouring.'],
+      [S('trunk', 'side', 30)], 'front', ['R:quadratus lumborum', 'R:external oblique', 'R:internal oblique'], ['R:iliocostalis', 'R:longissimus thoracis', 'R:rectus abdominis']),
+    M('tr-rot', ['軀幹向左旋轉', 'Trunk rotation (to the left)'], ['0–45°', '0–45°'], ['上半身轉向左邊，像回頭看後面。', 'Twist the upper body to the left, like looking behind you.'],
+      [S('trunk', 'rot', 40)], 'front', ['R:external oblique', 'L:internal oblique'], ['multifidus', 'rotator']),
+    M('nk-flex', ['頸前屈', 'Neck flexion'], ['0–50°', '0–50°'], ['低頭，下巴靠近胸口。', 'Nod the head down, chin toward the chest.'],
+      [S('neck', 'flex', 45)], 'side', ['sternocleidomastoid', 'longus colli', 'longus capitis'], ['scalenus anterior']),
+    M('nk-ext', ['頸後仰', 'Neck extension'], ['0–60°', '0–60°'], ['抬頭看天花板。', 'Look up at the ceiling.'],
+      [S('neck', 'flex', -45)], 'side', ['splenius capitis', 'semispinalis capitis', 'descending part of trapezius'], ['splenius cervicis', 'rectus capitis posterior', 'longissimus capitis']),
+    M('nk-side', ['頸右側彎', 'Neck lateral flexion (right)'], ['0–45°', '0–45°'], ['耳朵靠向右邊肩膀。', 'Tip the ear toward the right shoulder.'],
+      [S('neck', 'side', 38)], 'front', ['R:scalenus', 'R:sternocleidomastoid'], ['R:levator scapulae', 'R:splenius capitis', 'R:descending part of trapezius']),
+    M('nk-rot', ['頸向左旋轉', 'Neck rotation (to the left)'], ['0–80°', '0–80°'], ['轉頭看左邊。', 'Turn the head to look left.'],
+      [S('neck', 'rot', 60)], 'front', ['R:sternocleidomastoid', 'L:splenius capitis'], ['L:obliquus capitis inferior', 'L:longissimus capitis']),
   ] },
-  { cat: '功能性動作', both: true, items: [
-    { id: 'squat', zh: '深蹲', en: 'Squat', rom: '髖 ~95°、膝 ~110°、踝背屈 ~25°', kid: '像要坐椅子一樣蹲下去再站起來，腳掌一直踩在地上。', planted: true,
-      steps: [S('ankle', 'flex', 25), S('knee', 'flex', 110), S('hip', 'flex', 97)], view: 'side',
-      prime: ['gluteus maximus', 'rectus femoris', 'vastus lateralis', 'vastus medialis', 'vastus intermedius'], assist: ['soleus', 'adductor magnus', 'biceps femoris', 'semitendinosus', 'semimembranosus', 'iliocostalis', 'longissimus thoracis'] },
+  { cat: ['功能性動作', 'Functional movement'], both: true, items: [
+    M('squat', ['深蹲', 'Squat'], ['髖 ~95°、膝 ~110°、踝背屈 ~25°', 'Hip ~95°, knee ~110°, ankle dorsiflexion ~25°'], ['像要坐椅子一樣蹲下去再站起來，腳掌一直踩在地上。', 'Sit down as if onto a chair and stand back up, keeping the feet flat on the floor.'],
+      [S('ankle', 'flex', 25), S('knee', 'flex', 110), S('hip', 'flex', 97)], 'side',
+      ['gluteus maximus', 'rectus femoris', 'vastus lateralis', 'vastus medialis', 'vastus intermedius'],
+      ['soleus', 'adductor magnus', 'biceps femoris', 'semitendinosus', 'semimembranosus', 'iliocostalis', 'longissimus thoracis'], { planted: true }),
   ] },
 ];
