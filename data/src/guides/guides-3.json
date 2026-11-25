@@ -1,0 +1,403 @@
+{
+  "shrug": {
+    "steps": {
+      "zh": [
+        "站直，雙腳與髖同寬，雙手自然垂在身體兩側，各握一個啞鈴（初學可先不拿重量），掌心朝向身體。",
+        "手臂保持伸直放鬆，吐氣，把兩邊肩膀筆直往耳朵方向抬高。",
+        "在最高點停一下，感覺脖子兩側到肩膀上方的肌肉收緊。",
+        "吸氣，慢慢把肩膀放回原位，完全放鬆後再做下一下；全程頭不動、眼睛看前方。"
+      ],
+      "en": [
+        "Stand tall with your feet hip-width apart and your arms hanging at your sides, a dumbbell in each hand (start with no weight if you are new), palms facing your body.",
+        "Keep your arms straight and relaxed, breathe out, and lift both shoulders straight up toward your ears.",
+        "Pause for a moment at the top and feel the muscles between your neck and shoulders tighten.",
+        "Breathe in and lower your shoulders slowly until they are fully relaxed before the next one; keep your head still and look straight ahead the whole time."
+      ]
+    },
+    "mistakes": {
+      "zh": [
+        "肩膀前後繞圈：這個動作只需要直上直下，請想像肩膀沿著一條垂直線上下移動。",
+        "彎手肘用手臂把重量拉起來：把手臂當成兩條繩子掛著重量，只讓肩膀出力。",
+        "下巴往前伸、脖子用力：下巴微收，耳朵保持在肩膀正上方，如果做不到就換輕一點的重量。"
+      ],
+      "en": [
+        "Rolling the shoulders in circles: the movement is only straight up and straight down, so picture your shoulders sliding along a vertical line.",
+        "Bending the elbows and pulling with the arms: let your arms hang like two ropes holding the weight and let only the shoulders do the work.",
+        "Poking the chin forward and straining the neck: tuck your chin slightly and keep your ears over your shoulders, and use a lighter weight if you cannot hold that position."
+      ]
+    },
+    "videos": [
+      { "url": "https://www.youtube.com/watch?v=xiLT85G_GuU", "title": "Dumbbell Shrug (Proper Form)", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=zrs4FLeF_-4", "title": "How to Perform Dumbbell Shrugs", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=Dug_Gw5qtB8", "title": "DB Shrug & Scapula Push-ups（啞鈴聳肩 & 肩胛骨伏地挺身）", "lang": "zh" }
+    ]
+  },
+  "push-up-plus": {
+    "steps": {
+      "zh": [
+        "伏地挺身加強版：雙手撐在肩膀正下方，身體從頭到腳跟成一直線；覺得太難可以改成膝蓋著地，或站著雙手撐牆。",
+        "手肘保持伸直，讓胸口在兩肩之間微微下沉，兩片肩胛骨會自然靠近。",
+        "吐氣，用手掌把地板（或牆面）推開，讓上背微微拱起、肩胛骨沿著肋骨往兩側滑開，在最遠處停一下。",
+        "吸氣，慢慢回到起始位置。",
+        "靠牆滑動：面對牆站立，前臂貼牆與肩同寬，輕輕把牆推開，吐氣讓前臂沿著牆往上滑，再吸氣慢慢滑回來。"
+      ],
+      "en": [
+        "Push-up plus: place your hands under your shoulders with your body in a straight line from head to heels; to make it easier, do it on your knees or standing with your hands on a wall.",
+        "Keep your elbows straight and let your chest sink slightly between your shoulders so the shoulder blades come together.",
+        "Breathe out and push the floor (or wall) away so your upper back rounds up a little and the shoulder blades slide apart around your ribs; pause at the end.",
+        "Breathe in and return slowly to the starting position.",
+        "Wall slide: stand facing a wall with your forearms on it shoulder-width apart, press gently into the wall, breathe out as you slide your forearms up, then breathe in and slide slowly back down."
+      ]
+    },
+    "mistakes": {
+      "zh": [
+        "彎手肘做成一般伏地挺身：手肘全程伸直，只讓肩胛骨前後移動，動作幅度本來就很小。",
+        "聳肩、脖子縮起來：讓肩膀遠離耳朵、脖子拉長，如果還是會聳肩就改成跪姿或撐牆的版本。",
+        "腰往下塌或屁股翹高：輕輕收緊腹部和臀部，讓頭、背、臀維持在同一直線上。"
+      ],
+      "en": [
+        "Bending the elbows so it becomes a regular push-up: keep the elbows straight the whole time and let only the shoulder blades move, since the range is meant to be small.",
+        "Shrugging and bunching up the neck: keep your shoulders away from your ears and your neck long, and switch to the kneeling or wall version if you still shrug.",
+        "Letting the lower back sag or the hips stick up: lightly tighten your stomach and buttocks so your head, back and hips stay in one line."
+      ]
+    },
+    "videos": [
+      { "url": "https://www.youtube.com/watch?v=3vHi5SNSlsA", "title": "Push Up Plus (Serratus Anterior)", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=yJZ6Tpd5j58", "title": "Strengthen Your Serratus Anterior With Serratus Wall Slides", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=PyG3klVvcRY", "title": "強化前鋸肌的七個動作，你能做到第幾個？｜#啾c物理治療師 #肩膀 #前鋸肌 #彈力帶", "lang": "zh" },
+      { "url": "https://www.youtube.com/watch?v=gNtPMp5rkGg", "title": "肩膀痛竟然是肩胛骨的問題！前鋸肌訓練｜羅伯特物理治療", "lang": "zh" }
+    ]
+  },
+  "prone-y": {
+    "steps": {
+      "zh": [
+        "趴在墊子或床上，額頭墊一條小毛巾，雙手往頭頂斜前方伸直擺成 Y 字，大拇指朝上。",
+        "先把肩胛骨輕輕往後、往下收（想像往褲子後口袋的方向），肩膀遠離耳朵。",
+        "吐氣，把兩隻手臂抬離地面幾公分，停一到兩秒，脖子保持放鬆拉長。",
+        "吸氣，慢慢把手臂放回地面，完全放鬆後再做下一下。"
+      ],
+      "en": [
+        "Lie face down on a mat or bed with your forehead on a small towel and your arms reaching overhead and slightly out to form a Y, thumbs pointing up.",
+        "First draw your shoulder blades gently back and down (think of sliding them toward your back pockets) so your shoulders move away from your ears.",
+        "Breathe out and lift both arms a few centimetres off the floor, hold for one to two seconds, and keep your neck long and relaxed.",
+        "Breathe in and lower your arms slowly to the floor, relaxing completely before the next one."
+      ]
+    },
+    "mistakes": {
+      "zh": [
+        "抬手時聳肩：先把肩膀往下帶再抬手，如果還是會聳肩，就把抬的高度降低或先不拿重量。",
+        "用腰把胸口抬起來：額頭留在毛巾上、腹部輕輕收緊，只讓手臂和肩胛骨動。",
+        "抬太高或用甩的：這個動作幅度很小，慢慢抬、慢慢放，比抬得高更重要。"
+      ],
+      "en": [
+        "Shrugging as the arms lift: set your shoulders down first and then lift, and if you still shrug, lift lower or use no weight.",
+        "Arching the lower back to raise the chest: keep your forehead on the towel and your stomach lightly tight so only the arms and shoulder blades move.",
+        "Lifting too high or swinging: the range is small, and lifting and lowering slowly matters more than lifting high."
+      ]
+    },
+    "videos": [
+      { "url": "https://www.youtube.com/watch?v=E5Mj7LCvmmE", "title": "Prone Y Raise", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=DQFTp5n0uh0", "title": "How to Do a Prone Y Raise", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=cfHZ0R6W7ck", "title": "肩膀平舉運動 - I/Y/T/W型平舉", "lang": "zh" }
+    ]
+  },
+  "curl": {
+    "steps": {
+      "zh": [
+        "站直或坐直，雙手各握一個啞鈴垂在身體兩側，掌心朝前，手肘貼近身體。",
+        "吐氣，彎曲手肘把啞鈴往肩膀方向舉起，上臂保持不動。",
+        "在最高點停一下，手腕保持平直不要往內捲。",
+        "吸氣，慢慢把啞鈴放下，直到手臂接近伸直。"
+      ],
+      "en": [
+        "Stand or sit tall with a dumbbell in each hand hanging at your sides, palms facing forward and elbows close to your body.",
+        "Breathe out and bend your elbows to bring the dumbbells toward your shoulders, keeping your upper arms still.",
+        "Pause briefly at the top with your wrists straight, not curled inward.",
+        "Breathe in and lower the dumbbells slowly until your arms are almost straight."
+      ]
+    },
+    "mistakes": {
+      "zh": [
+        "身體前後晃、用甩的把重量帶上來：換輕一點的重量，或背靠牆站著做，讓身體保持不動。",
+        "手肘往前跑或往外張開：把手肘固定在身體兩側，想像腋下夾著一張紙。",
+        "放下時太快、直接掉下來：放下的速度要比舉起時慢，全程都由自己控制重量。"
+      ],
+      "en": [
+        "Rocking the body and swinging the weight up: use a lighter weight, or stand with your back against a wall so your body stays still.",
+        "Letting the elbows drift forward or flare out: keep your elbows fixed at your sides, as if holding a sheet of paper under each armpit.",
+        "Dropping the weight on the way down: lower more slowly than you lift so you control the weight the whole way."
+      ]
+    },
+    "videos": [
+      { "url": "https://www.youtube.com/watch?v=xdW1P0wsMzQ", "title": "How To Bicep Curl Properly (Most Are Still Doing It Wrong)", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=93R8V6uvwHc", "title": "How to Do a Bicep Curl Properly", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=4UoMfqb5KQA", "title": "『二頭肌彎舉』的正確與錯誤示範｜LOHAS 樂活士｜1分鐘動作教學小教室｜樂齡 運動 ｜樂齡 肌力", "lang": "zh" },
+      { "url": "https://www.youtube.com/watch?v=9tW-j5nFYz4", "title": "《Power Monday》二頭肌彎舉訓練", "lang": "zh" }
+    ]
+  },
+  "triceps-ext": {
+    "steps": {
+      "zh": [
+        "三頭下壓：面對滑輪機（或固定在高處的彈力帶）站好，雙手握住把手，手肘彎曲並夾在身體兩側，身體微微前傾、腹部收緊。",
+        "吐氣，把手往下壓到手肘伸直、雙手接近大腿，上臂保持不動。",
+        "吸氣，慢慢讓手回到胸口高度，手肘仍然貼在身體旁邊。",
+        "過頭伸展：雙手握住一個啞鈴舉到頭頂，手肘朝前上方；吸氣彎手肘讓啞鈴降到頭後方，再吐氣把手肘伸直。"
+      ],
+      "en": [
+        "Pushdown: stand facing a cable machine (or a band anchored up high), hold the handle with both hands, elbows bent and tucked at your sides, leaning forward slightly with your stomach tight.",
+        "Breathe out and press your hands down until your elbows are straight and your hands are near your thighs, keeping your upper arms still.",
+        "Breathe in and let your hands rise slowly to chest height with your elbows still at your sides.",
+        "Overhead extension: hold one dumbbell with both hands above your head with your elbows pointing forward and up; breathe in as you bend your elbows to lower it behind your head, then breathe out and straighten your elbows."
+      ]
+    },
+    "mistakes": {
+      "zh": [
+        "手肘離開身體、跟著前後擺動：把手肘固定在身體兩側（過頭伸展時則靠近頭部），只讓前臂移動。",
+        "用身體的重量往下壓、肩膀往前拱：換輕一點的阻力，上半身保持穩定，肩膀放鬆下沉。",
+        "做過頭伸展時腰往前挺：收緊腹部、肋骨不要外翻，或改成坐在有靠背的椅子上做。"
+      ],
+      "en": [
+        "Letting the elbows leave your sides and swing back and forth: keep the elbows fixed at your sides (or close to your head for the overhead version) so only the forearms move.",
+        "Leaning your body weight into it and hunching the shoulders forward: use lighter resistance, keep your upper body steady and let your shoulders stay down and relaxed.",
+        "Arching the lower back during the overhead version: tighten your stomach and keep your ribs from flaring, or sit on a chair with a backrest."
+      ]
+    },
+    "videos": [
+      { "url": "https://www.youtube.com/watch?v=ozwo9RGm7QU", "title": "How to Do a Tricep Pushdown", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=IJ6J7EKprsc", "title": "Two-Arm Overhead Triceps Extension with Dumbbells Tutorial", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=hKooJFUwKR8", "title": "多功能Cable式訓練機-三頭下壓", "lang": "zh" },
+      { "url": "https://www.youtube.com/watch?v=5gPKeJXViFk", "title": "不要再這樣進行三頭肌下壓了！不要再这样进行三头肌下压了！", "lang": "zh" }
+    ]
+  },
+  "wrist-curl": {
+    "steps": {
+      "zh": [
+        "坐著，把前臂放在大腿或桌面上，掌心朝上，手腕和手掌剛好超出邊緣，手握一個輕的啞鈴或水瓶。",
+        "吸氣，讓手腕慢慢往下彎，啞鈴朝地板方向降低。",
+        "吐氣，把手腕往上捲、把啞鈴抬高，前臂貼在大腿或桌面上不要離開。",
+        "在最高點停一下，再慢慢放回去。"
+      ],
+      "en": [
+        "Sit with your forearm resting on your thigh or a table, palm up, with your wrist and hand just past the edge, holding a light dumbbell or water bottle.",
+        "Breathe in and let your wrist bend down slowly so the weight lowers toward the floor.",
+        "Breathe out and curl your wrist up to lift the weight, keeping your forearm resting on your thigh or the table.",
+        "Pause briefly at the top, then lower slowly."
+      ]
+    },
+    "mistakes": {
+      "zh": [
+        "前臂跟著抬起來、用手肘出力：用另一隻手輕輕壓住前臂，只讓手腕動。",
+        "動作太快、用甩的：放慢速度，尤其是放下的時候要自己控制。",
+        "重量太重，只能動一點點：換輕一點的重量，在不會不舒服的範圍內把動作做完整。"
+      ],
+      "en": [
+        "Lifting the forearm and using the elbow: hold the forearm down gently with your other hand so only the wrist moves.",
+        "Moving too fast or jerking the weight: slow down, and control the lowering part in particular.",
+        "Using a weight so heavy that you barely move: choose a lighter weight and go through the full range that feels comfortable."
+      ]
+    },
+    "videos": [
+      { "url": "https://www.youtube.com/watch?v=ksfgK7DQnKc", "title": "Wrist Curls (Exercise Library)", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=VGkF2NTtao0", "title": "Dumbbell Wrist Curl", "lang": "en" }
+    ]
+  },
+  "rev-wrist-curl": {
+    "steps": {
+      "zh": [
+        "坐著，把前臂放在大腿或桌面上，掌心朝下，手腕和手掌剛好超出邊緣，手握一個輕的啞鈴或水瓶。",
+        "吸氣，讓手腕慢慢往下彎，手背朝前、啞鈴朝地板方向降低。",
+        "吐氣，把手背往上抬（手腕往上翹），前臂貼在大腿或桌面上不要離開。",
+        "在最高點停一下，再慢慢放回去。"
+      ],
+      "en": [
+        "Sit with your forearm resting on your thigh or a table, palm down, with your wrist and hand just past the edge, holding a light dumbbell or water bottle.",
+        "Breathe in and let your wrist bend down slowly so the back of your hand faces forward and the weight lowers toward the floor.",
+        "Breathe out and lift the back of your hand up (bend the wrist upward), keeping your forearm resting on your thigh or the table.",
+        "Pause briefly at the top, then lower slowly."
+      ]
+    },
+    "mistakes": {
+      "zh": [
+        "前臂離開支撐、整隻手一起抬：用另一隻手固定前臂，只讓手腕動。",
+        "握得太用力、肩膀跟著聳起來：握穩就好不必捏緊，肩膀和手肘保持放鬆。",
+        "放下時讓重量直接掉下去：這個動作的力氣通常比較小，請用很輕的重量，並慢慢數到三再放到底。"
+      ],
+      "en": [
+        "Letting the forearm leave its support so the whole arm lifts: hold the forearm in place with your other hand so only the wrist moves.",
+        "Gripping too hard and letting the shoulder hike up: hold the weight securely without squeezing, and keep your shoulder and elbow relaxed.",
+        "Letting the weight drop on the way down: these muscles are usually weaker, so use a very light weight and count slowly to three as you lower."
+      ]
+    },
+    "videos": [
+      { "url": "https://www.youtube.com/watch?v=l14Ugpjn-OU", "title": "How to perform Reverse Wrist Curl aka Wrist Extension", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=SfENsl5klVA", "title": "Reverse Wrist Curl", "lang": "en" }
+    ]
+  },
+  "grip": {
+    "steps": {
+      "zh": [
+        "坐著或站著，手心握一顆軟球、捲起來的毛巾或握力器，手腕保持平直，手肘放鬆靠在身體旁邊。",
+        "五根手指（包含大拇指）一起慢慢用力握緊，用到「有出力但不會痛」的程度。",
+        "握住停幾秒，保持正常呼吸。",
+        "慢慢放鬆，把手指完全張開後再握下一次。"
+      ],
+      "en": [
+        "Sit or stand holding a soft ball, a rolled towel or a hand gripper in your palm, with your wrist straight and your elbow relaxed at your side.",
+        "Squeeze slowly with all five fingers, thumb included, to a level that feels like firm effort but not pain.",
+        "Hold for a few seconds while breathing normally.",
+        "Release slowly and open your fingers fully before the next squeeze."
+      ]
+    },
+    "mistakes": {
+      "zh": [
+        "握的時候憋氣、肩膀和脖子跟著用力：保持自然呼吸，肩膀放鬆下沉，只讓手和前臂出力。",
+        "手腕往內彎或往下垂：讓手腕和前臂維持一直線，必要時把前臂放在桌上支撐。",
+        "快速連續捏放或硬握到會痛：放慢速度，每一下都握穩再慢慢放開，力道以不痛為原則。"
+      ],
+      "en": [
+        "Holding your breath and tensing the shoulder and neck: breathe naturally, let your shoulder drop and relax, and let only the hand and forearm work.",
+        "Letting the wrist bend inward or droop: keep your wrist in line with your forearm, resting the forearm on a table if needed.",
+        "Pumping quickly or squeezing hard enough to hurt: slow down, hold each squeeze steadily and release slowly, staying below the point of pain."
+      ]
+    },
+    "videos": [
+      { "url": "https://www.youtube.com/watch?v=8h0tSMxLNG4", "title": "Wrist & Hand Ball Squeeze - Ask Doctor Jo", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=iM-p8D1ErHg", "title": "Ball Squeezes - Grip Strengthening - Sports Medicine Rehab Exercises", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=XnQfryzMt-Q", "title": "握力器有用嗎？用毛巾也可練？健身教練帶你5分鐘攻略 司法特考、調查局特考握力訓練｜SENSE思法人", "lang": "zh" },
+      { "url": "https://www.youtube.com/watch?v=QAkuG0pRtVE", "title": "#原來可以這樣健｜超強5招握力特訓 全面提升訓練品質", "lang": "zh" }
+    ]
+  },
+  "pro-sup": {
+    "steps": {
+      "zh": [
+        "坐著，手肘彎成 90 度貼在身體旁邊，或把前臂放在桌上、手掌超出桌緣；握住錘子的握柄，錘頭朝上，大拇指朝上，像握手的姿勢。",
+        "慢慢轉動前臂讓掌心朝上（旋後），錘頭會往外側倒，全程自己控制速度。",
+        "回到大拇指朝上的中間位置，再慢慢轉動前臂讓掌心朝下（旋前）。",
+        "回到中間位置，保持正常呼吸；握得離錘頭近一點會比較輕鬆，握得遠一點會比較費力。"
+      ],
+      "en": [
+        "Sit with your elbow bent to 90 degrees and tucked at your side, or rest your forearm on a table with your hand past the edge; hold a hammer by the handle with the head pointing up and your thumb up, like a handshake.",
+        "Slowly rotate your forearm so your palm turns up (supination), letting the hammer head tip outward under your control.",
+        "Return to the thumb-up middle position, then slowly rotate your forearm so your palm turns down (pronation).",
+        "Come back to the middle and keep breathing normally; holding closer to the hammer head makes it easier, and holding farther away makes it harder."
+      ]
+    },
+    "mistakes": {
+      "zh": [
+        "手肘離開身體、用肩膀幫忙轉：手肘固定在身體旁邊，可以在手肘和身體之間夾一條毛巾提醒自己。",
+        "讓錘子自己倒下去：錘頭倒向兩側時要慢慢放，如果控制不住，就把手握得離錘頭近一點。",
+        "手腕彎曲或歪向一邊：手腕和前臂保持一直線，轉動來自前臂而不是手腕。"
+      ],
+      "en": [
+        "Letting the elbow leave your side and turning from the shoulder: keep the elbow fixed at your side, and tuck a towel between elbow and body as a reminder.",
+        "Letting the hammer fall over by itself: lower the head slowly to each side, and hold closer to the head if you cannot control it.",
+        "Bending the wrist or tilting it to one side: keep your wrist in line with your forearm so the turning comes from the forearm, not the wrist."
+      ]
+    },
+    "videos": [
+      { "url": "https://www.youtube.com/watch?v=-LfyhlA9UNM", "title": "Forearm Pronation and Supination With Hammer", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=vcMJaztheRs", "title": "Table Pronation and Supination with Hammer", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=2PLQRop5BY4", "title": "前臂旋前 (Pronation) & 旋後 (Supination)｜動作訓練與示範｜#職能治療 #復健訓練 #上肢功能", "lang": "zh" }
+    ]
+  },
+  "finger-band": {
+    "steps": {
+      "zh": [
+        "把五根手指的指尖併攏，將一條橡皮筋套在五根手指（包含大拇指）外側，位置大約在指甲和第一個指節之間。",
+        "手腕保持平直，前臂可以放在桌上支撐。",
+        "慢慢把五根手指同時往外張開，對抗橡皮筋的拉力，張到覺得舒服的最大範圍。",
+        "停一下，再慢慢讓手指合起來；全程保持正常呼吸。"
+      ],
+      "en": [
+        "Bring the tips of all five fingers together and loop a rubber band around the outside of them, thumb included, roughly between the nails and the first finger joints.",
+        "Keep your wrist straight; you can rest your forearm on a table for support.",
+        "Slowly spread all five fingers apart at the same time against the pull of the band, as wide as feels comfortable.",
+        "Pause briefly, then let your fingers close slowly; breathe normally throughout."
+      ]
+    },
+    "mistakes": {
+      "zh": [
+        "橡皮筋太緊，手指幾乎張不開：換一條比較鬆或比較細的橡皮筋，先求動作完整再增加阻力。",
+        "張開後讓橡皮筋把手指彈回去：合起來的時候也要自己慢慢控制速度。",
+        "只有幾根手指在動，或手腕跟著彎：讓五根手指平均往外張，手腕保持不動。"
+      ],
+      "en": [
+        "Using a band so tight that the fingers barely open: switch to a looser or thinner band and get the full movement before adding resistance.",
+        "Letting the band snap the fingers back together: control the closing part slowly as well.",
+        "Moving only a few fingers or bending the wrist along with them: open all five fingers evenly and keep the wrist still."
+      ]
+    },
+    "videos": [
+      { "url": "https://www.youtube.com/watch?v=W-DHM5_UUBA", "title": "Finger Extension With Elastic Band", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=ph-qDbqIbZk", "title": "Expand Your Hand with a Rubber Band (Finger / Wrist Extension)", "lang": "en" }
+    ]
+  },
+  "towel-curl": {
+    "steps": {
+      "zh": [
+        "坐在椅子上，脫掉鞋襪，把一條毛巾攤平放在光滑的地板上，腳踩在毛巾靠近自己的這一端，腳跟踩在地上。",
+        "腳跟不要離地，彎曲腳趾抓住毛巾，把毛巾往自己的方向拉。",
+        "放鬆並張開腳趾往前伸，再抓下一段，重複到整條毛巾都被拉到腳下。",
+        "把毛巾重新攤平，換另一隻腳；全程保持正常呼吸。"
+      ],
+      "en": [
+        "Sit on a chair with bare feet, lay a towel flat on a smooth floor, and place your foot on the near end with your heel on the floor.",
+        "Keeping your heel down, curl your toes to grip the towel and pull it toward you.",
+        "Relax and spread your toes, reach them forward, and grip the next section; repeat until the whole towel is bunched under your foot.",
+        "Flatten the towel again and switch feet; breathe normally throughout."
+      ]
+    },
+    "mistakes": {
+      "zh": [
+        "腳跟抬起來，或用整條腿把毛巾拖過來：腳跟固定踩在地上，只讓腳趾和腳掌前半部動。",
+        "腳趾用力過猛而抽筋：力道放輕、速度放慢，覺得快抽筋時先停下來，把腳趾張開伸展一下。",
+        "彎腰駝背、低頭盯著腳：坐直、膝蓋大約彎成 90 度，動作熟悉後就不需要一直看著腳。"
+      ],
+      "en": [
+        "Lifting the heel or dragging the towel with the whole leg: keep the heel planted and move only the toes and the front of the foot.",
+        "Clenching the toes so hard that the foot cramps: use less force and a slower pace, and if a cramp is coming, stop and spread your toes to stretch them.",
+        "Slouching and staring down at the foot: sit tall with your knees bent to about 90 degrees, and once you know the movement you do not need to keep watching your foot."
+      ]
+    },
+    "videos": [
+      { "url": "https://www.youtube.com/watch?v=ur_UcXzXsSc", "title": "Towel Curls - Sports Medicine Rehab Exercises", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=MwmgnfSlGJY", "title": "Exercise Tutorial: Bilateral Toe Curl With Towel", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=QyD6mGK24mY", "title": "Dr. Kong足脊健康運動小課堂- 扁平足篇【抓毛巾運動】", "lang": "zh" },
+      { "url": "https://www.youtube.com/watch?v=ShjZfyCfn0A", "title": "腳趾抓握運動", "lang": "zh" }
+    ]
+  },
+  "crunch": {
+    "steps": {
+      "zh": [
+        "仰躺，膝蓋彎曲，雙腳與髖同寬踩在地上；雙手輕輕放在耳朵後方，或交叉放在胸前。",
+        "下巴微收，下巴和胸口之間保留大約一個拳頭的距離，腹部輕輕收緊。",
+        "吐氣，用腹部的力量把頭和肩膀捲離地面，捲到肩胛骨剛離地就好，下背留在地上。",
+        "停一下，吸氣，慢慢一節一節躺回去。"
+      ],
+      "en": [
+        "Lie on your back with your knees bent and your feet flat on the floor hip-width apart; rest your hands lightly behind your ears or cross them on your chest.",
+        "Tuck your chin slightly, leaving about a fist of space between chin and chest, and gently tighten your stomach.",
+        "Breathe out and use your stomach muscles to curl your head and shoulders off the floor, just until the shoulder blades lift, with your lower back staying down.",
+        "Pause briefly, breathe in, and roll back down slowly."
+      ]
+    },
+    "mistakes": {
+      "zh": [
+        "用手把頭往前拉、脖子很痠：手只是輕輕托著頭，手肘打開，眼睛看斜上方的天花板。",
+        "整個上半身坐起來，或用甩的借力：這個動作幅度很小，慢慢捲起、慢慢放下，下背全程不離地。",
+        "用力時憋氣、腳跟著抬起來：捲起時吐氣、放下時吸氣，雙腳穩穩踩在地上。"
+      ],
+      "en": [
+        "Pulling the head forward with the hands and straining the neck: let your hands only support your head lightly, keep your elbows wide, and look up at the ceiling on a diagonal.",
+        "Sitting all the way up or using momentum: the range is small, so curl up slowly and lower slowly with your lower back on the floor the whole time.",
+        "Holding your breath and letting the feet lift: breathe out as you curl up and in as you lower, with both feet planted firmly."
+      ]
+    },
+    "videos": [
+      { "url": "https://www.youtube.com/watch?v=M6yAoJJQvGY", "title": "How to Do a Crunch Correctly, Ab Exercise, Fit How To", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=2R93PU2IM-Y", "title": "How To Do A Crunch - without neck pain!", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=wCu3D-cSoBk", "title": "捲腹教學 - 打造六塊腹肌的基礎！", "lang": "zh" },
+      { "url": "https://www.youtube.com/watch?v=pI_RChIT8sI", "title": "比起仰臥起坐，蜷腹才是練腹肌的好幫手！更能避免頸椎錯誤施力，來看蜷腹怎麼做？｜Heho帶你做", "lang": "zh" }
+    ]
+  }
+}
