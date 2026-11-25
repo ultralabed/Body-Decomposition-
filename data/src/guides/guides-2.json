@@ -1,0 +1,419 @@
+{
+  "leg-curl": {
+    "steps": {
+      "zh": [
+        "機器腿彎舉：調整機器，讓膝蓋對齊機器的轉軸，滾筒墊靠在腳跟上方的小腿後側，髖部貼緊椅墊。",
+        "吐氣，用大腿後側的力量慢慢彎曲膝蓋，把滾筒墊拉向臀部，在最緊的位置停一下。",
+        "吸氣，用比彎起來更慢的速度把腿放回，膝蓋接近伸直但不要鎖死。",
+        "北歐腿彎舉：跪在軟墊上，請夥伴或穩固的物體固定腳踝，身體從膝蓋到頭保持一直線。",
+        "身體慢慢往前倒，用大腿後側盡量煞車；撐不住時用雙手撐地，再推回起始位置。"
+      ],
+      "en": [
+        "Machine curl: adjust the machine so your knees line up with its pivot, the roller pad rests on the back of your lower legs just above the heels, and your hips stay against the pad.",
+        "Breathe out and bend your knees slowly, using the back of your thighs to pull the roller toward your buttocks; pause briefly at the tightest point.",
+        "Breathe in and let the legs return more slowly than you curled them, stopping just short of locking the knees.",
+        "Nordic curl: kneel on a soft pad with your ankles held by a partner or a sturdy object, and keep a straight line from knees to head.",
+        "Lean forward slowly, braking with the back of your thighs for as long as you can; when you can no longer hold, catch yourself with your hands and push back to the start."
+      ]
+    },
+    "mistakes": {
+      "zh": [
+        "臀部翹起或腰部拱起借力：把髖部壓回椅墊、收緊腹部，必要時減輕重量。",
+        "放下時讓重量直接掉回去：放回的過程要全程控制，速度比彎起時更慢。",
+        "做北歐腿彎舉時屁股往後坐、身體折起來：收緊臀部，保持膝蓋到肩膀一直線，寧可縮小下降幅度。"
+      ],
+      "en": [
+        "Lifting the hips or arching the lower back to help: press your hips back into the pad, tighten your abdomen, and reduce the weight if needed.",
+        "Letting the weight drop on the way back: control the whole return, moving slower than you did on the curl.",
+        "Bending at the hips during the Nordic curl: squeeze your glutes and keep knees to shoulders in one line, even if that means lowering a shorter distance."
+      ]
+    },
+    "videos": [
+      { "url": "https://www.youtube.com/watch?v=Yn7aqLkeF0U", "title": "How To Do Nordic Hamstring Curls", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=65UNd6ienHw", "title": "Nordic Hamstring Curl Tutorial", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=mwUgd7gA8YE", "title": "【環球健身小教室】重訓器材-腿部彎舉訓練機 Leg Curl｜環球健身中心", "lang": "zh" },
+      { "url": "https://www.youtube.com/watch?v=vRj5LoMR384", "title": "【強化大腿後肌肉Part III: 滑輪站立單腿彎舉 (Cable Leg Curl)】🦵🏼", "lang": "zh" }
+    ]
+  },
+  "calf-raise": {
+    "steps": {
+      "zh": [
+        "雙腳與髖同寬站好，腳尖朝前，手輕扶牆壁或椅背幫助平衡。",
+        "吐氣，前腳掌往下踩，把腳跟慢慢抬到最高，重心落在大拇趾與第二趾的根部。",
+        "在最高點停一下，膝蓋保持伸直但不要鎖死，身體不要往前傾。",
+        "吸氣，慢慢把腳跟放回地面，再做下一下。"
+      ],
+      "en": [
+        "Stand with feet hip-width apart and toes pointing forward, resting a hand lightly on a wall or chair back for balance.",
+        "Breathe out, press through the balls of your feet and slowly lift your heels as high as you can, keeping the weight over the base of the big toe and second toe.",
+        "Pause at the top with your knees straight but not locked and your body upright, not leaning forward.",
+        "Breathe in and lower your heels slowly back to the floor before the next repetition."
+      ]
+    },
+    "mistakes": {
+      "zh": [
+        "腳踝往外倒、重心跑到小趾側：把重量壓回大拇趾根部，讓腳跟直上直下。",
+        "動作太快、用彈的：放慢速度，最高點停一下，再慢慢放下。",
+        "只抬一半高度：每一下都抬到自己能到的最高點，再完整放下。"
+      ],
+      "en": [
+        "Ankles rolling outward so the weight shifts to the little-toe side: press back through the base of the big toe so the heels travel straight up and down.",
+        "Bouncing through the movement: slow down, pause at the top, and lower with control.",
+        "Lifting only halfway: rise to the highest point you can reach each time, then lower all the way."
+      ]
+    },
+    "videos": [
+      { "url": "https://www.youtube.com/watch?v=ndQc4mz4mBU", "title": "Standing Calf Raise - Proper Form & Technique [4K]", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=KRJIKsY02nE", "title": "Standing Calf Raise Tutorial for Beginners", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=ZzX7eLeWpUI", "title": "小腿肌肉訓練【站姿提踵】主要鍛煉部位", "lang": "zh" },
+      { "url": "https://www.youtube.com/watch?v=aG4aVkwwNpk", "title": "站姿提踵", "lang": "zh" }
+    ]
+  },
+  "toe-raise": {
+    "steps": {
+      "zh": [
+        "背部和臀部靠牆站好，雙腳往前踏出約一個腳掌的距離，膝蓋伸直。",
+        "腳跟留在地上，吐氣，把腳尖和前腳掌往小腿方向勾起到最高。",
+        "在最高點停一下，感覺小腿前側用力。",
+        "吸氣，慢慢把前腳掌放回地面；腳站得離牆越遠，動作越吃力。"
+      ],
+      "en": [
+        "Stand with your back and hips against a wall, feet about one foot-length in front of you and knees straight.",
+        "Keeping your heels on the floor, breathe out and pull your toes and the front of your feet up toward your shins as high as you can.",
+        "Pause at the top and feel the front of your shins working.",
+        "Breathe in and lower the front of your feet slowly to the floor; the farther your feet are from the wall, the harder it is."
+      ]
+    },
+    "mistakes": {
+      "zh": [
+        "彎膝蓋或臀部離開牆面借力：膝蓋保持伸直、臀部貼牆，太吃力就把腳站近一點。",
+        "只翹腳趾、腳掌沒有離地：想著把整個前腳掌抬離地面，而不只是腳趾。",
+        "放下時腳掌直接拍回地面：放下的速度要和抬起時一樣慢。"
+      ],
+      "en": [
+        "Bending the knees or letting the hips leave the wall to help: keep the knees straight and hips on the wall, and step your feet closer if it is too hard.",
+        "Lifting only the toes while the foot stays down: think about raising the whole front of the foot off the floor, not just the toes.",
+        "Letting the feet slap back down: lower as slowly as you lifted."
+      ]
+    },
+    "videos": [
+      { "url": "https://www.youtube.com/watch?v=dnxy5DhY0Ks", "title": "Tibialis Raise (Against Wall)", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=S-8UOBHYc9w", "title": "Tibialis Raises - Quick How-To", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=36dCR5Zr1oQ", "title": "如何鍛鍊脛前肌｜5動作強化你的煞車器｜葛蕾蒂斯Gladys Fit Life", "lang": "zh" },
+      { "url": "https://www.youtube.com/watch?v=lD0DSLROT-c", "title": "脛前肌訓練", "lang": "zh" }
+    ]
+  },
+  "knee-raise": {
+    "steps": {
+      "zh": [
+        "雙手與肩同寬握住單槓，手臂伸直懸吊，肩膀往下沉、不要聳肩，雙腿自然併攏。",
+        "收緊腹部，吐氣，把膝蓋慢慢往胸口方向抬起，到大腿至少與地面平行，骨盆順勢往上捲。",
+        "在最高點停一下，身體盡量不要前後晃動。",
+        "吸氣，慢慢把腿放回起始位置，等身體穩定後再做下一下。",
+        "進階做法：雙腿伸直抬起（懸吊抬腿）；無法懸吊時，可改成仰躺在地上抬膝。"
+      ],
+      "en": [
+        "Hang from a bar with hands shoulder-width apart, arms straight, shoulders pulled down away from your ears, and legs together.",
+        "Tighten your abdomen, breathe out and slowly bring your knees up toward your chest until your thighs are at least parallel to the floor, letting your pelvis curl upward.",
+        "Pause at the top and keep your body from swinging back and forth.",
+        "Breathe in, lower your legs slowly to the start, and wait until you are steady before the next repetition.",
+        "To progress, raise straight legs (hanging leg raise); if hanging is not possible, do knee raises lying on your back instead."
+      ]
+    },
+    "mistakes": {
+      "zh": [
+        "靠身體擺盪把腿甩上去：放慢速度，每一下都從靜止開始，腿放下後先停穩。",
+        "聳肩、整個人掛在肩關節上：肩膀往下沉、肩胛骨微微用力，讓脖子保持放鬆拉長。",
+        "只抬腿、骨盆沒有捲起，腰部拱起：抬到上方時把骨盆往上捲、肚臍往內收，讓腹部出力。"
+      ],
+      "en": [
+        "Swinging the body to throw the legs up: slow down, start each repetition from a still hang, and settle after lowering.",
+        "Shrugging and hanging passively from the shoulder joints: draw the shoulders down and keep the shoulder blades gently engaged so the neck stays long.",
+        "Lifting only the legs while the lower back arches: curl the pelvis up and draw the navel in at the top so the abdominals do the work."
+      ]
+    },
+    "videos": [
+      { "url": "https://www.youtube.com/watch?v=0BmrlKCfTPU", "title": "Hanging Knee Raise - Proper Form & Technique", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=MRcpnl4G3YA", "title": "Hanging Knee Raise Tutorial - True Form", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=G0hPt2eYXIM", "title": "【肌力養成】懸垂舉腿技巧｜腹肌超有感 線條養成", "lang": "zh" },
+      { "url": "https://www.youtube.com/watch?v=odojGCIvZ6A", "title": "How to train abs by hanging leg raise 腹肌 懸吊抬腿 膝蓋位置 1技巧提升直腹肌效益 腹肌帶動膝蓋更往上【RobertPig蘿蔔豬 2023 EP33】", "lang": "zh" }
+    ]
+  },
+  "eversion": {
+    "steps": {
+      "zh": [
+        "坐著把腿伸直，彈力帶套在要訓練那隻腳的前腳掌，另一端固定在身體內側（綁在桌腳，或繞過另一隻腳用手拉住）。",
+        "小腿和膝蓋保持不動，腳踝維持在自然的角度。",
+        "吐氣，把腳掌外緣慢慢往外、往上轉，讓腳底朝向外側，對抗彈力帶的拉力。",
+        "在最外側停一下，吸氣，慢慢回到起始位置，不要讓彈力帶把腳彈回去。"
+      ],
+      "en": [
+        "Sit with your leg out straight and loop the band around the front of the working foot, with the other end fixed toward the inside (tied to a table leg, or wrapped around the other foot and held in your hand).",
+        "Keep your lower leg and knee still, with the ankle in a comfortable neutral position.",
+        "Breathe out and slowly turn the outer edge of your foot outward and upward so the sole faces away from the midline, working against the band.",
+        "Pause at the end, then breathe in and return slowly to the start without letting the band snap your foot back."
+      ]
+    },
+    "mistakes": {
+      "zh": [
+        "整條腿或膝蓋跟著往外轉：用手扶住小腿，只讓腳踝以下的部位活動。",
+        "變成把腳尖往下踩或往上勾：動作方向是腳掌往外轉，腳踝的上下角度保持不變。",
+        "回程太快被彈力帶拉回去：回來的速度要比出去時更慢，全程保持張力。"
+      ],
+      "en": [
+        "The whole leg or knee turning outward: steady your lower leg with a hand and move only from the ankle down.",
+        "Pointing or pulling the foot up instead: the movement is the foot turning outward while the up-and-down ankle angle stays the same.",
+        "Letting the band pull the foot back quickly: return more slowly than you moved out, keeping tension the whole way."
+      ]
+    },
+    "videos": [
+      { "url": "https://www.youtube.com/watch?v=2-wzJj4MQs4", "title": "Ankle Eversion Exercise |Thera-Band", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=rqO9UIAEzTE", "title": "Ankle Eversion with Exercise Band", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=u5qoUx8NXgg", "title": "VERS足部健康學苑_ PS-2拉力圈_E-AP-1足踝外翻肌群肌力訓練", "lang": "zh" },
+      { "url": "https://www.youtube.com/watch?v=Hcw3KOc8idQ", "title": "運用彈力帶來練習腳踝的力量", "lang": "zh" }
+    ]
+  },
+  "short-foot": {
+    "steps": {
+      "zh": [
+        "赤腳坐在椅子上，腳掌平放地面，膝蓋在腳踝正上方，腳趾放鬆伸直。",
+        "腳跟和腳趾都留在地上，把大拇趾根部往腳跟方向輕輕拉近，讓足弓微微拱起、腳掌變短一點。",
+        "維持這個姿勢幾秒，保持正常呼吸，腳趾不要捲曲抓地。",
+        "慢慢放鬆讓足弓回到原位；熟練後可以改成站著做，再進階到單腳站。"
+      ],
+      "en": [
+        "Sit barefoot on a chair with your foot flat on the floor, knee directly over the ankle, and toes relaxed and straight.",
+        "Keeping the heel and toes on the floor, gently draw the base of your big toe toward your heel so the arch lifts slightly and the foot becomes a little shorter.",
+        "Hold for a few seconds while breathing normally, without curling or gripping with your toes.",
+        "Relax slowly and let the arch return; once this is easy, do it standing and then on one leg."
+      ]
+    },
+    "mistakes": {
+      "zh": [
+        "腳趾捲起來抓地：腳趾保持伸直平貼地面，只讓足弓拱起；可以先用手指輕壓腳趾提醒自己。",
+        "腳掌往外翻、大拇趾根部離地：大拇趾根部、小趾根部和腳跟三個點都要留在地上。",
+        "太用力、小腿和腳整個繃緊：用輕輕的力量就好，重點是感覺足弓內側的小肌肉在收縮。"
+      ],
+      "en": [
+        "Curling the toes to grip the floor: keep the toes long and flat and let only the arch rise; resting a finger lightly on the toes can remind you.",
+        "Rolling the foot outward so the base of the big toe lifts: keep the base of the big toe, the base of the little toe, and the heel all on the floor.",
+        "Tensing the whole foot and calf: use gentle effort and focus on feeling the small muscles of the inner arch contract."
+      ]
+    },
+    "videos": [
+      { "url": "https://www.youtube.com/watch?v=vr2yG84vnnA", "title": "How to Perform the Short Foot Exercise Progressing to Single Leg Balance", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=B1c8N5NKcPI", "title": "Are you doing short foot correctly? with Dr Emily Splichal", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=9bwMrxQMb_g", "title": "足底筋膜炎的關鍵：縮足運動訓練足弓告別足底痛｜啾c物理治療師", "lang": "zh" },
+      { "url": "https://www.youtube.com/watch?v=MLCeQzm5U78", "title": "【下肢解剖營】縮足運動—脛骨後肌訓練，拇趾外翻、扁平足救星", "lang": "zh" }
+    ]
+  },
+  "push-up": {
+    "steps": {
+      "zh": [
+        "雙手撐地，比肩膀略寬，手掌在肩膀正下方附近，雙腳往後伸直，腳尖踩地。",
+        "收緊腹部和臀部，讓頭、背、臀、腳跟成一直線，眼睛看向手前方的地面。",
+        "吸氣，彎曲手肘讓身體整體往下，手肘與身體約呈 45 度，胸口接近地面。",
+        "吐氣，手掌用力推地，把身體推回起始位置，手肘伸直但不要鎖死。",
+        "太吃力時，可改成膝蓋著地或雙手撐在椅子、桌緣上做。"
+      ],
+      "en": [
+        "Place your hands on the floor slightly wider than your shoulders and roughly under them, with legs straight behind you and toes on the floor.",
+        "Tighten your abdomen and glutes so your head, back, hips and heels form one straight line, and look at the floor just ahead of your hands.",
+        "Breathe in and bend your elbows to lower your whole body together, elbows about 45 degrees from your sides, until your chest is close to the floor.",
+        "Breathe out and push the floor away to return to the start, straightening the elbows without locking them.",
+        "If this is too hard, do it with your knees on the floor or with your hands on a chair or table edge."
+      ]
+    },
+    "mistakes": {
+      "zh": [
+        "腰部下塌或臀部翹高：收緊腹部和臀部，讓身體像一塊木板一樣一起上下。",
+        "手肘往兩側張開成 90 度：手肘往後收到與身體約 45 度，減少肩膀前側的壓力。",
+        "只下去一點點、頭往前伸：下巴微收，以胸口而不是額頭靠近地面，做不到就先降低難度。"
+      ],
+      "en": [
+        "Sagging at the waist or lifting the hips high: tighten the abdomen and glutes so the body moves up and down like one plank.",
+        "Flaring the elbows out to 90 degrees: tuck them back to about 45 degrees from the body to ease the load on the front of the shoulders.",
+        "Lowering only a little while poking the head forward: tuck the chin slightly and lead with the chest, not the forehead, and use an easier version if you cannot reach depth."
+      ]
+    },
+    "videos": [
+      { "url": "https://www.youtube.com/watch?v=WDIpL0pjun0", "title": "How to do a Push-Up", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=zF0jbubK_jU", "title": "How To Do A Push-Up: Proper Form & Technique", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=jkoqm3Kmpwk", "title": "伏地挺身養成教學｜姿勢講解｜錯誤示範｜進階動作教學｜Push up progression", "lang": "zh" },
+      { "url": "https://www.youtube.com/watch?v=tzbN3dzF5tQ", "title": "【Jojo 教練】標準的伏地挺身？關鍵在肩胛骨的控制！", "lang": "zh" }
+    ]
+  },
+  "pull-up": {
+    "steps": {
+      "zh": [
+        "雙手正握單槓（或下拉機的橫桿），握距比肩膀略寬，手臂伸直，腹部收緊。",
+        "先把肩膀往下沉、肩胛骨往下往後帶，胸口微微挺起。",
+        "吐氣，想著把手肘往下拉向身體兩側，直到下巴超過單槓（滑輪下拉則是把橫桿拉到上胸前）。",
+        "在最高點停一下，吸氣，慢慢回到手臂伸直的位置，全程保持控制。",
+        "還拉不上去時，可以用彈力帶輔助、只練慢慢下放，或先用滑輪下拉機練習。"
+      ],
+      "en": [
+        "Grip the bar (or the pulldown bar) overhand, slightly wider than your shoulders, with arms straight and abdomen tight.",
+        "First draw your shoulders down and your shoulder blades down and back, lifting your chest slightly.",
+        "Breathe out and think of driving your elbows down toward your sides until your chin clears the bar (for a pulldown, bring the bar to your upper chest).",
+        "Pause at the top, then breathe in and return slowly to straight arms, staying in control the whole way.",
+        "If you cannot pull yourself up yet, use a band for assistance, practise only the slow lowering, or start on the lat pulldown machine."
+      ]
+    },
+    "mistakes": {
+      "zh": [
+        "聳肩、用脖子和手臂硬拉：每一下開始前先把肩膀往下沉，再用背部把手肘往下帶。",
+        "踢腿或擺盪身體借力（滑輪下拉時身體大幅後仰）：收緊腹部和臀部保持身體穩定，必要時降低難度或重量。",
+        "沒有完整放下、只做半程：每一下都回到手臂接近伸直的位置，但肩膀仍保持穩定不鬆掉。"
+      ],
+      "en": [
+        "Shrugging and pulling with the neck and arms: set the shoulders down before each repetition, then use your back to drive the elbows down.",
+        "Kicking or swinging for momentum (or leaning far back on a pulldown): tighten the abdomen and glutes to stay steady, and use an easier version or lighter weight if needed.",
+        "Half repetitions that never lower fully: return to nearly straight arms each time while keeping the shoulders stable rather than slack."
+      ]
+    },
+    "videos": [
+      { "url": "https://www.youtube.com/watch?v=9yVGh3XbJ34", "title": "How to do a Pull-Up", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=ui5rcJx-_hY", "title": "How to Do a Proper Pull Up: proper form, common errors, and exercises to perfect your pull up", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=TMsAgWQBUIs", "title": "5步驟教你學會正確引體向上｜有效提升背肌感受度｜Jay Wang", "lang": "zh" },
+      { "url": "https://www.youtube.com/watch?v=eLxV38Xqkxk", "title": "【肌力養成】引體向上乾貨 ｜四種降階訓鍊｜附送兩個小技巧", "lang": "zh" }
+    ]
+  },
+  "lateral-raise": {
+    "steps": {
+      "zh": [
+        "雙腳與髖同寬站好，雙手各握一個啞鈴垂在身體兩側，掌心朝向身體，手肘微彎。",
+        "收緊腹部，肩膀放鬆下沉，身體站直不晃動。",
+        "吐氣，以手肘帶動，把手臂往兩側稍微偏前的方向抬起，到手臂約與肩同高。",
+        "在最高點停一下，吸氣，慢慢把啞鈴放回身體兩側。"
+      ],
+      "en": [
+        "Stand with feet hip-width apart, a dumbbell in each hand at your sides, palms facing your body and elbows slightly bent.",
+        "Tighten your abdomen, let your shoulders settle down, and stand tall without swaying.",
+        "Breathe out and, leading with your elbows, raise your arms out to the sides and slightly forward until they are about shoulder height.",
+        "Pause at the top, then breathe in and lower the dumbbells slowly back to your sides."
+      ]
+    },
+    "mistakes": {
+      "zh": [
+        "聳肩、用斜方肌把手抬起來：先把肩膀往下沉，並改用較輕的重量，想著把手往兩側遠處伸出去。",
+        "身體後仰或用甩的把重量帶上去：身體保持不動，抬起和放下都放慢速度。",
+        "手抬得比肩膀高或手腕高過手肘：抬到與肩同高就停，讓手肘和手腕保持在差不多的高度。"
+      ],
+      "en": [
+        "Shrugging so the upper traps lift the arms: set the shoulders down first, use a lighter weight, and think of reaching out wide to the sides.",
+        "Leaning back or swinging the weights up: keep the torso still and slow down both the lift and the lowering.",
+        "Raising above shoulder height or letting the wrists rise above the elbows: stop at shoulder level and keep elbows and wrists at about the same height."
+      ]
+    },
+    "videos": [
+      { "url": "https://www.youtube.com/watch?v=zjSNTFwPhus", "title": "How To Do A Lateral Raise The Correct Way", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=ssAo_xwFt5c", "title": "How to Do Dumbbell Lateral Raises", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=AjcTMfD7-o4", "title": "中三角肌無感？南瓜肩養不大？｜正確操作側平舉｜3大常見錯誤｜Jay Wang", "lang": "zh" },
+      { "url": "https://www.youtube.com/watch?v=Vil5b7fXqWs", "title": "【ATTACUS重訓教學】 肩部肌群-側平舉 Shoulder Muscles-Dumbbell Lateral Raise", "lang": "zh" }
+    ]
+  },
+  "reverse-fly": {
+    "steps": {
+      "zh": [
+        "反向飛鳥：雙手各握一個輕啞鈴，膝蓋微彎，從髖部往前彎到上半身接近與地面平行，背部打直，手臂自然垂下、手肘微彎。",
+        "吐氣，把手臂往兩側張開，像展開翅膀一樣抬到約與肩同高，同時把肩胛骨往中間夾。",
+        "在最高點停一下，吸氣，慢慢把手臂放回起始位置。",
+        "面拉：把繩索或彈力帶固定在約臉部高度，雙手握住後退到手臂伸直；吐氣，手肘抬高往兩側拉開，把雙手拉向臉的兩旁。",
+        "拉到底時讓雙手在耳朵旁、手肘與肩膀同高，停一下，再吸氣慢慢伸直手臂回去。"
+      ],
+      "en": [
+        "Reverse fly: hold a light dumbbell in each hand, soften your knees and hinge forward at the hips until your torso is nearly parallel to the floor, back straight, arms hanging with elbows slightly bent.",
+        "Breathe out and open your arms out to the sides like spreading wings until they are about shoulder height, squeezing your shoulder blades together.",
+        "Pause at the top, then breathe in and lower your arms slowly to the start.",
+        "Face pull: fix a rope or band at about face height, hold it and step back until your arms are straight; breathe out and pull your hands toward the sides of your face with elbows high and wide.",
+        "Finish with your hands beside your ears and elbows level with your shoulders, pause, then breathe in and straighten your arms slowly."
+      ]
+    },
+    "mistakes": {
+      "zh": [
+        "重量太重、用甩的或抬起上半身借力：換較輕的重量，身體固定不動，只讓手臂和肩胛骨活動。",
+        "聳肩、脖子用力：肩膀遠離耳朵，想著用上背和肩膀後側出力，而不是脖子。",
+        "面拉時手肘掉到肩膀以下、變成划船：手肘保持與肩同高或略高，雙手拉向臉旁而不是胸口。"
+      ],
+      "en": [
+        "Going too heavy and swinging or lifting the torso: use a lighter weight, keep the body still, and let only the arms and shoulder blades move.",
+        "Shrugging and tensing the neck: keep the shoulders away from the ears and work from the upper back and the back of the shoulders.",
+        "Elbows dropping below the shoulders on a face pull so it becomes a row: keep the elbows at or just above shoulder height and pull toward your face, not your chest."
+      ]
+    },
+    "videos": [
+      { "url": "https://www.youtube.com/watch?v=eTCBSFlCJ_s", "title": "How to do a Face Pull", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=29HYlz8iWag", "title": "How to do a Reverse Fly", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=8VrrFOeqnE0", "title": "板橋健身房｜練背固定式器材－反向飛鳥教學｜健身器材訓練｜新手第一次上健身房訓練", "lang": "zh" },
+      { "url": "https://www.youtube.com/watch?v=CdivnPOYCJQ", "title": "啞鈴反向飛鳥Reverse Fly 後三角肌訓練 Posterior deltoid", "lang": "zh" }
+    ]
+  },
+  "ext-rot": {
+    "steps": {
+      "zh": [
+        "把彈力帶固定在約手肘高度，側身站立，用離固定點較遠的那隻手握住彈力帶。",
+        "手肘彎 90 度貼在身體側邊（可在手肘和身體之間夾一條捲起的毛巾），前臂橫在肚子前方，手腕打直。",
+        "肩膀放鬆下沉，吐氣，手肘位置不動，把前臂像開門一樣慢慢往外轉開。",
+        "轉到自己舒服的最大範圍停一下，吸氣，慢慢回到起始位置。"
+      ],
+      "en": [
+        "Fix the band at about elbow height, stand side-on to it, and hold the band with the hand farther from the anchor.",
+        "Bend your elbow to 90 degrees and keep it against your side (a rolled towel between elbow and body helps), forearm across your belly and wrist straight.",
+        "Let your shoulder settle down, breathe out and, keeping the elbow in place, slowly rotate your forearm outward like opening a door.",
+        "Pause at the end of your comfortable range, then breathe in and return slowly to the start."
+      ]
+    },
+    "mistakes": {
+      "zh": [
+        "手肘離開身體往外張：在手肘和身體之間夾一條毛巾，全程不要讓它掉下來。",
+        "轉動身體或彎手腕來代替肩膀轉動：身體面向正前方不動、手腕打直，只讓前臂繞著上臂轉。",
+        "彈力帶太緊導致聳肩：站近一點或換較輕的彈力帶，肩膀保持放鬆下沉。"
+      ],
+      "en": [
+        "The elbow drifting away from the body: hold a towel between the elbow and your side and do not let it fall.",
+        "Twisting the torso or bending the wrist instead of rotating the shoulder: keep facing forward with a straight wrist so only the forearm turns around the upper arm.",
+        "Too much band tension causing a shrug: step closer or use a lighter band and keep the shoulder relaxed and down."
+      ]
+    },
+    "videos": [
+      { "url": "https://www.youtube.com/watch?v=8UZT_SElGlc", "title": "How to Perform Banded Shoulder External Rotation to Strengthen your Rotator Cuff", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=ybNV36DoRfY", "title": "Banded Shoulder External Rotation", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=3My1ocrSdjA", "title": "改善肩膀疼痛問題，強化旋轉肌群力量！肩關節外轉訓練｜羅伯特物理治療", "lang": "zh" },
+      { "url": "https://www.youtube.com/watch?v=cGH4XNxL0A4", "title": "【長安醫院居家復健輕鬆做】肩關節 (3-7) 肩外轉彈力帶運動", "lang": "zh" }
+    ]
+  },
+  "int-rot": {
+    "steps": {
+      "zh": [
+        "把彈力帶固定在約手肘高度，側身站立，用靠近固定點的那隻手握住彈力帶。",
+        "手肘彎 90 度貼在身體側邊（可夾一條捲起的毛巾），前臂朝向外側，手腕打直，彈力帶略有張力。",
+        "肩膀放鬆下沉，吐氣，手肘位置不動，把前臂像關門一樣慢慢往內轉向肚子。",
+        "手靠近肚子時停一下，吸氣，慢慢讓前臂轉回起始位置。"
+      ],
+      "en": [
+        "Fix the band at about elbow height, stand side-on to it, and hold the band with the hand nearer the anchor.",
+        "Bend your elbow to 90 degrees and keep it against your side (a rolled towel can help), forearm pointing outward, wrist straight, with light tension on the band.",
+        "Let your shoulder settle down, breathe out and, keeping the elbow in place, slowly rotate your forearm inward toward your belly like closing a door.",
+        "Pause when your hand is near your belly, then breathe in and let the forearm rotate slowly back to the start."
+      ]
+    },
+    "mistakes": {
+      "zh": [
+        "手肘離開身體或往前跑：把手肘固定在身體側邊，夾一條毛巾幫助自己維持位置。",
+        "肩膀往前捲、身體跟著轉：胸口保持打開，身體面向正前方，只讓前臂轉動。",
+        "回程被彈力帶快速拉回去：回到起始位置的速度要放慢，全程控制。"
+      ],
+      "en": [
+        "The elbow leaving your side or moving forward: keep it pinned to your side, holding a towel there to help you stay in position.",
+        "The shoulder rolling forward and the torso turning with it: keep the chest open and face straight ahead so only the forearm rotates.",
+        "Letting the band pull the arm back quickly: slow the return and stay in control the whole way."
+      ]
+    },
+    "videos": [
+      { "url": "https://www.youtube.com/watch?v=MfjCK5_Ss5g", "title": "How To Do An Internal Rotation with Band", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=Mhia1wzaD3k", "title": "Exercise Tutorial: Shoulder Internal Rotation With Band", "lang": "en" },
+      { "url": "https://www.youtube.com/watch?v=bWjy-7nrHpo", "title": "Rotator Cuff （旋轉肌袖彈力帶訓練）", "lang": "zh" }
+    ]
+  }
+}

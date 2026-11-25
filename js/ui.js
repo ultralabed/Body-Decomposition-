@@ -569,7 +569,7 @@ function guideHtml(ex) {
   const row = (v) => {
     const id = videoId(v.url);
     if (canEmbed && openVideo === id) {
-      return `<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0&playsinline=1" title="${esc(v.title)}" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+      return `<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0&playsinline=1" title="${esc(v.title)}" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
         <div class="video-under"><span>${esc(v.title)}</span><a href="${esc(v.url)}" target="_blank" rel="noopener">${t('在 YouTube 開啟')}</a></div>`;
     }
     return canEmbed
