@@ -13,7 +13,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { NERVES, ROOTS } from '../js/catalog.js';
+import { NERVES, ROOTS, EXERCISES } from '../js/catalog.js';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const src = path.join(root, 'data', 'src');
@@ -105,6 +105,31 @@ for (const [key, e] of Object.entries(info)) {
 fs.writeFileSync(path.join(root, 'data', 'anatomy.json'), JSON.stringify({ parts, info: core }));
 fs.writeFileSync(path.join(root, 'data', 'text-zh.json'), JSON.stringify(zh));
 fs.writeFileSync(path.join(root, 'data', 'text-en.json'), JSON.stringify(en));
+// Exercise how-to text and YouTube links: data/src/guides/*.json -> data/guides.json
+const guides = {};
+const guideDir = path.join(src, 'guides');
+if (fs.existsSync(guideDir)) {
+  const seen = new Set();
+  for (const f of fs.readdirSync(guideDir).sort()) {
+    if (!f.endsWith('.json')) continue;
+    for (const [id, g] of Object.entries(readJson(path.join(guideDir, f)))) {
+      if (!EXERCISES.some((x) => x.id === id)) { problems.push(`guide ${id}: no such exercise`); continue; }
+      const videos = [];
+      for (const v of g.videos || []) {
+        const m = /^https:\/\/www\.youtube\.com\/watch\?v=([\w-]{11})$/.exec(v.url || '');
+        if (!m || !v.title || !['zh', 'en'].includes(v.lang)) { problems.push(`guide ${id}: bad video ${v.url}`); continue; }
+        if (seen.has(id + m[1])) continue;
+        seen.add(id + m[1]);
+        videos.push({ url: v.url, title: v.title.replace(/\s*-\s*YouTube\s*$/, '').trim(), lang: v.lang });
+      }
+      guides[id] = { steps: g.steps, mistakes: g.mistakes, videos };
+    }
+  }
+  for (const x of EXERCISES) if (!guides[x.id]) problems.push(`exercise ${x.id}: no guide`);
+  fs.writeFileSync(path.join(root, 'data', 'guides.json'), JSON.stringify(guides));
+  console.log(`${Object.keys(guides).length} exercise guides, ${Object.values(guides).reduce((n, g) => n + g.videos.length, 0)} videos`);
+}
+
 const count = {};
 for (const p of parts) count[info[p.key].sys] = (count[info[p.key].sys] || 0) + 1;
 console.log(`${parts.length} meshes, ${Object.keys(info).length} structures`, count);

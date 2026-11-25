@@ -52,6 +52,7 @@ the model files unless the page comes from a small server like the one above.)
 | Helpers and opponents | Each muscle card lists its synergists, its antagonists and the movements it produces, each with a play button |
 | Joint movements | 29 animated movements (shoulder, elbow, wrist, hip, knee, ankle, trunk, neck, squat) that highlight prime movers (gold), helpers (teal) and antagonists (violet) and give the normal range of motion |
 | Training exercises | 46 exercises in four groups (my training, lower body, upper body, core and neck): main movers in gold, helpers in teal, stabilisers in blue |
+| How-to and videos | Every exercise has step-by-step instructions, common mistakes, and YouTube tutorials in English and Chinese that play inside the page, plus a button to search YouTube for more |
 | Movements and training for a muscle | Tap a muscle, then **Train**: the joint movements it takes part in, the exercises that train it most directly, the ones that also work it, and its synergists and antagonists |
 | Quiz | "Name it" and "Find it on the model" questions, a choice of range, a saved best score, and a "My misses" list that brings back what you got wrong |
 | Section plane | Cut the body open left–right, top–bottom or front–back |
@@ -78,6 +79,7 @@ js/i18n.js            language switch and the English string table
 data/anatomy.json     basic facts for every structure (built from data/src)
 data/text-zh.json     Chinese descriptions (built from data/src)
 data/text-en.json     English descriptions (built from data/src/en)
+data/guides.json      exercise how-to text and YouTube links (built from data/src/guides)
 data/src/*.json       source files for the Chinese descriptions
 data/src/en/*.json    source files for the English descriptions
 models/*.glb          compressed 3D models (skeleton, muscles, everything else)
@@ -115,6 +117,7 @@ and the three GLB files total about 5 MB.
 - **Origin / insertion maps are estimated automatically**: they come from the distance between muscle and bone surfaces, so positions are approximate, and attachments to fascia or other muscles are not shown.
 - **Tendons are not coloured separately**: the model builds each muscle and its tendon as one piece.
 - **The English descriptions are translated from the Chinese**: both languages carry the same content, so an error in one is an error in both.
+- **Videos are third-party YouTube content**: they were picked from search results and may be removed by their owners; the search button always works.
 - **The text is for study only**: it is compiled from standard anatomy textbooks, details such as nerve root levels differ between textbooks, and it does not replace professional medical judgement.
 
 ## Sources and licences

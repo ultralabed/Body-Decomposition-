@@ -2,12 +2,12 @@
 // first visit. Strategy: answer from the cache right away when possible and
 // refresh the cached copy in the background.
 
-const CACHE = 'body-decomposition-v6';
+const CACHE = 'body-decomposition-v7';
 const SHELL = [
   './', 'index.html', 'css/app.css', 'manifest.webmanifest', 'icons/icon.svg',
   'js/main.js', 'js/core.js', 'js/ui.js', 'js/catalog.js', 'js/motion.js', 'js/attach.js', 'js/quiz.js', 'js/i18n.js',
   'vendor/three.module.min.js', 'vendor/OrbitControls.js', 'vendor/GLTFLoader.js', 'vendor/BufferGeometryUtils.js', 'vendor/meshopt_decoder.module.js', 'vendor/meshopt_decoder_reference.js',
-  'data/anatomy.json', 'data/text-zh.json', 'data/text-en.json', 'models/manifest.json', 'models/skeleton.glb', 'models/muscles.glb', 'models/other.glb',
+  'data/anatomy.json', 'data/text-zh.json', 'data/text-en.json', 'data/guides.json', 'models/manifest.json', 'models/skeleton.glb', 'models/muscles.glb', 'models/other.glb',
 ];
 
 self.addEventListener('install', (e) => {

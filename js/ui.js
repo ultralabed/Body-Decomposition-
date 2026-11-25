@@ -534,6 +534,8 @@ function startExercise(ex) {
   const stab = resolveEx(ex.stab, exSide).filter((p) => !prime.includes(p) && !assist.includes(p));
   exSets = { prime: new Set(prime), assist: new Set(assist), stab: new Set(stab) };
   app.state.overlay = exerciseOverlay;
+  openVideo = null;
+  loadGuides();
   core.refresh();
   const sx = exSide === 'R' ? -1 : 1;
   const dir = ex.view === 'side' ? new THREE.Vector3(sx, 0.08, 0.45) : ex.view === 'back' ? new THREE.Vector3(sx * 0.45, 0.1, -1) : new THREE.Vector3(sx * 0.45, 0.1, 1);
@@ -542,6 +544,47 @@ function startExercise(ex) {
   sheetBody.scrollTop = 0;
 }
 const exerciseById = (id) => EXERCISES.find((x) => x.id === id);
+
+// How-to text and YouTube videos for the exercises (data/guides.json),
+// fetched the first time an exercise is opened.
+let guides = null, guidesFailed = false, exView = 'muscles', openVideo = null;
+function loadGuides() {
+  if (guides || guidesFailed) return;
+  fetch('data/guides.json').then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+    .then((g) => { guides = g; if (activeExercise) render(); })
+    .catch(() => { guidesFailed = true; if (activeExercise) render(); });
+}
+const videoId = (url) => (/[?&]v=([\w-]{11})/.exec(url) || [])[1];
+function guideHtml(ex) {
+  const lang = getLang(), name = L(ex.name).split(/[／/]/)[0].trim();
+  const search = `https://www.youtube.com/results?search_query=${encodeURIComponent(name + (lang === 'en' ? ' tutorial proper form' : ' 教學 正確姿勢'))}`;
+  const searchBtn = `<a class="btn wide" href="${search}" target="_blank" rel="noopener">${icon('search')}${t('在 YouTube 搜尋更多影片')}</a>`;
+  if (!guides) {
+    return (guidesFailed ? `<p class="hint">${t('教學內容載入失敗，請檢查網路。')}</p>` : `<p class="hint">${t('正在載入教學…')}</p>`) + searchBtn;
+  }
+  const g = guides[ex.id];
+  if (!g) return `<p class="hint">${t('這個動作還沒有教學內容。')}</p>` + searchBtn;
+  const li = (list) => list.map((x) => `<li>${esc(x)}</li>`).join('');
+  const canEmbed = !window.claude; // the Claude viewer cannot embed other sites
+  const row = (v) => {
+    const id = videoId(v.url);
+    if (canEmbed && openVideo === id) {
+      return `<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0&playsinline=1" title="${esc(v.title)}" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <div class="video-under"><span>${esc(v.title)}</span><a href="${esc(v.url)}" target="_blank" rel="noopener">${t('在 YouTube 開啟')}</a></div>`;
+    }
+    return canEmbed
+      ? `<button class="video-row" data-act="video" data-id="${id}">${icon('play')}<span>${esc(v.title)}</span></button>`
+      : `<a class="video-row" href="${esc(v.url)}" target="_blank" rel="noopener">${icon('play')}<span>${esc(v.title)}</span></a>`;
+  };
+  const group = (code, title) => { const vs = g.videos.filter((v) => v.lang === code); return vs.length ? `<div class="tree-sub" style="padding-left:0">${title}</div>${vs.map(row).join('')}` : ''; };
+  const order = lang === 'en' ? [['en', t('英文影片')], ['zh', t('中文影片')]] : [['zh', t('中文影片')], ['en', t('英文影片')]];
+  return `<div class="h3">${t('怎麼做')}</div><ol class="steps">${li(g.steps[lang] || g.steps.zh)}</ol>
+    <div class="h3">${t('常見錯誤')}</div><ul class="steps">${li(g.mistakes[lang] || g.mistakes.zh)}</ul>
+    <div class="h3">${t('教學影片')}</div>
+    ${g.videos.length ? order.map(([c, title]) => group(c, title)).join('') : `<p class="hint">${t('還沒有挑到合適的影片，可以用下面的按鈕自己搜尋。')}</p>`}
+    <div style="margin-top:10px">${searchBtn}</div>
+    <p class="fine">${t('影片是別人拍的 YouTube 內容，從搜尋結果挑選，不代表本站立場；影片可能被作者下架。')}</p>`;
+}
 function exerciseCard(ex, role) {
   const other = getLang() === 'en' ? 0 : 1;
   return `<button class="card-btn${role ? ' role-' + role : ''}" data-act="exercise" data-id="${ex.id}"><b>${esc(L(ex.name))}</b><em>${esc(ex.name[other])}</em><small>${esc(L(ex.kid))}</small></button>`;
@@ -559,15 +602,17 @@ function exerciseHtml() {
   const seen = new Set();
   const chips = (set, cls) => [...set].filter((p) => !ex.both || (!seen.has(p.key) && seen.add(p.key))).map((p) => `<button class="chip ${cls}" data-act="ex-muscle" data-id="${p.id}">${esc(ex.both ? keyName(p.key) : p.name)}</button>`).join('');
   const joints = ex.joints.map((id) => motionKeys.get(id)).filter(Boolean);
-  return `<div class="info"><h3>${esc(L(ex.name))}</h3><div class="en">${esc(ex.name[other])}</div></div>
-    <div class="kid" data-lead="${t('簡單說：')}">${esc(L(ex.kid))}</div>
-    ${ex.both ? '' : `<div class="h3">${t('出力的那一邊')}</div>
+  const musclesBlock = `    ${ex.both ? '' : `<div class="h3">${t('出力的那一邊')}</div>
     <div class="seg" style="margin-bottom:10px">${[['R', t('右邊')], ['L', t('左邊')]].map(([v, s2]) => `<button data-act="ex-side" data-v="${v}" aria-pressed="${exSide === v}">${s2}</button>`).join('')}</div>`}
     <div class="h3">${t('主要出力的肌肉（金色）')}</div><div class="chips">${chips(exSets.prime, 'prime')}</div>
     ${exSets.assist.size ? `<div class="h3">${t('幫忙的肌肉（青色）')}</div><div class="chips">${chips(exSets.assist, 'assist')}</div>` : ''}
     ${exSets.stab.size ? `<div class="h3">${t('負責穩住身體的肌肉（藍色）')}</div><div class="chips">${chips(exSets.stab, 'stab')}</div>` : ''}
     ${ex.note ? `<div class="note"><b>${t('重點')}　</b>${esc(L(ex.note))}</div>` : ''}
-    ${joints.length ? `<div class="h3">${t('裡面包含的關節動作（點一下看示範）')}</div><div class="chips">${joints.map((j) => `<button class="chip" data-act="ex-joint" data-id="${j.m.id}">▶ ${esc(L(j.m.name))}</button>`).join('')}</div>` : ''}
+    ${joints.length ? `<div class="h3">${t('裡面包含的關節動作（點一下看示範）')}</div><div class="chips">${joints.map((j) => `<button class="chip" data-act="ex-joint" data-id="${j.m.id}">▶ ${esc(L(j.m.name))}</button>`).join('')}</div>` : ''}`;
+  return `<div class="info"><h3>${esc(L(ex.name))}</h3><div class="en">${esc(ex.name[other])}</div></div>
+    <div class="kid" data-lead="${t('簡單說：')}">${esc(L(ex.kid))}</div>
+    <div class="seg" style="margin:10px 0">${[['muscles', t('用到的肌肉')], ['guide', t('教學與影片')]].map(([v, label]) => `<button data-act="ex-view" data-v="${v}" aria-pressed="${exView === v}">${label}</button>`).join('')}</div>
+    ${exView === 'guide' ? guideHtml(ex) : musclesBlock}
     <div class="opt" style="margin-top:10px"><div class="txt"><b>${t('其他肌肉變淡')}</b><small>${t('只留下有出力的肌肉，比較好看清楚')}</small></div>
       <button class="switch" role="switch" aria-checked="${exFocus}" aria-label="${t('其他肌肉變淡')}" data-act="ex-focus"></button></div>
     <button class="btn wide" data-act="ex-exit" style="margin-top:12px">${t('結束這個動作')}</button>
@@ -945,6 +990,8 @@ const actions = {
     openTab('motions');
   },
   'ex-side': (el) => { exSide = el.dataset.v; startExercise(activeExercise); },
+  'ex-view': (el) => { exView = el.dataset.v; openVideo = null; render(); },
+  video: (el) => { openVideo = el.dataset.id; render(); },
   'ex-focus': () => { exFocus = !exFocus; core.refresh(); render(); },
   'ex-exit': () => { setMode('normal'); render(); sheetBody.scrollTop = 0; },
   'ex-muscle': (el) => { const p = app.byId.get(el.dataset.id); const both = activeExercise?.both; setMode('normal'); spotlight(both ? app.byKey.get(p.key) : [p]); openTab('info'); },

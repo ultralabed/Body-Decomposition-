@@ -189,6 +189,15 @@ const EN = {
   '這些動作裡它負責穩定': 'In these it works as a stabiliser',
   '訓練動作是一般性的參考，不是個人化的運動處方。有傷或疼痛時請先給專業人員評估。': 'These exercises are general guidance, not a personal exercise prescription. With an injury or pain, have a professional assess you first.',
   '看它參與的動作和怎麼鍛鍊': 'Its movements and how to train it',
+  // exercise how-to and videos
+  '用到的肌肉': 'Muscles used', '教學與影片': 'How-to & videos',
+  '怎麼做': 'How to do it', '常見錯誤': 'Common mistakes', '教學影片': 'Tutorial videos',
+  '中文影片': 'In Chinese', '英文影片': 'In English',
+  '在 YouTube 搜尋更多影片': 'Search YouTube for more', '在 YouTube 開啟': 'Open on YouTube',
+  '正在載入教學…': 'Loading the how-to…', '教學內容載入失敗，請檢查網路。': 'The how-to could not be loaded. Check your connection.',
+  '這個動作還沒有教學內容。': 'There is no how-to for this exercise yet.',
+  '還沒有挑到合適的影片，可以用下面的按鈕自己搜尋。': 'No suitable video picked yet. Use the button below to search yourself.',
+  '影片是別人拍的 YouTube 內容，從搜尋結果挑選，不代表本站立場；影片可能被作者下架。': 'The videos are third-party YouTube content picked from search results; they do not represent this site and may be taken down by their owners.',
   // quiz
   '這個範圍的題目太少，換一個範圍試試': 'Too few structures in this range. Try another one.',
   '選好範圍就開始。答錯沒關係，答完會告訴你正確答案在哪裡。': 'Choose what to practise and start. Wrong answers are fine: you are shown the right one each time.',
