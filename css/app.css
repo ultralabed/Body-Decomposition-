@@ -180,7 +180,9 @@ button:disabled { opacity: 0.38; cursor: default; }
 .sel-name small { color: var(--dim); font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; min-width: 0; }
 .sel-name .more { color: var(--accent); font-size: 12.5px; font-weight: 600; white-space: nowrap; display: flex; align-items: center; gap: 1px; }
 .sel-name .more .ic { width: 15px; height: 15px; }
-.sel-tools { display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px; }
+.sel-tools { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 4px; }
+.sel-tools button[data-act="train"] { background: color-mix(in srgb, var(--accent) 22%, transparent); color: var(--accent); }
+.sel-tools button span { white-space: nowrap; }
 .sel-tools button { display: flex; flex-direction: column; align-items: center; gap: 1px; padding: 6px 0 4px; border-radius: 10px; font-size: 11px; font-weight: 600; color: var(--text); background: var(--raise); }
 .sel-tools button:hover { background: var(--raise2); }
 .sel-tools button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
@@ -242,6 +244,9 @@ details.tree summary small { margin-left: auto; color: var(--dim); font-weight: 
 /* list cards (groups, motions) */
 .card-btn { display: block; width: 100%; text-align: left; padding: 9px 12px; border-radius: 12px; background: var(--raise); margin-bottom: 6px; }
 .card-btn:hover { background: var(--raise2); }
+.card-btn.role-prime { box-shadow: inset 4px 0 0 var(--warn); }
+.card-btn.role-assist { box-shadow: inset 4px 0 0 #36c5c0; }
+.card-btn.role-stab { box-shadow: inset 4px 0 0 #5b9dff; }
 .card-btn b { font-weight: 600; }
 .card-btn em { font-style: normal; color: var(--dim); font-size: 12px; margin-left: 6px; }
 .card-btn small { display: block; color: var(--dim); font-size: 12.5px; line-height: 1.4; }

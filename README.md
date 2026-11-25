@@ -51,7 +51,8 @@ the model files unless the page comes from a small server like the one above.)
 | Nerves and roots | 33 peripheral nerves and the spinal roots C1–S5: tap one to light up every muscle it supplies (its myotome) |
 | Helpers and opponents | Each muscle card lists its synergists, its antagonists and the movements it produces, each with a play button |
 | Joint movements | 29 animated movements (shoulder, elbow, wrist, hip, knee, ankle, trunk, neck, squat) that highlight prime movers (gold), helpers (teal) and antagonists (violet) and give the normal range of motion |
-| Training exercises | 5 lifts (Bulgarian split squat, single-arm shoulder press, single-leg deadlift, single-arm bench press, single-arm row): main movers in gold, helpers in teal, stabilisers in blue, with a choice of working side |
+| Training exercises | 46 exercises in four groups (my training, lower body, upper body, core and neck): main movers in gold, helpers in teal, stabilisers in blue |
+| Movements and training for a muscle | Tap a muscle, then **Train**: the joint movements it takes part in, the exercises that train it most directly, the ones that also work it, and its synergists and antagonists |
 | Quiz | "Name it" and "Find it on the model" questions, a choice of range, a saved best score, and a "My misses" list that brings back what you got wrong |
 | Section plane | Cut the body open left–right, top–bottom or front–back |
 | Exploded view | Spread all the parts apart |

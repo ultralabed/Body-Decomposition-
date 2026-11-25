@@ -178,6 +178,17 @@ const EN = {
   '裡面包含的關節動作（點一下看示範）': 'Joint movements inside this exercise (tap to watch)',
   '哪些肌肉出力是依一般肌動學和重量訓練教科書整理的，實際比例會隨姿勢、重量和個人差異改變。': 'Muscle roles follow standard kinesiology and strength-training texts; the real share of work changes with technique, load and the individual.',
   '會用到它的訓練動作': 'Exercises that use it',
+  // "movements & training" view of a muscle
+  '動作訓練': 'Train', '動作與訓練': 'Movements & training',
+  '它參與哪些動作（點一下看示範）': 'Movements it takes part in (tap to watch)',
+  '主要': 'prime mover', '幫忙': 'helper',
+  '這塊肌肉不在 app 的 29 個關節動作示範裡。它的動作請看「說明」分頁的文字。': 'This muscle is not part of the 29 joint-movement demos. See the Info tab for its action.',
+  '想練它，做這些最直接': 'To train it, these are the most direct',
+  '動作庫裡沒有專門練它的動作。': 'The exercise library has nothing that targets it directly.',
+  '這些動作也會練到它': 'These also work it',
+  '這些動作裡它負責穩定': 'In these it works as a stabiliser',
+  '訓練動作是一般性的參考，不是個人化的運動處方。有傷或疼痛時請先給專業人員評估。': 'These exercises are general guidance, not a personal exercise prescription. With an injury or pain, have a professional assess you first.',
+  '看它參與的動作和怎麼鍛鍊': 'Its movements and how to train it',
   // quiz
   '這個範圍的題目太少，換一個範圍試試': 'Too few structures in this range. Try another one.',
   '選好範圍就開始。答錯沒關係，答完會告訴你正確答案在哪裡。': 'Choose what to practise and start. Wrong answers are fine: you are shown the right one each time.',

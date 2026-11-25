@@ -5,7 +5,7 @@
 import * as THREE from '../vendor/three.module.min.js';
 import * as core from './core.js';
 import { app, on, NORMAL, GHOST, HIDDEN } from './core.js';
-import { GROUPS, PEEL, SYS, LAYER, REGION, REGION_ORDER, REGIONS, MUSCLE_GROUPS, MOTIONS, OPPOSITE, NERVES, ROOTS, EXERCISES } from './catalog.js';
+import { GROUPS, PEEL, SYS, LAYER, REGION, REGION_ORDER, REGIONS, MUSCLE_GROUPS, MOTIONS, OPPOSITE, NERVES, ROOTS, EXERCISES, EXERCISE_CATS } from './catalog.js';
 import * as motion from './motion.js';
 import * as attach from './attach.js';
 import { createQuiz } from './quiz.js';
@@ -271,7 +271,7 @@ function updateSelbar() {
   selbar.hidden = false;
   selbar.innerHTML = `<button class="sel-name" data-act="info"><b>${esc(s.name)}</b><small>${esc(s.alt)}</small><span class="more">${t('說明')}${icon('chev')}</span></button>
     <div class="sel-tools">
-      ${btn('hide', 'eye-off', t('隱藏'))}${btn('ghost', 'ghost', t('變透明'))}${btn('isolate', 'target', t('只看這個'))}
+      ${parts.every(isSoft) ? btn('train', 'motion', t('動作訓練')) : ''}${btn('hide', 'eye-off', t('隱藏'))}${btn('ghost', 'ghost', t('變透明'))}${btn('isolate', 'target', t('只看這個'))}
       ${btn('fade-others', 'contrast', t('其他變淡'))}${btn('focus', 'pin', t('靠近看'))}${btn('multi', 'multi', t('多選'), app.state.multi)}
     </div>`;
 }
@@ -279,7 +279,8 @@ function updateSelbar() {
 selbar.addEventListener('click', (e) => {
   const b = e.target.closest('[data-act]'); if (!b) return;
   const a = b.dataset.act;
-  if (a === 'info') return openTab('info');
+  if (a === 'info') { infoView = 'about'; return openTab('info'); }
+  if (a === 'train') { infoView = 'train'; return openTab('info'); }
   if (a === 'multi') { app.state.multi = !app.state.multi; updateSelbar(); toast(app.state.multi ? t('多選開啟：一個一個點，可以選很多個') : t('多選關閉')); return; }
   if (a === 'focus') { const p = core.selectedParts(); return core.focusParts(p, outwardDir(p), { pad: 1.8 }); }
   if (mode !== 'normal') setMode('normal');
@@ -501,12 +502,14 @@ function stopPlayer() { playing = false; core.removeFrameHook(playerTick); motio
 let motionView = 'joint'; // joint | exercise
 let activeExercise = null, exSide = 'R', exFocus = true, exSets = { prime: new Set(), assist: new Set(), stab: new Set() };
 
+let activeBoth = false; // true while resolving a two-sided exercise
 function resolveEx(list, side) {
   const other = side === 'R' ? 'L' : 'R', out = [];
   for (const spec of list) {
     const m = /^([BO]):(.*)$/.exec(spec);
     const re = new RegExp(m ? m[2] : spec);
     const sides = m ? (m[1] === 'B' ? ['R', 'L'] : [other]) : [side];
+    if (activeBoth) sides.splice(0, sides.length, 'R', 'L');
     for (const p of app.parts) if (isSoft(p) && re.test(p.key) && (!p.side || sides.includes(p.side)) && !out.includes(p)) out.push(p);
   }
   return out;
@@ -525,6 +528,7 @@ function startExercise(ex) {
   mode = 'exercise';
   activeExercise = ex;
   core.select([], { silent: true }); updateSelbar();
+  activeBoth = !!ex.both;
   const prime = resolveEx(ex.prime, exSide);
   const assist = resolveEx(ex.assist, exSide).filter((p) => !prime.includes(p));
   const stab = resolveEx(ex.stab, exSide).filter((p) => !prime.includes(p) && !assist.includes(p));
@@ -538,6 +542,10 @@ function startExercise(ex) {
   sheetBody.scrollTop = 0;
 }
 const exerciseById = (id) => EXERCISES.find((x) => x.id === id);
+function exerciseCard(ex, role) {
+  const other = getLang() === 'en' ? 0 : 1;
+  return `<button class="card-btn${role ? ' role-' + role : ''}" data-act="exercise" data-id="${ex.id}"><b>${esc(L(ex.name))}</b><em>${esc(ex.name[other])}</em><small>${esc(L(ex.kid))}</small></button>`;
+}
 // Exercises that use a muscle, with the role it plays there.
 function exercisesOf(key) {
   const out = [];
@@ -548,16 +556,17 @@ function exercisesOf(key) {
 }
 function exerciseHtml() {
   const ex = activeExercise, other = getLang() === 'en' ? 0 : 1;
-  const chips = (set, cls) => [...set].map((p) => `<button class="chip ${cls}" data-act="ex-muscle" data-id="${p.id}">${esc(p.name)}</button>`).join('');
+  const seen = new Set();
+  const chips = (set, cls) => [...set].filter((p) => !ex.both || (!seen.has(p.key) && seen.add(p.key))).map((p) => `<button class="chip ${cls}" data-act="ex-muscle" data-id="${p.id}">${esc(ex.both ? keyName(p.key) : p.name)}</button>`).join('');
   const joints = ex.joints.map((id) => motionKeys.get(id)).filter(Boolean);
   return `<div class="info"><h3>${esc(L(ex.name))}</h3><div class="en">${esc(ex.name[other])}</div></div>
     <div class="kid" data-lead="${t('簡單說：')}">${esc(L(ex.kid))}</div>
-    <div class="h3">${t('出力的那一邊')}</div>
-    <div class="seg" style="margin-bottom:10px">${[['R', t('右邊')], ['L', t('左邊')]].map(([v, s2]) => `<button data-act="ex-side" data-v="${v}" aria-pressed="${exSide === v}">${s2}</button>`).join('')}</div>
+    ${ex.both ? '' : `<div class="h3">${t('出力的那一邊')}</div>
+    <div class="seg" style="margin-bottom:10px">${[['R', t('右邊')], ['L', t('左邊')]].map(([v, s2]) => `<button data-act="ex-side" data-v="${v}" aria-pressed="${exSide === v}">${s2}</button>`).join('')}</div>`}
     <div class="h3">${t('主要出力的肌肉（金色）')}</div><div class="chips">${chips(exSets.prime, 'prime')}</div>
-    <div class="h3">${t('幫忙的肌肉（青色）')}</div><div class="chips">${chips(exSets.assist, 'assist')}</div>
-    <div class="h3">${t('負責穩住身體的肌肉（藍色）')}</div><div class="chips">${chips(exSets.stab, 'stab')}</div>
-    <div class="note"><b>${t('重點')}　</b>${esc(L(ex.note))}</div>
+    ${exSets.assist.size ? `<div class="h3">${t('幫忙的肌肉（青色）')}</div><div class="chips">${chips(exSets.assist, 'assist')}</div>` : ''}
+    ${exSets.stab.size ? `<div class="h3">${t('負責穩住身體的肌肉（藍色）')}</div><div class="chips">${chips(exSets.stab, 'stab')}</div>` : ''}
+    ${ex.note ? `<div class="note"><b>${t('重點')}　</b>${esc(L(ex.note))}</div>` : ''}
     ${joints.length ? `<div class="h3">${t('裡面包含的關節動作（點一下看示範）')}</div><div class="chips">${joints.map((j) => `<button class="chip" data-act="ex-joint" data-id="${j.m.id}">▶ ${esc(L(j.m.name))}</button>`).join('')}</div>` : ''}
     <div class="opt" style="margin-top:10px"><div class="txt"><b>${t('其他肌肉變淡')}</b><small>${t('只留下有出力的肌肉，比較好看清楚')}</small></div>
       <button class="switch" role="switch" aria-checked="${exFocus}" aria-label="${t('其他肌肉變淡')}" data-act="ex-focus"></button></div>
@@ -572,7 +581,7 @@ function motionsHtml() {
     if (motionView === 'exercise') {
       const other = getLang() === 'en' ? 0 : 1;
       return seg + `<p class="hint">${t('選一個訓練動作，用到的肌肉會亮起來：金色主要出力、青色幫忙、藍色負責穩住身體。')}</p>` +
-        EXERCISES.map((ex) => `<button class="card-btn" data-act="exercise" data-id="${ex.id}"><b>${esc(L(ex.name))}</b><em>${esc(ex.name[other])}</em><small>${esc(L(ex.kid))}</small></button>`).join('');
+        EXERCISE_CATS.map((c) => `<div class="h3">${esc(L(c.name))}</div>` + EXERCISES.filter((ex) => ex.cat === c.id).map((ex) => exerciseCard(ex)).join('')).join('');
     }
     return seg + `<p class="hint">${t('選一個動作：模型會動給你看，而且把「負責出力的肌肉」亮起來。')}</p>` +
       MOTIONS.map((c, ci) => `<div class="h3">${esc(L(c.cat))}</div><div class="grid2">` + c.items.map((m, mi) =>
@@ -600,7 +609,53 @@ function motionsHtml() {
 
 // ---------------------------------------------------------------- panel: info
 
+let infoView = 'about'; // about | train
 function infoHtml() {
+  const sel = core.selectedParts();
+  if (sel.length && sel.every(isSoft)) {
+    const seg = `<div class="seg" style="margin-bottom:12px">${[['about', t('說明')], ['train', t('動作與訓練')]].map(([v, label]) => `<button data-act="iview" data-v="${v}" aria-pressed="${infoView === v}">${label}</button>`).join('')}</div>`;
+    return seg + (infoView === 'train' ? trainHtml(sel) : aboutHtml());
+  }
+  return aboutHtml();
+}
+
+// "What does this muscle do, and how do I train it?" for the selection.
+// A single head counts as its whole muscle (e.g. long head -> biceps brachii).
+function trainHtml(sel) {
+  const keys = [...new Set(sel.flatMap((p) => familyKeys(p.key)))];
+  const title = selectionTitle(keys.length > 1 || sel.length > 1 ? keys.flatMap((k) => app.byKey.get(k)).filter((p) => sel.some((q) => q.side === p.side)) : sel);
+  const rank = { prime: 0, assist: 1, stab: 2 };
+  // joint movements
+  const moves = new Map();
+  for (const k of keys) for (const r of motionRoles.get(k) || []) {
+    const cur = moves.get(r.m.id);
+    if (!cur || rank[r.role] < rank[cur.role]) moves.set(r.m.id, r);
+  }
+  const moveList = [...moves.values()].sort((a, b) => rank[a.role] - rank[b.role]);
+  // exercises
+  const exs = new Map();
+  for (const k of keys) for (const r of exercisesOf(k)) {
+    const cur = exs.get(r.ex.id);
+    if (!cur || rank[r.role] < rank[cur.role]) exs.set(r.ex.id, r);
+  }
+  const byRole = (role) => [...exs.values()].filter((r) => r.role === role).map((r) => exerciseCard(r.ex, role)).join('');
+  const prime = byRole('prime'), assist = byRole('assist'), stab = byRole('stab');
+  const partners = keys.length ? partnersOf(keys[0]) : { syn: [], ant: [] };
+  const list = (ks) => ks.map((k) => `<button class="chip" data-act="tree-go" data-key="${esc(k)}">${esc(keyName(k))}</button>`).join('');
+  return `<div class="info"><h3>${esc(title.name)}</h3><div class="en">${esc(title.alt)}</div></div>
+    <div class="h3">${t('它參與哪些動作（點一下看示範）')}</div>
+    ${moveList.length ? `<div class="chips">${moveList.map(({ m, role }) => `<button class="chip ${role}" data-act="info-motion" data-id="${m.id}">▶ ${esc(L(m.name))} · ${role === 'prime' ? t('主要') : t('幫忙')}</button>`).join('')}</div>`
+      : `<p class="hint">${t('這塊肌肉不在 app 的 29 個關節動作示範裡。它的動作請看「說明」分頁的文字。')}</p>`}
+    <div class="h3">${t('想練它，做這些最直接')}</div>
+    ${prime || `<p class="hint">${t('動作庫裡沒有專門練它的動作。')}</p>`}
+    ${assist ? `<div class="h3">${t('這些動作也會練到它')}</div>${assist}` : ''}
+    ${stab ? `<div class="h3">${t('這些動作裡它負責穩定')}</div>${stab}` : ''}
+    ${partners.syn.length ? `<div class="h3">${t('一起出力的夥伴（協同肌）')}</div><div class="chips">${list(partners.syn)}</div>` : ''}
+    ${partners.ant.length ? `<div class="h3">${t('做相反動作的對手（拮抗肌）')}</div><div class="chips">${list(partners.ant)}</div>` : ''}
+    <p class="fine">${t('訓練動作是一般性的參考，不是個人化的運動處方。有傷或疼痛時請先給專業人員評估。')}</p>`;
+}
+
+function aboutHtml() {
   const parts = core.selectedParts();
   if (!parts.length) return `<p class="hint">${t('還沒選東西。在模型上點一塊肌肉或骨頭，這裡就會出現它的說明。')}</p>`;
   const keys = [...new Set(parts.map((p) => p.key))];
@@ -654,19 +709,7 @@ function relatedHtml(p) {
       (inf.nv || []).map((id) => `<button class="chip" data-act="nerve" data-id="${id}">${esc(L(nerveById(id).name))} · ${countKeys(nerveParts(id))}</button>`).join('') +
       (inf.rt || []).map((r) => `<button class="chip" data-act="root" data-id="${r}">${r}</button>`).join('') + '</div>';
   }
-  const { roles, syn, ant } = partnersOf(key);
-  if (roles.length) {
-    html += `<div class="h3">${t('它負責的動作（點一下看示範）')}</div><div class="chips">` +
-      roles.map(({ m, role }) => `<button class="chip ${role}" data-act="info-motion" data-id="${m.id}">▶ ${esc(L(m.name))}</button>`).join('') + '</div>';
-  }
-  const exs = exercisesOf(key);
-  if (exs.length) {
-    html += `<div class="h3">${t('會用到它的訓練動作')}</div><div class="chips">` +
-      exs.map(({ ex, role }) => `<button class="chip ${role}" data-act="exercise" data-id="${ex.id}">${esc(L(ex.name))}</button>`).join('') + '</div>';
-  }
-  const list = (keys) => keys.map((k) => `<button class="chip" data-act="tree-go" data-key="${esc(k)}">${esc(keyName(k))}</button>`).join('');
-  if (syn.length) html += `<div class="h3">${t('一起出力的夥伴（協同肌）')}</div><div class="chips">${list(syn)}</div>`;
-  if (ant.length) html += `<div class="h3">${t('做相反動作的對手（拮抗肌）')}</div><div class="chips">${list(ant)}</div>`;
+  html += `<button class="btn wide" data-act="iview" data-v="train" style="margin-top:12px">${icon('motion')}${t('看它參與的動作和怎麼鍛鍊')}</button>`;
   return html;
 }
 function attachLegend() {
@@ -891,6 +934,7 @@ const actions = {
     startMotion(mk.m, mk.both);
     openTab('motions');
   },
+  iview: (el) => { infoView = el.dataset.v; render(); sheetBody.scrollTop = 0; },
   mview: (el) => { motionView = el.dataset.v; render(); sheetBody.scrollTop = 0; },
   exercise: (el) => {
     const ex = exerciseById(el.dataset.id); if (!ex) return;
@@ -903,7 +947,7 @@ const actions = {
   'ex-side': (el) => { exSide = el.dataset.v; startExercise(activeExercise); },
   'ex-focus': () => { exFocus = !exFocus; core.refresh(); render(); },
   'ex-exit': () => { setMode('normal'); render(); sheetBody.scrollTop = 0; },
-  'ex-muscle': (el) => { const p = app.byId.get(el.dataset.id); setMode('normal'); spotlight([p]); openTab('info'); },
+  'ex-muscle': (el) => { const p = app.byId.get(el.dataset.id); const both = activeExercise?.both; setMode('normal'); spotlight(both ? app.byKey.get(p.key) : [p]); openTab('info'); },
   'ex-joint': (el) => { const mk = motionKeys.get(el.dataset.id); if (!mk) return; motionSide = exSide; motionView = 'joint'; startMotion(mk.m, mk.both); render(); sheetBody.scrollTop = 0; },
   motion: (el) => { const c = MOTIONS[el.dataset.c]; startMotion(c.items[el.dataset.i], c.both); },
   'motion-play': () => { if (playing) stopPlayer(); else startPlayer(); render(); },

@@ -2,7 +2,7 @@
 // first visit. Strategy: answer from the cache right away when possible and
 // refresh the cached copy in the background.
 
-const CACHE = 'body-decomposition-v5';
+const CACHE = 'body-decomposition-v6';
 const SHELL = [
   './', 'index.html', 'css/app.css', 'manifest.webmanifest', 'icons/icon.svg',
   'js/main.js', 'js/core.js', 'js/ui.js', 'js/catalog.js', 'js/motion.js', 'js/attach.js', 'js/quiz.js', 'js/i18n.js',
